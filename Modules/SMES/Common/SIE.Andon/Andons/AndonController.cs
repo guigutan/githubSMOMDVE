@@ -1,0 +1,237 @@
+﻿using SIE.Andon.Andons.APIModel;
+using SIE.Common.Organizations;
+using SIE.Domain;
+using SIE.Domain.Validation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace SIE.Andon.Andons
+{
+    /// <summary>
+    /// 安灯维护控制器
+    /// </summary>
+    public class AndonController : DomainController
+    {
+        #region 获取组织架构的部门数据
+        /// <summary>
+        /// 获取组织架构的部门数据
+        /// </summary>
+        /// <param name="pagingInfo"></param>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public virtual EntityList<Organization> GetOrganizations(PagingInfo pagingInfo, string keyword)
+        {
+            var query = Query<Organization>()
+                .WhereIf(!keyword.IsNullOrEmpty(), p => p.Code.Contains(keyword) || p.Name.Contains(keyword))
+                .Where(p => p.Level.Type == OrganizationType.Department && p.InvOrgId == RT.InvOrg).ToList(pagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+            query.ForEach(organization =>
+            {
+                organization.TreePId = null;
+            });
+            return query;
+        }
+        #endregion
+
+        #region 根据安灯类型获取其下消息推送
+        /// <summary>
+        /// 根据安灯类型获取其下消息推送
+        /// </summary>
+        /// <param name="andonTypeId"></param>
+        /// <param name="andonTypeMessageSendIds"></param>
+        /// <returns></returns>
+        public virtual EntityList<AndonMessageSend> GetAndonTypeMessageSends(double andonTypeId, List<double> andonTypeMessageSendIds)
+        {
+            var query = Query<AndonTypeMessageSend>()
+                .Where(p => p.AndonTypeId == andonTypeId)
+                .OrderByDescending(p => p.UpdateDate) //根据更新时间降序获取
+                .OrderBy(p => p.CreateDate)
+                .ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var andonMessageSendList = new EntityList<AndonMessageSend>();
+            query.ForEach(item =>
+            {
+                var andonMessageSend = new AndonMessageSend
+                {
+                    Node = item.Node,
+                    Minute = item.Minute,
+                    PushPlugId = item.PushPlugId,
+                    PushPlugName = item.PushPlugName,
+                    MessageTemplate = item.MessageTemplate,
+                };
+                andonTypeMessageSendIds.Add(item.Id);
+                andonMessageSendList.Add(andonMessageSend);
+            });
+            return andonMessageSendList;
+        }
+        #endregion
+
+        #region 根据安灯类型获取其下消息推送的推送对象
+        /// <summary>
+        /// 根据安灯类型获取其下消息推送的推送对象
+        /// </summary>
+        /// <param name="andonTypePushObjectList"></param>
+        /// <param name="andonTypeMessId"></param>
+        /// <returns></returns>
+        public virtual EntityList<AndonPushObject> GetAndonTypePushObjects(EntityList<AndonTypePushObject> andonTypePushObjectList, double andonTypeMessId)
+        {
+            var list = andonTypePushObjectList.Where(p => p.MessageSendId == andonTypeMessId).ToList();
+            var andonPushObjectList = new EntityList<AndonPushObject>();
+            list.ForEach(item => {
+                var andonPushObject = new AndonPushObject
+                {
+                    Type = item.Type,
+                    Code = item.Code,
+                    Name = item.Name,
+                };
+                andonPushObjectList.Add(andonPushObject);
+            });
+            return andonPushObjectList;
+        }
+        #endregion
+
+        /// <summary>
+        /// 根据安灯类型Id获取安灯类型
+        /// </summary>
+        /// <param name="andonTypeId"></param>
+        /// <returns></returns>
+        public virtual EntityList<AndonType> GetAndonTypes(double andonTypeId)
+        {
+            return Query<AndonType>().Where(p => p.Id == andonTypeId).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+        }
+
+        /// <summary>
+        /// 获取所有的安灯类型列表
+        /// </summary>
+        /// <param name="paging"></param>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public virtual EntityList<AndonType> GetAndonTypes(PagingInfo paging, string keyword)
+        {
+            var q = Query<AndonType>();
+            if (keyword.IsNotEmpty()) {
+                q.Where(p => p.AndonTypeCode.Contains(keyword) || p.AndonTypeName.Contains(keyword));
+            }
+            return q.ToList(paging, new EagerLoadOptions().LoadWithViewProperty());
+        }
+        
+        /// <summary>
+        /// 获取所有的安灯维护列表
+        /// </summary>
+        /// <param name="paging"></param>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public virtual EntityList<Andon> GetAndonList(PagingInfo paging, string keyword)
+        {
+            var q = Query<Andon>();
+            if (keyword.IsNotEmpty())
+            {
+                q.Where(p => p.AndonCode.Contains(keyword) || p.AndonName.Contains(keyword));
+            }
+            return q.ToList(paging, new EagerLoadOptions().LoadWithViewProperty());
+        }
+        /// <summary>
+        /// 查询安灯维护列表
+        /// </summary>
+        /// <param name="criteria"></param>
+        /// <returns></returns>
+        public virtual EntityList<Andon> GetAndons(AndonCriteria criteria) { 
+            var q = Query<Andon>();
+            if (criteria.Code.IsNotEmpty()) {
+                q.Where(p => p.AndonCode.Contains(criteria.Code));
+            }
+            if (criteria.Name.IsNotEmpty())
+            {
+                q.Where(p => p.AndonName.Contains(criteria.Name));
+            }
+            if (criteria.AndonTypeId.HasValue)
+            {
+                q.Where(p => p.AndonTypeId==criteria.AndonTypeId);
+            }
+            if (criteria.AndonClass.HasValue)
+            {
+                q.Where(p => p.AndonClass == criteria.AndonClass.Value);
+            }
+            if (criteria.State.HasValue)
+            {
+                q.Where(p => p.State == criteria.State.Value);
+            }
+            if (criteria.CreateTime.BeginValue.HasValue)
+            {
+                q.Where(p => p.CreateDate>=criteria.CreateTime.BeginValue);
+            }
+            if (criteria.CreateTime.EndValue.HasValue)
+            {
+                q.Where(p => p.CreateDate <= criteria.CreateTime.EndValue);
+            }
+            return q.ToList(criteria.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+        }
+
+        /// <summary>
+        /// 获取启用的安灯类型
+        /// </summary>
+        /// <param name="pagingInfo"></param>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public virtual EntityList<AndonType> GetEnableAndonType(PagingInfo pagingInfo, string keyword)
+        {
+            return Query<AndonType>()
+                .WhereIf(!keyword.IsNullOrEmpty(), p => p.AndonTypeName.Contains(keyword) || p.AndonTypeCode.Contains(keyword))
+                .Where(p => p.State == State.Enable).ToList(pagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+        }
+
+        /// <summary>
+        /// 安灯类型拉取数据
+        /// </summary>
+        /// <param name="andonTypeId"></param>
+        /// <returns></returns>
+        public virtual AndonTypeRequestInfo GetAndonTypeInfo(double andonTypeId)
+        {
+            var info = new AndonTypeRequestInfo();
+            var andonType = Query<AndonType>().Where(p => p.Id == andonTypeId).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
+            if (andonType == null)
+            {
+                throw new ValidationException("安灯类型数据异常!".L10N());
+            }
+            var andonTypeMessageSendIds = new List<double>();
+            var andonMessageSentList = RT.Service.Resolve<AndonController>().GetAndonTypeMessageSends(andonTypeId, andonTypeMessageSendIds);
+            var andonTypePushObjectList = andonTypeMessageSendIds.SplitContains(tempIds =>
+            {
+                return Query<AndonTypePushObject>().Where(p => tempIds.Contains(p.MessageSendId)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            var index = 0;
+            andonMessageSentList.ForEach(item =>
+            {
+                var andonTypeMessId = andonTypeMessageSendIds[index++];
+                var andonTypePushObjects = GetAndonTypePushObjects(andonTypePushObjectList, andonTypeMessId);
+                item.PushObjectList.AddRange(andonTypePushObjects);
+            });
+            info.AndonTypeClass = andonType.AndonTypeClass;
+            //info.PushPlugId = andonType.PushPlugId;
+            //info.PushPlugId_Display = andonType.PushPlugId != null?andonType.PushPlug.Name:string.Empty;
+            info.AndonMessageList.AddRange(andonMessageSentList);
+            return info;
+        }
+
+
+
+        /// <summary>
+        /// 获取可疑品配置安灯维护列表
+        /// </summary>
+        /// <returns></returns>
+        public virtual EntityList<Andon> GetAndonBySuspect()
+        {
+            var q = Query<Andon>().Where(p=>p.SuspectAndon==true);
+            return q.ToList(null , new EagerLoadOptions().LoadWithViewProperty());
+        }
+
+        /// <summary>
+        /// 获取所有安灯维护
+        /// </summary>
+        /// <returns></returns>
+        public virtual EntityList<Andon> GetAndons()
+        {
+            var query = Query<Andon>().ToList();
+            return query;
+        }
+    }
+}

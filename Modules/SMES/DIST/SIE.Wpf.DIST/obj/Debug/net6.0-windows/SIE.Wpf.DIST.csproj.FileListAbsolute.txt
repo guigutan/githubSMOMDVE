@@ -1,0 +1,14 @@
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0-windows\Templates\制程工艺导入模板.xlsx
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0-windows\Templates\生产资源导入模板.xlsx
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0-windows\SIE.Wpf.DIST.xml
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0-windows\SIE.Wpf.DIST.deps.json
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0-windows\SIE.Wpf.DIST.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0-windows\SIE.Wpf.DIST.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\DIST\SIE.Wpf.DIST\obj\Debug\net6.0-windows\SIE.Wpf.DIST.csproj.AssemblyReference.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\DIST\SIE.Wpf.DIST\obj\Debug\net6.0-windows\SIE.Wpf.DIST.GeneratedMSBuildEditorConfig.editorconfig
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\DIST\SIE.Wpf.DIST\obj\Debug\net6.0-windows\SIE.Wpf.DIST.csproj.CoreCompileInputs.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\DIST\SIE.Wpf.DIST\obj\Debug\net6.0-windows\SIE.Wpf..AC2C4A29.Up2Date
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\DIST\SIE.Wpf.DIST\obj\Debug\net6.0-windows\SIE.Wpf.DIST.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\DIST\SIE.Wpf.DIST\obj\Debug\net6.0-windows\refint\SIE.Wpf.DIST.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\DIST\SIE.Wpf.DIST\obj\Debug\net6.0-windows\SIE.Wpf.DIST.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\DIST\SIE.Wpf.DIST\obj\Debug\net6.0-windows\ref\SIE.Wpf.DIST.dll

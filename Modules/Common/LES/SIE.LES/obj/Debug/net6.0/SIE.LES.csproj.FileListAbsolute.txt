@@ -1,0 +1,12 @@
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.LES.xml
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.LES.deps.json
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.LES.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.LES.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\LES\SIE.LES\obj\Debug\net6.0\SIE.LES.csproj.AssemblyReference.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\LES\SIE.LES\obj\Debug\net6.0\SIE.LES.GeneratedMSBuildEditorConfig.editorconfig
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\LES\SIE.LES\obj\Debug\net6.0\SIE.LES.csproj.CoreCompileInputs.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\LES\SIE.LES\obj\Debug\net6.0\SIE.LES.csproj.Up2Date
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\LES\SIE.LES\obj\Debug\net6.0\SIE.LES.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\LES\SIE.LES\obj\Debug\net6.0\refint\SIE.LES.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\LES\SIE.LES\obj\Debug\net6.0\SIE.LES.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\LES\SIE.LES\obj\Debug\net6.0\ref\SIE.LES.dll

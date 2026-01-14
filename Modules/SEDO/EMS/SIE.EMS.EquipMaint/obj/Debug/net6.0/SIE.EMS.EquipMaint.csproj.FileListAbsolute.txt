@@ -1,0 +1,12 @@
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.EMS.EquipMaint.xml
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.EMS.EquipMaint.deps.json
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.EMS.EquipMaint.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.EMS.EquipMaint.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.EMS.EquipMaint\obj\Debug\net6.0\SIE.EMS.EquipMaint.csproj.AssemblyReference.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.EMS.EquipMaint\obj\Debug\net6.0\SIE.EMS.EquipMaint.GeneratedMSBuildEditorConfig.editorconfig
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.EMS.EquipMaint\obj\Debug\net6.0\SIE.EMS.EquipMaint.csproj.CoreCompileInputs.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.EMS.EquipMaint\obj\Debug\net6.0\SIE.EMS..E0347C2E.Up2Date
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.EMS.EquipMaint\obj\Debug\net6.0\SIE.EMS.EquipMaint.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.EMS.EquipMaint\obj\Debug\net6.0\refint\SIE.EMS.EquipMaint.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.EMS.EquipMaint\obj\Debug\net6.0\SIE.EMS.EquipMaint.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.EMS.EquipMaint\obj\Debug\net6.0\ref\SIE.EMS.EquipMaint.dll

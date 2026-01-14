@@ -1,0 +1,12 @@
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.MES.Job.xml
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.MES.Job.deps.json
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.MES.Job.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.MES.Job.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\MES\SIE.MES.Job\obj\Debug\net6.0\SIE.MES.Job.csproj.AssemblyReference.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\MES\SIE.MES.Job\obj\Debug\net6.0\SIE.MES.Job.GeneratedMSBuildEditorConfig.editorconfig
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\MES\SIE.MES.Job\obj\Debug\net6.0\SIE.MES.Job.csproj.CoreCompileInputs.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\MES\SIE.MES.Job\obj\Debug\net6.0\SIE.MES..07DB322C.Up2Date
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\MES\SIE.MES.Job\obj\Debug\net6.0\SIE.MES.Job.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\MES\SIE.MES.Job\obj\Debug\net6.0\refint\SIE.MES.Job.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\MES\SIE.MES.Job\obj\Debug\net6.0\SIE.MES.Job.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\MES\SIE.MES.Job\obj\Debug\net6.0\ref\SIE.MES.Job.dll

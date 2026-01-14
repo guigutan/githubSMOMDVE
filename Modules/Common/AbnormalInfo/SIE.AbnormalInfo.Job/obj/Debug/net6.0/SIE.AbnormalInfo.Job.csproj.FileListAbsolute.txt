@@ -1,0 +1,12 @@
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.AbnormalInfo.Job.xml
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.AbnormalInfo.Job.deps.json
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.AbnormalInfo.Job.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.AbnormalInfo.Job.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\AbnormalInfo\SIE.AbnormalInfo.Job\obj\Debug\net6.0\SIE.AbnormalInfo.Job.csproj.AssemblyReference.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\AbnormalInfo\SIE.AbnormalInfo.Job\obj\Debug\net6.0\SIE.AbnormalInfo.Job.GeneratedMSBuildEditorConfig.editorconfig
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\AbnormalInfo\SIE.AbnormalInfo.Job\obj\Debug\net6.0\SIE.AbnormalInfo.Job.csproj.CoreCompileInputs.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\AbnormalInfo\SIE.AbnormalInfo.Job\obj\Debug\net6.0\SIE.Abno.70806340.Up2Date
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\AbnormalInfo\SIE.AbnormalInfo.Job\obj\Debug\net6.0\SIE.AbnormalInfo.Job.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\AbnormalInfo\SIE.AbnormalInfo.Job\obj\Debug\net6.0\refint\SIE.AbnormalInfo.Job.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\AbnormalInfo\SIE.AbnormalInfo.Job\obj\Debug\net6.0\SIE.AbnormalInfo.Job.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\AbnormalInfo\SIE.AbnormalInfo.Job\obj\Debug\net6.0\ref\SIE.AbnormalInfo.Job.dll

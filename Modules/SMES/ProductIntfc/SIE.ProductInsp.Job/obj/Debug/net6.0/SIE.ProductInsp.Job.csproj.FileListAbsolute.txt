@@ -1,0 +1,12 @@
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.ProductInsp.Job.xml
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.ProductInsp.Job.deps.json
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.ProductInsp.Job.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.ProductInsp.Job.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.ProductInsp.Job\obj\Debug\net6.0\SIE.ProductInsp.Job.csproj.AssemblyReference.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.ProductInsp.Job\obj\Debug\net6.0\SIE.ProductInsp.Job.GeneratedMSBuildEditorConfig.editorconfig
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.ProductInsp.Job\obj\Debug\net6.0\SIE.ProductInsp.Job.csproj.CoreCompileInputs.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.ProductInsp.Job\obj\Debug\net6.0\SIE.Prod.AFCE3D83.Up2Date
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.ProductInsp.Job\obj\Debug\net6.0\SIE.ProductInsp.Job.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.ProductInsp.Job\obj\Debug\net6.0\refint\SIE.ProductInsp.Job.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.ProductInsp.Job\obj\Debug\net6.0\SIE.ProductInsp.Job.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.ProductInsp.Job\obj\Debug\net6.0\ref\SIE.ProductInsp.Job.dll

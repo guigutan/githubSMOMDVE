@@ -1,0 +1,12 @@
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.TurnoverTools.xml
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.TurnoverTools.deps.json
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.TurnoverTools.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.TurnoverTools.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\TurnoverTools\SIE.TurnoverTools\obj\Debug\net6.0\SIE.TurnoverTools.csproj.AssemblyReference.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\TurnoverTools\SIE.TurnoverTools\obj\Debug\net6.0\SIE.TurnoverTools.GeneratedMSBuildEditorConfig.editorconfig
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\TurnoverTools\SIE.TurnoverTools\obj\Debug\net6.0\SIE.TurnoverTools.csproj.CoreCompileInputs.cache
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\TurnoverTools\SIE.TurnoverTools\obj\Debug\net6.0\SIE.Turn.2CFE8F28.Up2Date
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\TurnoverTools\SIE.TurnoverTools\obj\Debug\net6.0\SIE.TurnoverTools.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\TurnoverTools\SIE.TurnoverTools\obj\Debug\net6.0\refint\SIE.TurnoverTools.dll
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\TurnoverTools\SIE.TurnoverTools\obj\Debug\net6.0\SIE.TurnoverTools.pdb
+D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\TurnoverTools\SIE.TurnoverTools\obj\Debug\net6.0\ref\SIE.TurnoverTools.dll

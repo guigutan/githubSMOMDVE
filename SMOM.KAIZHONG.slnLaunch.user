@@ -1,0 +1,32 @@
+[
+  {
+    "Name": "Host+Web",
+    "Projects": [
+      {
+        "Path": "Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+        "Action": "Start",
+        "DebugTarget": "IIS Express"
+      },
+      {
+        "Path": "Projects\\SMOM\\WebClient\\WebClient.csproj",
+        "Action": "Start",
+        "DebugTarget": "IIS Express"
+      }
+    ]
+  },
+  {
+    "Name": "Host+WPF",
+    "Projects": [
+      {
+        "Path": "Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+        "Action": "Start",
+        "DebugTarget": "IIS Express"
+      },
+      {
+        "Path": "Projects\\SMOM\\WpfClient\\WpfClient.csproj",
+        "Action": "Start",
+        "DebugTarget": "WpfClient"
+      }
+    ]
+  }
+]
