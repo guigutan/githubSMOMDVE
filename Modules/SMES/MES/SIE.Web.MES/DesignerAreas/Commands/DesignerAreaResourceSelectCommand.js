@@ -1,4 +1,4 @@
-﻿SIE.defineCommand('SIE.Web.MES.DesignerAreas.Commands.DesignerAreaResourceSelectACommand', {
+﻿SIE.defineCommand('SIE.Web.MES.DesignerAreas.Commands.DesignerAreaResourceSelectCommand', {
     extend: 'SIE.cmd.LookupCommandBase',
     userConfig: {
         dataParams: { specKeyPrototyName: 'ResourceId', targetClassName: 'SIE.Resources.WipResources.WipResource' }

@@ -1700,12 +1700,12 @@
             </summary>
             <param name="batch"></param>
         </member>
-        <member name="T:SIE.Web.MES.DesignerAreas.Commands.DesignerAreaResourceSelectACommand">
+        <member name="T:SIE.Web.MES.DesignerAreas.Commands.DesignerAreaResourceSelectCommand">
             <summary>
             添加命令
             </summary>
         </member>
-        <member name="M:SIE.Web.MES.DesignerAreas.Commands.DesignerAreaResourceSelectACommand.Excute(SIE.Web.Command.ViewArgs,System.String)">
+        <member name="M:SIE.Web.MES.DesignerAreas.Commands.DesignerAreaResourceSelectCommand.Excute(SIE.Web.Command.ViewArgs,System.String)">
             <summary>
             添加产线
             </summary>

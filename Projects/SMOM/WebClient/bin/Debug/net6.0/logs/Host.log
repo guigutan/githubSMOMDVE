@@ -61,3 +61,17 @@
 2026-01-25 20:38:02,462 [1] INFO  HostService - HostService Starting...
 2026-01-25 20:38:02,465 [1] DEBUG HostService - dotnet run:False
 2026-01-25 20:38:10,222 [1] DEBUG HostService - D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Projects\SMOM\WebClient\bin\Debug\net6.0\WebClient.dll
+2026-01-25 21:14:54,487 [1] INFO  HostService - 宿主环境:Development urls:
+2026-01-25 21:14:54,506 [1] INFO  HostService - 使用URLs:http://10.10.22.104:8090
+2026-01-25 21:14:54,558 [1] INFO  HostService - SetCurrentDirectory:D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Projects\SMOM\WebClient\bin\Debug\net6.0
+2026-01-25 21:14:54,659 [1] INFO  HostService - Web Host Build...
+2026-01-25 21:14:54,659 [1] INFO  HostService - HostService Starting...
+2026-01-25 21:14:54,661 [1] DEBUG HostService - dotnet run:False
+2026-01-25 21:15:04,070 [1] DEBUG HostService - D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Projects\SMOM\WebClient\bin\Debug\net6.0\WebClient.dll
+2026-01-25 21:18:48,757 [1] INFO  HostService - 宿主环境:Development urls:
+2026-01-25 21:18:48,769 [1] INFO  HostService - 使用URLs:http://10.10.22.104:8090
+2026-01-25 21:18:48,804 [1] INFO  HostService - SetCurrentDirectory:D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Projects\SMOM\WebClient\bin\Debug\net6.0
+2026-01-25 21:18:48,873 [1] INFO  HostService - Web Host Build...
+2026-01-25 21:18:48,874 [1] INFO  HostService - HostService Starting...
+2026-01-25 21:18:48,877 [1] DEBUG HostService - dotnet run:False
+2026-01-25 21:18:55,943 [1] DEBUG HostService - D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Projects\SMOM\WebClient\bin\Debug\net6.0\WebClient.dll

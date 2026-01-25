@@ -15,8 +15,11 @@ namespace SIE.Web.MES.DesignerAreas
         {
 
             View.UseDefaultCommands();
+            // 调试代码：放在View.UseCommands之前
+            var commandFullName = typeof(DesignerAreaResourceSelectCommand).FullName;
+            Console.WriteLine(commandFullName); // 复制输出结果，对比异常中的命令路径是否完全一致
 
-            View.UseCommands(typeof(DesignerAreaResourceSelectACommand).FullName);
+            View.UseCommands(typeof(DesignerAreaResourceSelectCommand).FullName);
             using (View.OrderProperties())
             {
                 View.Property(p => p.ResourceCode).ShowInList(150);

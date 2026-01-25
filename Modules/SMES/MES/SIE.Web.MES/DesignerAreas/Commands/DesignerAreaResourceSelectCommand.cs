@@ -10,7 +10,7 @@ namespace SIE.Web.MES.DesignerAreas.Commands
     /// <summary>
     /// 添加命令
     /// </summary>
-    public class DesignerAreaResourceSelectACommand : ViewCommand
+    public class DesignerAreaResourceSelectCommand : ViewCommand
     {
         /// <summary>
         /// 添加产线
