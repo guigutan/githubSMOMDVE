@@ -1905,5 +1905,11 @@ namespace SIE.KZ.Base.Interfaces.Enums
         /// </summary>
         [Label("委外报工同步可疑品标签数据")]
         OutsourcingSupWipBatch = 1050,
+
+        /// <summary>
+        /// 返工工艺路线版本
+        /// </summary>
+        [Label("返工工艺路线版本")]
+        ReworkLayoutVersion= 1051,
     }
 }

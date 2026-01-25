@@ -570,6 +570,40 @@ namespace SIE.ERPInterface.Api.WebApi.KaiZhongGroup
         }
 
         /// <summary>
+        /// 返工工艺路线版本
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [ApiService("返工工艺路线版本")]
+        public virtual OuterSystemRetVO SaveRewrokLayoutVersion(Rlvd data)
+        {
+            Login();
+            RT.InvOrg = 1;
+            var ctl = RT.Service.Resolve<KzGroupBaseDateInfController>();
+            //将传过来的数据，按照工厂进行分组
+            OuterSystemRetVO vO = new OuterSystemRetVO();
+            //把数据拆分成一条工单一条工单，因为这个他们这边同一个工单，但是可能存在不同工单下的工序可能是其他库存组织的，然后这些库存组织都创建一条一摸一样的工单，基于这个条件，以及数据结构，所以把下载下来的多条工单数据手动拆分成一条一条的工单数据，根据库存组织去创建
+            foreach (var d in data.Data1.GroupBy(p=>p.WERKS))
+            {
+                Rlvd rlvd = new Rlvd();
+                rlvd.Data1 = d.ToList();
+                string dataJsons = JsonConvert.SerializeObject(rlvd);
+                ToasyncSave(InfType.ReworkLayoutVersion, dataJsons, d.Key);
+            }
+
+            //var dic = datas.GroupBy(p => p.WERKS).ToDictionary(p => p.Key, p => p.ToList());
+            //foreach (var d in dic)
+            //{
+            //    string dataJsons = JsonConvert.SerializeObject(d.Value);
+            //    //var result = ctl.distributeMd(null, InfType.WorkCenter.ToLabel(), null, dataJsons, d.Key);
+            //    //vO.Add(result);
+            //    ToasyncSave(InfType.ReworkLayoutVersion, dataJsons, d.Key);
+            //}
+            return vO;
+
+        }
+
+        /// <summary>
         /// 异步执行，防止并发
         /// </summary>
         /// <param name="infType"></param>

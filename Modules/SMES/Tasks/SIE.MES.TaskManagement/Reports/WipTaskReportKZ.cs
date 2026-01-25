@@ -62,7 +62,17 @@ namespace SIE.MES.TaskManagement.Reports
                 var woId = g.Key.WorkOrderId;
                 var list = g.ToList();
                 var isAutoFeeding = list.First().IsAutoFeeding;
-                var tasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByWorkOrderIds(new List<double>() { woId });
+                var tasks = new EntityList<DispatchTask>();
+                //判断是否有指定任务单，主要是 连接器批次包装用到
+                if (g.All(p => p.TaskId != null && p.TaskId > 0))
+                {
+                    var taskIds = g.Select(p => p.TaskId.Value).Distinct().ToList();
+                    tasks = RT.Service.Resolve<DispatchController>().GetDispatchTasks(taskIds);
+                }
+                else
+                {
+                    tasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByWorkOrderIds(new List<double>() { woId });
+                }
                 //var tasks = RT.Service.Resolve<DispatchController>().GetDispatchTaskByResourceId(resourceId, null, null);
                 var taskList = tasks.Where(p => p.WorkOrderId == woId && (processList.Contains(p.ProcessCode) || processList.Contains(p.ProcessName)) /*&& (p.TaskStatus == DispatchTaskStatus.Executing || p.TaskStatus == DispatchTaskStatus.Dispatched)*/).OrderBy(p => p.PlanBeginTime).ToList();
                 if (resourceId > 0)
@@ -83,14 +93,16 @@ namespace SIE.MES.TaskManagement.Reports
                 var totalRemainQty = 0m; //剩余可报数量
                 taskList.ForEach(p =>
                 {
-                    if (p.Id == taskList.Last().Id)
-                    {
-                        var MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(p).Item2;
+                    var MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(p).Item2;
+                    totalRemainQty += MaxRemainQty;//p.MaxRemainQty;
+                    //if (p.Id == taskList.Last().Id)
+                    //{
+                    //    var MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(p).Item2;
 
-                        totalRemainQty += MaxRemainQty;//p.MaxRemainQty;
-                    }
-                    else
-                        totalRemainQty += p.RemainQty;
+                    //    totalRemainQty += MaxRemainQty;//p.MaxRemainQty;
+                    //}
+                    //else
+                    //    totalRemainQty += p.RemainQty;
                 });
                 if (totalReportQty > totalRemainQty)
                     throw new ValidationException("当前提交报工数量[{0}]已超出剩余可报工数量[{1}]".L10nFormat(totalReportQty, totalRemainQty));
@@ -99,8 +111,15 @@ namespace SIE.MES.TaskManagement.Reports
                 foreach (var task in taskList)
                 {
                     var remainQty = (decimal)task.RemainQty; //剩余可报数量
+
                     //最后一个任务允许超计划,不超容差
-                    if (task.Id == taskList.Last().Id)
+                    if (task.Id == taskList.Last().Id && process != "成品包装")
+                    {
+                        var MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(task).Item2;
+
+                        remainQty = MaxRemainQty;//task.MaxRemainQty;
+                    }
+                    else if (process.Contains("成品包装"))
                     {
                         var MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(task).Item2;
 
@@ -108,7 +127,7 @@ namespace SIE.MES.TaskManagement.Reports
                     }
                     //分配报工数量
                     var submitList = new List<ReportInfo>();
-                    foreach (var p in list.Where(p => p.GoodQty > 0))
+                    foreach (var p in list.Where(p => (p.TaskId == null || p.TaskId == 0 || p.TaskId == task.Id) && p.GoodQty > 0))
                     {
                         if (remainQty <= 0)
                             break;
@@ -120,6 +139,11 @@ namespace SIE.MES.TaskManagement.Reports
 
                         p.GoodQty -= tempQty;
                         remainQty -= tempQty;
+                        if (process.Contains("成品包装"))
+                        {
+                            //记录绑定了哪个任务单
+                            DB.Update<WipBatch>().Set(p => p.PackingTaskId, task.Id).Where(wip => wip.BatchNo == p.Sn).Execute();
+                        }
                     }
 
                     if (submitList.Count == 0)

@@ -93,7 +93,7 @@ namespace SIE.Wpf.MES.ConnectorPackings.Commands
              "提示",
              MessageBoxButton.OKCancel,
              MessageBoxImage.Information);
-
+                var XtblueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(vm1.XtBlue);
                 // 根据用户选择执行相应操作
                 if (result == MessageBoxResult.OK)
                 {
@@ -117,6 +117,7 @@ namespace SIE.Wpf.MES.ConnectorPackings.Commands
                             vm1.PackageSnRecordList.Clear();
                             vm1.blueInt = 0;
                             vm1.blueZInt = 0;
+                            vm1.NeedQty = 0;
                             vm1.XtBlue = "";
                             vm1.BoolBlue = true;
 
@@ -145,6 +146,10 @@ namespace SIE.Wpf.MES.ConnectorPackings.Commands
                         vm1.PackageSnRecordList.Clear();
                         packingQc.BoxState = BoxStateEnum.NO;
                         packingQc.PackIdent = PackIdentEnum.FullTank;
+                        if (packingQc.PackingNum != XtblueBable.PackageNum)
+                        {
+                            packingQc.PackIdent = PackIdentEnum.NotFullTank;
+                        }
                         packingQc.ReportsType = ReportsTypeEnum.YES;
                         RF.Save(packingQc);
                     }

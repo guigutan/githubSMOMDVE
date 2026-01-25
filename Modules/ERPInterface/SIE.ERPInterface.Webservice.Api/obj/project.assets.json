@@ -16296,17 +16296,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Webservice.Api\\SIE.ERPInterface.Webservice.Api.csproj",
+      "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Webservice.Api\\SIE.ERPInterface.Webservice.Api.csproj",
       "projectName": "SIE.ERPInterface.Webservice.Api",
-      "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Webservice.Api\\SIE.ERPInterface.Webservice.Api.csproj",
+      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Webservice.Api\\SIE.ERPInterface.Webservice.Api.csproj",
       "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-      "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Webservice.Api\\obj\\",
+      "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Webservice.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
         "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -16317,21 +16317,21 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Web.Core\\SIE.Web.Core.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Web.Core\\SIE.Web.Core.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Web.Core\\SIE.Web.Core.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Web.Core\\SIE.Web.Core.csproj"
             },
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.API\\SIE.ERPInterface.Api.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.API\\SIE.ERPInterface.Api.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.API\\SIE.ERPInterface.Api.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.API\\SIE.ERPInterface.Api.csproj"
             },
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Common\\SIE.ERPInterface.Common.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Common\\SIE.ERPInterface.Common.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Common\\SIE.ERPInterface.Common.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Common\\SIE.ERPInterface.Common.csproj"
             }
           }
         }

@@ -1,0 +1,14 @@
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.ESop.xml
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.ESop.deps.json
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.ESop.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.ESop.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\SIE.Web.ESop.csproj.AssemblyReference.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\SIE.Web.ESop.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\SIE.Web.ESop.AssemblyInfoInputs.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\SIE.Web.ESop.AssemblyInfo.cs
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\SIE.Web.ESop.csproj.CoreCompileInputs.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\SIE.Web..13ABF0E5.Up2Date
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\SIE.Web.ESop.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\refint\SIE.Web.ESop.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\SIE.Web.ESop.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Web.ESop\obj\Debug\net6.0\ref\SIE.Web.ESop.dll

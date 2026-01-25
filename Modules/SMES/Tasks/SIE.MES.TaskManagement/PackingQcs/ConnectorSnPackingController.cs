@@ -362,6 +362,10 @@ namespace SIE.MES.TaskManagement.PackingQcs
             if (engrave != null)
             {
                 BatchZInt = (int)engrave.Qty;
+
+                //之前已扫描过的+当前扫描的这条 > 批次标签的数量，就不能再扫描进去
+                if (engrave.EngraveSnList.Count + 1 > engrave.Qty)
+                    throw new ValidationException("当前批次标签数量已满，请重新扫描批次标签".L10N());
             }
 
             var dispatchTasks = RT.Service.Resolve<DispatchController>().GetDispatchTaskByWoPacking(WorkOrder.Id, resourceId);
@@ -582,7 +586,7 @@ namespace SIE.MES.TaskManagement.PackingQcs
                     record.BeginDate = DateTime.Now;
                     record.Report = ReportType.PDAItemLabelSum;
                     info.Tips = "已经装箱完成,请输入蓝标标签!";
-                    string reportMessage = RT.Service.Resolve<PackingQcController>().SubmitData(packingQc, true);
+                    string reportMessage = RT.Service.Resolve<PackingQcController>().SubmitData(packingQc, false);
                     if (reportMessage != "")
                     {
                         info.Error = "报工错误：" + reportMessage;
@@ -751,7 +755,7 @@ namespace SIE.MES.TaskManagement.PackingQcs
                             record.BeginDate = DateTime.Now;
                             record.BlueLabel = xtBlue;
                             record.Report = ReportType.PDASubmit;
-                            message = RT.Service.Resolve<PackingQcController>().SubmitData(packingQc, true);
+                            message = RT.Service.Resolve<PackingQcController>().SubmitData(packingQc, false);
                             record.EndDate = DateTime.Now;
                             record.ReturnMessage = message;
                             RF.Save(record);

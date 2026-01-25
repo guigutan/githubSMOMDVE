@@ -197,6 +197,12 @@ namespace SIE.KZ.Base.SmomControl
                                 var factoryInfData = GenerageInfNcDataLogFactory(smomControlSetting.FactoryCode, smomControlSetting.FactoryName, groupWaitSend.BatchNo, groupWaitSend.InfType, errorData, groupWaitSend.NcSystemCode, groupWaitSend.NcOperationType, groupWaitSend.NcInfCode);
                                 factoryInfDatas.Add(factoryInfData);
                             }
+                            if (infTypeCrop == InfType.ReworkLayoutVersion)
+                            {
+                                var errorData = JsonConvert.DeserializeObject<Rlvd>(groupWaitSend.DataJsons);
+                                var factoryInfData = GenerageInfNcDataLogFactory(smomControlSetting.FactoryCode, smomControlSetting.FactoryName, groupWaitSend.BatchNo, groupWaitSend.InfType, errorData, groupWaitSend.NcSystemCode, groupWaitSend.NcOperationType, groupWaitSend.NcInfCode);
+                                factoryInfDatas.Add(factoryInfData);
+                            }
                             else
                             {
                                 foreach (var errorData in JsonConvert.DeserializeObject<List<object>>(groupWaitSend.DataJsons))
@@ -558,7 +564,7 @@ namespace SIE.KZ.Base.SmomControl
         private InfNcDataLogFactory GenerageInfNcDataLogFactory(string factoryCode, string facName, string groupGuid, InfType? infType, object jsonObj, string ncSystemCode, string ncOperationType, string ncInfCode)
         {
             var dataJsons = JsonConvert.SerializeObject(new List<object>() { jsonObj });
-            if (infType != null && infType.Value == InfType.WorkOrder)
+            if (infType != null && (infType.Value == InfType.WorkOrder || infType.Value == InfType.ReworkLayoutVersion))
             {
                 dataJsons = JsonConvert.SerializeObject(jsonObj);
             }

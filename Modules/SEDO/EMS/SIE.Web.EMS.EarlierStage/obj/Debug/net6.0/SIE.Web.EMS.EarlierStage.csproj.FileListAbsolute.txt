@@ -1,0 +1,12 @@
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.EMS.EarlierStage.xml
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.EMS.EarlierStage.deps.json
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.EMS.EarlierStage.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.EMS.EarlierStage.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.Web.EMS.EarlierStage\obj\Debug\net6.0\SIE.Web.EMS.EarlierStage.csproj.AssemblyReference.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.Web.EMS.EarlierStage\obj\Debug\net6.0\SIE.Web.EMS.EarlierStage.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.Web.EMS.EarlierStage\obj\Debug\net6.0\SIE.Web.EMS.EarlierStage.csproj.CoreCompileInputs.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.Web.EMS.EarlierStage\obj\Debug\net6.0\SIE.Web..BA09D92D.Up2Date
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.Web.EMS.EarlierStage\obj\Debug\net6.0\SIE.Web.EMS.EarlierStage.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.Web.EMS.EarlierStage\obj\Debug\net6.0\refint\SIE.Web.EMS.EarlierStage.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.Web.EMS.EarlierStage\obj\Debug\net6.0\SIE.Web.EMS.EarlierStage.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SEDO\EMS\SIE.Web.EMS.EarlierStage\obj\Debug\net6.0\ref\SIE.Web.EMS.EarlierStage.dll

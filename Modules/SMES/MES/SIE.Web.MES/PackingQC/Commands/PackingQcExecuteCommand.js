@@ -2,7 +2,6 @@
     extend: 'SIE.cmd.Edit',
     meta: { text: "执行", group: "edit", iconCls: "icon-AddEntity icon-green" },
     canExecute: function (view) {
-        debugger;
         if (view.getCurrent() === null)
         {
             return false;

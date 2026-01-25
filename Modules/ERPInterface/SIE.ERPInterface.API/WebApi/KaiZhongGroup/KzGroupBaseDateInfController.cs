@@ -548,6 +548,24 @@ namespace SIE.ERPInterface.Api.WebApi.KaiZhongGroup
                         }
                     }
                     break;
+                case InfType.ReworkLayoutVersion:
+                    var rlvd = JsonConvert.DeserializeObject<Rlvd>(dataJsons);
+                    if (rlvd == null)
+                    {
+                        var errorMsg = "返工工艺路线版本JSON格式不对".L10N();
+                        infDataLog.ErrorMsg = errorMsg;
+                        RF.Save(infDataLog);
+                        result.success = false;
+                        result.errorMsg = errorMsg;
+                    }
+                    else
+                    {
+                        foreach (var data in rlvd.Data1)
+                        {
+                            RT.Service.Resolve<DownloadReworkLayoutVersionController>().Valid(data, ref result);
+                        }
+                    }
+                    break;
                 default:
                     if (infDataLog != null)
                     {

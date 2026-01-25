@@ -1,0 +1,12 @@
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.MES.Report.xml
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.MES.Report.deps.json
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.MES.Report.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.MES.Report.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Reports\SIE.Web.MES.Report\obj\Debug\net6.0\SIE.Web.MES.Report.csproj.AssemblyReference.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Reports\SIE.Web.MES.Report\obj\Debug\net6.0\SIE.Web.MES.Report.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Reports\SIE.Web.MES.Report\obj\Debug\net6.0\SIE.Web.MES.Report.csproj.CoreCompileInputs.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Reports\SIE.Web.MES.Report\obj\Debug\net6.0\SIE.Web..E4F62A4D.Up2Date
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Reports\SIE.Web.MES.Report\obj\Debug\net6.0\SIE.Web.MES.Report.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Reports\SIE.Web.MES.Report\obj\Debug\net6.0\refint\SIE.Web.MES.Report.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Reports\SIE.Web.MES.Report\obj\Debug\net6.0\SIE.Web.MES.Report.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Reports\SIE.Web.MES.Report\obj\Debug\net6.0\ref\SIE.Web.MES.Report.dll

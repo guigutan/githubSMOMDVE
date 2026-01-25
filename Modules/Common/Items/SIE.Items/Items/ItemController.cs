@@ -34,6 +34,50 @@ namespace SIE.Items
     /// </summary>
     public partial class ItemController : DomainController, IItem
     {
+
+        #region 不校验工厂物料清单
+
+        /// <summary>
+        /// 根据物料编码获取物料清单
+        /// </summary>
+        /// <param name="itemCodes"></param>
+        /// <returns></returns>
+        public virtual EntityList<UnValidFactoryItem> GetUnValidFactoryItemsByItemCodes(List<string> itemCodes)
+        {
+            var list = itemCodes.SplitContains(codes =>
+            {
+                return Query<UnValidFactoryItem>().Where(p => codes.Contains(p.Item.Code)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            return list;
+        }
+
+        /// <summary>
+        /// 根据物料编码获取物料清单
+        /// </summary>
+        /// <param name="itemCode"></param>
+        /// <returns></returns>
+        public virtual UnValidFactoryItem GetUnValidFactoryItemByItemCode(string itemCode)
+        {
+            var first = Query<UnValidFactoryItem>().Where(p => p.Item.Code == itemCode).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
+            return first;
+        }
+
+        /// <summary>
+        /// 根据物料ID获取物料清单
+        /// </summary>
+        /// <param name="itemIds"></param>
+        /// <returns></returns>
+        public virtual EntityList<UnValidFactoryItem> GetUnValidFactoryItemsByItemIds(List<double> itemIds)
+        {
+            var list = itemIds.SplitContains(ids =>
+            {
+                return Query<UnValidFactoryItem>().Where(p => ids.Contains(p.ItemId)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            return list;
+        }
+
+        #endregion
+
         #region 客户料码数据
 
         /// <summary>

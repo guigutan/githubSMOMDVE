@@ -1,0 +1,6 @@
+{
+  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong",
+  "SIE.Web.KZ.Base.Interfaces.Commands.InfNcDataLogGroupReUploadCommand.js": "SIE.Web.KZ.Base/Interfaces/Commands/InfNcDataLogGroupReUploadCommand.js",
+  "SIE.Web.KZ.Base.Interfaces.Commands.LogGroupSyncOtherFactoryCommand.js": "SIE.Web.KZ.Base/Interfaces/Commands/LogGroupSyncOtherFactoryCommand.js",
+  "SIE.Web.KZ.Base.Interfaces.Commands.ResyncDataCommand.js": "SIE.Web.KZ.Base/Interfaces/Commands/ResyncDataCommand.js"
+}

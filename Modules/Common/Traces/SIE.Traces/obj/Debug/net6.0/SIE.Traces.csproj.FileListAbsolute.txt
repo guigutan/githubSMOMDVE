@@ -1,0 +1,12 @@
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Traces.xml
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Traces.deps.json
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Traces.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Traces.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Traces\SIE.Traces\obj\Debug\net6.0\SIE.Traces.csproj.AssemblyReference.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Traces\SIE.Traces\obj\Debug\net6.0\SIE.Traces.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Traces\SIE.Traces\obj\Debug\net6.0\SIE.Traces.csproj.CoreCompileInputs.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Traces\SIE.Traces\obj\Debug\net6.0\SIE.Traces.csproj.Up2Date
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Traces\SIE.Traces\obj\Debug\net6.0\SIE.Traces.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Traces\SIE.Traces\obj\Debug\net6.0\refint\SIE.Traces.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Traces\SIE.Traces\obj\Debug\net6.0\SIE.Traces.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Traces\SIE.Traces\obj\Debug\net6.0\ref\SIE.Traces.dll

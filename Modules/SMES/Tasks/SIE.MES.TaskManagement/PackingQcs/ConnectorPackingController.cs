@@ -271,6 +271,8 @@ namespace SIE.MES.TaskManagement.PackingQcs
             info.IsUse = true;
             //装箱总数
             int totalPackingNum = 0;
+            //需要装箱数
+            int NeedQty = 0;
 
             var list = info.PackingDetail;
             if (list == null)
@@ -308,11 +310,36 @@ namespace SIE.MES.TaskManagement.PackingQcs
 
 
             var taskRemainQty = 0;// (int)dispatchTasks.Sum(p => p.RemainQty);
+            //任务单与剩余可报工数字典，用于后面拆分标签的时候使用
+            Dictionary<double, int> taskDic = new Dictionary<double, int>();
             foreach (var dispatchTask in dispatchTasks)
             {
                 var tuple = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(dispatchTask);
-                taskRemainQty += tuple.Item2;
-            }   
+                var packingTasks = RT.Service.Resolve<WipBatchController>().GetWipBatchesByPackingTaskIds(new List<double>() { dispatchTask.Id });
+                //剩余最大可包装数
+                var RemainQty = tuple.Item2;
+                var maxReportQty = tuple.Item1;
+
+                //需要装箱数
+                NeedQty += maxReportQty;
+
+                if (packingTasks.Count > 0)
+                {
+                    RemainQty = (int)(maxReportQty - dispatchTask.SuspectQty - packingTasks.Sum(p => p.Qty));
+                    //RemainQty = (int)(RemainQty - (dispatchTask.ReportQty - packingTasks.Sum(p => p.Qty)));
+                }
+                //如果剩余可包装数，已经超了，就直接跳过
+                if (RemainQty <= 0)
+                    continue;
+
+                taskDic.Add(dispatchTask.Id, RemainQty);
+            }
+            if (taskDic.Count > 0)
+            {
+                taskDic = taskDic.OrderBy(p => p.Value).ToDictionary(p => p.Key, p => p.Value);
+                taskRemainQty = taskDic.Sum(p => p.Value);
+            }
+
             if (taskRemainQty <= 0)
                 throw new ValidationException("当前资源对应的任务单没有剩余可报工数");
 
@@ -338,9 +365,9 @@ namespace SIE.MES.TaskManagement.PackingQcs
                     throw new ValidationException("当前蓝标没有剩余可装箱数,请确认!");
 
                 //校验不允许超任务数
-                var qcToReportDetails = Query<PackingDetail>().Where(p => p.PackingQc.ResourceId == resourceId && p.WorkOrderNo == WorkOrder.No && p.ReportsType == ReportsTypeEnum.NO).ToList();
-                var qcToResportQty = qcToReportDetails.Sum(p => p.PackingNum);    //已装箱待报工数
-                taskRemainQty = taskRemainQty - qcToResportQty; //任务单可报工数需要去除待报工数
+                //var qcToReportDetails = Query<PackingDetail>().Where(p => p.PackingQc.ResourceId == resourceId && p.WorkOrderNo == WorkOrder.No && p.ReportsType == ReportsTypeEnum.NO).ToList();
+                //var qcToResportQty = qcToReportDetails.Sum(p => p.PackingNum);    //已装箱待报工数
+                //taskRemainQty = taskRemainQty - qcToResportQty; //任务单可报工数需要去除待报工数
                 if (taskRemainQty <= 0)
                     throw new ValidationException("当前资源对应的任务单,剩余报工数已全部装箱,请确认!");
 
@@ -369,7 +396,16 @@ namespace SIE.MES.TaskManagement.PackingQcs
                 RT.Service.Resolve<ITaskReportKZ>().ValidatePrepareProcessHasReport(barcode, "成品包装");
 
 
-                string newWipName = "";
+                //string newWipName = "";
+                //任务单与标签号，记录对应的标签拆分到哪个任务单上去
+                Dictionary<string, double> SnTaskDic = null;
+
+                //var packDetailList = RT.Service.Resolve<PackingQcController>().GetPackingDetail(packingQc.Id);
+                //var blueInt = packDetailList.Sum(p => p.PackingNum);
+                //var blueZInt = blueBable.PackageNum;
+                //if (packingQty > blueZInt - blueInt)
+                //    packingQty = blueZInt - blueInt;
+
                 //0:不超出 1：超出
                 if (exceed == 0)
                 {
@@ -384,7 +420,75 @@ namespace SIE.MES.TaskManagement.PackingQcs
                         return info;
                     }
                     else
-                        packingQty = wipBatch.Qty; //当前装箱数
+                    {
+                        //当数量小于的时候，要判断是否有多个任务单
+                        if (taskDic.Count > 1)
+                        {
+                            SnTaskDic = new Dictionary<string, double>();
+                            var pq = packingQty;
+                            if (pq > wipBatch.Qty)
+                            {
+                                pq = wipBatch.Qty;
+                            }
+                            packingQty = 0;
+                            var index = 0;
+                            var num = 0;
+                            //此处要记一个数量，如2个任务单，数量分别是10，10，但是如果标签数为15，那么就只能拆一个标签出来，因为需要保存原标签，否则原标签数量就变成了0,index永远要比任务单数量少,计算有多少个任务单可以参与计算
+                            foreach (var dic in taskDic)
+                            {
+                                num += dic.Value;
+                                if (num >= wipBatch.Qty)
+                                    break;
+                                index += 1;
+                            }
+                            //当数量刚好满足一个任务单的时候，直接赋值原数量即可，index = 0，即满足一个任务单
+                            if (index == 0)
+                                pq = wipBatch.Qty;
+                            for (int j = 0; j < index; j++)
+                            {
+                                var dic = taskDic.ElementAtOrDefault(j);
+                                var chaiQty = pq;
+                                if (dic.Value < pq)
+                                {
+                                    chaiQty = dic.Value;
+                                }
+
+                                WipBatch wipBatch1 = new WipBatch();
+                                int i = 1;
+                                var newWipName = "";
+                                while (true)
+                                {
+
+                                    //先查询是否存在
+                                    wipBatch1 = RT.Service.Resolve<WipBatchController>().GetWipBatchReport(barcode + "-" + i);
+                                    if (wipBatch1 != null)
+                                    {
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        newWipName = barcode + "-" + i;
+                                        break;
+                                    }
+                                }
+                                SaveWipBatch(WorkOrder.Id, (int)chaiQty/*packingQty*//*(blueZInt - blueInt)*/, newWipName, barcode, "成品包装", dic.Key);
+                                SnTaskDic.Add(newWipName, dic.Key);
+                                packingQty += chaiQty;
+                                pq -= chaiQty;
+                                if (pq <= 0)
+                                    break;
+                            }
+                            wipBatch.Qty = pq;
+                            wipBatch.PackingTaskId = taskDic.LastOrDefault().Key;
+                            packingQty += pq;
+                            SnTaskDic.Add(wipBatch.BatchNo, taskDic.LastOrDefault().Key);
+                        }
+                        else
+                        {
+                            wipBatch.PackingTaskId = taskDic.FirstOrDefault().Key;
+                            packingQty = wipBatch.Qty; //当前装箱数
+                        }
+                    }
                     wipBatch.Isuse = true;
                     RF.Save(wipBatch);
                 }
@@ -392,32 +496,50 @@ namespace SIE.MES.TaskManagement.PackingQcs
                 {
                     //批次标签剩余数量
                     decimal surplusNum = wipBatch.Qty - packingQty;
-                    WipBatch wipBatch1 = new WipBatch();
-                    int i = 1;
-                    while (true)
-                    {
 
-                        //先查询是否存在
-                        wipBatch1 = RT.Service.Resolve<WipBatchController>().GetWipBatchReport(barcode + "-" + i);
-                        if (wipBatch1 != null)
+                    SnTaskDic = new Dictionary<string, double>();
+                    var pq = packingQty;
+
+                    foreach (var dic in taskDic)
+                    {
+                        var chaiQty = pq;
+                        if (dic.Value < pq)
                         {
-                            i++;
+                            chaiQty = dic.Value;
                         }
-                        else
+
+                        WipBatch wipBatch1 = new WipBatch();
+                        int i = 1;
+                        var newWipName = "";
+                        while (true)
                         {
-                            newWipName = barcode + "-" + i;
+
+                            //先查询是否存在
+                            wipBatch1 = RT.Service.Resolve<WipBatchController>().GetWipBatchReport(barcode + "-" + i);
+                            if (wipBatch1 != null)
+                            {
+                                i++;
+                            }
+                            else
+                            {
+                                newWipName = barcode + "-" + i;
+                                break;
+                            }
+                        }
+                        SaveWipBatch(WorkOrder.Id, (int)chaiQty/*packingQty*/, newWipName, barcode, "成品包装", dic.Key);
+                        SnTaskDic.Add(newWipName, dic.Key);
+                        pq -= chaiQty;
+                        if (pq <= 0)
                             break;
-                        }
                     }
-                    SaveWipBatch(WorkOrder.Id, (int)packingQty, newWipName, barcode, "成品包装");
                     if (wipBatch.Qty > 0 && wipBatch.Qty != surplusNum)
                     {
                         wipBatch.EditQtyProcessCode = "成品包装";
                     }
                     wipBatch.Qty = surplusNum;
                     RF.Save(wipBatch);
-                    wipBatch.Qty = packingQty;
-                    wipBatch.BatchNo = newWipName;
+                    //wipBatch.Qty = packingQty;
+                    //wipBatch.BatchNo = newWipName;
                 }
 
 
@@ -433,26 +555,14 @@ namespace SIE.MES.TaskManagement.PackingQcs
 
                 #region 生成QC装箱数据
 
-                //界面显示明细
-                NewPackingQcCModel pqc = new NewPackingQcCModel();
-                pqc.BlueLabel = blueBable.BlueLableBox;
-                pqc.Confirm = "是";
-                pqc.PackIdent = "不满箱";
-                pqc.ProductLabel = wipBatch.BatchNo;
-                pqc.ItemId = itemData.Id;
-                pqc.ItemName = itemData.Name;
-                pqc.PackingNum = (int)wipBatch.Qty;
-                list.Add(pqc);
-
-                //需要修改
-                info.BlueInt = totalPackingNum + (int)wipBatch.Qty;
-                totalPackingNum += (int)wipBatch.Qty;
-
-
+                //var PackIdent = PackIdentEnum.NotFullTank;
+                //if (blueInt >= blueBable.PackageNum)
+                //    PackIdent = PackIdentEnum.FullTank;
                 //主表
                 if (packingQc == null)
                 {
                     packingQc = new PackingQc();
+                    packingQc.GenerateId();
                     packingQc.BlueLabel = blueBable.BlueLableBox;
                     packingQc.Confirm = ConfirmEnum.YES;
                     packingQc.PackIdent = PackIdentEnum.NotFullTank;
@@ -460,7 +570,6 @@ namespace SIE.MES.TaskManagement.PackingQcs
                     packingQc.ItemId = itemData.Id;
                     packingQc.ItemName = itemData.Name;
                     packingQc.BlueLableNum = blueBable.PackageNum;
-                    packingQc.PackingNum = totalPackingNum;
                     packingQc.BoxState = BoxStateEnum.YES;
                     packingQc.ReportsType = ReportsTypeEnum.NO;
                 }
@@ -472,27 +581,92 @@ namespace SIE.MES.TaskManagement.PackingQcs
                     packingQc.BoxState = BoxStateEnum.NO;
                 RF.Save(packingQc);
                 RF.Save(blueBable);
-                PackingDetail packingDetail = new PackingDetail();
-                packingDetail.PackingNum = (int)wipBatch.Qty;
-                packingDetail.ProductLabel = wipBatch.BatchNo;
-                packingDetail.PackingQcId = packingQc.Id;
-                packingDetail.Confirm = ConfirmEnum.YES;
-                packingDetail.BatchLabel = "";
-                packingDetail.WorkOrderNo = WorkOrder.No;
-                packingDetail.LabelType = LabelTypeEnum.BatchLabel;
-                packingDetail.ReportsType = ReportsTypeEnum.NO;
-                RF.Save(packingDetail);
+
+                //此处为了满足按任务单拆分
+                if (SnTaskDic != null && SnTaskDic.Count > 0)
+                {
+                    info.BlueInt = totalPackingNum;
+                    foreach (var dic in SnTaskDic)
+                    {
+                        var newWipName = dic.Key;
+                        var newWipBatch = RT.Service.Resolve<WipBatchController>().GetWipBatch(newWipName);
+
+                        //界面显示明细
+                        NewPackingQcCModel pqc = new NewPackingQcCModel();
+                        pqc.BlueLabel = blueBable.BlueLableBox;
+                        pqc.Confirm = "是";
+                        pqc.PackIdent = "不满箱";
+                        pqc.ProductLabel = newWipBatch.BatchNo;
+                        pqc.ItemId = itemData.Id;
+                        pqc.ItemName = itemData.Name;
+                        pqc.PackingNum = (int)newWipBatch.Qty;
+                        list.Add(pqc);
+                        //需要修改
+                        info.BlueInt += (int)newWipBatch.Qty;
+                        totalPackingNum += (int)newWipBatch.Qty;
+
+                        PackingDetail packingDetail = new PackingDetail();
+                        packingDetail.PackingNum = (int)newWipBatch.Qty;
+                        packingDetail.ProductLabel = newWipBatch.BatchNo;
+                        packingDetail.PackingQcId = packingQc.Id;
+                        packingDetail.Confirm = ConfirmEnum.YES;
+                        packingDetail.BatchLabel = "";
+                        packingDetail.WorkOrderNo = WorkOrder.No;
+                        packingDetail.LabelType = LabelTypeEnum.BatchLabel;
+                        packingDetail.ReportsType = ReportsTypeEnum.NO;
+                        RF.Save(packingDetail);
+                    }                    
+                }
+                else
+                {
+                    //界面显示明细
+                    NewPackingQcCModel pqc = new NewPackingQcCModel();
+                    pqc.BlueLabel = blueBable.BlueLableBox;
+                    pqc.Confirm = "是";
+                    pqc.PackIdent = "不满箱";
+                    pqc.ProductLabel = wipBatch.BatchNo;
+                    pqc.ItemId = itemData.Id;
+                    pqc.ItemName = itemData.Name;
+                    pqc.PackingNum = (int)wipBatch.Qty;
+                    list.Add(pqc);
+
+                    //需要修改
+                    info.BlueInt = totalPackingNum + (int)wipBatch.Qty;
+                    totalPackingNum += (int)wipBatch.Qty;
+
+                    PackingDetail packingDetail = new PackingDetail();
+                    packingDetail.PackingNum = (int)wipBatch.Qty;
+                    packingDetail.ProductLabel = wipBatch.BatchNo;
+                    packingDetail.PackingQcId = packingQc.Id;
+                    packingDetail.Confirm = ConfirmEnum.YES;
+                    packingDetail.BatchLabel = "";
+                    packingDetail.WorkOrderNo = WorkOrder.No;
+                    packingDetail.LabelType = LabelTypeEnum.BatchLabel;
+                    packingDetail.ReportsType = ReportsTypeEnum.NO;
+                    RF.Save(packingDetail);
+                }
+                //再保存一下
+                packingQc.PackingNum = totalPackingNum;
+                packingQc.PackIdent = totalPackingNum >= blueBable.PackageNum ? PackIdentEnum.FullTank : PackIdentEnum.NotFullTank;
+                if (packingQc.PackIdent == PackIdentEnum.FullTank)
+                    packingQc.BoxState = BoxStateEnum.NO;
+                RF.Save(packingQc);
+
                 #endregion
 
-
-                if (packingQc.PackIdent == PackIdentEnum.FullTank)
+                //当蓝标数比任务单数小的时候，就以蓝标数为主
+                if (NeedQty > blueBable.PackageNum)
+                {
+                    NeedQty = blueBable.PackageNum;
+                }
+                if (totalPackingNum == NeedQty/*packingQc.PackIdent == PackIdentEnum.FullTank*/)
                 {
                     PackingReportRecord record = new PackingReportRecord();
                     record.BlueLabel = blueBable.BlueLableBox;
                     record.BeginDate = DateTime.Now;
                     record.Report = ReportType.PDAItemLabelSum;
                     info.Tips = "已经装箱完成,请输入蓝标标签!";
-                    string reportMessage = RT.Service.Resolve<PackingQcController>().SubmitData(packingQc, true);
+                    string reportMessage = RT.Service.Resolve<PackingQcController>().SubmitData(packingQc, true, SnTask: SnTaskDic);
                     if (reportMessage != "")
                     {
                         info.Error = "报工错误：" + reportMessage;
@@ -521,7 +695,7 @@ namespace SIE.MES.TaskManagement.PackingQcs
         /// <param name="wipName"></param>
         /// <param name="barcode"></param>
         /// <returns></returns>
-        public virtual bool SaveWipBatch(double workOrderId, int qty, string wipName, string barcode,string processCode = null)
+        public virtual bool SaveWipBatch(double workOrderId, int qty, string wipName, string barcode, string processCode = null, double? taskId = null)
         {
             WipBatch wipBatch = new WipBatch();
             wipBatch.BatchNo = wipName;
@@ -538,6 +712,7 @@ namespace SIE.MES.TaskManagement.PackingQcs
             wipBatch.IsRework = false;
             wipBatch.SourceNo = barcode;
             wipBatch.EditQtyProcessCode = processCode;
+            wipBatch.PackingTaskId = taskId;
             return RT.Service.Resolve<WipBatchController>().SaveWipBatch(wipBatch);
         }
 
@@ -737,6 +912,7 @@ namespace SIE.MES.TaskManagement.PackingQcs
                             packDetail.PersistenceStatus = PersistenceStatus.Deleted;
                             RF.Save(packDetail);
                             wipBatch.Isuse = false;
+                            wipBatch.PackingTaskId = null;
                             RF.Save(wipBatch);
                             if (packingDetailList.Count == 1)
                             {

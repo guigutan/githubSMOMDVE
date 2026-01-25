@@ -4442,7 +4442,7 @@
             <param name="andonManageId"></param>
             <returns></returns>
         </member>
-        <member name="M:SIE.Andon.Andons.AndonManageController.CreateAndonManage(System.Object,System.Double,System.Double,System.Double,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})">
+        <member name="M:SIE.Andon.Andons.AndonManageController.CreateAndonManage(System.Object,System.Double,System.Double,System.Double,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Boolean)">
             <summary>
             获取安灯
             </summary>
@@ -4452,6 +4452,7 @@
             <param name="wipId">资源Id</param>
             <param name="factoryId">工厂Id</param>
             <param name="workShopId">车间Id</param>
+            <param name="isValidAndonEquipAccount">是否校验主设备</param>
             <returns></returns>
         </member>
         <member name="M:SIE.Andon.Andons.AndonManageController.SaveAndonAndItemDetailAsync(SIE.Andon.Andons.AndonManage,SIE.Domain.EntityList{SIE.Andon.Andons.AndonManageCallMaterial})">
@@ -4642,6 +4643,16 @@
             </summary>
         </member>
         <member name="P:SIE.Andon.Andons.AndonManageCriterial.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonManageCriterial.MulitStateProperty">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonManageCriterial.MulitState">
             <summary>
             状态
             </summary>

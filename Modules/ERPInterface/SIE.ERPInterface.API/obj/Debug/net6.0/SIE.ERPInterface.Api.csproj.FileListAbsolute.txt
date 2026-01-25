@@ -1,0 +1,12 @@
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.ERPInterface.Api.xml
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.ERPInterface.Api.deps.json
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.ERPInterface.Api.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.ERPInterface.Api.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\ERPInterface\SIE.ERPInterface.API\obj\Debug\net6.0\SIE.ERPInterface.Api.csproj.AssemblyReference.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\ERPInterface\SIE.ERPInterface.API\obj\Debug\net6.0\SIE.ERPInterface.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\ERPInterface\SIE.ERPInterface.API\obj\Debug\net6.0\SIE.ERPInterface.Api.csproj.CoreCompileInputs.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\ERPInterface\SIE.ERPInterface.API\obj\Debug\net6.0\SIE.ERPI.FB5DF17F.Up2Date
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\ERPInterface\SIE.ERPInterface.API\obj\Debug\net6.0\SIE.ERPInterface.Api.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\ERPInterface\SIE.ERPInterface.API\obj\Debug\net6.0\refint\SIE.ERPInterface.Api.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\ERPInterface\SIE.ERPInterface.API\obj\Debug\net6.0\SIE.ERPInterface.Api.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\ERPInterface\SIE.ERPInterface.API\obj\Debug\net6.0\ref\SIE.ERPInterface.Api.dll

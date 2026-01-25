@@ -338,7 +338,7 @@ namespace SIE.Resources.WipResources
         /// <returns>排程资源</returns>
         public virtual WipResource GetWipResource(double lineId)
         {
-            return Query<WipResource>().Where(p => p.Id == lineId /*&& p.ResourceType == ResourceType.ProductionLine*/).FirstOrDefault();
+            return Query<WipResource>().Where(p => p.Id == lineId /*&& p.ResourceType == ResourceType.ProductionLine*/).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
         }
 
         /// <summary>

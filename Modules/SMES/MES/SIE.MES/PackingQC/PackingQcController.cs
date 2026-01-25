@@ -1,4 +1,5 @@
 ﻿using SIE.Barcodes.WipBatchs;
+using SIE.Common;
 using SIE.Common.Attachments;
 using SIE.Common.Configs;
 using SIE.Common.Discriminator;
@@ -169,6 +170,16 @@ namespace SIE.MES.PackingQC
         {
             var q = Query<PackingQc>().Where(p => p.BlueLabel == name).FirstOrDefault();
             return q;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public virtual EntityList<PackingDetail> GetPackingDetails(double resourId,string woNo)
+        { 
+            var list = DB.Query<PackingDetail>().Where(p => p.PackingQc.ResourceId == resourId && p.WorkOrderNo == woNo && p.ReportsType == ReportsTypeEnum.NO).ToList();
+            return list;
         }
 
         /// <summary>
@@ -468,7 +479,7 @@ namespace SIE.MES.PackingQC
         /// <param name="qc"></param>
         /// <param name="autoFeeding">自动上料</param>
         /// <returns></returns>
-        public virtual string SubmitData(PackingQc qc, bool autoFeeding = false, bool IsTaskFinish = true)
+        public virtual string SubmitData(PackingQc qc, bool autoFeeding = false, bool IsTaskFinish = true,Dictionary<string,double> SnTask = null)
         {
             try
             {
@@ -489,6 +500,7 @@ namespace SIE.MES.PackingQC
                                 .Select(p => new ReportInfo
                                 {
                                     Sn = p.ProductLabel,
+                                    TaskId = batchs.FirstOrDefault(f => f.BatchNo == p.ProductLabel)?.PackingTaskId,//SnTask != null ? SnTask[p.ProductLabel] : null,
                                     WorkOrderId = woId,
                                     ResourceId = qc.ResourceId,
                                     GoodQty = p.PackingNum,

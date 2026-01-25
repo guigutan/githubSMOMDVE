@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vHCm75g6Ze4=",
+  "dgSpecHash": "3jbUqAVmpEc=",
   "success": true,
-  "projectFilePath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS.EquipRepair\\SIE.Web.EMS.EquipRepair.csproj",
+  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS.EquipRepair\\SIE.Web.EMS.EquipRepair.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.13.0\\aliyun.oss.sdk.netcore.2.13.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",

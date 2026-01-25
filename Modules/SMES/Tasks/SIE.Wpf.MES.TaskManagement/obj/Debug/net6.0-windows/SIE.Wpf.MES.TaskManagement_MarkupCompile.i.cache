@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Tasks\SIE.Wpf.MES.TaskManagement\obj\Debug\net6.0-windows\
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Tasks\SIE.Wpf.MES.TaskManagement\obj\Debug\net6.0-windows\
 SIE.Wpf.MES.TaskManagement
 none
 false
@@ -13,7 +13,7 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 25-1401679371
 
 65-339398199
-441-127869556
+441-860731255
 KZReports\Controls\DeductionListControl.xaml;KZReports\Controls\FeedingScanControl.xaml;KZReports\Controls\FeedingTaskListControl.xaml;KZReports\Controls\LabelPrintControl.xaml;KZReports\Controls\PreparationEquip.xaml;KZReports\Controls\PreparationModel.xaml;KZReports\Controls\PreparationNav.xaml;KZReports\Controls\ReportContentCommonModeControl.xaml;KZReports\Controls\ReportContentControl.xaml;KZReports\Controls\ReportMainControl.xaml;KZReports\Controls\ReportManualControl.xaml;KZReports\Controls\ReportMulitStationControl.xaml;KZReports\Controls\ReportProcessControl.xaml;KZReports\Controls\ResourceListControl.xaml;KZReports\Controls\ResourceMulitSelectListControl.xaml;KZReports\Controls\ScanReportControl.xaml;KZReports\Controls\SWRecordScanControl.xaml;KZReports\Controls\TaskListControl.xaml;KZReports\Controls\TaskQueueListControl.xaml;KZReports\Controls\TouchInputControl.xaml;KZReports\Controls\UserLoginControl.xaml;KZReports\Controls\ViewTaskListControl.xaml;KZReports\Controls\WeighingControl.xaml;ReportDefectControl.xaml;Styles\ReportStyle.xaml;
 
 True

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fXgB2qS3Tos=",
+  "dgSpecHash": "BtKIxN5QDJ8=",
   "success": true,
-  "projectFilePath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Inventorys\\SIE.Inventory\\SIE.Inventory.csproj",
+  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Inventorys\\SIE.Inventory\\SIE.Inventory.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\caching.csredis\\3.6.60\\caching.csredis.3.6.60.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",

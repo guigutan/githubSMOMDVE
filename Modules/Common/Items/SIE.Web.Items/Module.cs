@@ -79,10 +79,14 @@ namespace SIE.Web.Items
             {
                 EntityType = typeof(KzItemCategory),
                 Label = "产品工艺属性维护"
-            },new WebModuleMeta()
-            { 
+            }, new WebModuleMeta()
+            {
                 EntityType = typeof(KzCategory),
                 Label = "工艺属性分类"
+            }, new WebModuleMeta()
+            {
+                EntityType = typeof(UnValidFactoryItem),
+                Label = "不校验工厂物料清单"
             });
         }
     }

@@ -8649,6 +8649,24 @@
             MM:mm
             </summary>
         </member>
+        <member name="M:SIE.Core.DateTimeFormat.SafeConvertToDateTime(System.String,System.DateTime@)">
+            <summary>
+            通用字符串转DateTime（兼容多种格式+过滤非法日期）
+            </summary>
+            <param name="dateStr">待转换字符串（如2025-13-40、2025/13/40、20251340、2025-13-40 14:30:59等）</param>
+            <param name="result">转换后的DateTime（失败则为DateTime.MinValue）</param>
+            <returns>是否转换成功</returns>
+        </member>
+        <member name="M:SIE.Core.DateTimeFormat.NormalizeDateFormat(System.String)">
+            <summary>
+            格式归一化：替换/为-，移除多余字符，分离日期和时间
+            </summary>
+        </member>
+        <member name="M:SIE.Core.DateTimeFormat.IsValidDate(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            校验年月日是否合法（避免13月、40日等非法值）
+            </summary>
+        </member>
         <member name="M:SIE.Core.DateTimeFormat.ToLongFormat1(System.DateTime)">
             <summary>
             日期转字符串 yyyy/MM/dd HH:mm:ss

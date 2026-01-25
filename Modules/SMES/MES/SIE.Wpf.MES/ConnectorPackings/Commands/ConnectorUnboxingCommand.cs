@@ -54,6 +54,7 @@ namespace SIE.Wpf.MES.ConnectorPackings.Commands
                         vm1.Error = "该蓝标已经是满箱状态!";
                         vm1.Barcode = "";
                         vm1.blueInt = 0;
+                        vm1.NeedQty = 0;
                         vm1.WorkOrderId = 0;
                         vm1.currentCount = 0;
                         vm1.currentLevelIndex = 0;

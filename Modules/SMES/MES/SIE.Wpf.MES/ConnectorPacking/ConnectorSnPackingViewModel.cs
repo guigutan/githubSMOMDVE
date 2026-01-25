@@ -1,4 +1,5 @@
 ﻿using DevExpress.CodeParser;
+using DocumentFormat.OpenXml.Wordprocessing;
 using SIE.Barcodes.WipBatchs;
 using SIE.Domain;
 using SIE.EventMessages.MES.Dispatchs;
@@ -865,6 +866,34 @@ namespace SIE.Wpf.MES.ConnectorPacking
             base.OnBarcodeChanged(e);
         }
 
+        public void AllReset()
+        {
+            WorkOrderId = null;
+            PackageSnRecordList.Clear();
+            blueInt = 0;
+            blueZInt = 0;
+            XtBlue = "";
+            BoolBlue = 1;
+            YXtBlue = "";
+            BoxExChange = 0;
+            currentCount = 0;
+            currentLevelIndex = 0;
+
+            blueBable = null;
+            blueLableLevel = null;
+            BoolBlueLine = false;
+            SnIdent = 0;
+            Tips = "请输入蓝标!";
+            Barcode = "";
+            BatchZInt = 0;
+            BatchInt = 0;
+            BatchLable = "";
+            DeleteState = "扫码中";
+            DeleteIdent = 0;
+            //Reset(resetType: ResetType.CollectRestart);
+            //FocuseBarcode();
+        }
+
         /// <summary>
         /// 重置
         /// </summary>
@@ -962,7 +991,7 @@ namespace SIE.Wpf.MES.ConnectorPacking
                                 packingQc.PersistenceStatus = PersistenceStatus.Deleted;
                                 RT.Service.Resolve<PackingQcController>().DeleteConnectorSnSave(packDetail, packingQc, engrave, enSn);
                                 Reset();
-
+                                AllReset();
                             }
                             else
                             {
@@ -984,6 +1013,9 @@ namespace SIE.Wpf.MES.ConnectorPacking
                                     pqc.ItemId = packingQc.ItemId;
                                     pqc.ItemName = packingQc.Item.Name;
                                     pqc.ResourceId = PackresourceId;
+                                    pqc.PackingNum = item.PackingNum;
+                                    //blueInt += item.PackingNum;
+
                                     PackageSnRecordList.Add(pqc);
                                 }
                             }

@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Defects\SIE.Wpf.Defects\obj\Debug\net6.0-windows\
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Defects\SIE.Wpf.Defects\obj\Debug\net6.0-windows\
 SIE.Wpf.Defects
 none
 false
@@ -13,7 +13,7 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 4-152986205
 
 24-757853283
-391180308940
+391-191504431
 Editors\DefectControl.xaml;Editors\MeasureControl.xaml;Editors\ResponsibilityControl.xaml;Editors\WorkBenchDefectControl.xaml;
 
 True

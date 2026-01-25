@@ -340,13 +340,13 @@ namespace SIE.MES.PackingQC
         #region 不映射到数据库
         #region 工序标签 ProductLabel
         /// <summary>
-        /// 工序标签
+        /// 工序标签(多个标签的话用逗号隔开)
         /// </summary>
         [Label("工序标签")]
         public static readonly Property<string> ProductLabelProperty = P<PackingQc>.Register(e => e.ProductLabel);
 
         /// <summary>
-        /// 工序标签
+        /// 工序标签(多个标签的话用逗号隔开)
         /// </summary>
         public string ProductLabel
         {

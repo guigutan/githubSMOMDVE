@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.EMMA;
 using DotLiquid.Util;
 using Microsoft.Scripting.Utils;
+using NPOI.OpenXmlFormats.Vml;
 using SIE.Andon.Andons;
 using SIE.Andon.Andons.Enum;
 using SIE.Api;
@@ -16,6 +17,7 @@ using SIE.Inventory.Task;
 using SIE.Items;
 using SIE.Items.KzItemCategorys;
 using SIE.MES.Outsourcing;
+using SIE.MES.Outsourcing.Configs;
 using SIE.MES.ProcessProperty;
 using SIE.MES.TaskManagement.Configs;
 using SIE.MES.TaskManagement.Dispatchs;
@@ -27,6 +29,7 @@ using SIE.MES.TaskManagement.SuspectProductLabels;
 using SIE.MES.Threshold;
 using SIE.MES.WIP.Pressure;
 using SIE.MES.WIP.Pressure.Configs;
+using SIE.MES.WorkOrders;
 using SIE.MES.WorkReportPlans;
 using SIE.Packages.ItemLabels;
 using SIE.Rbac.InvOrgs;
@@ -957,6 +960,7 @@ namespace SIE.MES.TaskManagement.Reports
                     log.State = OutsourcingDetailState.Submitted;
                     log.PersistenceStatus = PersistenceStatus.New;
                     log.ProcessingType = ProcessingType.Good;
+                    log.ReportFactory = invOrg.ExternalId;
                     RF.Save(log);
                     logs.Add(log);
                 }
@@ -1730,7 +1734,7 @@ namespace SIE.MES.TaskManagement.Reports
                 {
                     wipId = dispatchTask.ResourceId.GetValueOrDefault();
                 }
-                var manage = andonManagect.CreateAndonManage(item.Id, 0, dispatchTask.ProcessId.GetValueOrDefault(), wipId, dispatchTask.FactoryId, dispatchTask.WorkShopId, dispatchTask.WorkOrderId);
+                var manage = andonManagect.CreateAndonManage(item.Id, 0, dispatchTask.ProcessId.GetValueOrDefault(), wipId, dispatchTask.FactoryId, dispatchTask.WorkShopId, dispatchTask.WorkOrderId, isValidAndonEquipAccount: false);
                 manage.ProblemDesc = "可疑品";
                 andonManages.Add(manage);
             }
@@ -2161,14 +2165,32 @@ namespace SIE.MES.TaskManagement.Reports
                 workOrderInfo.DispatchTaskNo = firstTask.No;
                 workOrderInfo.DispatchQty = firstTask.DispatchQty;
                 workOrderInfo.ProcessCode = firstTask.ProcessCode;
+                //当委外任务单进行报工的时候，要之前的工序是否存在委外
+                var config = ConfigService.GetConfig(new OutsourcingReportConfig(), typeof(OutsourcingRequest));
+                if (config != null && config.IsValidOutsourcingReportLog == true)
+                {
+                    var layoutInfos = Query<LayoutInfo>().Join<Process>((x, y) => x.ProcessCode == y.Code).Join<Process, WorkOrderRoutingProcess>((x, y) => x.Id == y.ProcessId && y.WorkOrderId == wipBatch.WorkOrderId && y.Index < firstTask.Seq).Join<WorkOrderRoutingProcess, OutsourcingRequest>((x, y) => x.ProcessId == y.BeginProcess.ProcessId && y.WorkOrderId == wipBatch.WorkOrderId).Where(p => p.WorkOrderId == wipBatch.WorkOrderId).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
 
-                var maxReportQty = RT.Service.Resolve<DispatchController>().MaxReportQty(firstTask);
+                    if (layoutInfos.Count > 0)
+                    {
+                        var lastLayoutInfo = layoutInfos.OrderByDescending(p => Convert.ToDecimal(p.Vornr)).FirstOrDefault();
+                        OutsourcingRequest outsourcingRequest = Query<OutsourcingRequest>().Where(p => p.BeginProcess.Process.Code == lastLayoutInfo.ProcessCode && p.WorkOrderId == wipBatch.WorkOrderId).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
 
+                        if (outsourcingRequest != null && outsourcingRequest.OutsourcingReportLogList.All(p => p.SN != pdaScanInfo.Sn))
+                        {
+                            throw new ValidationException("委外工序没有报工，不允许扫描".L10N());
+                        }
+                    }
+                }
+
+                var tuple = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(firstTask);
+                var maxReportQty = tuple.Item1;
+                var remainQty = tuple.Item2;
                 workOrderInfo.MaxReportQty = maxReportQty;//firstTask.MaxReportQty;
                 workOrderInfo.RemainQty = firstTask.RemainQty;
                 workOrderInfo.Zcode = layoutInfo.Zcode;
-                workOrderInfo.MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(firstTask).Item2;
-                workOrderInfo.ProcessMaxRemainQty = RT.Service.Resolve<DispatchController>().GetProcessMaxRemainQty(firstTask);
+                workOrderInfo.MaxRemainQty = remainQty;//RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(firstTask).Item2;
+                workOrderInfo.ProcessMaxRemainQty = remainQty;//RT.Service.Resolve<DispatchController>().GetProcessMaxRemainQty(firstTask);
 
 
                 var processPty = RT.Service.Resolve<ProcessPtyController>().GetProcessPtysByProcessId(firstTask.ProcessId ?? 0, firstTask.ProductId);

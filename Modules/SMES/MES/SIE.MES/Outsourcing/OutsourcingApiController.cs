@@ -1,9 +1,11 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.EMMA;
+using DocumentFormat.OpenXml.Office2016.Excel;
 using DocumentFormat.OpenXml.Office2021.DocumentTasks;
 using MimeKit.Cryptography;
 using Newtonsoft.Json;
 using NPOI.HSSF.Record;
+using Org.BouncyCastle.Asn1.Ocsp;
 using SIE.Api;
 using SIE.Barcodes;
 using SIE.Barcodes.WipBatchs;
@@ -907,7 +909,16 @@ namespace SIE.MES.Outsourcing
             //获取批次标签
             var Sns = requestOutDetailInfos.Select(p => p.Sn).Distinct().ToList();
             var wipBatchs = RT.Service.Resolve<WipBatchController>().GetWipBatches(Sns);
-
+            var config = ConfigService.GetConfig(new OutsourcingReportConfig(), typeof(OutsourcingRequest));
+            //当配置项启动校验报工记录明细的时候，校验条码是否已经报工过
+            if (config != null && config.IsOutsourcingInsVaildReportLog == true)
+            {
+                var ss = Sns.Where(p => outsourcingRequest.OutsourcingReportLogList.All(a => a.SN != p)).Distinct().ToList();
+                if (ss.Count > 0)
+                {
+                    throw new ValidationException("条码{0}未报工，无法收货".L10nFormat(string.Join('、', ss)));
+                }
+            }
             //委外出库
             var outbounds = outboundIds.SplitContains(tempIds =>
             {
@@ -983,9 +994,10 @@ namespace SIE.MES.Outsourcing
             {
                 SubmitInstocks(inStockStrategy, outsourcingRequest, inStocks, null);
 
-                var config = ConfigService.GetConfig(new OutsourcingReportConfig(), typeof(OutsourcingRequest));
                 if (config != null && config.IsInAutoReport == true)
                 {
+                    //创建报工记录
+                    CreateLogs(outsourcingRequest, inStocks);
                     //入库上传报工
                     ProcessingInStockReport(inStocks, outsourcingRequest, curTime);
 
@@ -1004,6 +1016,47 @@ namespace SIE.MES.Outsourcing
                 }
                 trans.Complete();
             }
+        }
+
+        /// <summary>
+        /// 创建报工记录
+        /// </summary>
+        /// <param name="outsourcingRequest"></param>
+        /// <param name="inStocks"></param>
+        public virtual void CreateLogs(OutsourcingRequest outsourcingRequest, EntityList<ProcessingInStock> inStocks)
+        {
+            EntityList<OutsourcingReportLog> logs = new EntityList<OutsourcingReportLog>();
+            var invOrg = RT.Service.Resolve<InvOrgController>().GetByCode(RT.InvOrg.Value);
+            foreach (var inStock in inStocks)
+            {
+                OutsourcingReportLog log = new OutsourcingReportLog();
+                log.OutsourcingRequestId = outsourcingRequest.Id;
+                log.SN = inStock.SN;
+                log.LotNo = inStock.SN;
+                log.Qty = inStock.Qty;
+                log.PassQty = 0;
+                log.NgQty = 0;
+                log.State = OutsourcingDetailState.Submitted;
+                log.PersistenceStatus = PersistenceStatus.New;
+                log.ProcessingType = ProcessingType.Good;
+                log.ReportFactory = invOrg.ExternalId;
+                RF.Save(log);
+                logs.Add(log);
+            }
+            var req = new OutsourcingRequest();
+            req.Clone(outsourcingRequest, new CloneOptions(CloneActions.NormalProperties));
+            //调用接口回传报工记录
+            req.OutsourcingReportLogList.AddRange(logs);
+            //if (processingInStocks.Count > 0)
+            //{
+            //    req.ProcessingOutsourcingInStockList.AddRange(processingInStocks);
+            //}
+            //if (processingOutbounds.Count > 0)
+            //{
+            //    req.ProcessingOutsourcingOutboundList.AddRange(processingOutbounds);
+            //}
+            //调用接口
+            RT.Service.Resolve<OutsourcingApiController>().SyncOutsourcingRequestToOtherFactory(req, 3, req.OutFactory);
         }
 
         /// <summary>

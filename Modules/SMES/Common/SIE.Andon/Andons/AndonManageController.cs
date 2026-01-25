@@ -71,8 +71,15 @@ namespace SIE.Andon.Andons
                 query.Where(p => p.AndonId == andonManageCriterial.AndonId);
             if (andonManageCriterial.AndonTypeId != null && andonManageCriterial.AndonTypeId != 0)
                 query.Where(p => p.AndonTypeId == andonManageCriterial.AndonTypeId);
-            if (andonManageCriterial.State.HasValue)
-                query.Where(p => p.State == andonManageCriterial.State);
+            if (!andonManageCriterial.MulitState.IsNullOrEmpty())
+            {
+                var stateList = new List<int>();
+                andonManageCriterial.MulitState.Split(',').ForEach(s =>
+                {
+                    stateList.Add(int.Parse(s));
+                });
+                query.Where(p => stateList.Contains((int)p.State));
+            }
             if (andonManageCriterial.DepartmentId != null && andonManageCriterial.DepartmentId != 0)
                 query.Where(p => p.Department == andonManageCriterial.Department.Name);
             if (andonManageCriterial.TriggerId != null && andonManageCriterial.TriggerId != 0)
@@ -1996,8 +2003,9 @@ namespace SIE.Andon.Andons
         /// <param name="wipId">资源Id</param>
         /// <param name="factoryId">工厂Id</param>
         /// <param name="workShopId">车间Id</param>
+        /// <param name="isValidAndonEquipAccount">是否校验主设备</param>
         /// <returns></returns>
-        public virtual AndonManage CreateAndonManage(object andonId, double stationId, double processId, double wipId, double? factoryId = null, double? workShopId = null, double? workOrderId = null)
+        public virtual AndonManage CreateAndonManage(object andonId, double stationId, double processId, double wipId, double? factoryId = null, double? workShopId = null, double? workOrderId = null, bool isValidAndonEquipAccount = true)
         {
             var dbDateTime = RF.Find<AndonManage>().GetDbTime();
 
@@ -2050,12 +2058,15 @@ namespace SIE.Andon.Andons
             var andonLine = Query<AndonLine>().Where(p => p.MachineCode == wip.Code).ToList().FirstOrDefault();
             if (andonLine != null)
             {
-                if (andonLine.Equipment == null)
+                if (andonLine.Equipment == null && isValidAndonEquipAccount == true && andon.AndonClass == AndonTypeClass.Machine)
                 {
                     throw new ValidationException("产线与安灯区域，机台编码【" + wip.Code + "】没有维护主设备号！".L10N());
                 }
-                andonManage.EquipAccount = andonLine.Equipment;
-                andonManage.EquipAccountId = andonLine.Equipment.Id;
+                if (andonLine.Equipment != null)
+                {
+                    andonManage.EquipAccount = andonLine.Equipment;
+                    andonManage.EquipAccountId = andonLine.EquipmentId;
+                }
                 //andonManage.EquipAccount.Name = andonLine.Equipment.Name;
                 //andonManage.EquipAccount.Code = andonLine.Equipment.Code;
 

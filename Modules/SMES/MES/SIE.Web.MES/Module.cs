@@ -7,6 +7,7 @@ using SIE.MES.BatchWIP.Products.ViewModels.BatchWipProductReport;
 using SIE.MES.Capacitys;
 using SIE.MES.Checker;
 using SIE.MES.DataBarcode;
+using SIE.MES.DesignerAreas;
 using SIE.MES.DispoLookups;
 using SIE.MES.Edge.Models;
 using SIE.MES.EmpWork;
@@ -23,6 +24,7 @@ using SIE.MES.LoadItemRecords;
 using SIE.MES.LoadItems;
 using SIE.MES.MtartProcessLookups;
 using SIE.MES.OnOffDuty;
+using SIE.MES.OnOffDutyA;
 using SIE.MES.Outsourcing;
 using SIE.MES.PackingPrints;
 using SIE.MES.PackingQC;
@@ -35,6 +37,7 @@ using SIE.MES.ProjectDesigns;
 using SIE.MES.Projects;
 using SIE.MES.QTimes;
 using SIE.MES.QTimes.ViewModels;
+using SIE.MES.ReworkLayoutVersions;
 using SIE.MES.RoutingSettings;
 using SIE.MES.Validitys;
 using SIE.MES.WIP.PackRecombine.Logs;
@@ -343,6 +346,22 @@ namespace SIE.Web.MES
             { 
                 EntityType = typeof(SingleQtyRoundUp),
                 Label = "单位耗用量向上取整配置表".L10N()
+            },new WebModuleMeta()
+            { 
+                EntityType = typeof(ReworkLayoutVersion),
+                Label = "返工工艺路线版本".L10N()
+            },new WebModuleMeta()
+            { 
+                EntityType = typeof(ReworkInfoRecord),
+                Label = "返工信息".L10N()
+            }, new WebModuleMeta()
+            {
+                Label = "A在岗信息",
+                EntityType = typeof(OnOffDutyRecrodsA)
+            }, new WebModuleMeta()
+            {
+                Label = "看板区域维护",
+                EntityType = typeof(DesignerArea)
             }
 
             );

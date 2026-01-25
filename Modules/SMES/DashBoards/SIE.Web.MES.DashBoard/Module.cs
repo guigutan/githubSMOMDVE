@@ -1,4 +1,5 @@
 ﻿using SIE.MES.DashBoard.DashBoards.WorkShop;
+using SIE.MES.DashBoard.KzBoard.RegionBoards;
 using SIE.MES.DashBoard.Reports.LineFPY;
 using SIE.MES.DashBoard.Reports.ProductFPY;
 using SIE.MES.DashBoard.Reports.ShopFPY;
@@ -72,6 +73,10 @@ namespace SIE.Web.MES.DashBoard
               {
                   Label = "安全生产天数".L10N(),
                   EntityType = typeof(WorkSafety)
+              }, new WebModuleMeta()
+              {
+                  Label = "区域与产线的关联关系".L10N(),
+                  EntityType = typeof(RegionBoard)
               });
         }
 

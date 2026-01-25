@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+h6XuX2H3pw=",
+  "dgSpecHash": "pUZMjA6XvZc=",
   "success": true,
-  "projectFilePath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.Web.MES.Common\\SIE.Web.MES.Common.csproj",
+  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.Web.MES.Common\\SIE.Web.MES.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp.css\\0.14.1\\anglesharp.css.0.14.1.nupkg.sha512",

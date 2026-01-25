@@ -37,6 +37,7 @@ namespace SIE.Wpf.MES.ConnectorPackings.Commands
             vm1.PackageSnRecordList.Clear();
             vm1.blueInt = 0;
             vm1.blueZInt = 0;
+            vm1.NeedQty = 0;
             vm1.XtBlue = "";
             vm1.BoolBlue = true;
             vm1.YXtBlue = "";

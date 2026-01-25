@@ -136,6 +136,23 @@ namespace SIE.Andon.Andons
         }
         #endregion
 
+        #region 状态 MulitState
+        /// <summary>
+        /// 状态
+        /// </summary>
+        [Label("状态")]
+        public static readonly Property<string> MulitStateProperty = P<AndonManageCriterial>.Register(e => e.MulitState);
+
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public string MulitState
+        {
+            get { return this.GetProperty(MulitStateProperty); }
+            set { this.SetProperty(MulitStateProperty, value); }
+        }
+        #endregion
+
         #region 负责部门 Department
         /// <summary>
         /// 负责部门Id

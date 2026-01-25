@@ -16462,17 +16462,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS.EquipMaint\\SIE.Web.EMS.EquipMaint.csproj",
+      "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS.EquipMaint\\SIE.Web.EMS.EquipMaint.csproj",
       "projectName": "SIE.Web.EMS.EquipMaint",
-      "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS.EquipMaint\\SIE.Web.EMS.EquipMaint.csproj",
+      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS.EquipMaint\\SIE.Web.EMS.EquipMaint.csproj",
       "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-      "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS.EquipMaint\\obj\\",
+      "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS.EquipMaint\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
         "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -16483,21 +16483,21 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipMaint\\SIE.EMS.EquipMaint.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipMaint\\SIE.EMS.EquipMaint.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipMaint\\SIE.EMS.EquipMaint.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipMaint\\SIE.EMS.EquipMaint.csproj"
             },
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj"
             },
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS\\SIE.Web.EMS.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS\\SIE.Web.EMS.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS\\SIE.Web.EMS.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.Web.EMS\\SIE.Web.EMS.csproj"
             }
           }
         }

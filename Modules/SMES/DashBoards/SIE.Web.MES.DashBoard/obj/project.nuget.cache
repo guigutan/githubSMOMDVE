@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ur1n0LYJBLk=",
+  "dgSpecHash": "3XP2ranWGlg=",
   "success": true,
-  "projectFilePath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.Web.MES.DashBoard\\SIE.Web.MES.DashBoard.csproj",
+  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.Web.MES.DashBoard\\SIE.Web.MES.DashBoard.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.13.0\\aliyun.oss.sdk.netcore.2.13.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",

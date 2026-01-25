@@ -6,6 +6,7 @@ using NPOI.SS.Formula.PTG;
 using SIE.Andon.Andons;
 using SIE.Api;
 using SIE.Barcodes.Configs;
+using SIE.Barcodes.WipBatchs;
 using SIE.Common.Configs;
 using SIE.Core.ApiModels;
 using SIE.Core.Common.Service;
@@ -23,6 +24,7 @@ using SIE.MES.ItemEquipAccount.Configs;
 using SIE.MES.ItemFixture;
 using SIE.MES.LineAndon;
 using SIE.MES.PackingQC;
+using SIE.MES.ReworkLayoutVersions;
 using SIE.MES.TaskManagement.Dispatchs.Datas;
 using SIE.MES.TaskManagement.FeedingRecords;
 using SIE.MES.TaskManagement.Models;
@@ -104,6 +106,67 @@ namespace SIE.MES.TaskManagement.Dispatchs
             }
             return infos;
         }
+
+        #region 返工确认
+
+        /// <summary>
+        /// 返工确认:获取扫码信息
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        [ApiService("返工确认:获取扫码信息")]
+        public virtual PdaReworkConfirmScanInfo GetReworkConfirmScanInfo(string key)
+        {
+            var first = RT.Service.Resolve<WipBatchController>().GetWipBatch(key);
+            if (first == null)
+                throw new ValidationException("标签{0}不存在".L10nFormat(key));
+            if (first.IsRework == false)
+                throw new ValidationException("标签{0}非返工标签".L10nFormat(key));
+
+            EntityList<ReworkInfoRecordDtl> reworkInfoRecordDtls = RT.Service.Resolve<ReworkLayoutVersionController>().GetReworkInfoRecordDtls(key);
+            if (reworkInfoRecordDtls.Count > 0)
+                throw new ValidationException("标签已扫描过，不允许重复扫描".L10N());
+
+            PdaReworkConfirmScanInfo info = new PdaReworkConfirmScanInfo();
+
+            info.ProductCode = first.ProductCode;
+            info.ProductName = first.ProductName;
+            info.WipBatchId = first.Id;
+            info.Sn = first.BatchNo;
+            info.SnQty = first.Qty;
+
+            return info;
+        }
+
+        /// <summary>
+        /// 返工确认:获取返工工艺路线版本
+        /// </summary>
+        /// <param name="ProductCode"></param>
+        /// <returns></returns>
+        [ApiService("返工确认:获取返工工艺路线版本")]
+        public virtual List<PdaReworkLayoutVersionInfo> GetPdaReworkLayoutVersionInfos(string ProductCode)
+        {
+            var versions = Query<ReworkLayoutVersion>().Where(p => p.Item.Code == ProductCode && (p.EffEndDateTime == null || p.EffEndDateTime >= DateTime.Now)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+
+            List<PdaReworkLayoutVersionInfo> infos = new List<PdaReworkLayoutVersionInfo>();
+
+            foreach (var version in versions)
+            {
+                PdaReworkLayoutVersionInfo info = new PdaReworkLayoutVersionInfo();
+
+                info.VersionId = version.Id;
+                info.Version = version.Version;
+                info.Desc = version.Desc;
+
+                infos.Add(info);
+            }
+
+            return infos;
+        }
+
+
+
+        #endregion
 
         #region 余料称重
 
@@ -585,12 +648,17 @@ namespace SIE.MES.TaskManagement.Dispatchs
 
                 var processBomInfos = AssemblyGetProcessBomInfos(TaskId);
 
+                //不校验工厂物料清单
+                var itemCodes = infos.Select(p => p.ItemCode).Distinct().ToList();
+                var unValidFactoryItems = RT.Service.Resolve<ItemController>().GetUnValidFactoryItemsByItemCodes(itemCodes);
+
                 foreach (var info in infos)
                 {
                     var label = itemlabels.FirstOrDefault(p => p.Id == info.ItemLabelId);
                     //校验物料标签所在工厂与工单的工序BOM的发料工厂是否一致
                     var config = ConfigService.GetConfig(new ItemLabelConfig(), typeof(ItemLabel));
-                    if (config != null && config.IsValidFactory == true && processBomInfos.Any(p => p.ProductCode == info.ItemCode && p.Factory != label.FactoryCode))
+                    //维护在不校验工厂物料清单的物料数据不做这个校验
+                    if (config != null && config.IsValidFactory == true && !unValidFactoryItems.Any(p => p.ItemCode == info.ItemCode) && processBomInfos.Any(p => p.ProductCode == info.ItemCode && p.Factory != label.FactoryCode))
                     {
                         throw new ValidationException("该标签存在于工厂{0}".L10nFormat(label.FactoryCode));
                     }

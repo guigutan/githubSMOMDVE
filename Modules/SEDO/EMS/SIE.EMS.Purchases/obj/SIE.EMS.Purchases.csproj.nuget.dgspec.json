@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj": {}
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj": {}
   },
   "projects": {
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj",
         "projectName": "SIE.AbnormalInfo",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -28,15 +28,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj"
               }
             }
           }
@@ -86,20 +86,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj",
         "projectName": "SIE.Core",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -110,15 +110,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj"
               }
             }
           }
@@ -164,20 +164,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj",
         "projectName": "SIE.CSM",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -188,18 +188,18 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj"
               },
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj"
               }
             }
           }
@@ -239,20 +239,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj",
         "projectName": "SIE.DataAuth",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -263,7 +263,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -313,20 +313,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj",
         "projectName": "SIE.Defects",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -337,15 +337,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj"
               }
             }
           }
@@ -385,20 +385,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj",
         "projectName": "SIE.Equipments",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -409,15 +409,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj"
               }
             }
           }
@@ -463,20 +463,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj",
         "projectName": "SIE.Fixtures",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -487,18 +487,18 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj"
               },
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj"
               }
             }
           }
@@ -538,20 +538,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj",
         "projectName": "SIE.Items",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -562,15 +562,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj"
               }
             }
           }
@@ -610,20 +610,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj",
         "projectName": "SIE.EventMessages",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -634,15 +634,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core\\SIE.Core.csproj"
               }
             }
           }
@@ -688,20 +688,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj",
         "projectName": "SIE.Packages",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -712,18 +712,18 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj"
               },
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj"
               }
             }
           }
@@ -763,20 +763,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj",
         "projectName": "SIE.Resources",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\SIE.Resources.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Resources\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -787,15 +787,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Messages\\SIE.EventMessages\\SIE.EventMessages.csproj"
               }
             }
           }
@@ -841,20 +841,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj",
         "projectName": "SIE.Tech",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\SIE.Tech.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs\\SIE.Tech\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -865,18 +865,18 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj"
               },
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj"
               }
             }
           }
@@ -916,20 +916,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj",
         "projectName": "SIE.TurnoverTools",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\SIE.TurnoverTools.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools\\SIE.TurnoverTools\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -940,15 +940,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages\\SIE.Packages\\SIE.Packages.csproj"
               }
             }
           }
@@ -988,20 +988,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj",
         "projectName": "SIE.Warehouses",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -1012,15 +1012,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj"
               }
             }
           }
@@ -1066,20 +1066,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj",
         "projectName": "SIE.EMS.EquipRepair",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -1090,15 +1090,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj"
               }
             }
           }
@@ -1138,20 +1138,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj",
         "projectName": "SIE.EMS.Purchases",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -1162,18 +1162,18 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EquipRepair\\SIE.EMS.EquipRepair.csproj"
               },
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj"
               }
             }
           }
@@ -1213,20 +1213,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj",
         "projectName": "SIE.EMS.WorkFlow",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\SIE.EMS.WorkFlow.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.WorkFlow\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -1237,15 +1237,15 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Equipments\\SIE.Equipments.csproj"
               }
             }
           }
@@ -1291,20 +1291,20 @@
         }
       }
     },
-    "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj": {
+    "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj",
+        "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj",
         "projectName": "SIE.EMS",
-        "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj",
+        "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\SIE.EMS.csproj",
         "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-        "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\obj\\",
+        "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
           "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -1315,18 +1315,18 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+          "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo\\SIE.AbnormalInfo.csproj"
               },
-              "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj": {
-                "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj"
+              "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj": {
+                "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments\\SIE.Fixtures\\SIE.Fixtures.csproj"
               }
             }
           }

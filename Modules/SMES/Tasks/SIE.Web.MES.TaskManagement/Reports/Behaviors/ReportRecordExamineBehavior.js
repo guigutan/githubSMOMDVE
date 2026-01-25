@@ -50,6 +50,9 @@
                     var reworkQty = storeData.items.sum(function (p) { return p.data.ReworkQty; });
                     entity.setReworkQty(Math.floor(reworkQty * 1000) / 1000);
 
+                    var suspectQty = storeData.items.sum(function (p) { return p.data.SuspectQty; });
+                    entity.setSuspectQty(Math.floor(suspectQty * 1000) / 1000); 
+
                     storeData.add(entity);
                     entity.markSaved();
                 }

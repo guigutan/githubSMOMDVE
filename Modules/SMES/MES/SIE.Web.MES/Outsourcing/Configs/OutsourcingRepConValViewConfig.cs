@@ -15,6 +15,8 @@ namespace SIE.Web.MES.Outsourcing.Configs
             using (View.OrderProperties())
             {
                 View.Property(p => p.IsInAutoReport).Show();
+                View.Property(p => p.IsOutsourcingInsVaildReportLog).Show();
+                View.Property(p => p.IsValidOutsourcingReportLog).Show();
             }
         }
     }

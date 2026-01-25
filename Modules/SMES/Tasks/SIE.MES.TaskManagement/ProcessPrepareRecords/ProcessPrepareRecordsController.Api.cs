@@ -152,7 +152,7 @@ namespace SIE.MES.TaskManagement.ProcessPrepareRecords
                 throw new ValidationException("资源和区域描述,没有在产线与安灯区域找到!".L10N());
             }
             var equipAccount = andonLine.Equipment;
-            if (equipAccount == null)
+            if (equipAccount == null && andon.AndonClass == AndonTypeClass.Machine)
             {
                 throw new ValidationException("产线与安灯区域,没有维护主设备号!".L10N());
             }

@@ -440,6 +440,21 @@ namespace SIE.ERPInterface.Api.WebApi.KaiZhong
                         apiCommonRes = RT.Service.Resolve<DownloadEquipAccountItemController>().SaveEquipAccountItemFactory(equipAccountItemDatas);
                     }
                     break;
+                case InfType.ReworkLayoutVersion:
+                    var rlvd = JsonConvert.DeserializeObject<Rlvd>(dataJsons);
+                    if (rlvd == null)
+                    {
+                        var errorMsg = "返工工艺路线版本JSON格式不对".L10N();
+                        infDataLog.ErrorMsg = errorMsg;
+                        RF.Save(infDataLog);
+                        result.success = false;
+                        result.errorMsg = errorMsg;
+                    }
+                    else
+                    {
+                        apiCommonRes = RT.Service.Resolve<DownloadReworkLayoutVersionController>().SaveEquipAccountItemFactory(rlvd);
+                    }
+                    break;
             }
             if (apiCommonRes != null && apiCommonRes.ErrorList != null && apiCommonRes.ErrorList.Count > 0)
             {

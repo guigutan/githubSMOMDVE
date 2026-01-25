@@ -1,0 +1,14 @@
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\wwwroot\images\drawtools\Repeat.svg
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\wwwroot\images\drawtools\Check.svg
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.Tech.Common.xml
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.Tech.Common.deps.json
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.Tech.Common.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.Tech.Common.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Web.Tech.Common\obj\Debug\net6.0\SIE.Web.Tech.Common.csproj.AssemblyReference.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Web.Tech.Common\obj\Debug\net6.0\SIE.Web.Tech.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Web.Tech.Common\obj\Debug\net6.0\SIE.Web.Tech.Common.csproj.CoreCompileInputs.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Web.Tech.Common\obj\Debug\net6.0\SIE.Web..441C8E48.Up2Date
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Web.Tech.Common\obj\Debug\net6.0\SIE.Web.Tech.Common.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Web.Tech.Common\obj\Debug\net6.0\refint\SIE.Web.Tech.Common.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Web.Tech.Common\obj\Debug\net6.0\SIE.Web.Tech.Common.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Web.Tech.Common\obj\Debug\net6.0\ref\SIE.Web.Tech.Common.dll

@@ -57,6 +57,8 @@
     <None Remove="Items\Commands\ProductGradeLookupCommand.js" />
     <None Remove="Items\Commands\SaveUnitConvertCommand.js" />
     <None Remove="Items\Commands\SetDefaultUnitConvertCommand.js" />
+    <None Remove="Items\Commands\UnValidFactoryItemDLTemplateCommand.js" />
+    <None Remove="Items\Commands\UnValidFactoryItemImportCommand.js" />
     <None Remove="Items\Control\BatchRuleComboList.js" />
     <None Remove="Items\Control\EnableExtendPropertyCheckEditor.js" />
     <None Remove="Items\Control\ItemTypeComboList.js" />
@@ -119,6 +121,8 @@
     <EmbeddedResource Include="Items\Commands\ItemPropertyValueDeleteCommand.js" />
     <EmbeddedResource Include="Items\Commands\SetDefaultUnitConvertCommand.js" />
     <EmbeddedResource Include="Items\Commands\SaveUnitConvertCommand.js" />
+    <EmbeddedResource Include="Items\Commands\UnValidFactoryItemDLTemplateCommand.js" />
+    <EmbeddedResource Include="Items\Commands\UnValidFactoryItemImportCommand.js" />
     <EmbeddedResource Include="Items\Control\EnableExtendPropertyCheckEditor.js" />
     <EmbeddedResource Include="Items\ItemCategoryLevelMethod.js" />
     <EmbeddedResource Include="Items\Scripts\CatalogPagingLookUpMethod.js" />

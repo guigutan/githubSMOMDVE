@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wabUkNR6a4c=",
+  "dgSpecHash": "gEOAB7CXlPw=",
   "success": true,
-  "projectFilePath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
+  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.13.0\\aliyun.oss.sdk.netcore.2.13.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
@@ -332,9 +332,9 @@
       "code": "NU1608",
       "level": "Warning",
       "message": "检测到的包版本在依赖项约束之外: Rebus.ServiceProvider 6.4.1 需要 Microsoft.Extensions.DependencyInjection.Abstractions (>= 2.0.0 && < 6.0.0)，但版本 Microsoft.Extensions.DependencyInjection.Abstractions 6.0.0 已解决。",
-      "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
+      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
+      "filePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
       "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
       "targetGraphs": [
         "net6.0"

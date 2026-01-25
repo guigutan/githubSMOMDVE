@@ -3428,6 +3428,16 @@
             任务单Id
             </summary>
         </member>
+        <member name="F:SIE.Barcodes.WipBatchs.WipBatch.PackingTaskIdProperty">
+            <summary>
+            包装任务单Id
+            </summary>
+        </member>
+        <member name="P:SIE.Barcodes.WipBatchs.WipBatch.PackingTaskId">
+            <summary>
+            包装任务单Id
+            </summary>
+        </member>
         <member name="F:SIE.Barcodes.WipBatchs.WipBatch.ResourceCodeProperty">
             <summary>
             资源编码
@@ -3649,6 +3659,13 @@
             </summary>
             <param name="wipBatches"></param>
             <param name="invOrg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.Barcodes.WipBatchs.WipBatchController.GetWipBatchesByPackingTaskIds(System.Collections.Generic.List{System.Double})">
+            <summary>
+            根据包装任务单获取标签
+            </summary>
+            <param name="taskIds"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.Barcodes.WipBatchs.WipBatchController.GetWipBatchType(SIE.Barcodes.WipBatchs.WipBatch)">

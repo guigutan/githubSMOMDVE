@@ -20,6 +20,11 @@ namespace SIE.EventMessages.MES.Dispatchs
         public double WorkOrderId { get; set; }
 
         /// <summary>
+        /// 任务单Id
+        /// </summary>
+        public double? TaskId { get; set; }
+
+        /// <summary>
         /// 资源Id
         /// </summary>
         public double ResourceId { get; set; }

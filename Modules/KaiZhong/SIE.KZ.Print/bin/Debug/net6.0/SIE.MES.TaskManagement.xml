@@ -2510,6 +2510,56 @@
             副产品收货
             </summary>
         </member>
+        <member name="T:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkConfirmScanInfo">
+            <summary>
+            返工确认扫码信息
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkConfirmScanInfo.ProductCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkConfirmScanInfo.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkConfirmScanInfo.WipBatchId">
+            <summary>
+            批次标签Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkConfirmScanInfo.Sn">
+            <summary>
+            工序标签号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkConfirmScanInfo.SnQty">
+            <summary>
+            批次数量
+            </summary>
+        </member>
+        <member name="T:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutVersionInfo">
+            <summary>
+            返工工艺路线版本
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutVersionInfo.VersionId">
+            <summary>
+            返工工艺路线版本Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutVersionInfo.Version">
+            <summary>
+            生产版本
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutVersionInfo.Desc">
+            <summary>
+            版本描述
+            </summary>
+        </member>
         <member name="T:SIE.MES.TaskManagement.Dispatchs.Datas.PdaSWRecordScanInfo">
             <summary>
             余料称重扫描标签信息
@@ -2918,6 +2968,20 @@
             <summary>
             下拉获取机台(生产资源)
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetReworkConfirmScanInfo(System.String)">
+            <summary>
+            返工确认:获取扫码信息
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetPdaReworkLayoutVersionInfos(System.String)">
+            <summary>
+            返工确认:获取返工工艺路线版本
+            </summary>
+            <param name="ProductCode"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetPdaSWRecordScanInfo(System.String)">
@@ -11876,7 +11940,7 @@
             /// <param name="packType">0：取数量，1：累加1</param>
             <returns></returns>
         </member>
-        <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorPackingController.SaveWipBatch(System.Double,System.Int32,System.String,System.String,System.String)">
+        <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorPackingController.SaveWipBatch(System.Double,System.Int32,System.String,System.String,System.String,System.Nullable{System.Double})">
             <summary>
             
             </summary>

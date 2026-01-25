@@ -1,0 +1,12 @@
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.RedCardManagment.xml
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.RedCardManagment.deps.json
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.RedCardManagment.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.RedCardManagment.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\RedCardManagment\SIE.Web.RedCardManagment\obj\Debug\net6.0\SIE.Web.RedCardManagment.csproj.AssemblyReference.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\RedCardManagment\SIE.Web.RedCardManagment\obj\Debug\net6.0\SIE.Web.RedCardManagment.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\RedCardManagment\SIE.Web.RedCardManagment\obj\Debug\net6.0\SIE.Web.RedCardManagment.csproj.CoreCompileInputs.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\RedCardManagment\SIE.Web.RedCardManagment\obj\Debug\net6.0\SIE.Web..E4F76C5B.Up2Date
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\RedCardManagment\SIE.Web.RedCardManagment\obj\Debug\net6.0\SIE.Web.RedCardManagment.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\RedCardManagment\SIE.Web.RedCardManagment\obj\Debug\net6.0\refint\SIE.Web.RedCardManagment.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\RedCardManagment\SIE.Web.RedCardManagment\obj\Debug\net6.0\SIE.Web.RedCardManagment.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\RedCardManagment\SIE.Web.RedCardManagment\obj\Debug\net6.0\ref\SIE.Web.RedCardManagment.dll

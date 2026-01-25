@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Common\SIE.Wpf.Andon\obj\Debug\net6.0-windows\
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\Common\SIE.Wpf.Andon\obj\Debug\net6.0-windows\
 SIE.Wpf.Andon
 none
 false
@@ -13,7 +13,7 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 2-126955687
 
 391590784927
-440759851584
+440-2128134830
 Controls\AndonButtonControl.xaml;Controls\AndonEventControl.xaml;
 
 True

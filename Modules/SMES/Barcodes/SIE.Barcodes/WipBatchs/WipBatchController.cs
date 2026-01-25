@@ -18,6 +18,20 @@ namespace SIE.Barcodes.WipBatchs
     public partial class WipBatchController : DomainController
     {
         /// <summary>
+        /// 根据包装任务单获取标签
+        /// </summary>
+        /// <param name="taskIds"></param>
+        /// <returns></returns>
+        public virtual EntityList<WipBatch> GetWipBatchesByPackingTaskIds(List<double> taskIds)
+        {
+            var list = taskIds.SplitContains(ids =>
+            {
+                return Query<WipBatch>().Where(p => ids.Contains((double)p.PackingTaskId)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            return list;
+        }
+
+        /// <summary>
         /// 计算标签类型
         /// </summary>
         /// <param name="wipBatch"></param>

@@ -15988,17 +15988,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.Wpf.MES.Workbench\\SIE.Wpf.MES.Workbench.csproj",
+      "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.Wpf.MES.Workbench\\SIE.Wpf.MES.Workbench.csproj",
       "projectName": "SIE.Wpf.MES.Workbench",
-      "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.Wpf.MES.Workbench\\SIE.Wpf.MES.Workbench.csproj",
+      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.Wpf.MES.Workbench\\SIE.Wpf.MES.Workbench.csproj",
       "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-      "outputPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.Wpf.MES.Workbench\\obj\\",
+      "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.Wpf.MES.Workbench\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
         "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -16009,27 +16009,27 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Wpf.Resources\\SIE.Wpf.Resources.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Wpf.Resources\\SIE.Wpf.Resources.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Wpf.Resources\\SIE.Wpf.Resources.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources\\SIE.Wpf.Resources\\SIE.Wpf.Resources.csproj"
             },
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\WorkBenchs\\SIE.Wpf.WorkBenchChartBase\\SIE.Wpf.WorkBenchChartBase.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\WorkBenchs\\SIE.Wpf.WorkBenchChartBase\\SIE.Wpf.WorkBenchChartBase.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\WorkBenchs\\SIE.Wpf.WorkBenchChartBase\\SIE.Wpf.WorkBenchChartBase.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\WorkBenchs\\SIE.Wpf.WorkBenchChartBase\\SIE.Wpf.WorkBenchChartBase.csproj"
             },
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj"
             },
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj"
             },
-            "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.MES.Workbench\\SIE.MES.Workbench.csproj": {
-              "projectPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.MES.Workbench\\SIE.MES.Workbench.csproj"
+            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.MES.Workbench\\SIE.MES.Workbench.csproj": {
+              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.MES.Workbench\\SIE.MES.Workbench.csproj"
             }
           }
         }

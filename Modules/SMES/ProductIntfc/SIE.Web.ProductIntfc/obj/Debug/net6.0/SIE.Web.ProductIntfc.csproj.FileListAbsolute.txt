@@ -1,0 +1,12 @@
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.ProductIntfc.xml
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.ProductIntfc.deps.json
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.ProductIntfc.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\platform\smom\net6.0\SIE.Web.ProductIntfc.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.Web.ProductIntfc\obj\Debug\net6.0\SIE.Web.ProductIntfc.csproj.AssemblyReference.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.Web.ProductIntfc\obj\Debug\net6.0\SIE.Web.ProductIntfc.GeneratedMSBuildEditorConfig.editorconfig
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.Web.ProductIntfc\obj\Debug\net6.0\SIE.Web.ProductIntfc.csproj.CoreCompileInputs.cache
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.Web.ProductIntfc\obj\Debug\net6.0\SIE.Web..53236738.Up2Date
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.Web.ProductIntfc\obj\Debug\net6.0\SIE.Web.ProductIntfc.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.Web.ProductIntfc\obj\Debug\net6.0\refint\SIE.Web.ProductIntfc.dll
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.Web.ProductIntfc\obj\Debug\net6.0\SIE.Web.ProductIntfc.pdb
+D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\ProductIntfc\SIE.Web.ProductIntfc\obj\Debug\net6.0\ref\SIE.Web.ProductIntfc.dll

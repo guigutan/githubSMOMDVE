@@ -477,6 +477,23 @@ namespace SIE.Barcodes.WipBatchs
         }
         #endregion
 
+        #region 包装任务单Id PackingTaskId
+        /// <summary>
+        /// 包装任务单Id
+        /// </summary>
+        [Label("包装任务单Id")]
+        public static readonly Property<double?> PackingTaskIdProperty = P<WipBatch>.Register(e => e.PackingTaskId);
+
+        /// <summary>
+        /// 包装任务单Id
+        /// </summary>
+        public double? PackingTaskId
+        {
+            get { return this.GetProperty(PackingTaskIdProperty); }
+            set { this.SetProperty(PackingTaskIdProperty, value); }
+        }
+        #endregion
+
         #region 资源编码 ResourceCode
         /// <summary>
         /// 资源编码

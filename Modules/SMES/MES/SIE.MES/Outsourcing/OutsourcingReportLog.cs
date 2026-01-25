@@ -200,6 +200,23 @@ namespace SIE.MES.Outsourcing
         }
         #endregion
 
+        #region 报工工厂 ReportFactory
+        /// <summary>
+        /// 报工工厂
+        /// </summary>
+        [Label("报工工厂")]
+        public static readonly Property<string> ReportFactoryProperty = P<OutsourcingReportLog>.Register(e => e.ReportFactory);
+
+        /// <summary>
+        /// 报工工厂
+        /// </summary>
+        public string ReportFactory
+        {
+            get { return this.GetProperty(ReportFactoryProperty); }
+            set { this.SetProperty(ReportFactoryProperty, value); }
+        }
+        #endregion
+
 
         #region 原来Id OldId
         /// <summary>

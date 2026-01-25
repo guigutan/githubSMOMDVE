@@ -1,4 +1,5 @@
 ﻿using SIE.Andon.Andons;
+using SIE.Andon.Andons.Enum;
 using SIE.Resources.Employees;
 using SIE.Web.Equipments.Extensions;
 using SIE.Web.Resources;
@@ -38,7 +39,7 @@ namespace SIE.Web.Andon.Andons
                 {
                     return RT.Service.Resolve<AndonController>().GetAndonList(pagingInfo, keyword);
                 });
-                View.Property(p => p.State);
+                View.Property(p => p.MulitState).UseEnumMutilEditor(x => x.EnumType = typeof(AndonManageState)).Show(ShowInWhere.Detail);
                 View.Property(p => p.Department).UseDataSource((e, p, k) =>
                 {
                     return RT.Service.Resolve<AndonManageController>().GetOrganizations(p, k);

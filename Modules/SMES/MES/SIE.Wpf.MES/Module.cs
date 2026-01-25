@@ -18,6 +18,7 @@ using SIE.Wpf.MES.NewPackingQC;
 using SIE.Wpf.MES.NewPackingQcC;
 using SIE.Wpf.MES.NewPackingQcD;
 using SIE.Wpf.MES.OnOffDuty;
+using SIE.Wpf.MES.OnOffDutyA;
 using SIE.Wpf.MES.PackingPrints;
 using SIE.Wpf.MES.PackingQC;
 using SIE.Wpf.MES.PanelBindings;
@@ -228,6 +229,11 @@ namespace SIE.Wpf.MES
                  Label = "连接器单体包装采集",
                  EntityType = typeof(ConnectorSnPackingViewModel),
                  BlocksTemplate = typeof(ConnectorSnPackingUITemplate)
+             }, new WPFModuleMeta()
+             {
+                 Label = "A上岗下岗",
+                 EntityType = typeof(OnOffDutyAViewModel),
+                 BlocksTemplate = typeof(OnOffDutyAUITemplate)
              }
             );
         }

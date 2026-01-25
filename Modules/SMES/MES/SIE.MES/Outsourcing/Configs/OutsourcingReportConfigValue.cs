@@ -33,6 +33,42 @@ namespace SIE.MES.Outsourcing.Configs
         }
         #endregion
 
+        #region 是否校验委外收货记录 IsOutsourcingInsVaildReportLog
+        /// <summary>
+        /// 是否校验委外收货记录
+        /// </summary>
+        [Label("是否校验委外收货记录")]
+        public static readonly Property<bool?> IsOutsourcingInsVaildReportLogProperty = P<OutsourcingReportConfigValue>.Register(e => e.IsOutsourcingInsVaildReportLog);
+
+        /// <summary>
+        /// 是否校验委外收货记录
+        /// </summary>
+        public bool? IsOutsourcingInsVaildReportLog
+        {
+            get { return this.GetProperty(IsOutsourcingInsVaildReportLogProperty); }
+            set { this.SetProperty(IsOutsourcingInsVaildReportLogProperty, value); }
+        }
+        #endregion
+
+        #region 是否校验委外报工记录 IsReportValidOutsourcingReportLog
+        /// <summary>
+        /// 是否校验委外报工记录
+        /// </summary>
+        [Label("是否校验委外报工记录")]
+        public static readonly Property<bool?> IsValidOutsourcingReportLogProperty = P<OutsourcingReportConfigValue>.Register(e => e.IsValidOutsourcingReportLog);
+
+        /// <summary>
+        /// 是否校验委外报工记录
+        /// </summary>
+        public bool? IsValidOutsourcingReportLog
+        {
+            get { return this.GetProperty(IsValidOutsourcingReportLogProperty); }
+            set { this.SetProperty(IsValidOutsourcingReportLogProperty, value); }
+        }
+        #endregion
+
+
+
         /// <summary>
         /// 显示 
         /// </summary>

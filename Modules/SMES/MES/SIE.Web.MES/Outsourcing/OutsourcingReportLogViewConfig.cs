@@ -26,6 +26,7 @@ namespace SIE.Web.MES.Outsourcing
                 //View.Property(p => p.NgQty).UseSpinEditor(m => m.MinValue = 0).ShowInList(width: SingleCharWidth * 8)
                 //    .Readonly(p => p.State == OutsourcingDetailState.Submitted);
                 View.Property(p => p.State).ShowInList(width: SingleCharWidth * 8).Readonly();
+                View.Property(p => p.ReportFactory).Show().Readonly();
             }
         }
     }

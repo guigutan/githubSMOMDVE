@@ -25,6 +25,7 @@ using SIE.MES.TaskManagement.Reports.Enums;
 using SIE.MES.TaskManagement.SuspectProductLabels.ApiModels;
 using SIE.MES.WIP.Pressure;
 using SIE.Rbac.InvOrgs;
+using SIE.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -483,6 +484,7 @@ namespace SIE.MES.TaskManagement.SuspectProductLabels
                 return;
             if (wipBatch != null)
                 wipBatches.Add(wipBatch);
+            var invOrg = RT.Service.Resolve<InvOrgController>().GetByCode(RT.InvOrg.Value);
 
             EntityList<OutsourcingReportLog> logs = new EntityList<OutsourcingReportLog>();
             foreach (var newWipBatch in wipBatches)
@@ -507,6 +509,7 @@ namespace SIE.MES.TaskManagement.SuspectProductLabels
                     log.State = OutsourcingDetailState.Submitted;
                     log.PersistenceStatus = PersistenceStatus.New;
                     log.ProcessingType = processingType;//ProcessingType.Good;
+                    log.ReportFactory = invOrg.ExternalId;
                     RF.Save(log);
                     logs.Add(log);
                 }

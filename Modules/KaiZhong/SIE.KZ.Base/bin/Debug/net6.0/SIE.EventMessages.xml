@@ -4833,6 +4833,11 @@
             工单Id
             </summary>
         </member>
+        <member name="P:SIE.EventMessages.MES.Dispatchs.ReportInfo.TaskId">
+            <summary>
+            任务单Id
+            </summary>
+        </member>
         <member name="P:SIE.EventMessages.MES.Dispatchs.ReportInfo.ResourceId">
             <summary>
             资源Id

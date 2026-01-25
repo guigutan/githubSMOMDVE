@@ -173,8 +173,10 @@ namespace SIE.MES.TaskManagement.HeatTreatments
                 .Exists<WipBatch>((x, y) => y.Where(p => p.Id == x.WipBatchId && (p.IsUploadIot == null || p.IsUploadIot == false)))
                 .Where(p => p.CreateDate > date).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             var woIds = reportWipBatchs.Select(p => (double?)p.WorkOrderId).Distinct().ToList();
-            var tasks = Query<DispatchTask>().Where(p => woIds.Contains(p.WorkOrderId)).ToList(null, new EagerLoadOptions().LoadWith(DispatchTask.ProcessProperty));
-
+            var tasks = woIds.SplitContains(ids =>
+            {
+                return Query<DispatchTask>().Where(p => ids.Contains(p.WorkOrderId)).ToList(null, new EagerLoadOptions().LoadWith(DispatchTask.ProcessProperty));
+            });              
             var taskIds = new List<double>();//热处理"的前置工序
             tasks.GroupBy(p => p.WorkOrderId).ForEach(g =>
             {

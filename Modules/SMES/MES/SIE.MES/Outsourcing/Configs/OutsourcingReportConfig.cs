@@ -18,7 +18,7 @@ namespace SIE.MES.Outsourcing.Configs
         /// <summary>
         /// 默认值
         /// </summary>
-        readonly OutsourcingReportConfigValue defaultValue = new OutsourcingReportConfigValue { IsInAutoReport = null };
+        readonly OutsourcingReportConfigValue defaultValue = new OutsourcingReportConfigValue { IsInAutoReport = null, IsValidOutsourcingReportLog = false, IsOutsourcingInsVaildReportLog = false };
 
         /// <summary>
         /// 默认值 
