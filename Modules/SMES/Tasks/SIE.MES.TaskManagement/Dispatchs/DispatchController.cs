@@ -1,4 +1,6 @@
 ﻿using Castle.Core.Logging;
+using DocumentFormat.OpenXml.EMMA;
+using DocumentFormat.OpenXml.Office2021.DocumentTasks;
 using SIE.Barcodes.WipBatchs;
 using SIE.Common;
 using SIE.Common.Configs;
@@ -102,10 +104,59 @@ namespace SIE.MES.TaskManagement.Dispatchs
         /// </summary>
         /// <param name="dispatchTask"></param>
         /// <returns></returns>
-        public virtual (int, int) MaxReportQtyAndMaxRemainQty(DispatchTask dispatchTask)
+        public virtual (decimal, decimal) MaxReportQtyAndMaxRemainQty(DispatchTask dispatchTask, SIE.MES.TaskManagement.Reports.Enums.SourceType? SourceType = null)
         {
             var MaxReportQty = this.MaxReportQty(dispatchTask);
-            var qty = (int)Math.Ceiling(MaxReportQty - dispatchTask.ReportQty - dispatchTask.SuspectQty);
+            //var q = MaxReportQty - dispatchTask.ReportQty - dispatchTask.SuspectQty;
+            decimal uebto = 0;
+            decimal.TryParse(dispatchTask.Uebto, out uebto);
+
+            EntityList<MtartZtflRelation> ztflRelations = RT.Service.Resolve<SmomBaseController>().GetMtartZtflRelations(new List<string>() { dispatchTask.Product.Mtart });
+            /*
+            1.如果只勾了制卡数量就是任务单的数量/工单计划数量*制卡数量-当前任务单已报工数量-当前任务单可疑品数；
+            2.都没勾或没维护就是取任务单的数量-当前任务单已报工数-当前任务单可疑品数
+            3.只要勾上了启用容差，就是取任务单数*（1+容差%）-当前任务单的已报工数-当前任务单的可疑品数；
+             */
+            decimal q = 0;
+            if (ztflRelations.All(p => (p.IsUebto == null || p.IsUebto == false) && (p.IsZtfl == null || p.IsZtfl == false)))
+            {
+                q = dispatchTask.DispatchQty - dispatchTask.ReportQty - dispatchTask.SuspectQty;
+            }
+            else if (ztflRelations.Any(p => p.IsUebto == true))
+            {
+                q = dispatchTask.DispatchQty * (1 + uebto / 100) - dispatchTask.ReportQty - dispatchTask.SuspectQty;
+            }
+            else
+            {
+                q = (dispatchTask.DispatchQty * (dispatchTask.Ztfl ?? 0)) / dispatchTask.WorkOrderPlanQty - dispatchTask.ReportQty - dispatchTask.SuspectQty;
+            }
+            //单位非PCS的不需要取整，单位为PCS的向上取整
+            var qty = string.Equals(dispatchTask.UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(q) : q;
+
+            var config = GetDispatchConfig();
+            //没有配置项就用原逻辑
+            if (config.IsValidScanQty == true)
+            {
+                //扫码报工逻辑要单独计算
+                if (IsReportScanRemainQty(dispatchTask, SourceType, ztflRelations))
+                {
+                    var pTasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByExpression(p => p.WorkOrderId == dispatchTask.WorkOrderId && p.ProcessId == dispatchTask.ProcessId, null);
+                    if (ztflRelations.Any(p => p.IsUebto == true))
+                    {
+                        //q = dispatchTask.DispatchQty * (1 + uebto / 100) - dispatchTask.ReportQty - dispatchTask.SuspectQty;
+                        q = (dispatchTask.WorkOrderPlanQty * (1 + uebto / 100) - pTasks.Sum(p => p.ReportQty + p.SuspectQty));
+                    }
+                    else
+                    {
+                        //q = (decimal)(dispatchTask.DispatchQty / dispatchTask.WorkOrderPlanQty * dispatchTask.Ztfl) - dispatchTask.ReportQty - dispatchTask.SuspectQty;
+                        q = ((dispatchTask.Ztfl ?? 0) - pTasks.Sum(p => p.ReportQty + p.SuspectQty));
+                    }
+                    qty = string.Equals(dispatchTask.UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(q) : q;
+
+                    q = (dispatchTask.ReportQty + qty + dispatchTask.SuspectQty);
+                    MaxReportQty = string.Equals(dispatchTask.UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(q) : q;
+                }
+            }
             if (qty < 0) qty = 0;
             return (MaxReportQty, qty);
         }
@@ -115,18 +166,19 @@ namespace SIE.MES.TaskManagement.Dispatchs
         /// </summary>
         /// <param name="dispatchTask"></param>
         /// <returns></returns>
-        public virtual int MaxReportQty(DispatchTask dispatchTask)
+        public virtual decimal MaxReportQty(DispatchTask dispatchTask)
         {
             //通过接口获取集团【是否启用制卡数量维护】数据
             EntityList<MtartZtflRelation> ztflRelations = RT.Service.Resolve<SmomBaseController>().GetMtartZtflRelations(new List<string>() { dispatchTask.ProductMtart });
 
-            var MaxReportQty = 0;
+            decimal MaxReportQty = 0;
             //1.当都没有勾上的时候，就直接用的任务单数量
             //2.当勾上了容差(不管有没有勾上制卡数量)，就直接用容差去算
             //3.其他情况(只剩单独勾上制卡数量的情况)，就用制卡数量去算
+            //单位非PCS的不需要取整，单位为PCS的向上取整
             if (ztflRelations.All(p => (p.IsUebto == null || p.IsUebto == false) && (p.IsZtfl == null || p.IsZtfl == false)))
             {
-                MaxReportQty = (int)dispatchTask.DispatchQty;
+                MaxReportQty = string.Equals(dispatchTask.UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(dispatchTask.DispatchQty) : dispatchTask.DispatchQty;
             }
             else if (ztflRelations.Any(p => p.IsUebto == true))
             {
@@ -134,7 +186,8 @@ namespace SIE.MES.TaskManagement.Dispatchs
             }
             else
             {
-                MaxReportQty = (int)Math.Ceiling((dispatchTask.DispatchQty * (dispatchTask.Ztfl ?? 0)) / dispatchTask.WorkOrderPlanQty);
+                var qty = (dispatchTask.DispatchQty * (dispatchTask.Ztfl ?? 0)) / dispatchTask.WorkOrderPlanQty;
+                MaxReportQty = string.Equals(dispatchTask.UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(qty) : qty;
             }
 
 
@@ -147,27 +200,85 @@ namespace SIE.MES.TaskManagement.Dispatchs
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dispatchTask"></param>
+        /// <param name="SourceType"></param>
+        /// <returns></returns>
+        public virtual bool IsReportScanRemainQty(DispatchTask dispatchTask, SIE.MES.TaskManagement.Reports.Enums.SourceType? SourceType = null, EntityList<MtartZtflRelation> ztflRelations = null)
+        {
+            /*扫码报工时
+ 在“是否启用制卡数量”功能中启用了制卡数量或容差时:
+1首先校验该工序的任务单数量之和是否=工单的计划数量
+1.1若等于，则启用校验：若有多个任务单时，存在唯一的任务单状态不是完工，其余任务单状态均为完工或关闭，则当前任务单的剩余可报工数为工单的制卡数量或计划数量*（1+容差%）-（当前工单当前工序的已报工数+可疑品数）;
+1.2若不等于(排程工序可能未排程完)，或存在多个任务单状态不是完工或关闭，则剩余可报工数按原逻辑即可
+ */
+
+            if (ztflRelations == null)
+                ztflRelations = RT.Service.Resolve<SmomBaseController>().GetMtartZtflRelations(new List<string>() { dispatchTask.Product.Mtart });
+            //获取工单下全部任务单
+            var allTasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByExpression(p => p.WorkOrderId == dispatchTask.WorkOrderId, null);
+            //获取相同工序任务单
+            var pTasks = allTasks.Where(p => p.ProcessId == dispatchTask.ProcessId).ToList();
+            //获取可操作的任务单
+            var canTasks = pTasks.Where(p => p.TaskStatus != DispatchTaskStatus.Finished && p.TaskStatus != DispatchTaskStatus.Closed).ToList();
+            //扫码报工类型，启用了制卡数量或者容差，相同工序全部任务单任务单=工单计划数，相同工序只剩当前任务单未完成
+            if (SourceType == SIE.MES.TaskManagement.Reports.Enums.SourceType.Report_Scan && ztflRelations.Any(p => p.IsUebto == true || p.IsZtfl == true) && pTasks.Sum(p => p.DispatchQty) == dispatchTask.WorkOrderPlanQty && canTasks.Count == 1 && canTasks.FirstOrDefault().Id == dispatchTask.Id)
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+        /// <summary>
         /// 获取工序最大剩余可报工数
         /// </summary>
         /// <param name="dispatchTask"></param>
         /// <returns></returns>
-        public virtual int GetProcessMaxRemainQty(DispatchTask dispatchTask)
+        public virtual decimal GetProcessMaxRemainQty(DispatchTask dispatchTask)
         {
-            var tasks = Query<DispatchTask>().Where(p => p.WorkOrderId == dispatchTask.WorkOrderId && p.ProcessId == dispatchTask.ProcessId && p.TaskStatus < DispatchTaskStatus.Closed).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var tasks = Query<DispatchTask>().Where(p => p.WorkOrderId == dispatchTask.WorkOrderId && p.ProcessId == dispatchTask.ProcessId && p.TaskStatus != DispatchTaskStatus.Closed).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             //通过接口获取集团【是否启用制卡数量维护】数据
             EntityList<MtartZtflRelation> ztflRelations = RT.Service.Resolve<SmomBaseController>().GetMtartZtflRelations(new List<string>() { dispatchTask.ProductMtart });
 
-            var MaxReportQty = 0;
+            decimal MaxReportQty = 0;
             var DispatchQty = tasks.Sum(p => p.DispatchQty);
             var ReportQty = tasks.Sum(p => p.ReportQty);
             var SuspectQty = tasks.Sum(p => p.SuspectQty);
-            //当启用了容差或者制卡数量为空、为0 的时候
-            if (ztflRelations.Any(p => p.Mtart == dispatchTask.ProductMtart && p.IsUebto == true) || dispatchTask.Ztfl == null || dispatchTask.Ztfl == 0)
-                MaxReportQty = tasks.Sum(p => p.MaxReportQty);
-            else
-                MaxReportQty = (int)Math.Ceiling((DispatchQty * (dispatchTask.Ztfl ?? 0)) / dispatchTask.WorkOrderPlanQty);
+            /*
+             1.如果只勾了制卡数量就是制卡数量-当前工序已报工数量-当前工序可疑品数；
+             2.都没勾或没维护就是取工单的计划数量-当前工序已报工数-当前工序可疑品数
+             3.只要勾上了启用容差，就是取工单计划数*（1+容差%）-当前工序的已报工数-当前工序的可疑品数；
+             */
+            if (ztflRelations.Count < 1 || ztflRelations.All(p => (p.IsUebto == null || p.IsUebto == false) && (p.IsZtfl == null || p.IsZtfl == false)))
+            {
+                //var pTasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByExpression(p => p.WorkOrderId == dispatchTask.WorkOrderId && p.ProcessId == dispatchTask.ProcessId, null);
+                MaxReportQty = dispatchTask.WorkOrderPlanQty;//- tasks.Sum(p => p.ReportQty - p.SuspectQty);
+            }
+            else if (ztflRelations.Any(p => p.IsUebto == true))
+            {
+                decimal uebto = 0;
+                decimal.TryParse(dispatchTask.Uebto, out uebto);
 
-            return (int)Math.Ceiling(MaxReportQty - ReportQty - SuspectQty);
+                MaxReportQty = dispatchTask.WorkOrderPlanQty * (1 + uebto / 100);//tasks.Sum(p => p.MaxReportQty);
+            }
+            else
+            {
+                var q = dispatchTask.Ztfl ?? 0;//(DispatchQty * (dispatchTask.Ztfl ?? 0)) / dispatchTask.WorkOrderPlanQty;
+                MaxReportQty = string.Equals(dispatchTask.UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(q) : q;
+            }
+
+            //if (ztflRelations.Any(p => p.Mtart == dispatchTask.ProductMtart && p.IsUebto == true) || dispatchTask.Ztfl == null || dispatchTask.Ztfl == 0)
+            //    MaxReportQty = tasks.Sum(p => p.MaxReportQty);
+            //else
+            //{
+            //    var q = (DispatchQty * (dispatchTask.Ztfl ?? 0)) / dispatchTask.WorkOrderPlanQty;
+            //    MaxReportQty = string.Equals(dispatchTask.UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(q) : q;
+            //}
+
+            var rq = MaxReportQty - ReportQty - SuspectQty;
+            return string.Equals(dispatchTask.UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(rq) : rq;
 
         }
 
@@ -1280,6 +1391,17 @@ namespace SIE.MES.TaskManagement.Dispatchs
         public virtual EntityList<DispatchTask> GetDispatchTaskList(DispatchTaskCriteria criteria)
         {
             #region 
+            //List<string> nos = new List<string>() { "XHD202512230015","XHD202512250004","XHD202512250008","XHD202512290008","XHD202512290011" };
+            //var list = Query<DispatchTask>().Where(p => p.TaskStatus == DispatchTaskStatus.Executing && p.Process.Code.Contains("%成品包装%")).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            //foreach (var l in list)
+            //{
+            //    try
+            //    {
+            //        SplitDispatchTask(l.Id, l.DispatchQty - l.ReportQty - l.SuspectQty, l.ResourceId.Value);
+            //    }
+            //    catch (Exception ex)
+            //    { }
+            //}
 
 //            var workOrders = Query<WorkOrder>()
 //                //.Exists<WorkOrderRoutingProcess>((x, y) => y.Where(p => p.WorkOrderId == x.Id && (p.StartProcess == null || p.EndProcess == null)))
@@ -1463,6 +1585,9 @@ namespace SIE.MES.TaskManagement.Dispatchs
                 var dispatchTaskIds = GetDispatchTaskIds(criteria.WorkOrderId.Value);
                 query.Where(p => dispatchTaskIds.Contains(p.Id));
             }
+
+            if (!criteria.WorkOrderNo.IsNullOrEmpty())
+                query.Where(p => p.WorkOrder.No.Contains(criteria.WorkOrderNo));
 
             if (criteria.PlanBeginTime.BeginValue.HasValue)
                 query.Where(p => p.PlanBeginTime >= criteria.PlanBeginTime.BeginValue);
@@ -2274,8 +2399,9 @@ namespace SIE.MES.TaskManagement.Dispatchs
         /// <param name="status">任务单状态列表</param>
         /// <param name="pagingInfo">分页</param>
         /// <param name="firstProcess">是否当前工单已生成的第一个工序的任务单(第一张任务单并不一定是首工序)</param>
+        /// <param name="type">类型(0:PDA手动报工)</param>
         /// <returns>派工任务单列表</returns>
-        public virtual EntityList<DispatchTask> GetDispatchTasksByEmployee(TaskQueryInfo info, List<DispatchTaskStatus> status, PagingInfo pagingInfo = null, bool? startProcess = null, bool? firstProcess = null)
+        public virtual EntityList<DispatchTask> GetDispatchTasksByEmployee(TaskQueryInfo info, List<DispatchTaskStatus> status, PagingInfo pagingInfo = null, bool? startProcess = null, bool? firstProcess = null, int? type = null)
         {
             List<int> intStatus = status.Select(p => (int)p).ToList();
             var query = DB.Query<DispatchTask>("T").Where(p => p.ReportMode == ReportMode.Manual)
@@ -2283,8 +2409,16 @@ namespace SIE.MES.TaskManagement.Dispatchs
             var query2 = DB.Query<DispatchTask>("T").Where(p => p.ReportMode == ReportMode.Manual)
             .LeftJoin<ProcessPty>("pty", (x, y) => x.ProcessId == y.ProcessId);//用于查询未派工 派工中数据
 
-            query = query.Where(p => p.SQL<bool>(new FormattedSql(" (( (((T.DISPATCH_QTY-T.REPORT_QTY-T.SUSPECT_QTY) > 0 and (pty.is_report_valid = 0 or pty.is_report_valid is null)) or pty.is_report_valid = 1 ) AND T.Task_Status != 60) OR T.Task_Status = 60)")));
-            query2 = query2.Where(p => p.SQL<bool>(new FormattedSql(" (( (((T.DISPATCH_QTY-T.REPORT_QTY-T.SUSPECT_QTY) > 0 and (pty.is_report_valid = 0 or pty.is_report_valid is null)) or pty.is_report_valid = 1 ) AND T.Task_Status != 60) OR T.Task_Status = 60)")));
+            if (type == 0 && startProcess == true)
+            {
+                query = query.Where(p => p.SQL<bool>(new FormattedSql(" (( (( (pty.is_report_valid = 0 or pty.is_report_valid is null)) or pty.is_report_valid = 1 ) AND T.Task_Status != 60) OR T.Task_Status = 60)")));
+                query2 = query2.Where(p => p.SQL<bool>(new FormattedSql(" (( (( (pty.is_report_valid = 0 or pty.is_report_valid is null)) or pty.is_report_valid = 1 ) AND T.Task_Status != 60) OR T.Task_Status = 60)")));
+            }
+            else
+            {
+                query = query.Where(p => p.SQL<bool>(new FormattedSql(" (( (((T.DISPATCH_QTY-T.REPORT_QTY-T.SUSPECT_QTY) > 0 and (pty.is_report_valid = 0 or pty.is_report_valid is null)) or pty.is_report_valid = 1 ) AND T.Task_Status != 60) OR T.Task_Status = 60)")));
+                query2 = query2.Where(p => p.SQL<bool>(new FormattedSql(" (( (((T.DISPATCH_QTY-T.REPORT_QTY-T.SUSPECT_QTY) > 0 and (pty.is_report_valid = 0 or pty.is_report_valid is null)) or pty.is_report_valid = 1 ) AND T.Task_Status != 60) OR T.Task_Status = 60)")));
+            }
             if (startProcess == true)
             {
                 query = query.Where(p => p.StartProcess == true);
@@ -2614,7 +2748,7 @@ namespace SIE.MES.TaskManagement.Dispatchs
         /// <returns></returns>
         public virtual EntityList<DispatchTask> GetDispatchTaskByWoPacking(double workOrderId, double resourceId)
         {
-            var task = Query<DispatchTask>().Where(p => p.WorkOrderId == workOrderId && p.Process.Code.Contains("%成品包装%") && p.ResourceId == resourceId && (p.TaskStatus == DispatchTaskStatus.Dispatched || p.TaskStatus == DispatchTaskStatus.Executing)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var task = Query<DispatchTask>().Where(p => p.WorkOrderId == workOrderId && p.Process.Code.Contains("%包装%") && p.ResourceId == resourceId && (p.TaskStatus == DispatchTaskStatus.Dispatched || p.TaskStatus == DispatchTaskStatus.Executing)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             return task;
         }
 
@@ -2630,7 +2764,7 @@ namespace SIE.MES.TaskManagement.Dispatchs
 
                 if (dispatchTask == null)
                 {
-                    return "工单【" + workOrder.No + "】,资源【" + resourceName + "】,工序【成品包装】在派工单中不存在!";
+                    return "工单【" + workOrder.No + "】,资源【" + resourceName + "】,工序【包装】在派工单中不存在!";
                 }
                 if (exceed == 1)
                 {
@@ -3315,6 +3449,8 @@ namespace SIE.MES.TaskManagement.Dispatchs
                     task.IsOutsourcing = true;
                 task.Boms.AddRange(boms);
                 var processPtys = RT.Service.Resolve<ProcessPtyController>().GetProcessPtysByProcessIds(new List<double>() { p.ProcessId.Value }, workOrder.ProductId);
+                if (processPtys.Count < 1)
+                    continue;
                 var kzItemCategory = RT.Service.Resolve<KzItemCategorysController>().GetKzItemCategorieByItemId(workOrder.ProductId);
                 var pps = new List<ProcessPty>();
                 if (kzItemCategory != null)
@@ -3536,62 +3672,74 @@ namespace SIE.MES.TaskManagement.Dispatchs
 
             foreach (var p in processList)
             {
-
-                //是否校验，同一个工序不能生成多个任务单
-                if (isValidProTask == true && tasks.Any(f => f.ProcessId == p.ProcessId))
-                    continue;
-
-                //这个工序必须要是在该工厂(当下库存组织下的)，如果该工序的工厂不是这个工厂的，就认定为委外的，需要去其他工厂(库存组织)创建任务单去生产
-                LayoutInfo info = null;
-                //防止旧数据，LayoutInfoId字段为空
-                if (p.LayoutInfoId != null)
-                    info = workOrder.LayoutInfoList.FirstOrDefault(item => item.Id == p.LayoutInfoId && item.Factory == invOrg.ExternalId);
-                else
-                    info = workOrder.LayoutInfoList.FirstOrDefault(item => item.ProcessCode == p.Process.Code && item.Factory == invOrg.ExternalId);
-
-                if (info == null)
-                    continue;
-                EntityList<ProcessPty> processPtys = RT.Service.Resolve<ProcessPtyController>().GetProcessPtysByProcessIds(new List<double>() { p.ProcessId.Value }, workOrder.ProductId);
-                var kzItemCategory = RT.Service.Resolve<KzItemCategorysController>().GetKzItemCategorieByItemId(workOrder.ProductId);
                 var pps = new List<ProcessPty>();
-                if (kzItemCategory != null)
+                //返工工单只有最后一道工序生成任务单，只有开始工序等于当前工单的时候，就是
+                if (workOrder.Type == WorkOrderType.Rework)
                 {
-                    pps = processPtys.Where(p => p.KzCategoryId == kzItemCategory.KzCategoryId).ToList();
+                    if (p.ProcessId != p.StartProcess)
+                    {
+                        continue;
+                    }
                 }
-                ////当找得到分类得时候，优先找到分类的，然后再找工序的
-                if (pps.Count == 0)
-                    pps = processPtys.Where(p => p.KzCategoryId == null).ToList();
-
-                //当需要校验【维护工序属性】的时候，当工序属性中派工点为是且排程点为否的工序任务单，才能生成派工单，这个只有在特定场景才会触发
-                //当工单为返工时，工艺路线中所有的工序不管有没有勾上派工点，都要自动生成任务单；
-                if (isProcessPty == true && workOrder.Type != WorkOrderType.Rework)
+                else
                 {
-                    var processPty = pps.FirstOrDefault(f => f.ProcessId == p.ProcessId);
-                    if (processPty == null)
+                    //是否校验，同一个工序不能生成多个任务单
+                    if (isValidProTask == true && tasks.Any(f => f.ProcessId == p.ProcessId))
                         continue;
-                    //工序属性中派工点为是且排程点为否的工序任务单，才能生成派工单
-                    if (!(processPty.DispatchWork == true && processPty.Scheduling == false))
-                        continue;
-                    //当工艺路线的控制码为PP04时，不用生成任务单，不管工序属性有没有勾选派工点；
-                    if (info.Steus == "PP04")
-                        continue;
-                    //1.当工序为非PP01，只要勾上了工序属性中的派工点，都要生成任务单；
-                    if (info.Steus != "PP01" && processPty.DispatchWork == true)
-                    {
 
-                    }
-                    //2.当工序为PP01，且是首工序，且勾上了派工点，就要生成任务单；
-                    else if (info.Steus == "PP01" && firstRoutingProcess.Id == p.Id && processPty.DispatchWork == true)
-                    {
-
-                    }
-                    //3.当工序为PP01且非首工序，则必须勾上派工点和非首工序生成任务单，才生成任务单
-                    else if (info.Steus == "PP01" && firstRoutingProcess.Id != p.Id && processPty.DispatchWork == true && processPty.IsUnFirstGenerateTask == true)
-                    { }
+                    //这个工序必须要是在该工厂(当下库存组织下的)，如果该工序的工厂不是这个工厂的，就认定为委外的，需要去其他工厂(库存组织)创建任务单去生产
+                    LayoutInfo info = null;
+                    //防止旧数据，LayoutInfoId字段为空
+                    if (p.LayoutInfoId != null)
+                        info = workOrder.LayoutInfoList.FirstOrDefault(item => item.Id == p.LayoutInfoId && item.Factory == invOrg.ExternalId);
                     else
-                        continue;
-                }
+                        info = workOrder.LayoutInfoList.FirstOrDefault(item => item.ProcessCode == p.Process.Code && item.Factory == invOrg.ExternalId);
 
+                    if (info == null)
+                        continue;
+                    EntityList<ProcessPty> processPtys = RT.Service.Resolve<ProcessPtyController>().GetProcessPtysByProcessIds(new List<double>() { p.ProcessId.Value }, workOrder.ProductId);
+                    if (processPtys.Count < 1)
+                        continue;
+
+                    var kzItemCategory = RT.Service.Resolve<KzItemCategorysController>().GetKzItemCategorieByItemId(workOrder.ProductId);
+                    if (kzItemCategory != null)
+                    {
+                        pps = processPtys.Where(p => p.KzCategoryId == kzItemCategory.KzCategoryId).ToList();
+                    }
+                    ////当找得到分类得时候，优先找到分类的，然后再找工序的
+                    if (pps.Count == 0)
+                        pps = processPtys.Where(p => p.KzCategoryId == null).ToList();
+
+                    //当需要校验【维护工序属性】的时候，当工序属性中派工点为是且排程点为否的工序任务单，才能生成派工单，这个只有在特定场景才会触发
+                    //当工单为返工时，工艺路线中所有的工序不管有没有勾上派工点，都要自动生成任务单；
+                    if (isProcessPty == true && workOrder.Type != WorkOrderType.Rework)
+                    {
+                        var processPty = pps.FirstOrDefault(f => f.ProcessId == p.ProcessId);
+                        if (processPty == null)
+                            continue;
+                        //工序属性中派工点为是且排程点为否的工序任务单，才能生成派工单
+                        if (!(processPty.DispatchWork == true && processPty.Scheduling == false))
+                            continue;
+                        //当工艺路线的控制码为PP04时，不用生成任务单，不管工序属性有没有勾选派工点；
+                        if (info.Steus == "PP04")
+                            continue;
+                        //1.当工序为非PP01，只要勾上了工序属性中的派工点，都要生成任务单；
+                        if (info.Steus != "PP01" && processPty.DispatchWork == true)
+                        {
+
+                        }
+                        //2.当工序为PP01，且是首工序，且勾上了派工点，就要生成任务单；
+                        else if (info.Steus == "PP01" && firstRoutingProcess.Id == p.Id && processPty.DispatchWork == true)
+                        {
+
+                        }
+                        //3.当工序为PP01且非首工序，则必须勾上派工点和非首工序生成任务单，才生成任务单
+                        else if (info.Steus == "PP01" && firstRoutingProcess.Id != p.Id && processPty.DispatchWork == true && processPty.IsUnFirstGenerateTask == true)
+                        { }
+                        else
+                            continue;
+                    }
+                }
 
                 var taskBomList = new EntityList<TaskProcessBom>();
                 workOrder.ProcessBomList.Where(f => f.ProcessId == p.ProcessId).ForEach(f =>

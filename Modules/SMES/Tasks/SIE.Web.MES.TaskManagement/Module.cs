@@ -160,7 +160,7 @@ namespace SIE.Web.MES.TaskManagement
              }
               , new WebModuleMeta()
               {
-                  EntityType = typeof(ScrapDetailViewModel),
+                  EntityType = typeof(ScrapDetail),
                   Label = "报废明细".L10N()
               }
              );

@@ -211,6 +211,17 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
             kZReportHelper.ShowWeighing();
         }
 
+        /// <summary>
+        /// 任务列表按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void taskList_Click(object sender, RoutedEventArgs e)
+        {
+            //任务列表
+            kZReportHelper.ShowViewTaskList(model.ResourceId,model.ProcessId);
+        }
+
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             close();

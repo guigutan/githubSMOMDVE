@@ -341,5 +341,38 @@ namespace SIE.MES.ProcessProperty
         {
             return Query<Process>().ToList();
         }
+
+
+        /// <summary>
+        /// 获取排程点工序
+        /// </summary>
+        /// <returns></returns>
+        public virtual EntityList<Process> GetProcess(string keynowe, PagingInfo pagingInfo)
+        {
+            return Query<Process>().LeftJoin<ProcessPty>((x,y)=>x.Id == y.ProcessId)
+                .Where<ProcessPty>((x, y)=>y.Scheduling)
+                .WhereIf(!keynowe.IsNullOrEmpty(),p=>p.Code.Contains(keynowe)||p.Name.Contains(keynowe))
+                .ToList(pagingInfo);
+        }
+
+        /// <summary>
+        /// 获取排程点工序
+        /// </summary>
+        /// <returns></returns>
+        public virtual ProcessPty GetProcessPtyByProcessId(double processId)
+        {
+            using (SIE.DataAuth.DataAuths.LoadAll())
+            {
+                return Query<ProcessPty>().Where(p => p.ProcessId == processId && p.Scheduling == true).FirstOrDefault();
+            }
+        }
+
+        public virtual List<double> GetProcessIds()
+        {
+            using (SIE.DataAuth.DataAuths.LoadAll())
+            {
+                return Query<ProcessPty>().Where(p => p.Scheduling == true).Select(p=>p.ProcessId).ToList<double>().ToList();
+            }
+        }
     }
 }

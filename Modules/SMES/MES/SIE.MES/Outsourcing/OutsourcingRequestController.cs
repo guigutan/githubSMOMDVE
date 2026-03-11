@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using Org.BouncyCastle.Asn1.Ocsp;
 using SIE.Barcodes.WipBatchs;
+using SIE.Resources.Enterprises;
 
 namespace SIE.MES.Outsourcing
 {
@@ -97,6 +98,8 @@ namespace SIE.MES.Outsourcing
             {
                 query.Where(m => criteria.WorkShopId == m.WorkOrder.WorkShopId);
             }
+            if (!criteria.WorkShopCode.IsNullOrEmpty())
+                query.Exists<Enterprise>((a, b) => b.Where(p => p.Id == a.WorkOrder.WorkShopId).WhereIf(criteria.WorkShopCode.IsNotEmpty(), p => p.Code == criteria.WorkShopCode));
             if (criteria.WipResourceId.HasValue)
             {
                 query.Where(m => criteria.WipResourceId == m.WorkOrder.ResourceId);

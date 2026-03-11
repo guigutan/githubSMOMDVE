@@ -32,6 +32,7 @@ using SIE.MES.WorkOrders;
 using SIE.MES.WorkReportPlans;
 using SIE.Packages.ItemLabels;
 using SIE.Resources.Employees;
+using SIE.Resources.Enterprises;
 using SIE.Resources.ShiftTypes;
 using SIE.Resources.WipResources;
 using SIE.Tech.Processs;
@@ -2554,7 +2555,7 @@ namespace SIE.MES.TaskManagement.Reports
                 var sumRemainingQty = feedingRecords.Where(p => p.ItemId == bom.ItemId).Sum(p => p.RemainingQty);
                 if (deductionQty > sumRemainingQty)
                 {
-                    errors.Add("物料[{0}]上料量数不足".L10nFormat(bom.ItemCode));
+                    errors.Add("物料[{0}]上料数量不足".L10nFormat(bom.ItemCode));
                 }
                 if (errors.Count > 0)
                     continue;
@@ -2616,7 +2617,7 @@ namespace SIE.MES.TaskManagement.Reports
             List<ReportTaskInfo> synTypeTaskInfo = taskInfo.SyntypeTaskInfos;
 
             ValidateTask(task, taskInfo);
-            ValidateReportQty(mainRecord, task, isReport, taskInfo.IsSuspect);
+            ValidateReportQty(mainRecord, task, isReport, taskInfo.IsSuspect, taskInfo.SourceType);
 
             EntityList<ReportRecord> records = new EntityList<ReportRecord>();
             records.Add(mainRecord);
@@ -3088,8 +3089,30 @@ namespace SIE.MES.TaskManagement.Reports
             //if(isFinish)
             #endregion
             //分两种情况完成任务单，是否满足dispatchTask.ReportQty + dispatchTask.SuspectQty >= dispatchTask.DispatchQty 或者满足dispatchTask.ReportQty + dispatchTask.SuspectQty == dispatchTask.DispatchQty * (1 + Uebto)
-            if ((IsTaskFinish == true && dispatchTask.ReportQty + dispatchTask.SuspectQty >= dispatchTask.DispatchQty) || (IsTaskFinish == false && dispatchTask.ReportQty + dispatchTask.SuspectQty == maxReportQty))
+            bool isFinish = false;
+            var config = RT.Service.Resolve<DispatchController>().GetDispatchConfig();
+            //没有配置项就用原逻辑
+            if (config.IsValidScanQty == true)
+            {
+                if (RT.Service.Resolve<DispatchController>().IsReportScanRemainQty(dispatchTask, SourceType))
+                {
+                    var allTasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByExpression(p => p.WorkOrderId == dispatchTask.WorkOrderId, null);
+                    var lastPTasks = allTasks.Where(p => p.Seq < dispatchTask.Seq).GroupBy(p => p.Seq).ToDictionary(p => p.Key, p => p.ToList()).OrderByDescending(p => p.Key).FirstOrDefault().Value;
+                    var pTasks = allTasks.Where(p => p.ProcessId == dispatchTask.ProcessId).ToList();
+                    //当 前工序的任务单状态全部为完工或关闭且可疑品为0时
+                    if (lastPTasks != null && lastPTasks.All(p => (p.TaskStatus == DispatchTaskStatus.Finished || p.TaskStatus == DispatchTaskStatus.Closed) && p.SuspectQty == 0))
+                    {
+                        //当前任务单的（已报工数+可疑品数）+当前工序其余已完工任务单的（已报工数+可疑品数）>=前一工序的合格数时，将当前任务单的状态更新为完工；反之不完工
+                        isFinish = pTasks.Sum(p => p.ReportQty + p.SuspectQty) >= lastPTasks.Sum(p => p.OkQty);
+                    }
+                }
+            }
+            else
+            {
+                isFinish = (IsTaskFinish == true && dispatchTask.ReportQty + dispatchTask.SuspectQty >= dispatchTask.DispatchQty) || (IsTaskFinish == false && dispatchTask.ReportQty + dispatchTask.SuspectQty == maxReportQty);
+            }
 
+            if (isFinish)
             {
                 if (dispatchTask.TaskStatus != DispatchTaskStatus.Finished)
                 {
@@ -3238,7 +3261,7 @@ namespace SIE.MES.TaskManagement.Reports
         /// <param name="task">任务单</param>
         /// <param name="isReport">是否报工</param>
         /// <param name="isSuspect">是否可疑品报工</param>
-        private void ValidateReportQty(ReportRecord reportRecord, DispatchTask task, bool isReport, bool isSuspect = false)
+        private void ValidateReportQty(ReportRecord reportRecord, DispatchTask task, bool isReport, bool isSuspect = false, SIE.MES.TaskManagement.Reports.Enums.SourceType? SourceType = null)
         {
             if (reportRecord.SuspectQty == 0)
             {
@@ -3257,7 +3280,7 @@ namespace SIE.MES.TaskManagement.Reports
                 //decimal Uebto = 0;
                 //decimal.TryParse(task.WorkOrder.Uebto, out Uebto);
 
-                var maxReportQty = RT.Service.Resolve<DispatchController>().MaxReportQty(task);
+                var maxReportQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(task, SourceType).Item1;
 
                 if (reportRecord.OkQty + reportRecord.NgQty + task.SuspectQty + task.ReportQty > maxReportQty)
                 {
@@ -3992,6 +4015,30 @@ namespace SIE.MES.TaskManagement.Reports
         }
 
         /// <summary>
+        /// 根据工序获取报工记录
+        /// </summary>
+        /// <param name="ProcessId"></param>
+        /// <returns></returns>
+        public virtual EntityList<ReportRecordExamine> GetReportRecordExaminesByProcessId(double ProcessId)
+        {
+            var list = Query<ReportRecordExamine>().Where(p => p.ProcessId == ProcessId).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            return list;
+        }
+
+        /// <summary>
+        /// 根据工单Id获取报工记录
+        /// </summary>
+        /// <param name="woIds"></param>
+        /// <returns></returns>
+        public virtual EntityList<ReportRecordExamine> GetReportRecordExaminesByWoNos(List<string> woNos)
+        {
+            return woNos.SplitContains(nos =>
+            {
+                return Query<ReportRecordExamine>().Where(p => nos.Contains(p.Wo)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+        }
+
+        /// <summary>
         /// 查询报工记录审核
         /// </summary>
         /// <param name="criteria"></param>
@@ -4023,10 +4070,12 @@ namespace SIE.MES.TaskManagement.Reports
             {
                 query.Where(p => p.ResourceId == criteria.ResourceId);
             }
-            if (criteria.WorkShopId != 0 && criteria.WorkShopId != null)
-            {
-                query.Where(p => p.WorkShopId == criteria.WorkShopId);
-            }
+            //if (criteria.WorkShopId != 0 && criteria.WorkShopId != null)
+            //{
+            //    query.Where(p => p.WorkShopId == criteria.WorkShopId);
+            //}
+            if (!criteria.WorkShopCode.IsNullOrEmpty())
+                query.Exists<Enterprise>((a, b) => b.Where(p => p.Id == a.WorkShopId).WhereIf(criteria.WorkShopCode.IsNotEmpty(), p => p.Code == criteria.WorkShopCode));
             if (criteria.InspectionStatus.HasValue)
             {
                 query.Where(p => p.InspectionStatus == criteria.InspectionStatus.Value);

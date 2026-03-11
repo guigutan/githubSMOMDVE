@@ -777,6 +777,22 @@ namespace SIE.MES.TaskManagement.Reports
         }
         #endregion
 
+        #region 产品编码 ProductCode
+        /// <summary>
+        /// 产品编码
+        /// </summary>
+        [Label("产品编码")]
+        public static readonly Property<string> ProductCodeProperty = P<ReportRecordExamine>.RegisterView(e => e.ProductCode, p => p.Product.Code);
+
+        /// <summary>
+        /// 产品编码
+        /// </summary>
+        public string ProductCode
+        {
+            get { return this.GetProperty(ProductCodeProperty); }
+        }
+        #endregion
+
         #region 资源名称 ResourceName
         /// <summary>
         /// 资源名称
@@ -790,6 +806,38 @@ namespace SIE.MES.TaskManagement.Reports
         public string ResourceName
         {
             get { return this.GetProperty(ResourceNameProperty); }
+        }
+        #endregion
+
+        #region 资源编码 ResourceCode
+        /// <summary>
+        /// 资源编码
+        /// </summary>
+        [Label("资源编码")]
+        public static readonly Property<string> ResourceCodeProperty = P<ReportRecordExamine>.RegisterView(e => e.ResourceCode, p => p.Resource.Code);
+
+        /// <summary>
+        /// 资源编码
+        /// </summary>
+        public string ResourceCode
+        {
+            get { return this.GetProperty(ResourceCodeProperty); }
+        }
+        #endregion
+
+        #region 车间编码 WorkShopCode
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        [Label("车间编码")]
+        public static readonly Property<string> WorkShopCodeProperty = P<ReportRecordExamine>.RegisterView(e => e.WorkShopCode, p => p.WorkShop.Code);
+
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        public string WorkShopCode
+        {
+            get { return this.GetProperty(WorkShopCodeProperty); }
         }
         #endregion
 

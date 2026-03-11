@@ -67,6 +67,10 @@ namespace SIE.Web.KZ.Base
                 EntityType = typeof(InfNcDataLog)
             }, new WebModuleMeta()
             {
+                Label = "SAP工单接口查询与重传",
+                EntityType = typeof(InfNcDataLogSO)
+            }, new WebModuleMeta()
+            {
                 Label = "GUID与工厂关系",
                 EntityType = typeof(GuidFactoryRelastion)
             }, new WebModuleMeta()

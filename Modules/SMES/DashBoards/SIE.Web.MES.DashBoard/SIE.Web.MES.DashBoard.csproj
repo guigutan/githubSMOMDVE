@@ -31,6 +31,8 @@
     <None Remove="Common\ReportBaseController.js" />
     <None Remove="Common\ShopRateChart.js" />
     <None Remove="KzBoard\RegionBoards\Commands\SelectResourceCommand.js" />
+    <None Remove="ProductionProcesss\Commands\ProductionProcessDLTemplateCommand.js" />
+    <None Remove="ProductionProcesss\Commands\ProductionProcessImportCommand.js" />
     <None Remove="Reports\Common\BarBaseController.js" />
     <None Remove="Reports\Common\LineBaseController.js" />
     <None Remove="Reports\Common\PivotController.js" />
@@ -74,6 +76,8 @@
     <EmbeddedResource Include="Common\ReportBaseController.js" />
     <EmbeddedResource Include="Common\ShopRateChart.js" />
     <EmbeddedResource Include="KzBoard\RegionBoards\Commands\SelectResourceCommand.js" />
+    <EmbeddedResource Include="ProductionProcesss\Commands\ProductionProcessDLTemplateCommand.js" />
+    <EmbeddedResource Include="ProductionProcesss\Commands\ProductionProcessImportCommand.js" />
     <EmbeddedResource Include="Reports\Common\BarBaseController.js" />
     <EmbeddedResource Include="Reports\Common\LineBaseController.js" />
     <EmbeddedResource Include="Reports\Common\PivotController.js" />
@@ -109,5 +113,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="SIE.Web.Common" Version="10.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProductionLineProcesss\Commands\" />
   </ItemGroup>
 </Project>

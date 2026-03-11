@@ -579,8 +579,7 @@ namespace SIE.MES.Outsourcing
         [ApiService("扫描工单或需求单号")]
         [return: ApiReturn("返回工单的委外需求单信息")]
         public virtual List<OutsourcingRequestInfo> Scan([ApiParameter("查询关键字")] string keyword, [ApiParameter("是否是入库")] bool isInstock = false)
-        {            
-
+        {        
             if (keyword.IsNullOrEmpty())
             {
                 throw new ValidationException("请扫描物料标签!".L10nFormat(keyword));
@@ -629,6 +628,8 @@ namespace SIE.MES.Outsourcing
             }
             return requestInfos;
         }
+
+
         [ApiService("扫描批次号或SN")]
         [return: ApiReturn("返回工单的委外可出库信息")]
         public virtual List<RequestDetailInfo> GetBarcodeInfo([ApiParameter("查询关键字")] string keyword, [ApiParameter("需求单Id")] double outsourcingId)
@@ -851,6 +852,11 @@ namespace SIE.MES.Outsourcing
             {
                 throw new ValidationException("标签已经扫过，不能重复扫描".L10N());
             }
+            var config = GetOutsourcingReportConfig();
+            if (!outsourcingRequest.OutsourcingReportLogList.Any(p => p.LotNo == keyword||p.SN == keyword) && config.IsOutsourcingInsVaildReportLog==true)
+            {
+                throw new ValidationException("标签{0}委外工序没有报工，不允许扫描".L10nFormat(keyword));
+            }
             var outbound = outsourcingRequest.ProcessingOutsourcingOutboundList.FirstOrDefault(p => p.LotNo == keyword);
             if (outbound == null)
             {
@@ -996,10 +1002,11 @@ namespace SIE.MES.Outsourcing
 
                 if (config != null && config.IsInAutoReport == true)
                 {
-                    //创建报工记录
-                    CreateLogs(outsourcingRequest, inStocks);
                     //入库上传报工
                     ProcessingInStockReport(inStocks, outsourcingRequest, curTime);
+
+                    //创建报工记录(这个要放在上传报工方法之后，否则会影响上传SAP报工)
+                    CreateLogs(outsourcingRequest, inStocks);
 
                     //当配置项启用了委外收货自动报工，且委外收货报工的工序为当前工单的最后一个工序，那么在委外收货时需要将工序标签生成到物料标签里面。（生成的物料标签数据参考末工序报工时生成的数据）
                     //最后一道工序
@@ -1027,9 +1034,14 @@ namespace SIE.MES.Outsourcing
         {
             EntityList<OutsourcingReportLog> logs = new EntityList<OutsourcingReportLog>();
             var invOrg = RT.Service.Resolve<InvOrgController>().GetByCode(RT.InvOrg.Value);
+            var sns = inStocks.Select(p => p.SN).Distinct().ToList();
+            //var outsourcingReportLogList = Query<OutsourcingReportLog>().Where(p => sns.Contains(p.SN)).ToList();
+
             foreach (var inStock in inStocks)
             {
-                OutsourcingReportLog log = new OutsourcingReportLog();
+                OutsourcingReportLog log = null;/* outsourcingReportLogList.FirstOrDefault(p => p.SN == inStock.SN);*/
+                if (log == null)
+                    log = new OutsourcingReportLog();
                 log.OutsourcingRequestId = outsourcingRequest.Id;
                 log.SN = inStock.SN;
                 log.LotNo = inStock.SN;

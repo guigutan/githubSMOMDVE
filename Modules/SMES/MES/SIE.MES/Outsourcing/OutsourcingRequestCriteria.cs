@@ -379,6 +379,23 @@ namespace SIE.MES.Outsourcing
         }
         #endregion
 
+        #region 车间编码 WorkShopCode
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        [Label("车间编码")]
+        public static readonly Property<string> WorkShopCodeProperty = P<OutsourcingRequestCriteria>.Register(e => e.WorkShopCode);
+
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        public string WorkShopCode
+        {
+            get { return this.GetProperty(WorkShopCodeProperty); }
+            set { this.SetProperty(WorkShopCodeProperty, value); }
+        }
+        #endregion
+
         protected override EntityList Fetch()
         {
             return RT.Service.Resolve<OutsourcingRequestController>().Fetch(this);

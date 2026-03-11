@@ -22,6 +22,9 @@
                 <StackPanel  Grid.Column="0" Orientation="Horizontal"  Margin="20" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <Label Content="选择资源工位:" FontSize="20" Margin="0 0" HorizontalAlignment="Left"/>
                 </StackPanel>
+                <StackPanel  Grid.Column="0" Orientation="Horizontal"  Margin="160,20" HorizontalAlignment="Left" VerticalAlignment="Center" Width="302" >
+                    <TextBox x:Name="scanTxt" Text=""  IsReadOnly ="False"  Focusable="True" BorderThickness="0.5"  VerticalContentAlignment="Center" Height="40" FontSize="16" Background="LightGreen" Width="300" KeyDown="scanTxt_KeyDown" Cursor="ScrollNW"/>
+                </StackPanel>
                 <StackPanel  Grid.Column="0" Orientation="Horizontal"  Margin="20" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <CheckBox x:Name="cbShowAll" Content="显示全部资源" FontSize="14" HorizontalAlignment="Right" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
                 </StackPanel>

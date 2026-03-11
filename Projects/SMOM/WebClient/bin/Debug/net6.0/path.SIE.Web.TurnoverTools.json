@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\TurnoverTools",
   "SIE.Web.TurnoverTools.TurnoverTools.Commands.CancelModelDedicatedCommand.js": "SIE.Web.TurnoverTools/TurnoverTools/Commands/CancelModelDedicatedCommand.js",
   "SIE.Web.TurnoverTools.TurnoverTools.Commands.SelTurnoverToolModelInProductCommand.js": "SIE.Web.TurnoverTools/TurnoverTools/Commands/SelTurnoverToolModelInProductCommand.js",
   "SIE.Web.TurnoverTools.TurnoverTools.Commands.SetModelDedicatedCommand.js": "SIE.Web.TurnoverTools/TurnoverTools/Commands/SetModelDedicatedCommand.js",

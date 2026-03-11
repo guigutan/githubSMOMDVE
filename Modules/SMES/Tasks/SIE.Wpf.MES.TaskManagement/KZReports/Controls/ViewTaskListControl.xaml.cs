@@ -5,6 +5,7 @@ using SIE.Items;
 using SIE.MES.TaskManagement.Dispatchs;
 using SIE.MES.TaskManagement.ForWinform;
 using SIE.MES.TaskManagement.Models;
+using SIE.MES.TaskManagement.Reports;
 using SIE.Threading;
 using SIE.View;
 using System;
@@ -47,7 +48,7 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
         /// 
         /// </summary>
         /// <param name="_model"></param>
-        public ViewTaskListControl(KZTaskReportViewModelBase _model)
+        public ViewTaskListControl(KZTaskReportViewModelBase _model,bool isVisible=false)
         {
             InitializeComponent();
             this.model = _model;
@@ -55,6 +56,8 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
             kZReportHelper = model.kZReportHelper;
             this.Loaded += TaskListControl_Loaded;
             this.Unloaded -= TaskListControl_Loaded;
+            this.btnPause.Visibility = isVisible ? Visibility.Visible:Visibility.Hidden;
+            this.btnExecute.Visibility = isVisible ? Visibility.Visible : Visibility.Hidden;
         }
 
         private void TaskListControl_Loaded(object sender, RoutedEventArgs e)
@@ -136,6 +139,45 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             close();
+        }
+
+        /// <summary>
+        /// 暂停
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+            var task = this.dataGridRecord.SelectedItem as DispatchTask;
+            if (task.TaskStatus != DispatchTaskStatus.Executing)
+            {
+                MessageBox.Show("当前任务单不是执行中状态，无需暂停".L10N());
+                return;
+            }
+            var dispatchTask = RT.Service.Resolve<ReportController>().PauseIOTWorkTask(task, model.Resource);
+            task.LoadProperty(DispatchTask.TaskStatusProperty, dispatchTask.TaskStatus);
+            var view = CollectionViewSource.GetDefaultView(model.DispatchTaskList);
+            view.Refresh();
+        }
+
+        /// <summary>
+        /// 执行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExecute_Click(object sender, RoutedEventArgs e)
+        {
+            var task = this.dataGridRecord.SelectedItem as DispatchTask;
+            if (task.TaskStatus != DispatchTaskStatus.Pause)
+            {
+                MessageBox.Show("当前任务单不是暂停状态，无法执行".L10N());
+                return;
+            }
+            var dispatchTask = RT.Service.Resolve<ReportController>().StartIOTWorkTask(task, model.Resource, false);
+            task.LoadProperty(DispatchTask.TaskStatusProperty, dispatchTask?.TaskStatus);
+
+            var view = CollectionViewSource.GetDefaultView(model.DispatchTaskList);
+            view.Refresh();
         }
 
 

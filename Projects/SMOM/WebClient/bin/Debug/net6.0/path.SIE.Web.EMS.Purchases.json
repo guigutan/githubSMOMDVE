@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
   "SIE.Web.EMS.Purchases.EquipmentSetups.Commands.AddApplyDetailCommand.js": "SIE.Web.EMS.Purchases/EquipmentSetups/Commands/AddApplyDetailCommand.js",
   "SIE.Web.EMS.Purchases.EquipmentSetups.Commands.AddSetupPlanCommand.js": "SIE.Web.EMS.Purchases/EquipmentSetups/Commands/AddSetupPlanCommand.js",
   "SIE.Web.EMS.Purchases.EquipmentSetups.Commands.AddSetupSparePartCommand.js": "SIE.Web.EMS.Purchases/EquipmentSetups/Commands/AddSetupSparePartCommand.js",

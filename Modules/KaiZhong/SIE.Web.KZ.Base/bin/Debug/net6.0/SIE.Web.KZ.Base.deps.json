@@ -9,6 +9,7 @@
       "SIE.Web.KZ.Base/1.0.0": {
         "dependencies": {
           "SIE.KZ.Base": "1.0.0",
+          "SIE.KZ.Group": "1.0.0",
           "SIE.Web.Common": "10.0.5"
         },
         "runtime": {
@@ -2816,6 +2817,18 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "SIE.KZ.Group/1.0.0": {
+        "dependencies": {
+          "SIE.EventMessages": "1.0.0",
+          "SIE.KZ.Base": "1.0.0"
+        },
+        "runtime": {
+          "SIE.KZ.Group.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -4759,6 +4772,11 @@
       "sha512": ""
     },
     "SIE.KZ.Base/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SIE.KZ.Group/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

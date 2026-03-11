@@ -510,6 +510,22 @@ namespace SIE.MES.TaskManagement.SuspectProductLabels
         }
         #endregion
 
+        #region 工单号 WorkOrderNo
+        /// <summary>
+        /// 工单号
+        /// </summary>
+        [Label("工单号")]
+        public static readonly Property<string> WorkOrderNoProperty = P<SuspectProductLabel>.RegisterView(e => e.WorkOrderNo, p => p.WorkOrder.No);
+
+        /// <summary>
+        /// 工单号
+        /// </summary>
+        public string WorkOrderNo
+        {
+            get { return this.GetProperty(WorkOrderNoProperty); }
+        }
+        #endregion
+
         #endregion
     }
 

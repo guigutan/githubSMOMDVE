@@ -303,7 +303,16 @@ namespace SIE.Wpf.MES.WIP.SuspectReport
                     throw new ValidationException("标签[{0}]对应的工单不存在".L10nFormat(Barcode));
 
                 var tasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByWorkOrderIds(new List<double>() { woId });
-                var taskList = tasks.Where(p => p.WorkOrderId == woId && (ProcessList.Contains(p.ProcessCode) || ProcessList.Contains(p.ProcessName)) /*&& (p.TaskStatus == DispatchTaskStatus.Executing || p.TaskStatus == DispatchTaskStatus.Dispatched)*/).OrderBy(p => p.PlanBeginTime).ToList();
+
+                var taskList = new List<DispatchTask>();
+                if (process.Contains("包装"))
+                {
+                    taskList = tasks.Where(p => p.WorkOrderId == woId && (p.ProcessCode.Contains("包装") || p.ProcessName.Contains("包装"))).OrderBy(p => p.PlanBeginTime).ToList();
+                }
+                else
+                {
+                    taskList = tasks.Where(p => p.WorkOrderId == woId && (ProcessList.Contains(p.ProcessCode) || ProcessList.Contains(p.ProcessName)) /*&& (p.TaskStatus == DispatchTaskStatus.Executing || p.TaskStatus == DispatchTaskStatus.Dispatched)*/).OrderBy(p => p.PlanBeginTime).ToList();
+                }
                 if (KZWorkstation.ResourceId > 0)
                     taskList = taskList.Where(p => p.ResourceId == KZWorkstation.ResourceId).ToList();
                 if (taskList.Count == 0)

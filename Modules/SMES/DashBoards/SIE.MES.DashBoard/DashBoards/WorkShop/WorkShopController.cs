@@ -1,4 +1,5 @@
 ﻿using SIE.Domain;
+using SIE.MES.DashBoard.DashBoards.WorkShop;
 using SIE.MES.WIP.Products;
 using SIE.MES.WorkOrders;
 using SIE.Rbac.InvOrgs;
@@ -14,6 +15,17 @@ namespace SIE.MES.DashBoard.DashBoards.ProductionLine
     /// </summary>
     public partial class WorkShopController : DomainController
     {
+        /// <summary>
+        /// 根据工厂获取安全生产天数
+        /// </summary>
+        /// <param name="factory"></param>
+        /// <returns></returns>
+        public virtual WorkSafety GetWorkSafetyByFactory(string factory)
+        {
+            WorkSafety workSafety = Query<WorkSafety>().Where(p => p.Factory.ExternalId == factory).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
+            return workSafety;
+        }
+
         /// <summary>
         /// 获取工作小时数
         /// </summary>

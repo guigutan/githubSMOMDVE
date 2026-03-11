@@ -288,14 +288,27 @@ namespace SIE.Andon.Andons
             //获取当前产线下的安灯区域
             var resData = Query<WipResource>().Where(p => p.Id == andonManageInfo.WipResourceId).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
             //根据安灯明细获取A1的人员
-            var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
-            if (andonDesc == null)
+            //var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
+            //if (andonDesc == null)
+            //{
+            //    throw new ValidationException("安灯维护下的安灯清单,跟当前安灯信息维护不一致!".L10N());
+            //}
+
+            var responseDtl = andon.AndonResponseDetailList.Where(p => p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonseepLevel).FirstOrDefault();
+            if (responseDtl == null)
             {
-                throw new ValidationException("安灯维护下的安灯清单,跟当前安灯信息维护不一致!".L10N());
+                throw new ValidationException("请先维护安灯维护下面的安灯责任组，触发失败！".L10N());
             }
+            //任意一个在职的
+            var agD = responseDtl.AndonGroup.AndonGroupDetailList.Where(p => p.User.State == State.Enable && p.User.Employee.EmployeeStatus == Resources.EmployeeStatus.Job).FirstOrDefault();
+            if (agD == null)
+            {
+                throw new ValidationException("安灯责任组维护基础表未维护用户，触发失败！".L10N());
+            }
+            andonManage.RespPersonId = agD.User.EmployeeId;
 
             andonManage.AndonId = andon.Id;
-            andonManage.RespPersonId = (double)andonDesc.EmployeeId;
+            //andonManage.RespPersonId = (double)andonDesc.EmployeeId;
             andonManage.FactoryId = resource.FactoryId.Value;
             andonManage.WorkShopId = resource.WorkShopId.Value;
             andonManage.WipResourceId = resource.Id;

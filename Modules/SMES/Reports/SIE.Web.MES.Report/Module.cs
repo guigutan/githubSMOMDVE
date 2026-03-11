@@ -1,13 +1,14 @@
-﻿using SIE.Modules;
-using System;
-using SIE.Web.MES.Report;
-using SIE.MetaModel;
-using SIE.MES.Report.WipProducts;
+﻿using SIE.MES.Report.BatchTracebacks;
 using SIE.MES.Report.BatchWipProducts;
-using SIE.Web.MES.TeamManagement.ClockingIns;
-using SIE.Web.MES.Report.EmployeeReports;
 using SIE.MES.Report.EmployeeReports.ClockingIns;
 using SIE.MES.Report.EmployeeReports.Vacancies;
+using SIE.MES.Report.WipProducts;
+using SIE.MetaModel;
+using SIE.Modules;
+using SIE.Web.MES.Report;
+using SIE.Web.MES.Report.EmployeeReports;
+using SIE.Web.MES.TeamManagement.ClockingIns;
+using System;
 
 [assembly: Module(typeof(Module))]
 namespace SIE.Web.MES.Report
@@ -51,6 +52,10 @@ namespace SIE.Web.MES.Report
                 Label = "班组缺编统计".L10N(),
                 EntityType = typeof(WorkGroupVacancyReport),
                 ViewGroup = WorkGroupVacancyReportViewConfig.WorkGroupReportView
+            }, new WebModuleMeta
+            {
+                EntityType = typeof(BatchTracebackReport),
+                Label = "批次追溯通用报表".L10N()
             });
         }
     }

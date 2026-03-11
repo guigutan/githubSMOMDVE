@@ -24,23 +24,24 @@ namespace SIE.Web.MES.Outsourcing
                 View.Property(p => p.EndProcessId).Show(ShowInWhere.All);
                 View.Property(p => p.FactoryId).Show(ShowInWhere.All).UseFactoryEditor();
                 View.Property(p => p.OutFactory).Show(ShowInWhere.All);
-                View.Property(p => p.WorkShopId).UseDataSource((r, pagingInfo, keyword) =>
-                {
-                    var criteria = r as OutsourcingRequestCriteria;
-                    if (criteria != null && criteria.FactoryId.HasValue)
-                    {
-                        var workShopList = RT.Service.Resolve<EnterpriseController>().GetResourceWorkShops(pagingInfo, keyword, criteria.FactoryId.Value);
+                View.Property(p => p.WorkShopCode).Show(ShowInWhere.All);
+                //View.Property(p => p.WorkShopId).UseDataSource((r, pagingInfo, keyword) =>
+                //{
+                //    var criteria = r as OutsourcingRequestCriteria;
+                //    if (criteria != null && criteria.FactoryId.HasValue)
+                //    {
+                //        var workShopList = RT.Service.Resolve<EnterpriseController>().GetResourceWorkShops(pagingInfo, keyword, criteria.FactoryId.Value);
 
-                        workShopList.ForEach(enterprise => { enterprise.TreePId = null; });
-                        return workShopList;
-                    }
-                    else
-                    {
-                        var workShopList = RT.Service.Resolve<EnterpriseController>().GetResourceWorkShops(pagingInfo, keyword);
-                        workShopList.ForEach(enterprise => { enterprise.TreePId = null; });
-                        return workShopList;
-                    }
-                }).Show(ShowInWhere.All);
+                //        workShopList.ForEach(enterprise => { enterprise.TreePId = null; });
+                //        return workShopList;
+                //    }
+                //    else
+                //    {
+                //        var workShopList = RT.Service.Resolve<EnterpriseController>().GetResourceWorkShops(pagingInfo, keyword);
+                //        workShopList.ForEach(enterprise => { enterprise.TreePId = null; });
+                //        return workShopList;
+                //    }
+                //}).Show(ShowInWhere.All);
                 View.Property(p => p.WipResourceId).UseDataSource((r, pagingInfo, keyword) =>
                 {
                     var criteria = r as OutsourcingRequestCriteria;

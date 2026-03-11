@@ -157,5 +157,24 @@ namespace SIE.KZ.Base.SmomControl
         {
             return Query<InfNcDataLogGroup>().Where(p => p.InfType == infType && p.SendState == SendState.NoSend /*&& p.SuccessJson != null*/).OrderBy(p => p.CreateDate).ToList(new PagingInfo(1, 20000));
         }
+
+        /// <summary>
+        /// 查询工单类型获取需要传输的数据
+        /// </summary>
+        /// <param name="infType"></param>
+        /// <returns></returns>
+        public virtual EntityList<InfNcDataLogGroup> GetWaitSendInfNcDataLogSOGroups(InfType infType,string BatchNo)
+        {
+            var batchNos = BatchNo?.Split(',').Select(b => b.Trim()).Where(b => !string.IsNullOrEmpty(b)).Distinct().ToList() ?? new List<string>();
+
+            if (batchNos.Count == 0)
+            {
+                // 如果没有有效的BatchNo，返回空列表或根据需求处理
+                return null;
+            }
+            return Query<InfNcDataLogGroup>().Where(p => p.InfType == infType&& batchNos.Contains(p.BatchNo)).OrderBy(p => p.CreateDate).ToList(new PagingInfo(1, 20000));
+            //return Query<InfNcDataLogGroup>().Where(p => p.InfType == infType&& batchNos.Contains(p.BatchNo)/*&& p.SuccessJson != null*/).OrderBy(p => p.CreateDate).ToList(new PagingInfo(1, 20000));
+            //return Query<InfNcDataLogGroup>().Where(p => p.InfType == infType && p.BatchNo == BatchNo /*&& p.SuccessJson != null*/).OrderBy(p => p.CreateDate).ToList(new PagingInfo(1, 20000));
+        }
     }
 }

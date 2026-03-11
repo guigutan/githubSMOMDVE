@@ -20,6 +20,26 @@ namespace SIE.Resources.UserGroups
     public class UserGroupsController : DomainController
     {
         /// <summary>
+        /// 创建操作日志
+        /// </summary>
+        /// <param name="userGroup"></param>
+        /// <param name="type"></param>
+        /// <param name="state"></param>
+        /// <param name="operateData"></param>
+        public virtual void CreateUserGroupLog(UserGroup userGroup, UserGroupLogType type, UserGroupLogState state,string operateData)
+        {
+            UserGroupLog userGroupLog = new UserGroupLog();
+
+            userGroupLog.PersistenceStatus = PersistenceStatus.New;
+            userGroupLog.UserGroupId = userGroup.Id;
+            userGroupLog.UserGroup = userGroup.Name + $"[{userGroup.Code}]";
+            userGroupLog.Type = type;
+            userGroupLog.State = state;
+            userGroupLog.OperateData = operateData;
+            RF.Save(userGroupLog);
+        }
+
+        /// <summary>
         /// 删除用户组与工厂关系，同步删除用户与工厂关系
         /// </summary>
         /// <param name="userGroupEnterprises"></param>

@@ -29,7 +29,7 @@ namespace SIE.Web.MES.TaskManagement.Dispatchs.ViewModels
                     var taskIds = entity.TaskId.Split(',').Select(p => Convert.ToDouble(p)).ToList();
                     var tasks = RT.Service.Resolve<DispatchController>().GetDispatchTasks(taskIds);
                     var task = tasks.FirstOrDefault();
-                    var list = RT.Service.Resolve<WipResourceController>().GetWipResourcesByWorkCenterCode(entity.WorkCenterCode, task.ProductId, k);
+                    var list = RT.Service.Resolve<WipResourceController>().GetWipResourcesByWorkCenterCode(entity.WorkCenterCode, tasks.Select(p => p.ProductId).Distinct().ToList(), k);
                     return list;
                 });
             }

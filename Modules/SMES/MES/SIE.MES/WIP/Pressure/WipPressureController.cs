@@ -425,7 +425,7 @@ namespace SIE.MES.WIP.Pressure
                     //记录在哪个工序修改的工序,此处目前只用在包装工序，如后续有其他工序用到，也要进行相应的更改
                     if (wipBatch.Qty != qty)
                     {
-                        wipBatch.EditQtyProcessCode = "成品包装";
+                        wipBatch.EditQtyProcessCode = "包装";
                     }
                     DB.Update<WipBatch>().Set(p => p.Qty, qty).Where(p => p.Id == wipBatch.Id).Execute();
                 }

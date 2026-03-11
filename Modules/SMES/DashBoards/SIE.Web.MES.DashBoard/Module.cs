@@ -1,5 +1,8 @@
 ﻿using SIE.MES.DashBoard.DashBoards.WorkShop;
 using SIE.MES.DashBoard.KzBoard.RegionBoards;
+using SIE.MES.DashBoard.KzReport.OrganizeCodes;
+using SIE.MES.DashBoard.KzReport.ProductionLineProcesss;
+using SIE.MES.DashBoard.KzReport.ProductionProcesss;
 using SIE.MES.DashBoard.Reports.LineFPY;
 using SIE.MES.DashBoard.Reports.ProductFPY;
 using SIE.MES.DashBoard.Reports.ShopFPY;
@@ -77,7 +80,24 @@ namespace SIE.Web.MES.DashBoard
               {
                   Label = "区域与产线的关联关系".L10N(),
                   EntityType = typeof(RegionBoard)
-              });
+              }, new WebModuleMeta()
+              {
+                  Label = "产品线工序".L10N(),
+                  EntityType = typeof(ProductionLineProcess)
+              }, new WebModuleMeta()
+              {
+                  Label = "组织代码".L10N(),
+                  EntityType = typeof(OrganizeCode)
+              }, new WebModuleMeta()
+              {
+                  Label = "产能利用率工序",
+                  EntityType = typeof(ProductionProcess)
+              }, new WebModuleMeta()
+              {
+                  Label = "产能资源工序",
+                  EntityType = typeof(CapacityResource)
+              }
+              );
         }
 
         /// <summary>

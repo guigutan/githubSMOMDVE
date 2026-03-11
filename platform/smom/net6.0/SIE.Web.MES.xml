@@ -1394,6 +1394,11 @@
             导入
             </summary>
         </member>
+        <member name="P:SIE.Web.MES.Capacitys.Commands.StandardCapacityImportCommand.batchs">
+            <summary>
+            先将全部数据存起来
+            </summary>
+        </member>
         <member name="M:SIE.Web.MES.Capacitys.Commands.StandardCapacityImportCommand.OnSave(System.Collections.Generic.IList{SIE.Common.Import.RowData})">
             <summary>
             保存
@@ -2916,6 +2921,16 @@
             </summary>
             <param name="app">应用程序</param>
         </member>
+        <member name="T:SIE.Web.MES.OnOffDutyB.OnOffDutyBRecrodsViewConfig">
+            <summary>
+            B在岗信息
+            </summary>
+        </member>
+        <member name="M:SIE.Web.MES.OnOffDutyB.OnOffDutyBRecrodsViewConfig.ConfigListView">
+            <summary>
+            B在岗信息
+            </summary>
+        </member>
         <member name="T:SIE.Web.MES.Outsourcing.Commands.DeleteRequestCommand">
             <summary>
             删除
@@ -3900,6 +3915,45 @@
         <member name="M:SIE.Web.MES.ProcessProperty.ProcessPtyViewConfig.ConfigListView">
             <summary>
             配置列表视图
+            </summary>
+        </member>
+        <member name="T:SIE.Web.MES.ProductAgingProcesss.Commands.ProductAgingProcessImportCommand">
+            <summary>
+            导入
+            </summary>
+        </member>
+        <member name="M:SIE.Web.MES.ProductAgingProcesss.Commands.ProductAgingProcessImportCommand.OnSave(System.Collections.Generic.IList{SIE.Common.Import.RowData})">
+            <summary>
+            保存
+            </summary>
+            <param name="batch"></param>
+        </member>
+        <member name="T:SIE.Web.MES.ProductAgingProcesss.Commands.ProductAgingProcessTemplateCommand">
+            <summary>
+            下载模板
+            </summary>
+        </member>
+        <member name="M:SIE.Web.MES.ProductAgingProcesss.Commands.ProductAgingProcessTemplateCommand.Excute(SIE.Web.Command.ViewArgs,System.String)">
+            <summary>
+            执行
+            </summary>
+            <param name="args"></param>
+            <param name="scope"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.Web.MES.ProductAgingProcesss.ProductAgingProcessViewConfig.ConfigListView">
+            <summary>
+            配置列表视图
+            </summary>
+        </member>
+        <member name="M:SIE.Web.MES.ProductAgingProcesss.ProductAgingProcessViewConfig.ConfigQueryView">
+            <summary>
+            查询视图
+            </summary>
+        </member>
+        <member name="M:SIE.Web.MES.ProductAgingProcesss.ProductAgingProcessViewConfig.ConfigImportView">
+            <summary>
+            配置导入视图
             </summary>
         </member>
         <member name="T:SIE.Web.MES.ProjectDesigns.ChildCommands.BasicPropertyAddCommand">

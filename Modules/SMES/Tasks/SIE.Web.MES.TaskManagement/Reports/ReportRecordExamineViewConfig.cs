@@ -3,6 +3,7 @@ using SIE.MES.TaskManagement.Dispatchs;
 using SIE.MES.TaskManagement.FeedingRecords;
 using SIE.MES.TaskManagement.Reports;
 using SIE.MetaModel.View;
+using SIE.Resources.Enterprises;
 using SIE.Web.MES.TaskManagement.Reports.Commands;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,8 @@ namespace SIE.Web.MES.TaskManagement.Reports
                 View.Property(p => p.Process).Readonly().ShowInList(120);
                 View.Property(p => p.Resource).Readonly().Show();
                 View.Property(p => p.ResourceName).Readonly().Show();
-                View.Property(p => p.WorkShop).Readonly().Show();
+                View.Property(p => p.WorkShopCode).Readonly().Show();
+                View.Property(p => p.WorkShopId).Readonly().Show();
                 View.Property(p => p.Vornr).Readonly().Show();
                 View.Property(p => p.Steus).Readonly().Show();
                 View.Property(p => p.Zcode).Readonly().Show();

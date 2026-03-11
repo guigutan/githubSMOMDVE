@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Packages",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Packages",
   "SIE.Web.Packages.Boxs.Commands.AddCpaacityCommand.js": "SIE.Web.Packages/Boxs/Commands/AddCpaacityCommand.js",
   "SIE.Web.Packages.Boxs.Commands.TurnoverBoxAddCommand.js": "SIE.Web.Packages/Boxs/Commands/TurnoverBoxAddCommand.js",
   "SIE.Web.Packages.Boxs.Commands.TurnoverBoxCopyCommand.js": "SIE.Web.Packages/Boxs/Commands/TurnoverBoxCopyCommand.js",

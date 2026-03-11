@@ -7,7 +7,9 @@ using SIE.ERPInterface.Sap.Controller;
 using SIE.ERPInterface.Sap.Datas.ErpInfoDatas.Deduction;
 using SIE.KZ.Base.Interfaces;
 using SIE.KZ.Base.Interfaces.Enums;
+using SIE.MES.BlueLable;
 using SIE.MES.PackingQC;
+using SIE.MES.WorkOrders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,20 +36,26 @@ namespace SIE.ERPInterface.Sap.Upload.BlueLabel
 
             var invOrgs = RF.GetAll<Rbac.InvOrgs.InvOrg>();
             var invOrg = invOrgs.FirstOrDefault(p => p.Code == RT.InvOrg);
+            var blueLabels = packingQcs.Select(p => p.BlueLabel).Distinct().ToList();
 
+            var blueLables = RT.Service.Resolve<BlueLableController>().GetBlueLableDatas(blueLabels);
+            var woNos = blueLables.Select(p => p.ProductionNo).Distinct().ToList();
+            var wos = RT.Service.Resolve<WorkOrderController>().GetWorkOrders(woNos);
             //防止批量失败,单独上传
             foreach (var qc in packingQcs)
             {
                 var list = new List<KzBlueLabelRequestData>();
+                var blueLable = blueLables.FirstOrDefault(p => p.BlueLableBox == qc.BlueLabel);
+                var wo = wos.FirstOrDefault(p => p.No == blueLable.ProductionNo);
                 if (qc.PackingNum == 0)
                 {
-                    list.Add(new KzBlueLabelRequestData { EXIDV = qc.BlueLabel, WERKS = invOrg?.ExternalId, ZPACK = "N" }); //空箱状态,取消标识
+                    list.Add(new KzBlueLabelRequestData { EXIDV = qc.BlueLabel, WERKS = wo?.Factory?.Code, ZPACK = "N" }); //空箱状态,取消标识
                 }
                 else
                 {
-                    list.Add(new KzBlueLabelRequestData { EXIDV = qc.BlueLabel, WERKS = invOrg?.ExternalId, ZPACK = "Y" }); //正常装箱标识
+                    list.Add(new KzBlueLabelRequestData { EXIDV = qc.BlueLabel, WERKS = wo?.Factory?.Code, ZPACK = "Y" }); //正常装箱标识
                     if (qc.OldBlueLabel.IsNotEmpty())
-                        list.Add(new KzBlueLabelRequestData { EXIDV = qc.OldBlueLabel, WERKS = invOrg?.ExternalId, ZPACK = "N" });  //换箱蓝标,取消标识
+                        list.Add(new KzBlueLabelRequestData { EXIDV = qc.OldBlueLabel, WERKS = wo?.Factory?.Code, ZPACK = "N" });  //换箱蓝标,取消标识
                 }
 
                 //构建上传数据结构

@@ -2,6 +2,7 @@
 using SIE.Resources.UserGroups;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,45 @@ namespace SIE.MES.DashBoard.KzBoard.RegionBoards
         {
             var list = Query<RegionBoardDetail>().Where(p => p.RegionBoardId == regionId).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             return list;
+        }
+
+        /// <summary>
+        /// 获取产线明细(看板区域)
+        /// </summary>
+        /// <param name="Region"></param>
+        /// <returns></returns>
+        public virtual EntityList<RegionBoardDetail> GetRegionBoardDetailsByRegion(string Region, RegionBoardType regionBoardType)
+        {
+            var entityList = Query<RegionBoardDetail>()
+                 .Exists<RegionBoard>((rd, r) => r.Where(p => p.Id == rd.RegionBoardId && p.Region == Region&&p.RegionBoardType == regionBoardType))
+                 .ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            return entityList;
+        }
+
+
+        /// <summary>
+        /// 获取看板区域MRB控制者
+        /// </summary>
+        /// <param name="Region"></param>
+        /// <returns></returns>
+        public virtual EntityList<RegionBoardMRB> GetRegionBoardMRBByRegion(string Region, RegionBoardType regionBoardType)
+        {
+            var entityList = Query<RegionBoardMRB>()
+                 .Exists<RegionBoard>((rd, r) => r.Where(p => p.Id == rd.RegionBoardId && p.Region == Region && p.RegionBoardType == regionBoardType))
+                 .ToList();
+            return entityList;
+        }
+
+        /// <summary>
+        /// 获取看板区域
+        /// </summary>
+        /// <param name="region"></param>
+        /// <param name="regionBoardType"></param>
+        /// <returns></returns>
+        public virtual EntityList<RegionBoard> GetRegionBoard(string region, RegionBoardType regionBoardType)
+        {
+            var entity = Query<RegionBoard>().Where(p => p.RegionBoardType == regionBoardType).WhereIf(!region.IsNullOrEmpty(), p => p.Region == region).ToList();
+            return entity;
         }
     }
 }

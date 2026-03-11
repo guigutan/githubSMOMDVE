@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
   "SIE.Web.EMS.EquipRepair.EquipRepairs.Commands.AddAlarmDetailRepairCommand.js": "SIE.Web.EMS.EquipRepair/EquipRepairs/Commands/AddAlarmDetailRepairCommand.js",
   "SIE.Web.EMS.EquipRepair.EquipRepairs.Commands.AddCheckEquipRepairCommand.js": "SIE.Web.EMS.EquipRepair/EquipRepairs/Commands/AddCheckEquipRepairCommand.js",
   "SIE.Web.EMS.EquipRepair.EquipRepairs.Commands.AddEquipAlarmRecordRepairCommand.js": "SIE.Web.EMS.EquipRepair/EquipRepairs/Commands/AddEquipAlarmRecordRepairCommand.js",

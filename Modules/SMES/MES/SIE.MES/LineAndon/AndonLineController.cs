@@ -6,6 +6,7 @@ using SIE.Equipments.EquipAccounts;
 using SIE.Equipments.EquipModels;
 using SIE.Equipments.EquipTypes;
 using SIE.MES.EmpWork;
+using SIE.Resources.Enterprises;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -117,6 +118,8 @@ namespace SIE.MES.LineAndon
             {
                 q.Where(m => m.Equipment.Code.Contains("%" + criterial.EquipmentNo + "%"));
             }
+            if (!criterial.WorkShopCode.IsNullOrEmpty())
+                q.Exists<Enterprise>((a, b) => b.Where(p => p.Id == a.WorkShopId).WhereIf(criterial.WorkShopCode.IsNotEmpty(), p => p.Code == criterial.WorkShopCode));
 
             return q.OrderBy(criterial.OrderInfoList).ToList(criterial.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
         }

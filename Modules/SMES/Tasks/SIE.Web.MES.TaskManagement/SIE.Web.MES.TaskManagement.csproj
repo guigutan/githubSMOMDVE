@@ -51,6 +51,7 @@
     <None Remove="FeedingRecords\Commands\FeedingAreaItemImportCommand.js" />
     <None Remove="FeedingRecords\Commands\FeedingAreaLabelPrintCommand.js" />
     <None Remove="FeedingRecords\Commands\FeedingAreaReourceImportCommand.js" />
+    <None Remove="FeedingRecords\Commands\ScrapWeighingRecordEditCommand.js" />
     <None Remove="ProcessPrepareRecords\Commands\ComfrimCommand.js" />
     <None Remove="ProcessPrepareRecords\Commands\ProcessPrepareRecordExecuteCommand.js" />
     <None Remove="ProcessPrepareRecords\Commands\ProcessPrepareRecordExportCommand.js" />
@@ -125,6 +126,7 @@
     <EmbeddedResource Include="FeedingRecords\Commands\FeedingAreaResourceDelCommand.js" />
     <EmbeddedResource Include="FeedingRecords\Commands\FeedingAreaItemSelectCommand.js" />
     <EmbeddedResource Include="FeedingRecords\Commands\FeedingAreaResourceSelectCommand.js" />
+    <EmbeddedResource Include="FeedingRecords\Commands\ScrapWeighingRecordEditCommand.js" />
     <EmbeddedResource Include="HeatTreatments\Commands\HeatTreatmentReportCommand.js" />
     <EmbeddedResource Include="ProcessPrepareRecords\Commands\RecordDetailAllPassCommand.js" />
     <EmbeddedResource Include="ProcessTaskLists\Commands\CancelDispatchTaskCommand.js" />

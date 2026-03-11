@@ -63,6 +63,28 @@ namespace SIE.KZ.Base.Interfaces
         }
 
         /// <summary>
+        /// 根据工单接口类型获取需要传输的数据
+        /// </summary>
+        /// <param name="infType"></param>
+        /// <returns></returns>
+        public virtual EntityList<InfNcDataLogFactory> GetWaitSendInfNcDataSOLogFactorys(InfType infType, string BatchNo)
+        {
+            var batchNos = BatchNo?.Split(',').Select(b => b.Trim()).Where(b => !string.IsNullOrEmpty(b)).Distinct().ToList() ?? new List<string>();
+
+            if (batchNos.Count == 0)
+            {
+                // 如果没有有效的BatchNo，返回空列表或根据需求处理
+                return null;
+            }
+            return Query<InfNcDataLogFactory>().Where(p => p.InfType == infType && batchNos.Contains(p.GroupGuid)).OrderBy(p => p.CreateDate).ToList(new PagingInfo(1, 20000));
+
+            //return Query<InfNcDataLogFactory>().Where(p => p.InfType == infType && batchNos.Contains(p.BatchNo)/*&& p.SuccessJson != null*/).OrderBy(p => p.CreateDate).ToList(new PagingInfo(1, 20000));
+            //return Query<InfNcDataLogGroup>().Where(p => p.InfType == infType && p.BatchNo == BatchNo).OrderBy(p => p.CreateDate).ToList(new PagingInfo(1, 5000));
+            //return Query<InfNcDataLogFactory>().Where(p => p.InfType == infType && p.BatchNo == BatchNo).OrderBy(p => p.CreateDate).ToList(new PagingInfo(1, 20000));
+
+        }
+
+        /// <summary>
         /// 重新同步
         /// </summary>
         /// <param name="ids"></param>

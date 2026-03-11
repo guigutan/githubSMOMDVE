@@ -234,6 +234,23 @@ namespace SIE.ERPInterface.Api.WebApi.KaiZhongGroup
                         apiCommonRes = ctl.SaveEmployees(employeeDatas, ref infDataLog);
                     }
                     break;
+                case InfType.OrgLevel:
+                    var orgLevelDatas = JsonConvert.DeserializeObject<List<SIE.MES.OrgLevels.OrgLevelInfo>>(dataJsons);
+                    infDataLog.KeyMsgone = string.Join(",", orgLevelDatas?.Select(p => p.OrgCode));
+                    if (orgLevelDatas == null)
+                    {
+                        var errorMsg = "人员组织架构数据的JSON格式不对".L10N();
+                        infDataLog.ErrorMsg = errorMsg;
+                        RF.Save(infDataLog);
+                        result.success = false;
+                        result.errorMsg = errorMsg;
+                    }
+                    else
+                    {
+                        var ctl = RT.Service.Resolve<DownloadOrgLevelController>();
+                        apiCommonRes = ctl.SaveOrgLevels(orgLevelDatas, ref infDataLog);                       
+                    }
+                    break;
                 case InfType.Process:
                     var processDatas = JsonConvert.DeserializeObject<List<ProcessData>>(dataJsons);
                     infDataLog.KeyMsgone = string.Join(",", processDatas?.Select(p => p.VLSCH));
@@ -577,7 +594,7 @@ namespace SIE.ERPInterface.Api.WebApi.KaiZhongGroup
             }
             if (infType != InfType.Employee)
             {
-                result = ProcessInfNcDataLogGroup(infDataLog, apiCommonRes, infType.ToLabel(), infCode, result);
+                result = ProcessInfNcDataLogGroup(infDataLog, apiCommonRes, infType.ToLabel(), infCode, result);               
             }
             else
             {

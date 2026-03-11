@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3uSjGvDaPI8=",
+  "dgSpecHash": "cs464DEUF6A=",
   "success": true,
-  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
+  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.13.0\\aliyun.oss.sdk.netcore.2.13.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
@@ -435,9 +435,9 @@
       "code": "NU1603",
       "level": "Warning",
       "message": "GetuiServerApiSDKNet6 1.0.0 依赖于 Google.ProtocolBuffers (>= 1.0.0)，但没有找到 Google.ProtocolBuffers 1.0.0。已改为解析 Google.ProtocolBuffers 2.3.0.277。",
-      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
+      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
+      "filePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
       "libraryId": "Google.ProtocolBuffers",
       "targetGraphs": [
         "net6.0"
@@ -447,9 +447,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net6.0”还原包“Google.ProtocolBuffers 2.3.0.277”。此包可能与项目不完全兼容。",
-      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
+      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
+      "filePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\WebClient\\WebClient.csproj",
       "libraryId": "Google.ProtocolBuffers",
       "targetGraphs": [
         "net6.0"

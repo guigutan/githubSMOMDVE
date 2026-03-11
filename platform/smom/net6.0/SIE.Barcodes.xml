@@ -2976,6 +2976,31 @@
             已出站
             </summary>
         </member>
+        <member name="T:SIE.Barcodes.WipBatchs.BatchType">
+            <summary>
+            批次类型
+            </summary>
+        </member>
+        <member name="F:SIE.Barcodes.WipBatchs.BatchType.Rework">
+            <summary>
+            返工
+            </summary>
+        </member>
+        <member name="F:SIE.Barcodes.WipBatchs.BatchType.Scraped">
+            <summary>
+            报废
+            </summary>
+        </member>
+        <member name="F:SIE.Barcodes.WipBatchs.BatchType.Suspect">
+            <summary>
+            可疑品
+            </summary>
+        </member>
+        <member name="F:SIE.Barcodes.WipBatchs.BatchType.Good">
+            <summary>
+            良品
+            </summary>
+        </member>
         <member name="T:SIE.Barcodes.WipBatchs.BatchWorkOrder">
             <summary>
             批次工单
@@ -3606,6 +3631,16 @@
         <member name="P:SIE.Barcodes.WipBatchs.WipBatch.WorkOrderNo">
             <summary>
             工单号
+            </summary>
+        </member>
+        <member name="F:SIE.Barcodes.WipBatchs.WipBatch.ProductIdProperty">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="P:SIE.Barcodes.WipBatchs.WipBatch.ProductId">
+            <summary>
+            产品Id
             </summary>
         </member>
         <member name="F:SIE.Barcodes.WipBatchs.WipBatch.ProductCodeProperty">

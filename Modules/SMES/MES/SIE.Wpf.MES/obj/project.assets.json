@@ -6488,6 +6488,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "SIE.Andon": "1.0.0",
+          "SIE.Items": "1.0.0",
           "SIE.MES": "1.0.0",
           "SIE.ProductIntfc": "1.0.0"
         },
@@ -15802,17 +15803,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj",
+      "projectUniqueName": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj",
       "projectName": "SIE.Wpf.MES",
-      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj",
+      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj",
       "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-      "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\obj\\",
+      "outputPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\NuGet.Config",
         "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -15823,27 +15824,27 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\nupkgs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Print\\SIE.KZ.Print.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Print\\SIE.KZ.Print.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Print\\SIE.KZ.Print.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Print\\SIE.KZ.Print.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Barcodes\\SIE.Wpf.Barcodes\\SIE.Wpf.Barcodes.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Barcodes\\SIE.Wpf.Barcodes\\SIE.Wpf.Barcodes.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Barcodes\\SIE.Wpf.Barcodes\\SIE.Wpf.Barcodes.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Barcodes\\SIE.Wpf.Barcodes\\SIE.Wpf.Barcodes.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.MES.Common\\SIE.MES.Common.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.MES.Common\\SIE.MES.Common.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.MES.Common\\SIE.MES.Common.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.MES.Common\\SIE.MES.Common.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Statistics\\SIE.MES.Statistics.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Statistics\\SIE.MES.Statistics.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Statistics\\SIE.MES.Statistics.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Statistics\\SIE.MES.Statistics.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks\\SIE.MES.TaskManagement\\SIE.MES.TaskManagement.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks\\SIE.MES.TaskManagement\\SIE.MES.TaskManagement.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks\\SIE.MES.TaskManagement\\SIE.MES.TaskManagement.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks\\SIE.MES.TaskManagement\\SIE.MES.TaskManagement.csproj"
             }
           }
         }

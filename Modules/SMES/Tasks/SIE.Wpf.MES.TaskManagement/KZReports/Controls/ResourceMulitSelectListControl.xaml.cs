@@ -49,15 +49,17 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
         private void ResourceListControl_Loaded(object sender, RoutedEventArgs e)
         {
             loadData();
+            this.scanTxt.Focus();
         }
 
         void loadData()
         {
             var loadAll = cbShowAll.IsChecked == true;
+            var text = scanTxt.Text;
             model.ResourceList.Clear();
             Task.Run(new Action(() =>
             {
-                model.LoadResourceList(loadAll);
+                model.LoadResourceList(loadAll, text);
             }).WithCurrentThreadContext());
         }
 
@@ -97,6 +99,13 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
+            loadData();
+        }
+
+        private void scanTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key != Key.Enter)
+                return;
             loadData();
         }
     }

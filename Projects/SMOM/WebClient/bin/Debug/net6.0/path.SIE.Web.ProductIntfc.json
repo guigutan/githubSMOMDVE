@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\ProductIntfc",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\ProductIntfc",
   "SIE.Web.ProductIntfc.FirstInsps.Commands.FirstInspCommand.js": "SIE.Web.ProductIntfc/FirstInsps/Commands/FirstInspCommand.js",
   "SIE.Web.ProductIntfc.FirstInsps.Commands.FirstInspListCommand.js": "SIE.Web.ProductIntfc/FirstInsps/Commands/FirstInspListCommand.js",
   "SIE.Web.ProductIntfc.FirstInsps.Commands.FirstInspRuleCommand.js": "SIE.Web.ProductIntfc/FirstInsps/Commands/FirstInspRuleCommand.js",

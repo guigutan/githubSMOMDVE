@@ -111,7 +111,6 @@ namespace SIE.MES.WorkOrders.WorkOrderProcessBomGenerators
                 //当单机定额合计小于等于0 的时候，不生成工序BOM，因为工序BOM的单机定额必须大于等于0
                 var boms = workOrder.BomList.Where(p => p.ItemId == itemId && p.IsVritualItem == false).ToList();
 
-                //var processPty = processPtys.FirstOrDefault(f => f.ProcessId == p.ProcessId);
                 //当没有对应分类的时候，就不生成工序BOM
                 var itemCategoryRelation = itemCategoryRelations.FirstOrDefault(p => p.ItemId == itemId);
                 if (itemCategoryRelation == null)
@@ -132,7 +131,6 @@ namespace SIE.MES.WorkOrders.WorkOrderProcessBomGenerators
                         lus = lookUps.Where(p => p.ItemCategoryId == itemCategoryRelation.ItemCategoryId && p.KzCategoryId == null).ToList();
 
                     //当在物料分类与工序对照表中，没有维护数据，不生成工序BOM
-                    //lus = lus.Where(p => p.ItemCategoryId == itemCategoryRelation.ItemCategoryId).ToList();
                     if (lus.Count < 1)
                         continue;
                     processCodes = lus.Select(p => p.ProcessCode).Distinct().ToList();
@@ -140,7 +138,7 @@ namespace SIE.MES.WorkOrders.WorkOrderProcessBomGenerators
                 else
                 {
                     //当工单类型为返工的时候，只有首工序才会生成工序BOM
-                    var layout = workOrder.LayoutInfoList.Where(p => p.Factory == invOrg.ExternalId).OrderBy(p => Convert.ToDecimal(p.Vornr)).FirstOrDefault();
+                    var layout = workOrder.LayoutInfoList.Where(p => p.Factory == invOrg.ExternalId).OrderByDescending(p => Convert.ToDecimal(p.Vornr)).FirstOrDefault();
                     if (layout != null)
                         processCodes.Add(layout.ProcessCode);
                 }

@@ -4981,6 +4981,20 @@
         "runtime": {
           "bin/placeholder/SIE.KZ.Base.dll": {}
         }
+      },
+      "SIE.KZ.Group/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SIE.EventMessages": "1.0.0",
+          "SIE.KZ.Base": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SIE.KZ.Group.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SIE.KZ.Group.dll": {}
+        }
       }
     }
   },
@@ -14667,11 +14681,17 @@
       "type": "project",
       "path": "../SIE.KZ.Base/SIE.KZ.Base.csproj",
       "msbuildProject": "../SIE.KZ.Base/SIE.KZ.Base.csproj"
+    },
+    "SIE.KZ.Group/1.0.0": {
+      "type": "project",
+      "path": "../SIE.KZ.Group/SIE.KZ.Group.csproj",
+      "msbuildProject": "../SIE.KZ.Group/SIE.KZ.Group.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "SIE.KZ.Base >= 1.0.0",
+      "SIE.KZ.Group >= 1.0.0",
       "SIE.Web.Common >= 10.0.4"
     ]
   },
@@ -14682,17 +14702,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
+      "projectUniqueName": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
       "projectName": "SIE.Web.KZ.Base",
-      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
+      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
       "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-      "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\obj\\",
+      "outputPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\NuGet.Config",
         "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -14703,15 +14723,18 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\nupkgs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Base\\SIE.KZ.Base.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Base\\SIE.KZ.Base.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Base\\SIE.KZ.Base.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Base\\SIE.KZ.Base.csproj"
+            },
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Group\\SIE.KZ.Group.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Group\\SIE.KZ.Group.csproj"
             }
           }
         }

@@ -14,6 +14,24 @@ namespace SIE.MES.TaskManagement.Configs
     [Label("派工任务单配置值")]
     public class DispatchConfigValue : ConfigValue
     {
+
+        #region 是否强制校验产线对应任务单 IsCheckProductionLineTaskList
+        /// <summary>
+        /// 是否强制校验产线对应任务单
+        /// </summary>
+        [Label("是否强制校验产线对应任务单")]
+        public static readonly Property<bool> IsCheckProductionLineTaskListProperty = P<DispatchConfigValue>.Register(e => e.IsCheckProductionLineTaskList);
+
+        /// <summary>
+        /// 是否强制校验产线对应任务单
+        /// </summary>
+        public bool IsCheckProductionLineTaskList
+        {
+            get { return this.GetProperty(IsCheckProductionLineTaskListProperty); }
+            set { this.SetProperty(IsCheckProductionLineTaskListProperty, value); }
+        }
+        #endregion      
+
         #region 是否校验员工技能 IsCheckEmployeeSkill
         /// <summary>
         /// 是否校验员工技能
@@ -383,6 +401,23 @@ namespace SIE.MES.TaskManagement.Configs
         }
         #endregion
 
+        #region 是否启用扫码报工任务单数量校验 IsValidScanQty
+        /// <summary>
+        /// 是否启用扫码报工任务单数量校验
+        /// </summary>
+        [Label("是否启用扫码报工任务单数量校验")]
+        public static readonly Property<bool?> IsValidScanQtyProperty = P<DispatchConfigValue>.Register(e => e.IsValidScanQty);
+
+        /// <summary>
+        /// 是否启用扫码报工任务单数量校验
+        /// </summary>
+        public bool? IsValidScanQty
+        {
+            get { return this.GetProperty(IsValidScanQtyProperty); }
+            set { this.SetProperty(IsValidScanQtyProperty, value); }
+        }
+        #endregion
+
 
         /// <summary>
         /// 显示
@@ -390,7 +425,7 @@ namespace SIE.MES.TaskManagement.Configs
         /// <returns>编码规则名称</returns>
         public override string Display()
         {
-            return "是否校验员工技能:{0} | 是否校验人员权限：{1} | 编码规则：{2} 良品标签：{3} 可疑品标签：{3} 绕包线编码规则: {4} 绕包线打印模板: {5} 非绕包线编码规则: {6} 非绕包线打印模板: {7} 新材料工序校验: {8}".L10nFormat(IsCheckEmployeeSkill, IsCheckPersonnelPermission, NumberRule?.Name, GoodLabelTemplate?.FileName, SuspectLabelTemplate?.FileName, EntangleNumberRule?.Name, EntanglePrintTemplate?.FileName, UnEntangleNumberRule?.Name, UnEntanglePrintTemplate?.FileName, NewMaterialProValid);
+            return "是否校验员工技能:{0} | 是否校验人员权限：{1} | 编码规则：{2} 良品标签：{3} 可疑品标签：{3} 绕包线编码规则: {4} 绕包线打印模板: {5} 非绕包线编码规则: {6} 非绕包线打印模板: {7} 新材料工序校验: {8} 是否启用扫码报工任务单数量校验: {9}".L10nFormat(IsCheckEmployeeSkill, IsCheckPersonnelPermission, NumberRule?.Name, GoodLabelTemplate?.FileName, SuspectLabelTemplate?.FileName, EntangleNumberRule?.Name, EntanglePrintTemplate?.FileName, UnEntangleNumberRule?.Name, UnEntanglePrintTemplate?.FileName, NewMaterialProValid, IsValidScanQty);
         }
     }
 }

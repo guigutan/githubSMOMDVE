@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n42jGKx+xIo=",
+  "dgSpecHash": "09XfxCeYtVA=",
   "success": true,
-  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
+  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.13.0\\aliyun.oss.sdk.netcore.2.13.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
@@ -284,9 +284,9 @@
       "code": "NU1603",
       "level": "Warning",
       "message": "SIE.Web.KZ.Base 依赖于 SIE.Web.Common (>= 10.0.4)，但没有找到 SIE.Web.Common 10.0.4。已改为解析 SIE.Web.Common 10.0.5。",
-      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
+      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
+      "filePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.Web.KZ.Base\\SIE.Web.KZ.Base.csproj",
       "libraryId": "SIE.Web.Common",
       "targetGraphs": [
         "net6.0"

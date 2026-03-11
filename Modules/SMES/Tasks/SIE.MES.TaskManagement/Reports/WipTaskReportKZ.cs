@@ -41,7 +41,7 @@ namespace SIE.MES.TaskManagement.Reports
         /// <param name="reportInfos">报工数据</param>
         public void PackingReport(List<ReportInfo> reportInfos, bool IsTaskFinish = true)
         {
-            TaskReport(reportInfos, "成品包装", reportInfos.FirstOrDefault()?.ResourceId, IsTaskFinish);
+            TaskReport(reportInfos, "包装", reportInfos.FirstOrDefault()?.ResourceId, IsTaskFinish);
         }
 
         /// <summary>
@@ -74,7 +74,17 @@ namespace SIE.MES.TaskManagement.Reports
                     tasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByWorkOrderIds(new List<double>() { woId });
                 }
                 //var tasks = RT.Service.Resolve<DispatchController>().GetDispatchTaskByResourceId(resourceId, null, null);
-                var taskList = tasks.Where(p => p.WorkOrderId == woId && (processList.Contains(p.ProcessCode) || processList.Contains(p.ProcessName)) /*&& (p.TaskStatus == DispatchTaskStatus.Executing || p.TaskStatus == DispatchTaskStatus.Dispatched)*/).OrderBy(p => p.PlanBeginTime).ToList();
+                //当只有包含包装的时候，就只获取含有包装字眼的工序
+                var taskList = new List<DispatchTask>();
+
+                if (process.Contains("包装"))
+                {
+                    taskList = tasks.Where(p => p.WorkOrderId == woId && p.ProcessCode.Contains("包装") || p.ProcessName.Contains("包装")).OrderBy(p => p.PlanBeginTime).ToList();
+                }
+                else
+                {
+                    taskList = tasks.Where(p => p.WorkOrderId == woId && (processList.Contains(p.ProcessCode) || processList.Contains(p.ProcessName)) /*&& (p.TaskStatus == DispatchTaskStatus.Executing || p.TaskStatus == DispatchTaskStatus.Dispatched)*/).OrderBy(p => p.PlanBeginTime).ToList();
+                }
                 if (resourceId > 0)
                     taskList = taskList.Where(p => p.ResourceId == resourceId).ToList();
                 if (taskList.Count == 0)
@@ -113,13 +123,13 @@ namespace SIE.MES.TaskManagement.Reports
                     var remainQty = (decimal)task.RemainQty; //剩余可报数量
 
                     //最后一个任务允许超计划,不超容差
-                    if (task.Id == taskList.Last().Id && process != "成品包装")
+                    if (task.Id == taskList.Last().Id && !process.Contains("包装"))
                     {
                         var MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(task).Item2;
 
                         remainQty = MaxRemainQty;//task.MaxRemainQty;
                     }
-                    else if (process.Contains("成品包装"))
+                    else if (process.Contains("包装"))
                     {
                         var MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(task).Item2;
 
@@ -139,7 +149,7 @@ namespace SIE.MES.TaskManagement.Reports
 
                         p.GoodQty -= tempQty;
                         remainQty -= tempQty;
-                        if (process.Contains("成品包装"))
+                        if (process.Contains("包装"))
                         {
                             //记录绑定了哪个任务单
                             DB.Update<WipBatch>().Set(p => p.PackingTaskId, task.Id).Where(wip => wip.BatchNo == p.Sn).Execute();
@@ -216,8 +226,17 @@ namespace SIE.MES.TaskManagement.Reports
             if (tasks.Count == 0)
                 return null;
 
-            var processList = process.Split(',');
-            var taskProcess = tasks.FirstOrDefault(p => (processList.Contains(p.ProcessCode) || processList.Contains(p.ProcessName)) && (p.TaskStatus == DispatchTaskStatus.Executing || p.TaskStatus == DispatchTaskStatus.Dispatched));//当前工序任务
+            var taskProcess = new DispatchTask();
+            //当只有包含包装的时候，就只获取含有包装字眼的工序
+            if (process.Contains("包装"))
+            {
+                taskProcess = tasks.FirstOrDefault(p => (p.ProcessCode.Contains("包装") || p.ProcessName.Contains("包装")) && (p.TaskStatus == DispatchTaskStatus.Executing || p.TaskStatus == DispatchTaskStatus.Dispatched));//当前工序任务
+            }
+            else
+            {
+                var processList = process.Split(',');
+                taskProcess = tasks.FirstOrDefault(p => (processList.Contains(p.ProcessCode) || processList.Contains(p.ProcessName)) && (p.TaskStatus == DispatchTaskStatus.Executing || p.TaskStatus == DispatchTaskStatus.Dispatched));//当前工序任务
+            }
             if (taskProcess == null)
                 throw new ValidationException("未匹配到对应的[{0}]任务单".L10nFormat(process));
 

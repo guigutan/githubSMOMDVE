@@ -55,5 +55,25 @@ namespace SIE.Web.MES.ReworkLayoutVersions
                 View.Property(p => p.Counter).Show();
             }
         }
+
+        protected override void ConfigSelectionView()
+        {
+            using (View.OrderProperties())
+            {
+                View.Property(p => p.Version).Show().Readonly();
+                View.Property(p => p.Desc).Show().Readonly();
+                View.Property(p => p.ItemCode).Show().Readonly();
+                View.Property(p => p.ItemName).Show().Readonly();
+                View.Property(p => p.ShortDescription).Show().Readonly();
+                View.Property(p => p.Factory).Show().Readonly();
+                View.Property(p => p.BeginDateTime).Show().Readonly();
+                View.Property(p => p.EndDateTime).Show().Readonly();
+                View.Property(p => p.EffBeginDateTime).Show().Readonly();
+                View.Property(p => p.EffEndDateTime).Show().Readonly();
+                View.Property(p => p.Type).Show().Readonly();
+                View.Property(p => p.Group).Show().Readonly();
+                View.Property(p => p.Counter).Show().Readonly();
+            }
+        }
     }
 }

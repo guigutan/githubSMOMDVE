@@ -2101,6 +2101,26 @@
             产前准备项目与安灯对应关系
             </summary>
         </member>
+        <member name="F:SIE.Andon.Andons.Andon.AndonResponseDetailListProperty">
+            <summary>
+            安灯责任组
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.Andon.AndonResponseDetailList">
+            <summary>
+            安灯责任组
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.Andon.GeneralProbDtlListProperty">
+            <summary>
+            通用问题描述
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.Andon.GeneralProbDtlList">
+            <summary>
+            通用问题描述
+            </summary>
+        </member>
         <member name="F:SIE.Andon.Andons.Andon.DepartmentNameProperty">
             <summary>
             负责部门名称
@@ -2159,6 +2179,19 @@
             <param name="andonTypePushObjectList"></param>
             <param name="andonTypeMessId"></param>
             <returns></returns>
+        </member>
+        <member name="M:SIE.Andon.Andons.AndonController.GetAndonGroupDetailsByAndonManageId(System.Double,System.Double)">
+            <summary>
+            根据安灯管理获取安灯责任组用户
+            </summary>
+            <param name="AndonManageId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.Andon.Andons.AndonController.SaveAndonGroupDetail(System.Collections.Generic.List{SIE.Andon.Andons.AndonGroupDetail})">
+            <summary>
+            添加安灯责任组维护基础表明细
+            </summary>
+            <param name="datas"></param>
         </member>
         <member name="M:SIE.Andon.Andons.AndonController.GetAndonTypes(System.Double)">
             <summary>
@@ -2818,6 +2851,136 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:SIE.Andon.Andons.AndonGroup">
+            <summary>
+            安灯责任组维护基础表
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroup.CodeProperty">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroup.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroup.NameProperty">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroup.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroup.AndonGroupDetailListProperty">
+            <summary>
+            明细
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroup.AndonGroupDetailList">
+            <summary>
+            明细
+            </summary>
+        </member>
+        <member name="T:SIE.Andon.Andons.AndonGroupDetail">
+            <summary>
+            明细
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroupDetail.AndonGroupIdProperty">
+            <summary>
+            安灯责任组Id
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroupDetail.AndonGroupId">
+            <summary>
+            安灯责任组Id
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroupDetail.AndonGroupProperty">
+            <summary>
+            安灯责任组
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroupDetail.AndonGroup">
+            <summary>
+            安灯责任组
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroupDetail.UserIdProperty">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroupDetail.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroupDetail.UserProperty">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroupDetail.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroupDetail.IsResponserProperty">
+            <summary>
+            是否责任人
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroupDetail.IsResponser">
+            <summary>
+            是否责任人
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroupDetail.IsAcceptancerProperty">
+            <summary>
+            是否验收人
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroupDetail.IsAcceptancer">
+            <summary>
+            是否验收人
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroupDetail.UserNameProperty">
+            <summary>
+            员工名称
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroupDetail.UserName">
+            <summary>
+            员工名称
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroupDetail.UserCodeProperty">
+            <summary>
+            员工编码
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroupDetail.UserCode">
+            <summary>
+            员工编码
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonGroupDetail.UserStateProperty">
+            <summary>
+            员工状态
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonGroupDetail.UserState">
+            <summary>
+            员工状态
+            </summary>
+        </member>
         <member name="T:SIE.Andon.Andons.AndonManage">
             <summary>
             安灯管理
@@ -3343,6 +3506,26 @@
             消息推送
             </summary>
         </member>
+        <member name="F:SIE.Andon.Andons.AndonManage.GeneralProbDtlIdProperty">
+            <summary>
+            通用问题描述Id
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonManage.GeneralProbDtlId">
+            <summary>
+            通用问题描述Id
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonManage.GeneralProbDtlProperty">
+            <summary>
+            通用问题描述
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonManage.GeneralProbDtl">
+            <summary>
+            通用问题描述
+            </summary>
+        </member>
         <member name="F:SIE.Andon.Andons.AndonManage.PriorityProperty">
             <summary>
             优先级
@@ -3463,6 +3646,16 @@
             安灯名称
             </summary>
         </member>
+        <member name="F:SIE.Andon.Andons.AndonManage.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonManage.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
         <member name="F:SIE.Andon.Andons.AndonManage.WorkShopNameProperty">
             <summary>
             车间名称
@@ -3521,6 +3714,16 @@
         <member name="P:SIE.Andon.Andons.AndonManage.AndonCode">
             <summary>
             安灯编码
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonManage.GeneralProbDtlDescProperty">
+            <summary>
+            通用问题描述
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonManage.GeneralProbDtlDesc">
+            <summary>
+            通用问题描述
             </summary>
         </member>
         <member name="F:SIE.Andon.Andons.AndonManage.StateDescProperty">
@@ -4211,7 +4414,7 @@
             <param name="operateType"></param>
             <param name="reason"></param>
         </member>
-        <member name="M:SIE.Andon.Andons.AndonManageController.AndonManageResponse(System.Double,SIE.Andon.Andons.Enum.AndonManageOperateType,System.String,System.Double)">
+        <member name="M:SIE.Andon.Andons.AndonManageController.AndonManageResponse(System.Double,SIE.Andon.Andons.Enum.AndonManageOperateType,System.String,System.Double,System.Nullable{System.Boolean})">
             <summary>
             安灯管理响应命令
             </summary>
@@ -4230,7 +4433,7 @@
             <param name="reassignEmployeeId"></param>
             <param name="ressignAndonId"></param>
         </member>
-        <member name="M:SIE.Andon.Andons.AndonManageController.AndonManageHandleAsync(System.Double,SIE.Andon.Andons.Enum.AndonManageOperateType,System.String,System.String,System.String,System.String,System.Double)">
+        <member name="M:SIE.Andon.Andons.AndonManageController.AndonManageHandleAsync(System.Double,SIE.Andon.Andons.Enum.AndonManageOperateType,System.String,System.String,System.String,System.String,System.Double,System.Nullable{System.Boolean})">
             <summary>
             安灯管理处理完成命令
             </summary>
@@ -4241,8 +4444,9 @@
             <param name="handleWay">处理方式</param>
             <param name="measure">预防措施</param>
             <param name="operaterId">操作人</param>
+            <param name="isCs">是否CS端</param>
         </member>
-        <member name="M:SIE.Andon.Andons.AndonManageController.AndonManageCheck(System.Double,SIE.Andon.Andons.Enum.AndonManageOperateType,System.String,System.Nullable{System.Double})">
+        <member name="M:SIE.Andon.Andons.AndonManageController.AndonManageCheck(System.Double,SIE.Andon.Andons.Enum.AndonManageOperateType,System.String,System.Nullable{System.Double},System.Nullable{System.Boolean},System.Double)">
             <summary>
             安灯管理验收命令
             </summary>
@@ -4250,14 +4454,16 @@
             <param name="operateType"></param>
             <param name="reason"></param>
             <param name="actualTime"></param>
+            <param name="isCs">是否CS端</param>
         </member>
-        <member name="M:SIE.Andon.Andons.AndonManageController.AndonManageReject(System.Double,SIE.Andon.Andons.Enum.AndonManageOperateType,System.String)">
+        <member name="M:SIE.Andon.Andons.AndonManageController.AndonManageReject(System.Double,SIE.Andon.Andons.Enum.AndonManageOperateType,System.String,System.Nullable{System.Boolean},System.Double)">
             <summary>
             安灯管理驳回命令
             </summary>
             <param name="andonManageId"></param>
             <param name="operateType"></param>
             <param name="reason"></param>
+            <param name="isCs">是否CS端</param>
         </member>
         <member name="M:SIE.Andon.Andons.AndonManageController.AndonManageCommandCreateOperate(System.Double,SIE.Andon.Andons.Enum.AndonManageOperateType,System.String,System.Double)">
             <summary>
@@ -4391,12 +4597,28 @@
             <param name="handleWay">处理方式</param>
             <param name="measure">预防措施</param>
         </member>
+        <member name="M:SIE.Andon.Andons.AndonManageController.GetGeneralProbDtlsByAndonId(System.Double,SIE.PagingInfo,System.String)">
+            <summary>
+            根据安灯维护获取通用问题描述
+            </summary>
+            <param name="AndonId"></param>
+            <param name="pagingInfo"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="M:SIE.Andon.Andons.AndonManageController.SaveAndonAndItemDetail(SIE.Andon.Andons.AndonManage,SIE.Domain.EntityList{SIE.Andon.Andons.AndonManageCallMaterial})">
             <summary>
             保存安灯管理
             </summary>
             <param name="andonManage"></param>
             <param name="andonManageCallMaterials"></param>
+        </member>
+        <member name="M:SIE.Andon.Andons.AndonManageController.GetAndonManageIds(System.Collections.Generic.List{System.Double})">
+            <summary>
+            获取安灯异常产线
+            </summary>
+            <param name="wipResourceIds"></param>
+            <returns></returns>
         </member>
         <member name="M:SIE.Andon.Andons.AndonManageController.GetAndonsByEmployeeId(System.Double)">
             <summary>
@@ -4469,11 +4691,14 @@
             <param name="andonManage"></param>
             <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
         </member>
-        <member name="M:SIE.Andon.Andons.AndonManageController.SendMarkdownMessage(SIE.Andon.Andons.AndonManage)">
+        <member name="M:SIE.Andon.Andons.AndonManageController.SendMarkdownMessage(SIE.Andon.Andons.AndonManage,System.Nullable{SIE.Andon.Andons.Enum.AndonManageOperateType},System.Nullable{System.Boolean},System.String)">
             <summary>
             推送企业微信
             </summary>
             <param name="andonManage"></param>
+            <param name="operateType">操作类型</param>
+            <param name="isCs">是否CS端</param>
+            <param name="specifyName">指定人</param>
             <returns></returns>
         </member>
         <member name="M:SIE.Andon.Andons.AndonManageController.GetEmpNames(System.Collections.Generic.List{System.Double})">
@@ -4570,6 +4795,29 @@
             查询人员是否存在
             </summary>
             <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.Andon.Andons.AndonManageController.GetAndonManages(System.Collections.Generic.List{SIE.Core.ApiModels.DictionaryData},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Collections.Generic.List{System.Double}@)">
+            <summary>
+            获取安灯管理信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.Andon.Andons.AndonManageController.GetAndonAnomaly(System.Collections.Generic.List{SIE.Core.ApiModels.DictionaryData},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            生成安灯异常统计
+            </summary>
+            <param name="dicWids"></param>
+            <param name="startTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.Andon.Andons.AndonManageController.GenAndonManageGroupByData(System.Collections.Generic.List{SIE.Andon.Andons.AndonManage},SIE.Domain.EntityList{SIE.Andon.Andons.AndonManageOperateLog})">
+            <summary>
+            生成安灯统计信息
+            </summary>
+            <param name="andonTypeGroupByValue"></param>
+            <param name="logs"></param>
             <returns></returns>
         </member>
         <member name="T:SIE.Andon.Andons.AndonManageCriterial">
@@ -5364,6 +5612,81 @@
             元数据配置
             </summary>
         </member>
+        <member name="T:SIE.Andon.Andons.AndonResponseDetail">
+            <summary>
+            安灯责任组
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonResponseDetail.AndonIdProperty">
+            <summary>
+            安灯维护Id
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonResponseDetail.AndonId">
+            <summary>
+            安灯维护Id
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonResponseDetail.AndonProperty">
+            <summary>
+            安灯维护
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonResponseDetail.Andon">
+            <summary>
+            安灯维护
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonResponseDetail.AndonUpholdIdProperty">
+            <summary>
+            安灯区域Id
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonResponseDetail.AndonUpholdId">
+            <summary>
+            安灯区域Id
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonResponseDetail.AndonUpholdProperty">
+            <summary>
+            安灯区域
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonResponseDetail.AndonUphold">
+            <summary>
+            安灯区域
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonResponseDetail.AndonGroupIdProperty">
+            <summary>
+            安灯责任组Id
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonResponseDetail.AndonGroupId">
+            <summary>
+            安灯责任组Id
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonResponseDetail.AndonGroupProperty">
+            <summary>
+            安灯责任组
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonResponseDetail.AndonGroup">
+            <summary>
+            安灯责任组
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonResponseDetail.AndonseepLevelProperty">
+            <summary>
+            安灯级别
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonResponseDetail.AndonseepLevel">
+            <summary>
+            安灯级别
+            </summary>
+        </member>
         <member name="T:SIE.Andon.Andons.AndonSesp">
             <summary>
             安灯责任清单
@@ -6078,6 +6401,71 @@
         <member name="P:SIE.Andon.Andons.APIModel.AndonManagerResultInfo.State">
             <summary>
             状态
+            </summary>
+        </member>
+        <member name="T:SIE.Andon.Andons.APIModel.AndonManageGroupByData">
+            <summary>
+            安灯统计信息
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.WorkShopId">
+            <summary>
+            车间ID
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.FactoryCode">
+            <summary>
+            工厂代码
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.WorkShopCode">
+            <summary>
+            车间代码
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.AndonBigType">
+            <summary>
+            安灯大类
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.AndonType">
+            <summary>
+            安灯类型
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.AndonNum">
+            <summary>
+            安灯次数
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.OnTimeResponseCount">
+            <summary>
+            及时响应次数
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.OnTimeProcessCount">
+            <summary>
+            及时处理次数
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.OnTimeResponseRate">
+            <summary>
+            及时响应率
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.ExceptionResponseTime">
+            <summary>
+            异常响应时间（小时）
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.ExceptionProcessTime">
+            <summary>
+            异常处理时间（小时）
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.APIModel.AndonManageGroupByData.OnTimeProcessRate">
+            <summary>
+            及时处理率
             </summary>
         </member>
         <member name="T:SIE.Andon.Andons.APIModel.AndonManageInfo">
@@ -7833,6 +8221,41 @@
             <param name="andonManage"></param>
             <param name="listMaterial"></param>
             <returns></returns>
+        </member>
+        <member name="T:SIE.Andon.Andons.GeneralProbDtl">
+            <summary>
+            通用问题描述
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.GeneralProbDtl.AndonIdProperty">
+            <summary>
+            安灯维护Id
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.GeneralProbDtl.AndonId">
+            <summary>
+            安灯维护Id
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.GeneralProbDtl.AndonProperty">
+            <summary>
+            安灯维护
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.GeneralProbDtl.Andon">
+            <summary>
+            安灯维护
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.GeneralProbDtl.DescProperty">
+            <summary>
+            问题描述
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.GeneralProbDtl.Desc">
+            <summary>
+            问题描述
+            </summary>
         </member>
         <member name="T:SIE.Andon.Andons.IOT.IotPunchWorkWrite">
             <summary>

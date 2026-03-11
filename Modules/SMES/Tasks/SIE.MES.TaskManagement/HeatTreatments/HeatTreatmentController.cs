@@ -270,5 +270,46 @@ namespace SIE.MES.TaskManagement.HeatTreatments
             }
             return (totalCount, successCount, msg);
         }
+
+        /// <summary>
+        /// 根据产口获取老化炉标签进出炉记录
+        /// </summary>
+        /// <param name="productCodes"></param>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        public virtual List<KzHeatTreatmentInfo> GetHeatTreatmentList(List<string> productCodes, DateTime startTime, DateTime endTime)
+        {
+            List<KzHeatTreatmentInfo> datas = new List<KzHeatTreatmentInfo>();
+            productCodes.SplitDataExecute(temp =>
+            {
+                var list = Query<HeatTreatment>().Where(p => temp.Contains(p.WipBatch.WorkOrder.Product.Code)
+            && p.CreateDate > startTime && p.CreateDate < endTime).Select(p => new
+            {
+                Barcode = p.Barcode,
+                Count00 = p.Count00,
+                CreateDate = p.CreateDate,
+                MaterialCode = p.WipBatch.WorkOrder.Product.Code,
+                DevName = p.DevName,
+                Model = p.Model,
+                OperationType = p.OperationType
+            }).ToList<KzHeatTreatmentInfo>().ToList();
+                datas.AddRange(list);
+            });
+            return datas;
+        }
+
+        /// <summary>
+        /// 根据条码号获取老化炉标签进出炉记录
+        /// </summary>
+        /// <param name="lables"></param>
+        /// <returns></returns>
+        public virtual EntityList<HeatTreatment> GetHeatTreatmentList(List<string> lables)
+        {
+            return lables.SplitContains(barcodes =>
+            {
+                return Query<HeatTreatment>().Where(p => barcodes.Contains(p.Barcode)).ToList();
+            });
+        }
     }
 }

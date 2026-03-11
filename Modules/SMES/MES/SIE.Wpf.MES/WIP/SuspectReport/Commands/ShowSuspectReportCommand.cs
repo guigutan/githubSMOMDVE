@@ -34,7 +34,7 @@ namespace SIE.Wpf.MES.WIP.SuspectReport.Commands
             //采集信息
             var vm = view.Current as KZDataCollectionViewModel;
             var moduleKey = RT.Service.Resolve<IFindModule>().FindModuleKey(typeof(PackingQcViewModel));
-            var model = new SuspectReportViewModel(vm.KZWorkstation, "成品包装");
+            var model = new SuspectReportViewModel(vm.KZWorkstation, "包装");
             var template = new DetailsUITemplate<SuspectReportViewModel>(moduleKey);
             template.ViewGroup = ViewConfig.DetailsView;
             var ui = template.CreateUI();

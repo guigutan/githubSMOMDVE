@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\FMS",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\FMS",
   "SIE.Web.FMS.FileManage.Commands.AddEmployeeCommand.js": "SIE.Web.FMS/FileManage/Commands/AddEmployeeCommand.js",
   "SIE.Web.FMS.FileManage.Commands.DownLoadCommand.js": "SIE.Web.FMS/FileManage/Commands/DownLoadCommand.js",
   "SIE.Web.FMS.FileManage.Commands.PreViewCommand.js": "SIE.Web.FMS/FileManage/Commands/PreViewCommand.js",

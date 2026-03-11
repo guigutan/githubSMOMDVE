@@ -724,6 +724,29 @@
             <param name="storageLocation"></param>
             <returns></returns>
         </member>
+        <member name="T:SIE.ERPInterface.Smom.Download.KaiZhong.DownloadOrgLevelController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.ERPInterface.Smom.Download.KaiZhong.DownloadOrgLevelController.SaveOrgLevels(System.Collections.Generic.List{SIE.MES.OrgLevels.OrgLevelInfo},SIE.KZ.Base.Interfaces.InfNcDataLogGroup@)">
+            <summary>
+            从API下载数据到业务表
+            </summary>
+            <param name="datas"></param>
+            <param name="erpDataInfLog"></param>
+            <returns></returns>
+            <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
+        </member>
+        <member name="M:SIE.ERPInterface.Smom.Download.KaiZhong.DownloadOrgLevelController.CreateOrglevel(SIE.MES.OrgLevels.OrgLevel,SIE.MES.OrgLevels.OrgLevelInfo,SIE.Rbac.InvOrgs.InvOrg)">
+            <summary>
+            赋值
+            </summary>
+            <param name="orglevel"></param>
+            <param name="item"></param>
+            <param name="invOrg"></param>
+            <returns></returns>
+        </member>
         <!-- Badly formed XML comment ignored for member "M:SIE.ERPInterface.Smom.Download.KaiZhong.DownloadProcessController.SaveProcesss(System.Collections.Generic.List{SIE.KZ.Base.Interfaces.Datas.ProcessData})" -->
         <!-- Badly formed XML comment ignored for member "M:SIE.ERPInterface.Smom.Download.KaiZhong.DownloadProcessController.SaveProcesss(System.Collections.Generic.List{SIE.KZ.Base.Interfaces.Datas.ProcessData},SIE.KZ.Base.Interfaces.InfNcDataLogGroup@)" -->
         <member name="M:SIE.ERPInterface.Smom.Download.KaiZhong.DownloadProductLineController.SaveProductLineFactory(System.Collections.Generic.List{SIE.KZ.Base.Interfaces.Datas.ProductLineData})">
@@ -740,6 +763,20 @@
             <param name="data"></param>
         </member>
         <member name="M:SIE.ERPInterface.Smom.Download.KaiZhong.DownloadProductLineController.Valid(SIE.KZ.Base.Interfaces.Datas.ProductLineData,SIE.KZ.Base.Interfaces.Datas.OuterSystemRetVO@)">
+            <summary>
+            校验
+            </summary>
+            <param name="data"></param>
+            <param name="result"></param>
+        </member>
+        <member name="M:SIE.ERPInterface.Smom.Download.KaiZhong.DownloadReworkLayoutVersionController.SaveEquipAccountItemFactory(SIE.KZ.Base.Interfaces.Datas.Rlvd)">
+            <summary>
+            保存分类到业务表
+            </summary>
+            <param name="datas"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.ERPInterface.Smom.Download.KaiZhong.DownloadReworkLayoutVersionController.Valid(SIE.KZ.Base.Interfaces.Datas.ReworkLayoutVersionData,SIE.KZ.Base.Interfaces.Datas.OuterSystemRetVO@)">
             <summary>
             校验
             </summary>

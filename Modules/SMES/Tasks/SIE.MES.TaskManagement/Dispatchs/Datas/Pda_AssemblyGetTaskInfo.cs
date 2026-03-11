@@ -49,5 +49,10 @@ namespace SIE.MES.TaskManagement.Dispatchs.Datas
         /// </summary>
         public decimal Qty { get; set; }
 
+        /// <summary>
+        /// 旧料号
+        /// </summary>
+        public string OldItemCode { get; set; }
+
     }
 }

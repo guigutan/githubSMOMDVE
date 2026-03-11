@@ -128,5 +128,25 @@ namespace SIE.KZ.Base.SmomControl
             var first = Query<SmomControlSetting>().Where(p => p.FactoryCode == FactoryCode).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
             return first;
         }
+
+        /// <summary>
+        /// 根据工厂获取数据
+        /// </summary>
+        /// <param name="factoryCodes"></param>
+        /// <returns></returns>
+        public virtual EntityList<SmomControlSetting> GetSmomControlSettingByFactoryCodes(List<string> factoryCodes)
+        {
+            return Query<SmomControlSetting>().Where(p => factoryCodes.Contains(p.FactoryCode)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+        }
+
+        /// <summary>
+        /// 获取所有基地的Url
+        /// </summary>
+        /// <param name="FactoryCode"></param>
+        /// <returns></returns>
+        public virtual List<string> GetSmomControlSettingUrl()
+        {
+            return Query<SmomControlSetting>().Select(p => p.FactoryUrl).Distinct().ToList<string>().ToList();
+        }
     }
 }

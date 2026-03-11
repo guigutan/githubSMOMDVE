@@ -432,6 +432,13 @@ namespace SIE.Core.Enums
         /// </summary>
         [Category("KZ")]
         [Label("发货确认")]
-        OutboundConfirm = 390
+        OutboundConfirm = 390,
+
+        /// <summary>
+        /// 返工信息
+        /// </summary>
+        [Category("KZ")]
+        [Label("返工信息")]
+        ReworkInfoRecord = 400,
     }
 }

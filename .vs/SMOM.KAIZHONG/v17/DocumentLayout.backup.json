@@ -1,12 +1,71 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\myproject\\MOMWorksPaces\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0310\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\onoffdutyb\\onoffdutybviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\onoffdutyb\\onoffdutybviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0310\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\onoffdutyb\\workcellviewmodelb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\onoffdutyb\\workcellviewmodelb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0310\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\wip\\datacollectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\wip\\datacollectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataCollectionViewModel.cs",
+              "DocumentMoniker": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
+              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
+              "ToolTip": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
+              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
+              "ViewState": "AgIAAFoFAAAAAAAAAAAnwHQFAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:13:35.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WorkCellViewModelB.cs",
+              "DocumentMoniker": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\WorkCellViewModelB.cs",
+              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\WorkCellViewModelB.cs",
+              "ToolTip": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\WorkCellViewModelB.cs",
+              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\WorkCellViewModelB.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAADwv38AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T00:47:11.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OnOffDutyBViewModel.cs",
+              "DocumentMoniker": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\OnOffDutyBViewModel.cs",
+              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\OnOffDutyBViewModel.cs",
+              "ToolTip": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\OnOffDutyBViewModel.cs",
+              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\OnOffDutyBViewModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T11:50:09.766Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

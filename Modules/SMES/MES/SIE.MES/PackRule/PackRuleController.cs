@@ -16,7 +16,7 @@ namespace SIE.MES.PackRule
         /// <returns></returns>
         public virtual ItemQRCodeRule GetItemQRCodeRule(double itemId)
         {
-            var query = Query<ItemQRCodeRule>().Where(p => p.ItemId == itemId).ToList().FirstOrDefault();
+            var query = Query<ItemQRCodeRule>().Where(p => p.ItemId == itemId).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
             return query;
         }
 

@@ -69,6 +69,10 @@ namespace SIE.Web.Resources.Employees
                 View.Property(p => p.Email);
                 View.Property(p => p.Remark);
                 View.Property(p => p.User);
+                View.Property(p => p.OrgLevel1).Show();
+                View.Property(p => p.OrgLevel2).Show();
+                View.Property(p => p.OrgLevel3).Show();
+                View.Property(p => p.OrgLevel4).Show();
                 View.ChildrenProperty(p => p.ResourceList).IsVisible = true;
                 View.ChildrenProperty(p => p.EnterpriseList).HasLabel("工厂权限").IsVisible = true;
                 View.AttachChildrenProperty(typeof(EmployeeSkill), w =>

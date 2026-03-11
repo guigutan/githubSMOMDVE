@@ -92,7 +92,7 @@ namespace SIE.Core.Common
         /// <summary>
         /// 库存组织
         /// </summary>
-        public int InvOrgId { get; set; } = 1;
+        public int? InvOrgId { get; set; } = 1;
     }
 
     /// <summary>

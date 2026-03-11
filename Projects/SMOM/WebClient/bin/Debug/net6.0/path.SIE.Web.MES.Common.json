@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Common",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Common",
   "SIE.Web.MES.Common.HomeMenusConfigs.Commands.EditPermissionsCommand.js": "SIE.Web.MES.Common/HomeMenusConfigs/Commands/EditPermissionsCommand.js",
   "SIE.Web.MES.Common.Scripts.Helpers.DataTableExportExcelHelper.js": "SIE.Web.MES.Common/Scripts/Helpers/DataTableExportExcelHelper.js",
   "SIE.Web.MES.Common.Scripts.Helpers.ExportExcelHelper.js": "SIE.Web.MES.Common/Scripts/Helpers/ExportExcelHelper.js"

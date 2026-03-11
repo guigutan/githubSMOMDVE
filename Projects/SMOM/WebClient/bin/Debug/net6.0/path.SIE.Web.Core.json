@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Core",
   "SIE.Web.Core.ApiLogs.Commands.LookUpContextCommand.js": "SIE.Web.Core/ApiLogs/Commands/LookUpContextCommand.js",
   "SIE.Web.Core.Common.Commands.ImmediateDeleteCommand.js": "SIE.Web.Core/Common/Commands/ImmediateDeleteCommand.js",
   "SIE.Web.Core.Common.Commands.Import.ImportMasterSubordinateCommand.js": "SIE.Web.Core/Common/Commands/Import/ImportMasterSubordinateCommand.js",

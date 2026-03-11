@@ -6005,6 +6005,7 @@
       },
       "SIE.MES.DashBoard/1.0.0": {
         "dependencies": {
+          "SIE.KZ.Group": "1.0.0",
           "SIE.MES.TaskManagement": "1.0.0",
           "SIE.MES.TeamManagement": "1.0.0"
         },
@@ -6040,6 +6041,7 @@
       },
       "SIE.MES.Report/1.0.0": {
         "dependencies": {
+          "SIE.MES.TaskManagement": "1.0.0",
           "SIE.MES.TeamManagement": "1.0.0"
         },
         "runtime": {
@@ -6063,6 +6065,7 @@
       "SIE.MES.TaskManagement/1.0.0": {
         "dependencies": {
           "SIE.Andon": "1.0.0",
+          "SIE.Items": "1.0.0",
           "SIE.MES": "1.0.0",
           "SIE.ProductIntfc": "1.0.0"
         },

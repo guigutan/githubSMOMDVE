@@ -12,6 +12,7 @@ namespace SIE.Web.MES.TaskManagement.Configs
         /// </summary>
         protected override void ConfigDetailsView()
         {
+            View.Property(p => p.IsCheckProductionLineTaskList);
             View.Property(p => p.IsCheckEmployeeSkill);
             View.Property(p => p.IsCheckPersonnelPermission);
             //View.Property(p => p.IsAllowOverBatchQty);
@@ -27,6 +28,7 @@ namespace SIE.Web.MES.TaskManagement.Configs
             View.Property(p => p.GoodLabel).UseMemoEditor();
             View.Property(p => p.SuspectLabel).UseMemoEditor();
             View.Property(p => p.NewMaterialProValid).Show().UseListSetting(p => p.HelpInfo = "多个工序编码使用英文逗号分隔");
+            View.Property(p => p.IsValidScanQty).Show();
         }
     }
 }

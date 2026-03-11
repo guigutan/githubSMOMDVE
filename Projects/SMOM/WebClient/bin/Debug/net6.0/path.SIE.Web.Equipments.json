@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Equipments",
   "SIE.Web.Equipments.Abnormal.Commands.AbnormalCauseAddCommand.js": "SIE.Web.Equipments/Abnormal/Commands/AbnormalCauseAddCommand.js",
   "SIE.Web.Equipments.Abnormal.Commands.AbnormalCauseImportCommand.js": "SIE.Web.Equipments/Abnormal/Commands/AbnormalCauseImportCommand.js",
   "SIE.Web.Equipments.Abnormal.Commands.AbnormalCauseRestoreCommand.js": "SIE.Web.Equipments/Abnormal/Commands/AbnormalCauseRestoreCommand.js",

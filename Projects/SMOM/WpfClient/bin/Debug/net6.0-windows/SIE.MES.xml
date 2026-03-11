@@ -24590,6 +24590,13 @@
             配置元数据
             </summary>
         </member>
+        <member name="M:SIE.MES.Capacitys.StandardCapacityController.GetStandardCapacityByItemIds(System.Collections.Generic.List{System.Double})">
+            <summary>
+            根据物料ID获取标准产能维护
+            </summary>
+            <param name="itemIds"></param>
+            <returns></returns>
+        </member>
         <member name="T:SIE.MES.Checker.CheckerUphold">
             <summary>
             检具维护
@@ -25275,6 +25282,276 @@
             <summary>
             初始化项目号需求设计文档类型
             </summary>
+        </member>
+        <member name="T:SIE.MES.DesignerAreas.DesignerArea">
+            <summary>
+            看板区域维护
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerArea.AreaCodeProperty">
+            <summary>
+            看板区域编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerArea.AreaCode">
+            <summary>
+            看板区域编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerArea.AreaNameProperty">
+            <summary>
+            看板区域名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerArea.AreaName">
+            <summary>
+            看板区域名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerArea.ResourceListProperty">
+            <summary>
+            看板区域与产线 列表
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerArea.ResourceList">
+            <summary>
+            看板区域与产线 列表
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerArea.MrpListListProperty">
+            <summary>
+            看板区域与MRP控制者 列表
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerArea.MrpList">
+            <summary>
+            看板区域与MRP控制者 列表
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DesignerAreas.DesignerAreaMrp">
+            <summary>
+            看板区域MRP
+            </summary>
+        </member>
+        <member name="M:SIE.MES.DesignerAreas.DesignerAreaMrp.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaMrp.DesignerAreaIdProperty">
+            <summary>
+            看板区域Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaMrp.DesignerAreaId">
+            <summary>
+            看板区域Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaMrp.DesignerAreaProperty">
+            <summary>
+            看板区域
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaMrp.DesignerArea">
+            <summary>
+            看板区域
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaMrp.MrpControllerProperty">
+            <summary>
+            MRP控制者
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaMrp.MrpController">
+            <summary>
+            MRP控制者
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DesignerAreas.DesignerAreaResources">
+            <summary>
+            看板区域产线
+            </summary>
+        </member>
+        <member name="M:SIE.MES.DesignerAreas.DesignerAreaResources.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaResources.DesignerAreaIdProperty">
+            <summary>
+            看板区域Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaResources.DesignerAreaId">
+            <summary>
+            看板区域Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaResources.DesignerAreaProperty">
+            <summary>
+            看板区域
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaResources.DesignerArea">
+            <summary>
+            看板区域
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaResources.ResourceIdProperty">
+            <summary>
+            产线Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaResources.ResourceId">
+            <summary>
+            产线Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaResources.ResourceProperty">
+            <summary>
+            产线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaResources.Resource">
+            <summary>
+            产线
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaResources.ResourceCodeProperty">
+            <summary>
+            产线编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaResources.ResourceCode">
+            <summary>
+            产线编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaResources.ResourceNameProperty">
+            <summary>
+            产线名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaResources.ResourceName">
+            <summary>
+            产线名称
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DesignerAreas.DesignerAreaReourceSelect">
+            <summary>
+            看板区域产线
+            </summary>
+        </member>
+        <member name="M:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.DesignerAreaIdProperty">
+            <summary>
+            看板区域Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.DesignerAreaId">
+            <summary>
+            看板区域Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.DesignerAreaProperty">
+            <summary>
+            看板区域
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.DesignerArea">
+            <summary>
+            看板区域
+            </summary>
+            
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.ResourceIdProperty">
+            <summary>
+            产线Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.ResourceId">
+            <summary>
+            产线Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.ResourceProperty">
+            <summary>
+            产线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.Resource">
+            <summary>
+            产线
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.ResourceCodeProperty">
+            <summary>
+            产线编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.ResourceCode">
+            <summary>
+            产线编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.ResourceNameProperty">
+            <summary>
+            产线名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaReourceSelect.ResourceName">
+            <summary>
+            产线名称
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DesignerAreas.DesignerAreaController">
+            <summary>
+            《看板区域》控制器，增、删、查、改
+            </summary>
+        </member>
+        <member name="M:SIE.MES.DesignerAreas.DesignerAreaController.Fetch(SIE.MES.DesignerAreas.DesignerAreaCriteria)">
+            <summary>
+            查询
+            </summary>
+            <param name="prodAreaCriteria"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:SIE.MES.DesignerAreas.DesignerAreaCriteria">
+            <summary>
+            查询实体
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaCriteria.AreaCodeProperty">
+            <summary>
+            看板区域编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaCriteria.AreaCode">
+            <summary>
+            看板区域编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.DesignerAreas.DesignerAreaCriteria.AreaNameProperty">
+            <summary>
+            看板区域名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DesignerAreas.DesignerAreaCriteria.AreaName">
+            <summary>
+            看板区域名称
+            </summary>
+        </member>
+        <member name="M:SIE.MES.DesignerAreas.DesignerAreaCriteria.Fetch">
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:SIE.MES.DispoLookups.DispoLookup">
             <summary>
@@ -35495,6 +35772,16 @@
             安灯编码
             </summary>
         </member>
+        <member name="F:SIE.MES.LineAndon.AndonLineCriterial.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.AndonLineCriterial.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
         <member name="M:SIE.MES.LineAndon.AndonLineCriterial.Fetch">
             <summary>
             查询方法
@@ -35504,6 +35791,564 @@
         <member name="T:SIE.MES.LineAndon.AndonLinePrintable">
             <summary>
             产线条码化打印
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ListAtts.ListAtt">
+            <summary>
+            考勤数据实体
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.DataIdProperty">
+            <summary>
+            对应的考勤数据的原始ID
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.DataId">
+            <summary>
+            对应的考勤数据的原始ID
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.EventTimeProperty">
+            <summary>
+            记录设备触发时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.EventTime">
+            <summary>
+            记录设备触发时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.PinProperty">
+            <summary>
+            人员编号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.Pin">
+            <summary>
+            人员编号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.NameProperty">
+            <summary>
+            人员姓名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.Name">
+            <summary>
+            人员姓名
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.LastNameProperty">
+            <summary>
+            人员姓名，英文下才有用
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.LastName">
+            <summary>
+            人员姓名，英文下才有用
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.DeptNameProperty">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.AreaNameProperty">
+            <summary>
+            区域名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.AreaName">
+            <summary>
+            区域名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.CardNoProperty">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.CardNo">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.DevSnProperty">
+            <summary>
+            设备序列号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.DevSn">
+            <summary>
+            设备序列号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.VerifyModeNameProperty">
+            <summary>
+            验证方式名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.VerifyModeName">
+            <summary>
+            验证方式名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.EventNameProperty">
+            <summary>
+            事件描述
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.EventName">
+            <summary>
+            事件描述
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.EventPointNameProperty">
+            <summary>
+            事件出发点名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.EventPointName">
+            <summary>
+            事件出发点名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.ReaderNameProperty">
+            <summary>
+            读头名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.ReaderName">
+            <summary>
+            读头名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.AccZoneProperty">
+            <summary>
+            门禁区域名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.AccZone">
+            <summary>
+            门禁区域名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.DevNameProperty">
+            <summary>
+            设备名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.DevName">
+            <summary>
+            设备名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.LogIdProperty">
+            <summary>
+            事件索引值
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.LogId">
+            <summary>
+            事件索引值
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.AttPlaceProperty">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.AttPlace">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAtt.MarkProperty">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAtt.Mark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ListAtts.ListAtt.ListAttConfig.ConfigMeta">
+            <summary>
+            配置数据库映射
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ListAtts.ListAttController">
+            <summary>
+            考勤数据 控制器
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ListAtts.ListAttController.SaveListAtt(System.Collections.Generic.List{SIE.MES.ListAtts.ListAttInfo})">
+            <summary>
+            保存考勤原始数据
+            </summary>
+            <param name="listListAttInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.ListAtts.ListAttController.Fetch(SIE.MES.ListAtts.ListAttCriteria)">
+            <summary>
+            执行查询
+            </summary>
+            <param name="listAttCriteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.ListAtts.ListAttController.ExecJob(System.Object)">
+            <summary>
+            执行调度。从外部接口获取考勤数据并推送至各工厂，如果禁用库存组织则推送至各基地
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAttController._httpClient">
+            <summary>
+            HttpClient实例。复用HttpClient实例（避免频繁创建导致TCP端口耗尽）
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SIE.MES.ListAtts.ListAttController.ConvertToAttInfoList(System.String)" -->
+        <member name="T:SIE.MES.ListAtts.ListAttController.CustomListAttContractResolver">
+            <summary>
+            自定义ContractResolver，继承DefaultContractResolver并重写ResolveContract方法
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ListAtts.ListAttController.CallPostApiAsync(System.String,System.Collections.Generic.List{SIE.MES.ListAtts.ListAttInfo})">
+            <summary>
+            调用POST接口(ListAttController.SaveListAtt)
+            </summary>
+            <param name="apiUrl"></param>
+            <param name="listAttInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SIE.MES.ListAtts.ListAttCriteria">
+            <summary>
+            考勤数据查询实体
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAttCriteria.DeptNameProperty">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttCriteria.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAttCriteria.AreaNameProperty">
+            <summary>
+            区域名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttCriteria.AreaName">
+            <summary>
+            区域名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAttCriteria.PinProperty">
+            <summary>
+            人员编号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttCriteria.Pin">
+            <summary>
+            人员编号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAttCriteria.NameProperty">
+            <summary>
+            人员姓名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttCriteria.Name">
+            <summary>
+            人员姓名
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAttCriteria.EventTimeSProperty">
+            <summary>
+            记录设备触发时间-开始
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttCriteria.EventTimeS">
+            <summary>
+            记录设备触发时间-开始
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.ListAttCriteria.EventTimeEProperty">
+            <summary>
+            记录设备触发时间-结束
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttCriteria.EventTimeE">
+            <summary>
+            记录设备触发时间-结束
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ListAtts.ListAttCriteria.Fetch">
+            <summary>
+            查询方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SIE.MES.ListAtts.ListAttInfo">
+            <summary>
+            考勤原始数据对象属性
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.DataId">
+            <summary>
+            对应的考勤数据的原始ID
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.EventTime">
+            <summary>
+            记录设备触发时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.Pin">
+            <summary>
+            人员编号
+            </summary>      
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.Name">
+            <summary>
+            人员姓名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.LastName">
+            <summary>
+            人员姓名，英文下才有用
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.DeptName">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.AreaName">
+            <summary>
+            区域名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.CardNo">
+            <summary>
+            卡号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.DevSn">
+            <summary>
+            设备序列号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.VerifyModeName">
+            <summary>
+            验证方式名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.EventName">
+            <summary>
+            事件描述
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.EventPointName">
+            <summary>
+            事件出发点名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.ReaderName">
+            <summary>
+            读头名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.AccZone">
+            <summary>
+            门禁区域名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.DevName">
+            <summary>
+            设备名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.LogId">
+            <summary>
+            事件索引值
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.AttPlace">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ListAttInfo.Mark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ListAtts.ApiContext">
+            <summary>
+            请求参数的Context部分
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ApiContext.InvOrgId">
+            <summary>
+            InvOrgId
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ApiContext.Language">
+            <summary>
+            Language
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ListAtts.ParameterItem">
+            <summary>
+            请求参数的Parameters子项
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:SIE.MES.ListAtts.ParameterItem.Value" -->
+        <member name="T:SIE.MES.ListAtts.ApiRequestModel">
+            <summary>
+             完整的POST请求参数模型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ApiRequestModel.ApiType">
+            <summary>
+            ApiType
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ApiRequestModel.Parameters">
+            <summary>
+            Parameters
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ApiRequestModel.Method">
+            <summary>
+            Method
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ApiRequestModel.Context">
+            <summary>
+            Context
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ListAtts.PostResData">
+            <summary>
+            SaveListAtt的POST返回数据
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.PostResData.DataRows">
+            <summary>
+            数据总条数
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.PostResData.AddRows">
+            <summary>
+            添加成功条数
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.PostResData.FailRows">
+            <summary>
+            添加失败条数
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.PostResData.IgnoreRow">
+            <summary>
+            忽略条数
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ListAtts.ApiServerInfo">
+            <summary>
+            ApiServerInfo
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ApiServerInfo.ApiUrl">
+            <summary>
+            ApiUrl
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ApiServerInfo.ApiIpPort">
+            <summary>
+            ApiIpPort
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.ApiServerInfo.ApiPostResData">
+            <summary>
+            ApiPostResData
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJob">
+            <summary>
+            从外部接口获取考勤数据并推送至各工厂
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJob.IsRun">
+            <summary>
+            是否运行中,用来防止并发问题
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJob.ExecuteJob(System.Object)">
+            <summary>
+            执行调度
+            </summary>
+            <param name="param"></param>
+            <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
+        </member>
+        <member name="T:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameter">
+            <summary>
+            从外部接口获取考勤数据并推送至各工厂的调度参数
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameter.#ctor">
+            <summary>
+            调度参数    
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameter.RequestServerTokenProperty">
+            <summary>
+            考勤数据的调用服务网址
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameter.RequestServer">
+            <summary>
+            考勤数据的调用服务网址
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameter.AccessTokenProperty">
+            <summary>
+            考勤数据的调用Token
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameter.AccessToken">
+            <summary>
+            考勤数据的调用Token
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameter.DaysProperty">
+            <summary>
+            要获取几天的考勤数据（1为当天）
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameter.Days">
+            <summary>
+            要获取前几天考勤数据
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameterWebViewConfig">
+            <summary>
+            从外部接口获取考勤数据并推送至各工厂的调度参数-视图配置
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ListAtts.SendGroupListAttDataToFactoryJobParameterWebViewConfig.ConfigView">
+            <summary>
+            视图配置
             </summary>
         </member>
         <member name="T:SIE.MES.LoadItemRecords.LoadItemsRecord">
@@ -39389,6 +40234,1140 @@
             <param name="criteria"></param>
             <returns></returns>
         </member>
+        <member name="T:SIE.MES.OnOffDutyA.ApiModel.OnOffDutyRecrodInfo">
+            <summary>
+            上下岗信息
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.ApiModel.OnOffDutyRecrodInfo.StaffCode">
+            <summary>
+            工号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.ApiModel.OnOffDutyRecrodInfo.StaffName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.ApiModel.OnOffDutyRecrodInfo.StaffGroup">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.ApiModel.OnOffDutyRecrodInfo.DutyType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.ApiModel.OnOffDutyRecrodInfo.OnDutyTime">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.ApiModel.OnOffDutyRecrodInfo.OffDutyTime">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel">
+            <summary>
+            A采集明细
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.StaffNOProperty">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.StaffNO">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.StaffNameProperty">
+            <summary>
+            员工名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.StaffName">
+            <summary>
+            员工名
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.OnOffDutyTypeProperty">
+            <summary>
+            上下岗类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.OnOffDutyType">
+            <summary>
+            上下岗类型
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.CollectDateProperty">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.CollectDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.InputDateProperty">
+            <summary>
+            上下岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.InputDate">
+            <summary>
+            上下岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.CollectUseNameProperty">
+            <summary>
+            创建用户
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.CollectUseName">
+            <summary>
+            创建用户
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModelList">
+            <summary>
+            采集明细集合
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModelList.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            集合变更通知
+            </summary>
+            <param name="e">集合变更参数</param>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModelList.InsertItem(System.Int32,System.Object)">
+            <summary>
+            插入采集明细
+            </summary>
+            <param name="index">插入位置</param>
+            <param name="item">采集明细对象</param>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyA.OnOffDutyController">
+            <summary>
+            
+            </summary>
+            <summary>
+            上下岗
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyController.SetOnOffDuty(System.String,System.Int32)">
+            <summary>
+            上下岗
+            </summary>
+            <param name="keyCode"></param>
+            <param name="onOffDutyType"></param>
+            <param name="workcell"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyController.OnOffDuty(SIE.MES.OnOffDutyA.OnOffDutyRecrodsA,System.Boolean)">
+            <summary>
+            上下岗
+            </summary>
+            <param name="onOffDutyRecrod"></param>      
+            <param name="isOnDuty"></param>        
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyController.Fetch(SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria)">
+            <summary>
+            查询
+            </summary>
+            <param name="onOffDutyRecrodsCriteria"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyController.FetchOnOffDutyRecrodsInput(SIE.MES.OnOffDutyA.OnOffDutyRecrodsInputCriteria)">
+            <summary>
+            查询员工
+            </summary>
+            <param name="onOffDutyRecrodsInputCriteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyController.SetOnOffDuty(SIE.Domain.EntityList{SIE.MES.OnOffDutyA.OnOffDutyRecrodsA})">
+            <summary>
+            补录上下岗
+            </summary>
+            <param name="selectedList"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA">
+            <summary>
+            上岗、下岗记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.EmployeeIdProperty">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.EmployeeId">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.EmployeeProperty">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.Employee">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.OnDutyDurationProperty">
+            <summary>
+            在岗时长
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.OnDutyDuration">
+            <summary>
+            在岗时长
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.OffDutyTimeProperty">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.OffDutyTime">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.OnDutyTimeProperty">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.OnDutyTime">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.OnOffDutyTypeProperty">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.OnOffDutyType">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.IsAdditionalRecordingProperty">
+            <summary>
+            是否补录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.IsAdditionalRecording">
+            <summary>
+            是否补录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.EmployeeCodeProperty">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.EmployeeCode">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.EmployeeNameProperty">
+            <summary>
+            员工名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.EmployeeName">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.EmployeeGroupNameProperty">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.EmployeeGroupName">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.UserCodeProperty">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsA.UserCode">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyRecrodsConfig.ConfigMeta">
+            <summary>
+            配置数据库映射
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria">
+            <summary>
+            查询实体
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.OnOffDutyTypeProperty">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.OnOffDutyType">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.IsAdditionalRecordingProperty">
+            <summary>
+            是否补录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.IsAdditionalRecording">
+            <summary>
+            是否补录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.ProcessIdProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.ProcessId">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.ProcessProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.ResourceIdProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.ResourceId">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.ResourceProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.Resource">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.StationIdProperty">
+            <summary>
+            工位Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.StationId">
+            <summary>
+            工位Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.StationProperty">
+            <summary>
+            工位
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.Station">
+            <summary>
+            工位
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.CreateTimeProperty">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.OffDutyTimeProperty">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.OffDutyTime">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.OnDutyTimeProperty">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.OnDutyTime">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.StaffProperty">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.Staff">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyRecrodsCriteria.Fetch">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyA.OnOffDutyRecrodsInputCriteria">
+            <summary>
+            上下岗录入查询
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsInputCriteria.StaffCodeProperty">
+            <summary>
+            员工编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsInputCriteria.StaffCode">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsInputCriteria.StaffNameProperty">
+            <summary>
+            员工姓名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsInputCriteria.StaffName">
+            <summary>
+            员工姓名
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyRecrodsInputCriteria.StaffGroupNameProperty">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyRecrodsInputCriteria.StaffGroupName">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyA.OnOffDutyRecrodsInputCriteria.Fetch">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyA.OnOffDutyTimeSettingViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyTimeSettingViewModel.OnDutyTimeProperty">
+            <summary>
+            上岗补录时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyTimeSettingViewModel.OnDutyTime">
+            <summary>
+            上岗补录时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyTimeSettingViewModel.OffDutyTimeProperty">
+            <summary>
+            下岗补录时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyA.OnOffDutyTimeSettingViewModel.OffDutyTime">
+            <summary>
+            下岗补录时间
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyA.OnOffDutyType">
+            <summary>
+            上下岗类型
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyType.OnDuty">
+            <summary>
+            上岗
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyA.OnOffDutyType.OffDuty">
+            <summary>
+            下岗
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo">
+            <summary>
+            B上下岗信息
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo.StaffCode">
+            <summary>
+            工号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo.StaffName">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo.StaffGroup">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo.Resource">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo.Station">
+            <summary>
+            工位
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo.DutyType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo.OnDutyTime">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.ApiModel.OnOffDutyBRecrodInfo.OffDutyTime">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel">
+            <summary>
+            B采集明细
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.StaffNOProperty">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.StaffNO">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.StaffNameProperty">
+            <summary>
+            员工名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.StaffName">
+            <summary>
+            员工名
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.ResourceNameProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.ResourceName">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.StationNameProperty">
+            <summary>
+            工位
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.StationName">
+            <summary>
+            工位
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.OnOffDutyTypeProperty">
+            <summary>
+            上下岗类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.OnOffDutyType">
+            <summary>
+            上下岗类型
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.ProcessNameProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.ProcessName">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.CollectDateProperty">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.CollectDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.InputDateProperty">
+            <summary>
+            上下岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.InputDate">
+            <summary>
+            上下岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.CollectUseNameProperty">
+            <summary>
+            创建用户
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.CollectUseName">
+            <summary>
+            创建用户
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModelList">
+            <summary>
+            B采集明细集合
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModelList.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            集合变更通知
+            </summary>
+            <param name="e">集合变更参数</param>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModelList.InsertItem(System.Int32,System.Object)">
+            <summary>
+            插入采集明细
+            </summary>
+            <param name="index">插入位置</param>
+            <param name="item">采集明细对象</param>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyB.OnOffDutyBController">
+            <summary>
+            B上下岗控制器
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBController.SetOnOffDuty(System.String,System.Int32,SIE.MES.WIP.Workcell)">
+            <summary>
+            B设置上下岗信息
+            </summary>
+            <param name="keyCode"></param>
+            <param name="onOffDutyType"></param>
+            <param name="workcell"></param>
+            <returns></returns>
+            <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBController.CheckedWorkcellParas(SIE.MES.WIP.Workcell)">
+            <summary>
+            检查工作台
+            </summary>
+            <param name="workcell"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBController.OnOffDuty(SIE.MES.OnOffDutyB.OnOffDutyBRecrods,SIE.MES.WIP.Workcell,System.Boolean)">
+            <summary>
+            B上下岗
+            </summary>
+            <param name="onOffDutyBRecrod"></param>
+            <param name="workcell"></param>
+            <param name="isOnDuty"></param>
+            <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBController.Fetch(SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria)">
+            <summary>
+            B查询
+            </summary>
+            <param name="onOffDutyBRecrodsCriteria"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBController.FetchOnOffDutyRecrodsInput(SIE.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteria)">
+            <summary>
+            B查询员工
+            </summary>
+            <param name="onOffDutyBRecrodsInputCriteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBController.SetOnOffDuty(SIE.Domain.EntityList{SIE.MES.OnOffDutyB.OnOffDutyBRecrods})">
+            <summary>
+            补录上下岗
+            </summary>
+            <param name="selectedList"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyB.OnOffDutyBRecrods">
+            <summary>
+            B在岗信息
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeIdProperty">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeId">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeProperty">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.Employee">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.OnDutyDurationProperty">
+            <summary>
+            在岗时长
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.OnDutyDuration">
+            <summary>
+            在岗时长
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.OffDutyTimeProperty">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.OffDutyTime">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.OnDutyTimeProperty">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.OnDutyTime">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.OnOffDutyTypeProperty">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.OnOffDutyType">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.IsAdditionalRecordingProperty">
+            <summary>
+            是否补录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.IsAdditionalRecording">
+            <summary>
+            是否补录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ResourceIdProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ResourceId">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ResourceProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.Resource">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessIdProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessId">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationIdProperty">
+            <summary>
+            工位Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationId">
+            <summary>
+            工位Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationProperty">
+            <summary>
+            工位
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.Station">
+            <summary>
+            工位
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeCodeProperty">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeCode">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeNameProperty">
+            <summary>
+            员工名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeName">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeGroupNameProperty">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeGroupName">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.UserCodeProperty">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.UserCode">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessNameProperty">
+            <summary>
+            工序名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessName">
+            <summary>
+            工序名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ResourceNameProperty">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ResourceName">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationNameProperty">
+            <summary>
+            工位名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationName">
+            <summary>
+            工位名称
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsConfig.ConfigMeta">
+            <summary>
+            配置数据库映射
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria">
+            <summary>
+            B查询实体
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.OnOffDutyTypeProperty">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.OnOffDutyType">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.IsAdditionalRecordingProperty">
+            <summary>
+            是否补录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.IsAdditionalRecording">
+            <summary>
+            是否补录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.ProcessIdProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.ProcessId">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.ProcessProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.ResourceIdProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.ResourceId">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.ResourceProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.Resource">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.StationIdProperty">
+            <summary>
+            工位Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.StationId">
+            <summary>
+            工位Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.StationProperty">
+            <summary>
+            工位
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.Station">
+            <summary>
+            工位
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.CreateTimeProperty">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.OffDutyTimeProperty">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.OffDutyTime">
+            <summary>
+            下岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.OnDutyTimeProperty">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.OnDutyTime">
+            <summary>
+            上岗时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.StaffProperty">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.Staff">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsCriteria.Fetch">
+            <summary>
+            B执行查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteria">
+            <summary>
+            B上下岗录入查询员工
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteria.StaffCodeProperty">
+            <summary>
+            员工编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteria.StaffCode">
+            <summary>
+            员工号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteria.StaffNameProperty">
+            <summary>
+            员工姓名
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteria.StaffName">
+            <summary>
+            员工姓名
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteria.StaffGroupNameProperty">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteria.StaffGroupName">
+            <summary>
+            员工组
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteria.Fetch">
+            <summary>
+            B执行上下岗录入查询员工
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyB.OnOffDutyBTimeSettingViewModel">
+            <summary>
+            B上下岗时间设置
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBTimeSettingViewModel.OnDutyTimeProperty">
+            <summary>
+            上岗补录时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBTimeSettingViewModel.OnDutyTime">
+            <summary>
+            上岗补录时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBTimeSettingViewModel.OffDutyTimeProperty">
+            <summary>
+            下岗补录时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBTimeSettingViewModel.OffDutyTime">
+            <summary>
+            下岗补录时间
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OnOffDutyB.OnOffDutyBType">
+            <summary>
+            B上下岗类型
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBType.OnDuty">
+            <summary>
+            上岗
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBType.OffDuty">
+            <summary>
+            下岗
+            </summary>
+        </member>
         <member name="T:SIE.MES.OnOffDuty.ApiModel.OnOffDutyRecrodInfo">
             <summary>
             上下岗信息
@@ -39681,26 +41660,6 @@
             是否补录
             </summary>
         </member>
-        <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ProcessIdProperty">
-            <summary>
-            工序
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.ProcessId">
-            <summary>
-            工序
-            </summary>
-        </member>
-        <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ProcessProperty">
-            <summary>
-            工序
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.Process">
-            <summary>
-            工序
-            </summary>
-        </member>
         <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ResourceIdProperty">
             <summary>
             资源
@@ -39719,6 +41678,26 @@
         <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.Resource">
             <summary>
             资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ProcessIdProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.ProcessId">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ProcessProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.Process">
+            <summary>
+            工序
             </summary>
         </member>
         <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.StationIdProperty">
@@ -40028,6 +42007,188 @@
             下岗
             </summary>
         </member>
+        <member name="T:SIE.MES.OrgLevels.OrgLevel">
+            <summary>
+            人员组织架构信息
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OrgLevels.OrgLevel.OrgCodeProperty">
+            <summary>
+            组织架构代码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevel.OrgCode">
+            <summary>
+            组织架构代码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OrgLevels.OrgLevel.OrgNameProperty">
+            <summary>
+            组织架构名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevel.OrgName">
+            <summary>
+            组织架构名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OrgLevels.OrgLevel.ParentLevelProperty">
+            <summary>
+            上级组织
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevel.ParentLevel">
+            <summary>
+            上级组织
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OrgLevels.OrgLevel.OrgLevelProperty">
+            <summary>
+            组织层级
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevel.TheLevel">
+            <summary>
+            组织层级
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OrgLevels.OrgLevel.OrgLevelConfig.ConfigMeta">
+            <summary>
+            配置数据库映射
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OrgLevels.OrgLevelController">
+            <summary>
+            
+            </summary>  
+        </member>
+        <member name="M:SIE.MES.OrgLevels.OrgLevelController.SetOrgLevel(System.Collections.Generic.List{SIE.MES.OrgLevels.OrgLevelInfo})">
+            <summary>
+            设置人员组织架构
+            </summary>
+            <param name="orgLevelList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.OrgLevels.OrgLevelController.Fetch(SIE.MES.OrgLevels.OrgLevelCriteria)">
+            <summary>
+            执行查询
+            </summary>
+            <param name="orgLevelCriteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.OrgLevels.OrgLevelController.GetOrgLevelList(System.Collections.Generic.List{System.String})">
+            <summary>
+            通过orgcode列表获取人员组织架构列表
+            </summary>
+            <param name="orgcode">orgcode列表</param>
+            <returns>人员组织架构列表</returns>
+        </member>
+        <member name="T:SIE.MES.OrgLevels.OrgLevelCriteria">
+            <summary>
+            组织架构查询实体
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OrgLevels.OrgLevelCriteria.OrgCodeProperty">
+            <summary>
+            组织架构ID
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevelCriteria.OrgCode">
+            <summary>
+            组织架构ID
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OrgLevels.OrgLevelCriteria.OrgNameProperty">
+            <summary>
+            组织架构名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevelCriteria.OrgName">
+            <summary>
+            组织架构名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OrgLevels.OrgLevelCriteria.ParentLevelProperty">
+            <summary>
+            上级组织
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevelCriteria.ParentLevel">
+            <summary>
+            上级组织
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OrgLevels.OrgLevelCriteria.TheLevelProperty">
+            <summary>
+            组织层级
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevelCriteria.TheLevel">
+            <summary>
+            组织层级
+            </summary>
+        </member>
+        <member name="M:SIE.MES.OrgLevels.OrgLevelCriteria.Fetch">
+            <summary>
+            查询方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SIE.MES.OrgLevels.OrgLevelInfo">
+            <summary>
+            人员组织架构信息属性
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevelInfo.OrgCode">
+            <summary>
+            组织架构代码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevelInfo.OrgName">
+            <summary>
+            组织架构名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevelInfo.ParentLevel">
+            <summary>
+            上级组织
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.OrgLevelInfo.TheLevel">
+            <summary>
+            组织层级
+            </summary>
+        </member>
+        <member name="T:SIE.MES.OrgLevels.SetOrgLevelInfoRes">
+            <summary>
+            接口调用后结果返回信息
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.SetOrgLevelInfoRes.OrgCode">
+            <summary>
+            组织架构ID
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.SetOrgLevelInfoRes.OrgName">
+            <summary>
+            组织架构名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.SetOrgLevelInfoRes.ParentLevel">
+            <summary>
+            上级组织
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.SetOrgLevelInfoRes.TheLevel">
+            <summary>
+            组织层级
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OrgLevels.SetOrgLevelInfoRes.ExceptionMsg">
+            <summary>
+            异常信息
+            </summary>
+        </member>
         <member name="T:SIE.MES.Outsourcing.Configs.OutsourcingReportConfig">
             <summary>
             委外报工配置项
@@ -40056,6 +42217,26 @@
         <member name="P:SIE.MES.Outsourcing.Configs.OutsourcingReportConfigValue.IsInAutoReport">
             <summary>
             是否收货自动报工
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Outsourcing.Configs.OutsourcingReportConfigValue.IsOutsourcingInsVaildReportLogProperty">
+            <summary>
+            是否校验委外收货记录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Outsourcing.Configs.OutsourcingReportConfigValue.IsOutsourcingInsVaildReportLog">
+            <summary>
+            是否校验委外收货记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Outsourcing.Configs.OutsourcingReportConfigValue.IsValidOutsourcingReportLogProperty">
+            <summary>
+            是否校验委外报工记录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Outsourcing.Configs.OutsourcingReportConfigValue.IsValidOutsourcingReportLog">
+            <summary>
+            是否校验委外报工记录
             </summary>
         </member>
         <member name="M:SIE.MES.Outsourcing.Configs.OutsourcingReportConfigValue.Display">
@@ -41307,6 +43488,13 @@
             <param name="outsourcingId"></param>
             <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
         </member>
+        <member name="M:SIE.MES.Outsourcing.OutsourcingApiController.CreateLogs(SIE.MES.Outsourcing.OutsourcingRequest,SIE.Domain.EntityList{SIE.MES.Outsourcing.ProcessingInStock})">
+            <summary>
+            创建报工记录
+            </summary>
+            <param name="outsourcingRequest"></param>
+            <param name="inStocks"></param>
+        </member>
         <member name="M:SIE.MES.Outsourcing.OutsourcingApiController.GenerateItemLabels(SIE.MES.WorkOrders.WorkOrder,System.Collections.Generic.List{System.String})">
             <summary>
             /创建物料标签，和报工末工序创建物料一样
@@ -41349,6 +43537,12 @@
             委外控制器
             </summary>
         </member>
+        <member name="M:SIE.MES.Outsourcing.OutsourcingController.GetOutsourcingReportConfig">
+            <summary>
+            获取委外报工配置项
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:SIE.MES.Outsourcing.OutsourcingController.DeleteOutboundConfirmSnDetail(System.Collections.Generic.List{System.Double})">
             <summary>
             取消委外发货明细是否确认
@@ -41388,11 +43582,25 @@
             <param name="Ids"></param>
             <returns></returns>
         </member>
+        <member name="M:SIE.MES.Outsourcing.OutsourcingController.GetProcessingInStocksBySns(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据标签号获取委外收货明细
+            </summary>
+            <param name="sns"></param>
+            <returns></returns>
+        </member>
         <member name="M:SIE.MES.Outsourcing.OutsourcingController.GetProcessingInStocksById(System.Collections.Generic.List{System.Double})">
             <summary>
             根据Id获取委外需求单收货列表
             </summary>
             <param name="Ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.Outsourcing.OutsourcingController.GetProcessingOutboundsBySns(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据标签获取委外发货明细
+            </summary>
+            <param name="sns"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.Outsourcing.OutsourcingController.GetProcessingOutboundsByIds(System.Collections.Generic.List{System.Double})">
@@ -41642,6 +43850,16 @@
         <member name="P:SIE.MES.Outsourcing.OutsourcingReportLog.ReLoadCount">
             <summary>
             重传次数
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Outsourcing.OutsourcingReportLog.ReportFactoryProperty">
+            <summary>
+            报工工厂
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Outsourcing.OutsourcingReportLog.ReportFactory">
+            <summary>
+            报工工厂
             </summary>
         </member>
         <member name="F:SIE.MES.Outsourcing.OutsourcingReportLog.OldIdProperty">
@@ -41916,12 +44134,12 @@
         </member>
         <member name="F:SIE.MES.Outsourcing.OutsourcingRequest.WorkShopProperty">
             <summary>
-            车间
+            车间编码
             </summary>
         </member>
         <member name="P:SIE.MES.Outsourcing.OutsourcingRequest.WorkShop">
             <summary>
-            车间
+            车间编码
             </summary>
         </member>
         <member name="F:SIE.MES.Outsourcing.OutsourcingRequest.PlanBeginDateProperty">
@@ -42357,6 +44575,16 @@
         <member name="P:SIE.MES.Outsourcing.OutsourcingRequestCriteria.Sn">
             <summary>
             产品条码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Outsourcing.OutsourcingRequestCriteria.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Outsourcing.OutsourcingRequestCriteria.WorkShopCode">
+            <summary>
+            车间编码
             </summary>
         </member>
         <member name="T:SIE.MES.Outsourcing.OutsourcingState">
@@ -47527,6 +49755,9 @@
             <summary>
             工单控制器
             </summary>
+            <summary>
+            工单控制器
+            </summary>
         </member>
         <member name="M:SIE.MES.WorkOrders.WorkOrderController.GetPagingWorkOrdertInfos(SIE.MES.WorkOrders.Models.WorkOrderQueryInfo)">
             <summary>
@@ -48259,6 +50490,13 @@
             </summary>
             <param name="workOrder">工单</param>
         </member>
+        <member name="M:SIE.MES.WorkOrders.WorkOrderController.GetWorkOrdersByMRB(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据MRB获取工单数据
+            </summary>
+            <param name="mrbs"></param>
+            <returns></returns>
+        </member>
         <member name="T:SIE.MES.WorkOrders.WorkOrderCriteria">
             <summary>
             工单查询实体
@@ -48367,6 +50605,16 @@
         <member name="P:SIE.MES.WorkOrders.WorkOrderCriteria.Workshop">
             <summary>
             车间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.WorkOrders.WorkOrderCriteria.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.WorkOrders.WorkOrderCriteria.WorkShopCode">
+            <summary>
+            车间编码
             </summary>
         </member>
         <member name="F:SIE.MES.WorkOrders.WorkOrderCriteria.ResourceIdProperty">
@@ -51014,12 +53262,12 @@
         </member>
         <member name="F:SIE.MES.PackingQC.PackingQc.ProductLabelProperty">
             <summary>
-            工序标签
+            工序标签(多个标签的话用逗号隔开)
             </summary>
         </member>
         <member name="P:SIE.MES.PackingQC.PackingQc.ProductLabel">
             <summary>
-            工序标签
+            工序标签(多个标签的话用逗号隔开)
             </summary>
         </member>
         <member name="F:SIE.MES.PackingQC.PackingQc.ShortDescriptionProperty">
@@ -51212,6 +53460,12 @@
             <param name="name">蓝标</param>
             <returns></returns>
         </member>
+        <member name="M:SIE.MES.PackingQC.PackingQcController.GetPackingDetails(System.Double,System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:SIE.MES.PackingQC.PackingQcController.IsExistPackingDetail(System.String)">
             <summary>
             是否存在装箱明细
@@ -51231,6 +53485,13 @@
             根据序号找二维码
             </summary>
             <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.PackingQC.PackingQcController.GetPackingDetailsByBlueLabel(System.String)">
+            <summary>
+            根据蓝标获取装箱明细
+            </summary>
+            <param name="blueLabel"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.PackingQC.PackingQcController.GetPackingDetailsByids(System.Double,SIE.PagingInfo)">
@@ -51309,7 +53570,7 @@
             <param name="qcId"></param>
             <returns></returns>
         </member>
-        <member name="M:SIE.MES.PackingQC.PackingQcController.SubmitData(SIE.MES.PackingQC.PackingQc,System.Boolean,System.Boolean)">
+        <member name="M:SIE.MES.PackingQC.PackingQcController.SubmitData(SIE.MES.PackingQC.PackingQc,System.Boolean,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.Double})">
             <summary>
             报工
             </summary>
@@ -55348,6 +57609,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:SIE.MES.ProcessProperty.ProcessPtyController.GetProcess(System.String,SIE.PagingInfo)">
+            <summary>
+            获取排程点工序
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.ProcessProperty.ProcessPtyController.GetProcessPtyByProcessId(System.Double)">
+            <summary>
+            获取排程点工序
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SIE.MES.ProcessProperty.ProcessPtyCriterial">
             <summary>
             工序属性维护查询实体
@@ -55831,6 +58104,183 @@
             <param name="resouseId">资源Id</param>
             <param name="wipResourceMove">生产资源</param>
             <returns>是否校验</returns>
+        </member>
+        <member name="T:SIE.MES.ProductAgingProcesss.ProductAgingProcess">
+            <summary>
+            产品老化工艺时间维护
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ItemIdProperty">
+            <summary>
+            物料Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ItemId">
+            <summary>
+            物料Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ItemProperty">
+            <summary>
+            物料
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.Item">
+            <summary>
+            物料
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ResourceIdProperty">
+            <summary>
+            资源Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ResourceId">
+            <summary>
+            资源Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ResourceProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.Resource">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ProcessIdProperty">
+            <summary>
+            工序Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ProcessId">
+            <summary>
+            工序Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ProcessProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.CapacityProperty">
+            <summary>
+            标准产能(H)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.Capacity">
+            <summary>
+            标准产能(H)
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ResourceCodeProperty">
+            <summary>
+            资源编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ResourceCode">
+            <summary>
+            资源编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ResourceNameProperty">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ResourceName">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ItemCodeProperty">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ItemCode">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ItemNameProperty">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ItemName">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ShortDescriptionProperty">
+            <summary>
+            旧物料号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ShortDescription">
+            <summary>
+            旧物料号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.MrpControllerProperty">
+            <summary>
+            MRP控制者
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.MrpController">
+            <summary>
+            MRP控制者
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ProcessCodeProperty">
+            <summary>
+            工序编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ProcessCode">
+            <summary>
+            工序编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ProcessNameProperty">
+            <summary>
+            工序名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ProductAgingProcesss.ProductAgingProcess.ProcessName">
+            <summary>
+            工序名称
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ProductAgingProcesss.ProductAgingProcessConfig">
+            <summary>
+            实体配置
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ProductAgingProcesss.ProductAgingProcessConfig.ConfigMeta">
+            <summary>
+            配置元数据
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ProductAgingProcesss.ProductAgingProcessController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ProductAgingProcesss.ProductAgingProcessController.GetProductAgingProcessesByProductId(System.Collections.Generic.List{System.Double})">
+            <summary>
+            获取产品老化工艺时间
+            </summary>
+            <param name="productIds"></param>
+            <returns></returns>
         </member>
         <member name="T:SIE.MES.ProjectDesigns.ApiModels.ProTreeInfo">
             <summary>
@@ -61972,6 +64422,640 @@
             <summary>
             对象名称
             </summary>
+        </member>
+        <member name="T:SIE.MES.ReworkLayoutVersions.Configs.ReworkInfoRecordEntityConfig">
+            <summary>
+            返工信息配置值
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.Configs.ReworkInfoRecordEntityConfig.defaultValue">
+            <summary>
+            默认值
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.Configs.ReworkInfoRecordEntityConfig.DefaultValue">
+            <summary>
+            默认值 
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ReworkLayoutVersions.Configs.ReworkInfoRecordConfigValue">
+            <summary>
+            返工信息配置值
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.Configs.ReworkInfoRecordConfigValue.NumberRuleIdProperty">
+            <summary>
+            编码规则ID
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.Configs.ReworkInfoRecordConfigValue.NumberRuleId">
+            <summary>
+            编码规则ID
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.Configs.ReworkInfoRecordConfigValue.BacodeRuleProperty">
+            <summary>
+            编码规则
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.Configs.ReworkInfoRecordConfigValue.BacodeRule">
+            <summary>
+            编码规则
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ReworkLayoutVersions.Configs.ReworkInfoRecordConfigValue.Display">
+            <summary>
+            显示 
+            </summary>
+            <returns>编码规则名称</returns>
+        </member>
+        <member name="T:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord">
+            <summary>
+            返工信息
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.StateProperty">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.FactoryProperty">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.Factory">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ItemIdProperty">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ItemId">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ItemProperty">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.Item">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.QtyProperty">
+            <summary>
+            订单数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.Qty">
+            <summary>
+            订单数量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.BeginDateTimeProperty">
+            <summary>
+            基本开始日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.BeginDateTime">
+            <summary>
+            基本开始日期
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.EndDateTimeProperty">
+            <summary>
+            基本完成日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.EndDateTime">
+            <summary>
+            基本完成日期
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ReworkLayoutVersionIdProperty">
+            <summary>
+            返工工艺路线版本Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ReworkLayoutVersionId">
+            <summary>
+            返工工艺路线版本Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ReworkLayoutVersionProperty">
+            <summary>
+            返工工艺路线版本
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ReworkLayoutVersion">
+            <summary>
+            返工工艺路线版本
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.DepartmentProperty">
+            <summary>
+            需求部门
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.Department">
+            <summary>
+            生产部门
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.UniqueCodeProperty">
+            <summary>
+            唯一码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.UniqueCode">
+            <summary>
+            唯一码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ProductOrderProperty">
+            <summary>
+            生产订单
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ProductOrder">
+            <summary>
+            生产订单
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.IdentificationProperty">
+            <summary>
+            反馈标识
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.Identification">
+            <summary>
+            反馈标识
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.MsgProperty">
+            <summary>
+            反馈信息
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.Msg">
+            <summary>
+            反馈信息
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.IsUploadProperty">
+            <summary>
+            是否上传
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.IsUpload">
+            <summary>
+            是否上传
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ReworkInfoRecordDtlListProperty">
+            <summary>
+            标签信息
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ReworkInfoRecordDtlList">
+            <summary>
+            标签信息
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ItemCodeProperty">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ItemCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ItemNameProperty">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ItemName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ShortDescriptionProperty">
+            <summary>
+            产品旧料号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.ShortDescription">
+            <summary>
+            产品旧料号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.VersionProperty">
+            <summary>
+            生产版本
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecord.Version">
+            <summary>
+            生产版本
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl">
+            <summary>
+            标签信息
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.ReworkInfoRecordIdProperty">
+            <summary>
+            返工信息Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.ReworkInfoRecordId">
+            <summary>
+            返工信息Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.ReworkInfoRecordProperty">
+            <summary>
+            返工信息
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.ReworkInfoRecord">
+            <summary>
+            返工信息
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.WipBatchIdProperty">
+            <summary>
+            批次标签Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.WipBatchId">
+            <summary>
+            批次标签Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.WipBatchProperty">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.WipBatch">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.SnProperty">
+            <summary>
+            标签号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.Sn">
+            <summary>
+            标签号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.WipBatchQtyProperty">
+            <summary>
+            批次数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.WipBatchQty">
+            <summary>
+            批次数量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.WorkOrderNoProperty">
+            <summary>
+            工单
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordDtl.WorkOrderNo">
+            <summary>
+            工单
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordState">
+            <summary>
+            返工信息状态
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordState.Create">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordState.Edit">
+            <summary>
+            修改
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkInfoRecordState.Close">
+            <summary>
+            关闭
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ReworkLayoutVersions.ReworkLayout">
+            <summary>
+            工艺路线明细
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayout.ReworkLayoutVersionIdProperty">
+            <summary>
+            返工工艺路线版本Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayout.ReworkLayoutVersionId">
+            <summary>
+            返工工艺路线版本Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayout.ReworkLayoutVersionProperty">
+            <summary>
+            返工工艺路线版本
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayout.ReworkLayoutVersion">
+            <summary>
+            返工工艺路线版本
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayout.VornrProperty">
+            <summary>
+            操作活动编号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayout.Vornr">
+            <summary>
+            操作活动编号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayout.ProcessCodeProperty">
+            <summary>
+            标准文本码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayout.ProcessCode">
+            <summary>
+            标准文本码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayout.WorkCenterCodeProperty">
+            <summary>
+            工作中心编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayout.WorkCenterCode">
+            <summary>
+            工作中心编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayout.SteusProperty">
+            <summary>
+            控制码(工序控制码)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayout.Steus">
+            <summary>
+            控制码(工序控制码)
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayout.FactoryProperty">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayout.Factory">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayout.ProcessQtyProperty">
+            <summary>
+            工序数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayout.ProcessQty">
+            <summary>
+            工序数量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayout.ZcodeProperty">
+            <summary>
+            分单数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayout.Zcode">
+            <summary>
+            分单数量
+            </summary>
+        </member>
+        <member name="T:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion">
+            <summary>
+            返工工艺路线版本
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.VersionProperty">
+            <summary>
+            生产版本
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.Version">
+            <summary>
+            生产版本
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.DescProperty">
+            <summary>
+            版本描述
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.Desc">
+            <summary>
+            版本描述
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ItemIdProperty">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ItemId">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ItemProperty">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.Item">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.FactoryProperty">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.Factory">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.BeginDateTimeProperty">
+            <summary>
+            基本开始日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.BeginDateTime">
+            <summary>
+            基本开始日期
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.EndDateTimeProperty">
+            <summary>
+            基本完成日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.EndDateTime">
+            <summary>
+            基本完成日期
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.TypeProperty">
+            <summary>
+            任务清单类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.Type">
+            <summary>
+            任务清单类型
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.EffBeginDateTimeProperty">
+            <summary>
+            有效开始日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.EffBeginDateTime">
+            <summary>
+            有效开始日期
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.EffEndDateTimeProperty">
+            <summary>
+            有效截止日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.EffEndDateTime">
+            <summary>
+            有效截止日期
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.GroupProperty">
+            <summary>
+            任务清单组
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.Group">
+            <summary>
+            任务清单组
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.CounterProperty">
+            <summary>
+            组计数器
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.Counter">
+            <summary>
+            组计数器
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ReworkLayoutListProperty">
+            <summary>
+            工艺路线明细
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ReworkLayoutList">
+            <summary>
+            工艺路线明细
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ItemCodeProperty">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ItemCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ItemNameProperty">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ItemName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ShortDescriptionProperty">
+            <summary>
+            产品旧料号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersion.ShortDescription">
+            <summary>
+            产品旧料号
+            </summary>
+        </member>
+        <member name="M:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersionController.GetReworkInfoRecordsByIds(System.Collections.Generic.List{System.Double})">
+            <summary>
+            根据Id获取返工信息
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersionController.GetReworkInfoRecordDtl(System.String)">
+            <summary>
+            根据标签号获取返工信息的标签信息
+            </summary>
+            <param name="sn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersionController.GetReworkInfoRecordDtls(System.String)">
+            <summary>
+            根据标签号获取返工信息的标签信息
+            </summary>
+            <param name="sn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.ReworkLayoutVersions.ReworkLayoutVersionController.GetReworkLayoutVersionsByItemCodes(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据物料编码获取返工工艺路线版本
+            </summary>
+            <param name="itemCodes"></param>
+            <returns></returns>
         </member>
         <member name="T:SIE.MES.Routings.Processes.WorkStepDeleteRule">
             <summary>

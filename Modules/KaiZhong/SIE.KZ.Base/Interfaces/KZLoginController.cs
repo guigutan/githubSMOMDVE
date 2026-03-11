@@ -32,6 +32,16 @@ namespace SIE.KZ.Base.Interfaces
             //赋值操作人员
             Login();
             //再指定库存组织
+            SetInvOrgByExternalId(InvOrgId);
+        }
+
+        /// <summary>
+        /// 指定库存组织
+        /// </summary>
+        /// <param name="InvOrgId"></param>
+        /// <exception cref="ValidationException"></exception>
+        public virtual void SetInvOrgByExternalId(string InvOrgId)
+        {
             var invOrg = Query<InvOrg>().Where(p => p.ExternalId == InvOrgId).FirstOrDefault();
             if (invOrg == null)
                 throw new ValidationException("{0}库存组织不存在".L10nFormat(InvOrgId));

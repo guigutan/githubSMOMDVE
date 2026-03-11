@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
   "SIE.Web.EMS.EarlierStage.Budgets.Commands.AddBudgetCommand.js": "SIE.Web.EMS.EarlierStage/Budgets/Commands/AddBudgetCommand.js",
   "SIE.Web.EMS.EarlierStage.Budgets.Commands.BudgetImportCommand.js": "SIE.Web.EMS.EarlierStage/Budgets/Commands/BudgetImportCommand.js",
   "SIE.Web.EMS.EarlierStage.Budgets.Commands.CancelBudgetChangeCommand.js": "SIE.Web.EMS.EarlierStage/Budgets/Commands/CancelBudgetChangeCommand.js",

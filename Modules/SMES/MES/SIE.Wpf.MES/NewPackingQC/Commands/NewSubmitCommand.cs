@@ -47,8 +47,8 @@ namespace SIE.Wpf.MES.NewPackingQC.Commands
                 MessageBoxImage.Information);
                 if (result == MessageBoxResult.OK)
                 {
-                    var XtblueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(vm1.XtBlue);
-                    var YXtblueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(vm1.YXtBlue);
+                    var XtblueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(vm1.XtBlue);
+                    var YXtblueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(vm1.YXtBlue);
                     if (XtblueBable.ProductionNo == YXtblueBable.ProductionNo)
                     {
                         //查找包装QC主表BlueLableController
@@ -60,6 +60,10 @@ namespace SIE.Wpf.MES.NewPackingQC.Commands
                             packingQc.IsUploadSap = false;
                             packingQc.UploadResult = "";
                             packingQc.BlueLableNum = XtblueBable.PackageNum;
+                            if (packingQc.PackingDetailList.Sum(p => p.PackingNum) == packingQc.BlueLableNum)
+                            {
+                                packingQc.PackIdent = PackIdentEnum.FullTank;
+                            }
                             RF.Save(packingQc);
                             YXtblueBable.IsPack = false;
                             XtblueBable.IsPack = true;

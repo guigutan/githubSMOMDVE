@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Items",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Items",
   "SIE.Web.Items.Items.Commands.AddItemUnitCommand.js": "SIE.Web.Items/Items/Commands/AddItemUnitCommand.js",
   "SIE.Web.Items.Items.Commands.DeleteUnitConvertCommand.js": "SIE.Web.Items/Items/Commands/DeleteUnitConvertCommand.js",
   "SIE.Web.Items.Items.Commands.ImportUnitConvertCommand.js": "SIE.Web.Items/Items/Commands/ImportUnitConvertCommand.js",

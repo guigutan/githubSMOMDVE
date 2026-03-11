@@ -26,9 +26,11 @@ using SIE.MES.TaskManagement.SuspectProductLabels.ApiModels;
 using SIE.MES.WIP.Pressure;
 using SIE.Rbac.InvOrgs;
 using SIE.Security;
+using SIE.Warehouses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 
 namespace SIE.MES.TaskManagement.SuspectProductLabels
 {
@@ -151,13 +153,11 @@ namespace SIE.MES.TaskManagement.SuspectProductLabels
             #region 包装可疑品处理
             if (IsPackingSuspect && label.LabelType == LabelType.WipSn)
             {
-                //可疑品处理
-                HandleSuspectProductLabel(data, label, null, newWipBatchs, newDtls);
-                var isRework = data.RepairDetailList.Count > 0;
-                var isScrap = data.ScrapDetailList.Count > 0;
-                RT.Service.Resolve<WipPressureController>().SetSnSuspectState(label.BatchNo, false, isRework, isScrap);
-                //更新任务单可疑品数
-                RT.Service.Resolve<ReportController>().UpdateSuspectQty(task.Id);
+                printDatas = WipSnReportProcess(label,data, IsPackingSuspect,task);
+                ////可疑品处理
+                //HandleSuspectProductLabel(data, label, null, newWipBatchs, newDtls);
+                ////更新任务单可疑品数
+                //RT.Service.Resolve<ReportController>().UpdateSuspectQty(task.Id);
                 return printDatas;
             }
             #endregion
@@ -315,6 +315,172 @@ namespace SIE.MES.TaskManagement.SuspectProductLabels
 
             return printDatas;
         }
+
+        /// <summary>
+        /// 耐压可疑品标签处理
+        /// </summary>
+        private List<PdaPrintInfo> WipSnReportProcess(SuspectProductLabel  label, SuspectProductLabelData data, bool IsPackingSuspect, DispatchTask task)
+        {
+            var printDatas = new List<PdaPrintInfo>();
+            var newWipBatchs = new EntityList<WipBatch>();
+            var newDtls = new EntityList<SuspectProductLabelDetail>();
+
+            var wipBatch = RT.Service.Resolve<WipBatchController>().GetWipBatch(label.ProcessBatchNo);
+            if (null == wipBatch)
+                throw new ValidationException("批次号[{0}]不存在".L10nFormat(label.ProcessBatchNo));
+
+            if (label.HandleState == SuspectHandleState.Processed)
+                throw new ValidationException("可疑品标签[{0}]已处理完毕，无需提交".L10nFormat(label.BatchNo));
+            if ((label.Qty - data.GoodQty - data.ScrapQty - data.RepairQty) != 0)
+                throw new ValidationException("可疑品标签[{0}]提交的数量总和必须与数量相等, 请检查".L10nFormat(label.BatchNo));
+
+            var suspectQty = label.Qty - label.GoodQty - label.ScrapQty - label.RepairQty;
+            if (data.GoodQty + data.ScrapQty + data.RepairQty > suspectQty)
+                throw new ValidationException("可疑品标签[{0}]剩余可疑品数量[{1}]，小于提交的数量总和".L10nFormat(label.BatchNo, suspectQty));
+            if (data.RepairQty > 0 && !RT.Service.Resolve<DispatchController>().IsEndProcess(label.WorkOrderId, label.ProcessId))
+                throw new ValidationException("可疑品标签[{0}]非最后工序不允许返工".L10nFormat(label.BatchNo));
+
+
+            using (var tran = DB.TransactionScope(MesCoreEntityDataProvider.ConnectionStringName))
+            {
+                DB.Update<SuspectProductLabel>().Set(p => p.UpdateDate, DateTime.Now).Where(p => p.Id == data.SuspectProductLabelId).Execute();
+
+                //可疑品处理
+                HandleSuspectProductLabel(data, label, wipBatch, newWipBatchs, newDtls);
+
+                #region 报工
+
+                //要参与报工的标签
+                var beReportWipBatchs = new EntityList<WipBatch>();
+
+                //调用报工生成报工记录
+                if (wipBatch.IsSuspectProduct == YesNo.No && label.DispatchTaskId > 0)
+                {
+                    beReportWipBatchs.AddRange(newWipBatchs);
+
+                    //如果是包装采集功能提交的可疑品,暂不需要处理良品报工逻辑,后续后会进行包装提交报工
+                    if (label.ReportRecordId > 0 || !IsPackingSuspect)   //已有可疑品报工记录或非包装采集工序,需要处理良品报工
+                        beReportWipBatchs.Add(wipBatch);
+
+                    ReportTaskInfo taskInfo = RT.Service.Resolve<ReportController>().GetReportTaskRecordInfo(label.DispatchTaskId.Value);
+
+                    ReportRecord record1 = null;
+                    if (label.ReportRecordId > 0)
+                    {
+                        record1 = RF.GetById<ReportRecord>(label.ReportRecordId);
+                    }
+                    foreach (var w in beReportWipBatchs)
+                    {
+                        var recordId = label.ReportRecordId ?? 0; //已有报工记录时,不再进行报工扣料 2025.11.26
+                        if (recordId == 0)
+                        {
+                            //保留此逻辑,目的是兼容2025.11.26日前的旧数据处理
+                            var info = taskInfo.Copy();
+                            info.IsSuspect = true;
+                            info.OkQty = 0;
+                            info.NgQty = 0;
+                            info.SuspectQty = 0;
+                            info.ReworkQty = 0;
+                            info.BatchNo = RT.Service.Resolve<ReportController>().GetReportBatchNo();
+                            info.IsTaskFinish = data.IsTaskFinish;
+                            info.IsValidatePrepare = false;
+                            info.SourceType = Reports.Enums.SourceType.Report_SuspectProduct;
+                            if (w.IsScraped)
+                                info.NgQty = w.Qty;
+                            else if (w.IsRework)
+                                info.ReworkQty = w.Qty;
+                            else
+                                info.OkQty = w.Qty;
+
+                            var defectIds = newDtls.Where(p => p.SubBatchNo == w.BatchNo).Select(p => p.DefectId).Distinct();
+                            foreach (var defectId in defectIds)
+                            {
+                                if (defectId != null && info.DefectIds.All(p => p != defectId))
+                                    info.DefectIds.Add(defectId.Value);
+                            }
+                            //调用报工接口
+                            var record = RT.Service.Resolve<ReportController>().TaskReport(info, true);
+                            recordId = record.Id;
+                        }
+                        else
+                        {
+                            var defectIds = newDtls.Where(p => p.SubBatchNo == w.BatchNo && p.DefectId > 0).Select(p => p.DefectId).Distinct();
+                            foreach (var defectId in defectIds)
+                            {
+                                record1.Defects.Add(new ReportDefect() { DefectId = defectId.Value, ReportRecordId = recordId });
+                            }
+                            if (w.IsScraped)
+                                record1.NgQty += w.Qty;
+                            else if (w.IsRework)
+                                record1.ReworkQty += w.Qty;
+                            else
+                                record1.OkQty += w.Qty;
+
+                            record1.ReportQty += w.Qty;
+                            record1.SuspectQty -= w.Qty;
+                        }
+
+                        //良品标签关联报工记录
+                        var reportWipBatch = new ReportWipBatch()
+                        {
+                            ReportRecordId = recordId,
+                            WipBatch = w,
+                            BatchNo = w.BatchNo,
+                            Qty = w.Qty,
+                        };
+
+                        RF.Save(reportWipBatch);
+
+                        //关联报工记录ID
+                        var ids = w.ReportRecordIds.Split(",", StringSplitOptions.RemoveEmptyEntries).ToList();
+                        ids.Add(recordId.ToString());
+                        w.ReportRecordIds = ids.Distinct().Concat(",");
+
+                        DB.Update<WipBatch>().Set(p => p.ReportRecordIds, w.ReportRecordIds).Where(p => p.Id == w.Id).Execute();
+                    }
+
+                    if (record1 != null)
+                    {
+                        //更新审核状态
+                        record1.ExamineState = record1.SuspectQty <= 0 ? ReportRecordExamineState.Confirmed : ReportRecordExamineState.ToConfirm;
+                        record1.SourceType = Reports.Enums.SourceType.Report_SuspectProduct;
+                        RF.Save(record1);
+
+                        RT.Service.Resolve<ReportController>().UpdateDispatchTaskQty(record1);
+                    }
+                    //更新任务单可疑品数
+                    RT.Service.Resolve<ReportController>().UpdateSuspectQty(task.Id);
+                    RT.Service.Resolve<ReportController>().UpdateDispatchTaskState(task.Id, DateTime.Now, true, Reports.Enums.SourceType.Report_SuspectProduct);
+                }
+                //末工序,良品与返工批次,生成物料标签
+                if (task.EndProcess == true)
+                {
+                    RT.Service.Resolve<ReportController>().GenerateItemLabels(task.Id, beReportWipBatchs);
+                }
+
+                var isRework = data.RepairDetailList.Count > 0;
+                var isScrap = data.ScrapDetailList.Count > 0;
+                RT.Service.Resolve<WipPressureController>().SetSnSuspectState(label.BatchNo, false, isRework, isScrap);
+
+                #endregion
+
+                var dispatchConfig = RT.Service.Resolve<DispatchController>().GetDispatchConfig();
+                printDatas = RT.Service.Resolve<ReportController>().CreatePrintDatas(true, PrintLabelType.Good, task, dispatchConfig.GoodLabel, dispatchConfig.SuspectLabel, beReportWipBatchs, label.WipResource);
+
+                tran.Complete();
+            }
+            //委外可疑品标签需要同步
+            if (task.IsOutsourcing == true)
+            {
+                var ids = newWipBatchs.Select(p => p.Id).Distinct().ToList();
+                ids.Add(wipBatch.Id);
+                var nwbs = Query<WipBatch>().Where(p => ids.Contains(p.Id)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+                //调用接口同步数据
+                SyncWipBatchToOtherFactory(nwbs.ToList(), null, task);
+            }
+            return printDatas;
+        }
+
 
         /// <summary>
         /// 可疑品处理

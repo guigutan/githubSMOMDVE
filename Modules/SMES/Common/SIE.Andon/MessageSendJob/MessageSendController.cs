@@ -1420,7 +1420,7 @@ namespace SIE.Andon.MessageSendJob
                 {
                     var factoryName = RF.GetById<Enterprise>(andonManage.FactoryId,
              new EagerLoadOptions().LoadWithViewProperty());
-                    List<double> employeeId = new List<double>();
+                    //List<double> employeeId = new List<double>();
                     var andonManageOperateLog = andonManageOperateLogs
                    .Where(x => x.AndonManageId == andonManage.Id)
                    .OrderByDescending(x => x.OperateTime)
@@ -1466,32 +1466,35 @@ namespace SIE.Andon.MessageSendJob
 
                     //第七步，根据产线获取区域
                     var wipResources = GetWipResource(andonManage.WipResourceId);
-                    EntityList<AndonSesp> andonSesps = GetAndonSeep(andonManage.AndonId, andonPushObjectData.AndonLevel, wipResources.AndonUpholdId);
+                    //EntityList<AndonSesp> andonSesps = GetAndonSeep(andonManage.AndonId, andonPushObjectData.AndonLevel, wipResources.AndonUpholdId);
                     //第八步，获取人员
-                    employeeId.AddRange(andonSesps.Select(x => x.EmployeeId).Distinct());
-                    string userIds = GetEmpCodes(employeeId);
-                    if (userIds == "")
-                    {
-                        continue;
-                    }
+                    //employeeId.AddRange(andonSesps.Select(x => x.EmployeeId).Distinct());
+                    //string userIds = GetEmpCodes(employeeId);
+                    //if (userIds == "")
+                    //{
+                    //    continue;
+                    //}
                     //单独获取 1级责任人
 
                     //根据安灯明细获取A1的人员
-                    var andonSespsA1 = Query<AndonSesp>().Where(p => p.AndonId == andonManage.AndonId && p.AndonUpholdId == wipResources.AndonUpholdId).OrderBy(p => p.AndonLevel).ToList();
+                    //var andonSespsA1 = Query<AndonSesp>().Where(p => p.AndonId == andonManage.AndonId && p.AndonUpholdId == wipResources.AndonUpholdId).OrderBy(p => p.AndonLevel).ToList();
                     List<double> employeeIdA1 = new List<double>();
 
                     //找出上一级的人
                     var lastMinutemessageSend = messageSends.Where(p => p.Minute < andonMessageSend.Minute).OrderByDescending(p => p.Minute).FirstOrDefault();
                     //默认是最早的，当存在上一级时间的时候，就不是最早的了
-                    string lastAndonLevel = andonSespsA1.FirstOrDefault().AndonLevel;
+                    //string lastAndonLevel = andonSespsA1.FirstOrDefault().AndonLevel;
+                    var lastAndonLevel = andonManage.Andon.AndonResponseDetailList.Where(p => p.AndonUpholdId == wipResources.AndonUpholdId).OrderBy(p => p.AndonseepLevel).FirstOrDefault()?.AndonseepLevel;
                     if (lastMinutemessageSend != null)
                     {
                         //第六步，获取级别
                         lastAndonLevel = andonPushObjects.Where(p => p.MessageSendId == lastMinutemessageSend.Id).FirstOrDefault()?.AndonLevel;
                     }
-                    EntityList<AndonSesp> lastAndonSesps = GetAndonSeep(andonManage.AndonId, lastAndonLevel, wipResources.AndonUpholdId);
-                    employeeIdA1 = lastAndonSesps.Select(p => p.EmployeeId).Distinct().ToList();
-                    string userNames = GetEmpNames(employeeIdA1);
+                    //EntityList<AndonSesp> lastAndonSesps = GetAndonSeep(andonManage.AndonId, lastAndonLevel, wipResources.AndonUpholdId);
+                    //employeeIdA1 = lastAndonSesps.Select(p => p.EmployeeId).Distinct().ToList();
+                    //string userNames = GetEmpNames(employeeIdA1);
+
+
                     //List<double> employeeIdA1 = new List<double>();
                     //string andonLevel = andonSespsA1.FirstOrDefault().AndonLevel;
                     //andonSespsA1 = Query<AndonSesp>().Where(p => p.AndonId == andonManage.AndonId && p.AndonUpholdId == wipResources.AndonUpholdId && p.AndonLevel == andonLevel).ToList();
@@ -1503,6 +1506,32 @@ namespace SIE.Andon.MessageSendJob
                     TimeSpan timeDifference = System.DateTime.Now - andonManage.FaultTime;
                     var waitingTime = Math.Round((double)timeDifference.TotalMinutes, 1);
 
+                    var andonResponseDtls = andonManage.Andon.AndonResponseDetailList.Where(p => p.AndonseepLevel == lastAndonLevel && p.AndonUpholdId == wipResources.AndonUpholdId).ToList();
+                    if (andonResponseDtls == null || andonResponseDtls.Count <= 0)
+                    {
+                        continue;
+                        //throw new ValidationException("没有维护安灯级别为【{0}】的安灯责任组".L10nFormat(lastAndonLevel));
+                    }
+                    employeeIdA1 = andonResponseDtls.Select(p => p.AndonGroup).SelectMany(p => p.AndonGroupDetailList).Where(p => p.User.State == State.Enable && p.IsResponser == true).Select(p => p.User.EmployeeId ?? 0).Where(p => p != 0).Distinct().ToList();
+                    if (employeeIdA1 == null || employeeIdA1.Count < 1)
+                    {
+                        continue;
+                        //throw new ValidationException("维护安灯级别为【{0}】的安灯责任组，未维护对应的发送人员".L10nFormat(lastAndonLevel));
+                    }
+                    string userNames = GetEmpNames(employeeIdA1);
+                    //推送给当前级别的人
+                    var curLevelDtls = andonManage.Andon.AndonResponseDetailList.Where(p => p.AndonseepLevel == andonPushObjectData.AndonLevel && p.AndonUpholdId == wipResources.AndonUpholdId).ToList();
+                    var employeeId = new List<double>();
+                    foreach (var curLevelDtl in curLevelDtls)
+                    {
+                        if (curLevelDtl.AndonGroup != null)
+                            employeeId.AddRange(curLevelDtl.AndonGroup.AndonGroupDetailList.Where(p => p.User.State == State.Enable).Select(p => p.User.EmployeeId ?? 0).Where(p => p != 0).Distinct().ToList());
+                    }
+                    string userIds = GetEmpCodes(employeeId);
+                    if (userIds == "")
+                    {
+                        continue;
+                    }
                     if (messageSendState == AndonTypeMessageSendState.Standby)
                     {
                         //第九步，组合消息
@@ -1517,7 +1546,7 @@ namespace SIE.Andon.MessageSendJob
                             "**异常发生时间**：" + andonManage.FaultTime + "\n" +
                             "**等待时长**：" + waitingTime + "分钟\n" +
                             "**升级等级**：" + andonPushObjectData.AndonLevel + "\n" +
-                            "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + lastAndonLevel + "-" + userNames + "\n" +
+                            "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + userNames + "\n" +
                             "请及时处理!";
                         else
                             message = "**" + andonManage.AndonName + "**安灯超时待响应\n" +
@@ -1530,7 +1559,7 @@ namespace SIE.Andon.MessageSendJob
                                 "**异常发生时间**：" + andonManage.FaultTime + "\n" +
                                 "**等待时长**：" + waitingTime + "分钟\n" +
                                 "**升级等级**：" + andonPushObjectData.AndonLevel + "\n"+
-                                "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + lastAndonLevel + "-" + userNames + "\n" +
+                                "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + userNames + "\n" +
                                 "请关注!";
                     }
                     else
@@ -1547,7 +1576,7 @@ namespace SIE.Andon.MessageSendJob
                             "**异常发生时间**：" + andonManage.FaultTime + "\n" +
                             "**等待时长**：" + waitingTime + "分钟\n" +
                             "**升级等级**：" + andonPushObjectData.AndonLevel + "\n" +
-                            "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + lastAndonLevel + "-" + userNames + "\n" +
+                            "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + userNames + "\n" +
                             "请及时处理!";
                         else
                             message = "**" + andonManage.AndonName + "**安灯超时待处理\n" +
@@ -1560,7 +1589,7 @@ namespace SIE.Andon.MessageSendJob
                                 "**异常发生时间**：" + andonManage.FaultTime + "\n" +
                                 "**等待时长**：" + waitingTime + "分钟\n" +
                                 "**升级等级**：" + andonPushObjectData.AndonLevel + "\n" +
-                                "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + lastAndonLevel + "-" + userNames + "\n" +
+                                "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + userNames + "\n" +
                                 "请关注!";
                     }
                     //第十步 发送信息

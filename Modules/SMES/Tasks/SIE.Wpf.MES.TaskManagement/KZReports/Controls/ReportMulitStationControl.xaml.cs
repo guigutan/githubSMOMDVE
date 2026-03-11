@@ -160,5 +160,15 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
                 vm.Resource = null;
             }
         }
+
+        /// <summary>
+        /// 区域上料
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFeedingArea_Click(object sender, RoutedEventArgs e)
+        {
+            kZReportHelper.ShowFeedingAreaScan();
+        }
     }
 }

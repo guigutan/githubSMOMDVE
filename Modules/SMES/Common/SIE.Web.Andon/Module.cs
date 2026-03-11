@@ -60,6 +60,11 @@ namespace SIE.Web.Andon
                     Label = "安灯统计报表(月度)".L10N(),
                     EntityType = typeof(AndonMonthReportViewModel),
                     BlocksTemplate = typeof(AndonMonthUITemplate)
+                },
+                new WebModuleMeta()
+                { 
+                    EntityType = typeof(AndonGroup),
+                    Label = "安灯责任组维护基础表"
                 }
                 );
         }

@@ -170,6 +170,12 @@ namespace SIE.KZ.Base.Interfaces.Enums
         //[Label("同步检验标准")]
         //InspectionStandard = 27,
 
+        /// <summary>
+        /// 人员组织架构
+        /// </summary>
+        [Label("人员组织架构")]
+        OrgLevel = 28,
+
         #endregion 基础数据
 
         #region 业务接口
@@ -1911,5 +1917,12 @@ namespace SIE.KZ.Base.Interfaces.Enums
         /// </summary>
         [Label("返工工艺路线版本")]
         ReworkLayoutVersion= 1051,
+
+        /// <summary>
+        /// 返工信息
+        /// </summary>
+        [Label("返工信息")]
+        ReworkInfoRecord = 1052,
+
     }
 }

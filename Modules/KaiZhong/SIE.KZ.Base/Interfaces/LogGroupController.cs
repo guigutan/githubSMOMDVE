@@ -16,6 +16,20 @@ namespace SIE.KZ.Base.Interfaces
             RT.Service.Resolve<IWebApi>().InfNcDataLogGroupReUpload(args);
         }
 
+        /// <summary>
+        /// 根据ID获取物料标签
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public virtual EntityList<InfNcDataLogSO> GetInfNcDataLogGroupByIds(List<double> ids)
+        {
+            var list = ids.SplitContains(temps =>
+            {
+                return Query<InfNcDataLogSO>().Where(p => temps.Contains(p.Id)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            return list;
+        }
+
         public virtual EntityList<InfNcDataLogGroup> CriteriaInfNcDataLogGroup(InfNcDataLogGroupCriteria criteria)
         {
             var q = DB.Query<InfNcDataLogGroup>("log");
@@ -69,6 +83,15 @@ namespace SIE.KZ.Base.Interfaces
             }
 
             var list = q.OrderBy(criteria.OrderInfoList).ToList(criteria.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+            return list;
+        }
+
+        public virtual EntityList<InfNcDataLogGroup> CriteriaInfNcDataLogGroupById(List<double> ids)
+        {
+            var list = ids.SplitContains(temps =>
+            {
+                return Query<InfNcDataLogGroup>().Where(p => temps.Contains(p.Id)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
             return list;
         }
 

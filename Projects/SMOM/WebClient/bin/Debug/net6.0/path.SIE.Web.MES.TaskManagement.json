@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks",
   "SIE.Web.MES.TaskManagement.DailyOutputReports.Commands.DailyOutputReportExportAllCommand.js": "SIE.Web.MES.TaskManagement/DailyOutputReports/Commands/DailyOutputReportExportAllCommand.js",
   "SIE.Web.MES.TaskManagement.DailyOutputReports.Commands.DailyOutputReportExportCommand.js": "SIE.Web.MES.TaskManagement/DailyOutputReports/Commands/DailyOutputReportExportCommand.js",
   "SIE.Web.MES.TaskManagement.Dispatchs.Commands.OpenFeedingCloseCommand.js": "SIE.Web.MES.TaskManagement/Dispatchs/Commands/OpenFeedingCloseCommand.js",
@@ -15,6 +15,7 @@
   "SIE.Web.MES.TaskManagement.FeedingRecords.Commands.FeedingAreaResourceDelCommand.js": "SIE.Web.MES.TaskManagement/FeedingRecords/Commands/FeedingAreaResourceDelCommand.js",
   "SIE.Web.MES.TaskManagement.FeedingRecords.Commands.FeedingAreaItemSelectCommand.js": "SIE.Web.MES.TaskManagement/FeedingRecords/Commands/FeedingAreaItemSelectCommand.js",
   "SIE.Web.MES.TaskManagement.FeedingRecords.Commands.FeedingAreaResourceSelectCommand.js": "SIE.Web.MES.TaskManagement/FeedingRecords/Commands/FeedingAreaResourceSelectCommand.js",
+  "SIE.Web.MES.TaskManagement.FeedingRecords.Commands.ScrapWeighingRecordEditCommand.js": "SIE.Web.MES.TaskManagement/FeedingRecords/Commands/ScrapWeighingRecordEditCommand.js",
   "SIE.Web.MES.TaskManagement.HeatTreatments.Commands.HeatTreatmentReportCommand.js": "SIE.Web.MES.TaskManagement/HeatTreatments/Commands/HeatTreatmentReportCommand.js",
   "SIE.Web.MES.TaskManagement.ProcessPrepareRecords.Commands.RecordDetailAllPassCommand.js": "SIE.Web.MES.TaskManagement/ProcessPrepareRecords/Commands/RecordDetailAllPassCommand.js",
   "SIE.Web.MES.TaskManagement.ProcessTaskLists.Commands.CancelDispatchTaskCommand.js": "SIE.Web.MES.TaskManagement/ProcessTaskLists/Commands/CancelDispatchTaskCommand.js",

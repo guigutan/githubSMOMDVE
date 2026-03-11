@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "SIE.MES.DashBoard/1.0.0": {
         "dependencies": {
+          "SIE.KZ.Group": "1.0.0",
           "SIE.MES.TaskManagement": "1.0.0",
           "SIE.MES.TeamManagement": "1.0.0"
         },
@@ -2322,6 +2323,18 @@
           }
         }
       },
+      "SIE.KZ.Group/1.0.0": {
+        "dependencies": {
+          "SIE.EventMessages": "1.0.0",
+          "SIE.KZ.Base": "1.0.0"
+        },
+        "runtime": {
+          "SIE.KZ.Group.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "SIE.LES/1.0.0": {
         "dependencies": {
           "SIE.Inventory": "1.0.0",
@@ -2380,6 +2393,7 @@
       "SIE.MES.TaskManagement/1.0.0": {
         "dependencies": {
           "SIE.Andon": "1.0.0",
+          "SIE.Items": "1.0.0",
           "SIE.MES": "1.0.0",
           "SIE.ProductIntfc": "1.0.0"
         },
@@ -3911,6 +3925,11 @@
       "sha512": ""
     },
     "SIE.KZ.Base/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SIE.KZ.Group/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

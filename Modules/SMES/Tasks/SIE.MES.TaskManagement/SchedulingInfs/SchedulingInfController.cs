@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.ExtendedProperties;
 using DocumentFormat.OpenXml.Office2021.DocumentTasks;
+using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.VisualBasic;
 using SIE.Common.Configs;
@@ -24,6 +25,7 @@ using SIE.MES.TaskManagement.TaskConfigs;
 using SIE.MES.WorkOrders;
 using SIE.MES.WorkOrders.Configs;
 using SIE.Packages.ItemLabels;
+using SIE.ProductIntfc.ProductInsps;
 using SIE.Rbac.InvOrgs;
 using SIE.Resources.PersonnelSkills;
 using SIE.Resources.Skills;
@@ -41,6 +43,34 @@ namespace SIE.MES.TaskManagement.SchedulingInfs
 {
     public class SchedulingInfController : DomainController
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productIds"></param>
+        /// <param name="mrps"></param>
+        /// <returns></returns>
+        public virtual EntityList<SchedulingInfValue> GetSchedulingInfValue(List<double> productIds, List<string> mrps)
+        {
+            var schedulingInfs = Query<SchedulingInf>()
+                .Exists<Process>((d, p) => p.Where(w => w.Id == d.ProcessId && w.Code == "精加工"))
+                 .Where(p => mrps.Contains(p.WorkOrder.WorkShop.Code)).Select(p => p.Id).ToList<double>().ToList();
+
+            var entityList = schedulingInfs.SplitContains(ids =>
+            {
+                var query = Query<SchedulingInfValue>()
+              .Where(y => ids.Contains(y.SchedulingInfId));
+                var hour = DateTime.Now.Hour;
+                if (hour >= 8)
+                    query.Where(p => p.Date >= DateTime.Now.Date && p.Date <= DateTime.Now.AddDays(2));
+                else
+                    query.Where(p => p.Date >= DateTime.Now.Date && p.Date <= DateTime.Now.AddDays(3));
+                return query.ToList(null, new EagerLoadOptions().LoadWith(SchedulingInfValue.SchedulingInfProperty)
+                 .LoadWith(SchedulingInf.ItemProperty).LoadWithViewProperty());
+            });
+
+            return entityList;
+        }
 
         /// <summary>
         /// 作废
@@ -327,6 +357,13 @@ namespace SIE.MES.TaskManagement.SchedulingInfs
                 //获取工单
                 var workOrderIds = list.Select(p => p.WorkOrderId).Distinct().ToList();
                 var workOrders = RT.Service.Resolve<WorkOrderController>().GetWorkOrderList(workOrderIds);
+
+                var closeWos = workOrders.Where(p => p.State == Core.WorkOrders.WorkOrderState.Close || p.State == Core.WorkOrders.WorkOrderState.Finish).ToList();
+                if (closeWos.Count > 0)
+                {
+                    throw new ValidationException("工单[{0}]关闭或已完成，无法生成任务单".L10nFormat(string.Join('、', closeWos.Select(p => p.No).Distinct().ToList())));
+                }
+
                 var curDate = DateTime.Now.Date;
                 //获取日期值
                 EntityList<SchedulingInfValue> schedulingInfValues = RT.Service.Resolve<SchedulingInfController>().GetSchedulingInfValuesBySchedulingInfId(ids, curDate.AddDays(-1));

@@ -2351,6 +2351,12 @@
             工厂
             </summary>
         </member>
+        <member name="M:SIE.EventMessages.ErpCommon.IUploadLogControllercs.EditScrapWeighingRecordQty(System.Collections.Generic.List{System.Double})">
+            <summary>
+            更新余料称重记录的数量
+            </summary>
+            <param name="ids"></param>
+        </member>
         <member name="M:SIE.EventMessages.ErpCommon.IUploadLogControllercs.EditDeductionRecordQty(System.Collections.Generic.List{System.Double})">
             <summary>
             更新扣料记录的数量
@@ -2401,6 +2407,12 @@
             </summary>
             <param name="zuid"></param>
             <param name="qty"></param>
+        </member>
+        <member name="M:SIE.EventMessages.ErpCommon.DefaultIUploadLogControllercs.EditScrapWeighingRecordQty(System.Collections.Generic.List{System.Double})">
+            <summary>
+            更新余料称重记录的数量
+            </summary>
+            <param name="ids"></param>
         </member>
         <member name="M:SIE.EventMessages.ErpCommon.DefaultIUploadLogControllercs.EditDeductionRecordQty(System.Collections.Generic.List{System.Double})">
             <summary>
@@ -4831,6 +4843,11 @@
         <member name="P:SIE.EventMessages.MES.Dispatchs.ReportInfo.WorkOrderId">
             <summary>
             工单Id
+            </summary>
+        </member>
+        <member name="P:SIE.EventMessages.MES.Dispatchs.ReportInfo.TaskId">
+            <summary>
+            任务单Id
             </summary>
         </member>
         <member name="P:SIE.EventMessages.MES.Dispatchs.ReportInfo.ResourceId">

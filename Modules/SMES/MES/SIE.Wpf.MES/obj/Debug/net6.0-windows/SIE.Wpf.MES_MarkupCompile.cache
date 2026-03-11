@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\myproject\MOMWorksPaces\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\SMES\MES\SIE.Wpf.MES\obj\Debug\net6.0-windows\
+D:\SMOMDev0310\SMOM.KAIZHONG\Modules\SMES\MES\SIE.Wpf.MES\obj\Debug\net6.0-windows\
 SIE.Wpf.MES
 none
 false
@@ -12,8 +12,8 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 
 261416098660
 
-4661752624494
-439959607512
+4821263509661
+439162057779
 BatchWIP\BatchControl.xaml;BatchWIP\Inspects\BatchDefectiveKeyInControl.xaml;BatchWIP\Packings\Layouts\BatchAndPackingPanel.xaml;BatchWIP\Packings\Layouts\BatchPackingLayout.xaml;Controls\DefectControl.xaml;Controls\DefectInputControl.xaml;Controls\DefectLookUpEditor.xaml;Controls\KZWorkCellSelectorControl.xaml;Controls\MeasureControl.xaml;Controls\Messager\MessagerControl.xaml;Controls\RepairDefectDutyControl.xaml;Controls\RepairMeasureControl.xaml;Controls\ResponsibilityControl.xaml;Controls\WorkCellSelectorControl.xaml;Editors\BatchBarcodeControl.xaml;Editors\BatchLoadItemBarcodeControl.xaml;Editors\DetailCalculatorControl.xaml;PanelBindings\Controls\SplitterControl.xaml;TouchScreenHomepage\Controls\MenuControl.xaml;WIP\Packings\Layouts\PackingLayout.xaml;WIP\Packings\Layouts\PackingRelationLayout.xaml;WIP\Packings\PackingLayout.xaml;WIP\PackRecombine\PackRecombineLayout.xaml;WIP\Reworks\ReworkControl.xaml;WIP\Reworks\ReworkKeyItemComfrimControl.xaml;WIP\Reworks\ReworkKeyItemControl.xaml;
 
 False

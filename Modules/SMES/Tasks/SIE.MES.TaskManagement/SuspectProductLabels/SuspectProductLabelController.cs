@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
 using SIE.Data;
 using SIE.Defects;
 using SIE.Domain;
@@ -82,6 +83,21 @@ namespace SIE.MES.TaskManagement.SuspectProductLabels
         #endregion
 
         #region 查询可疑品标签
+
+        /// <summary>
+        /// 根据工单号获取可疑品标签
+        /// </summary>
+        /// <param name="woNos"></param>
+        /// <returns></returns>
+        public virtual EntityList<SuspectProductLabel> GetSuspectProductLabelsByWoNos(List<string> woNos)
+        {
+            var list = woNos.SplitContains(temps =>
+            {
+                return Query<SuspectProductLabel>().Where(p => temps.Contains(p.WorkOrder.No)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            return list;
+        }
+        
         /// <summary>
         /// 查询可疑品标签
         /// </summary>
@@ -363,5 +379,259 @@ namespace SIE.MES.TaskManagement.SuspectProductLabels
             }
             return datas;
         }
+
+        /*  /// <summary>
+          /// 获取报废明细数据 - 使用DateTime?类型的日期字段
+          /// </summary>
+          /// <param name="criteria">查询条件</param>
+          public virtual EntityList<ScrapDetail> GetScrapDetail(ScrapDetailCriteria criteria)
+          {
+              // 直接查询ScrapDetail视图实体
+              var q = Query<ScrapDetail>();
+
+              // 先添加组织过滤条件（根据实际情况调整）
+              //q.Where(p => p.InvOrgId == 2); // 这里假设当前组织ID是2
+
+              // 应用查询条件
+              if (criteria != null)
+              {
+                  // 1. 批次号查询
+                  if (!criteria.BatchNo.IsNullOrEmpty())
+                      q.Where(p => p.BatchNo.Contains(criteria.BatchNo));
+
+                  // 2. 产品名称查询
+                  if (!criteria.ProductName.IsNullOrEmpty())
+                      q.Where(p => p.ItemName.Contains(criteria.ProductName));
+
+                  // 3. 物料编码查询
+                  if (!criteria.ItemName.IsNullOrEmpty())
+                      q.Where(p => p.ItemCode.Contains(criteria.ItemName));
+
+                  // 4. 工序名称查询
+                  if (!criteria.ProcessName.IsNullOrEmpty())
+                      q.Where(p => p.ProcessName.Contains(criteria.ProcessName));
+
+                  // 5. 线别查询
+                  if (!criteria.LineType.IsNullOrEmpty())
+                      q.Where(p => p.WipName.Contains(criteria.LineType));
+
+                  // 6. 不良代码查询
+                  if (!criteria.BadCode.IsNullOrEmpty())
+                      q.Where(p => p.DefectCode.Contains(criteria.BadCode));
+
+                  // 7. MRP控制者查询
+                  if (!criteria.MrpController.IsNullOrEmpty())
+                      q.Where(p => p.MrpController.Contains(criteria.MrpController));
+
+                  // 8. 旧物料号查询
+                  if (!criteria.ShortDescription.IsNullOrEmpty())
+                      q.Where(p => p.ShortDescription.Contains(criteria.ShortDescription));
+
+                  // 9. 处理人查询
+                  if (!criteria.HandleName.IsNullOrEmpty())
+                      q.Where(p => p.HandleName.Contains(criteria.HandleName));
+
+                  // 10. 处理时间查询 - 现在可以使用DateTime直接比较
+                  if (criteria.HandleDate != null)
+                  {
+                      // 开始时间
+                      if (criteria.HandleDate.BeginValue.HasValue)
+                      {
+                          q.Where(p => p.HandleDate >= criteria.HandleDate.BeginValue.Value);
+                      }
+
+                      // 结束时间（包含当天的23:59:59）
+                      if (criteria.HandleDate.EndValue.HasValue)
+                      {
+                          var endDate = criteria.HandleDate.EndValue.Value.AddDays(1).AddSeconds(-1);
+                          q.Where(p => p.HandleDate <= endDate);
+                      }
+                  }
+
+                  // 11. 创建时间查询 - 同样使用DateTime直接比较
+                  if (criteria.ScrapDate != null)
+                  {
+                      // 开始时间
+                      if (criteria.ScrapDate.BeginValue.HasValue)
+                      {
+                          q.Where(p => p.ScrapDate >= criteria.ScrapDate.BeginValue.Value);
+                      }
+
+                      // 结束时间（包含当天的23:59:59）
+                      if (criteria.ScrapDate.EndValue.HasValue)
+                      {
+                          var endDate = criteria.ScrapDate.EndValue.Value.AddDays(1).AddSeconds(-1);
+                          q.Where(p => p.ScrapDate <= endDate);
+                      }
+                  }
+
+                  // 12. 班别查询
+  *//*                if (criteria.ClassType.HasValue)
+                  {
+                      ApplyClassTypeCriteria(q, criteria.ClassType.Value);
+                  }*//*
+
+                  // 13. 数量范围查询（如果需要）
+  *//*                if (criteria.ScrapNum != null)
+                  {
+                      if (criteria.ScrapNum.BeginValue.HasValue)
+                          q.Where(p => p.ScrapNum >= criteria.ScrapNum.BeginValue.Value);
+
+                      if (criteria.ScrapNum.EndValue.HasValue)
+                          q.Where(p => p.ScrapNum <= criteria.ScrapNum.EndValue.Value);
+                  }*//*
+              }
+
+              // 排序 - 按处理时间降序排列
+              //q = q.OrderByDescending(p => p.HandleDate);
+
+              // 执行分页查询
+              //var list = q.ToList(criteria?.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+              var list = q.OrderBy(criteria.OrderInfoList).ToList(criteria.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+              return list;
+          }*/
+
+        /// <summary>
+        /// 获取报废明细数据
+        /// </summary>
+        /// <param name="criteria">查询条件</param>
+        public virtual EntityList<ScrapDetail> GetScrapDetail(ScrapDetailCriteria criteria)
+        {
+            // 直接查询ScrapDetail视图实体
+            var q = Query<ScrapDetail>();
+
+            // 先添加组织过滤条件（根据实际情况调整）
+            // q.Where(p => p.InvOrgId == 2); // 这里假设当前组织ID是2
+
+            // 应用查询条件
+            if (criteria != null)
+            {
+                // 1. 批次号查询
+                if (!criteria.BatchNo.IsNullOrEmpty())
+                    q.Where(p => p.BatchNo.Contains(criteria.BatchNo));
+
+                // 1. 子批次号查询
+                if (!criteria.SubBatchNo.IsNullOrEmpty())
+                    q.Where(p => p.SubBatchNo.Contains(criteria.SubBatchNo));
+
+
+                // 2. 产品名称查询
+                if (!criteria.ProductName.IsNullOrEmpty())
+                    q.Where(p => p.ItemName.Contains(criteria.ProductName));
+
+                // 3. 物料编码查询
+                if (!criteria.ItemName.IsNullOrEmpty())
+                    q.Where(p => p.ItemCode.Contains(criteria.ItemName));
+
+                // 4. 工序名称查询
+                if (!criteria.ProcessName.IsNullOrEmpty())
+                    q.Where(p => p.ProcessName.Contains(criteria.ProcessName));
+
+                // 5. 线别查询
+                if (!criteria.LineType.IsNullOrEmpty())
+                    q.Where(p => p.WipName.Contains(criteria.LineType));
+
+                // 6. 不良代码查询
+                if (!criteria.BadCode.IsNullOrEmpty())
+                    q.Where(p => p.DefectCode.Contains(criteria.BadCode));
+
+                // 7. MRP控制者查询
+                if (!criteria.MrpController.IsNullOrEmpty())
+                    q.Where(p => p.MrpController.Contains(criteria.MrpController));
+
+                // 8. 旧物料号查询
+                if (!criteria.ShortDescription.IsNullOrEmpty())
+                    q.Where(p => p.ShortDescription.Contains(criteria.ShortDescription));
+
+                // 9. 处理人查询
+                if (!criteria.HandleName.IsNullOrEmpty())
+                    q.Where(p => p.HandleName.Contains(criteria.HandleName));
+
+                // 10. 处理时间查询 - 现在可以使用DateTime直接比较
+                if (criteria.HandleDate != null)
+                {
+                    // 开始时间
+                    if (criteria.HandleDate.BeginValue.HasValue)
+                    {
+                        q.Where(p => p.HandleDate >= criteria.HandleDate.BeginValue.Value);
+                    }
+
+                    // 结束时间（包含当天的23:59:59）
+                    if (criteria.HandleDate.EndValue.HasValue)
+                    {
+                        var endDate = criteria.HandleDate.EndValue.Value.AddDays(1).AddSeconds(-1);
+                        q.Where(p => p.HandleDate <= endDate);
+                    }
+                }
+
+                // 11. 创建时间查询 - 同样使用DateTime直接比较
+                if (criteria.ScrapDate != null)
+                {
+                    // 开始时间
+                    if (criteria.ScrapDate.BeginValue.HasValue)
+                    {
+                        q.Where(p => p.ScrapDate >= criteria.ScrapDate.BeginValue.Value);
+                    }
+
+                    // 结束时间（包含当天的23:59:59）
+                    if (criteria.ScrapDate.EndValue.HasValue)
+                    {
+                        var endDate = criteria.ScrapDate.EndValue.Value.AddDays(1).AddSeconds(-1);
+                        q.Where(p => p.ScrapDate <= endDate);
+                    }
+                }
+
+                // 12. 班别查询 - 直接内联处理
+                if (criteria.ClassType.HasValue)
+                {
+                    switch (criteria.ClassType.Value)
+                    {
+                        case ClassesScrapType.Day:
+                            q.Where(p => p.ClassName == "白班");
+                            break;
+                        case ClassesScrapType.Night:
+                            q.Where(p => p.ClassName == "晚班");
+                            break;
+                        case ClassesScrapType.kb:
+                            q.Where(p => string.IsNullOrEmpty(p.ClassName) || p.ClassName == "");
+                            break;
+                    }
+                }
+
+                // 13. 数量范围查询（如果需要）
+                /* if (criteria.ScrapNum != null)
+                {
+                    if (criteria.ScrapNum.BeginValue.HasValue)
+                        q.Where(p => p.ScrapNum >= criteria.ScrapNum.BeginValue.Value);
+
+                    if (criteria.ScrapNum.EndValue.HasValue)
+                        q.Where(p => p.ScrapNum <= criteria.ScrapNum.EndValue.Value);
+                } */
+            }
+
+            // 执行分页查询 - 使用传入的排序信息
+            var list = q.OrderBy(criteria?.OrderInfoList).ToList(criteria?.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+            return list;
+        }
+
+        /// <summary>
+        /// 应用班别查询条件
+        /// </summary>
+        private void ApplyClassTypeCriteria(IQueryable<ScrapDetail> q, ClassesScrapType classType)
+        {
+            switch (classType)
+            {
+                case ClassesScrapType.Day:
+                    q.Where(p => p.ClassName == "白班");
+                    break;
+                case ClassesScrapType.Night:
+                    q.Where(p => p.ClassName == "晚班");
+                    break;
+                case ClassesScrapType.kb:
+                    q.Where(p => string.IsNullOrEmpty(p.ClassName) || p.ClassName == "");
+                    break;
+            }
+        }
+
     }
 }

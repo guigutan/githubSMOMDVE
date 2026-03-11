@@ -21,7 +21,12 @@ namespace SIE.Web.MES.DashBoard.KzBoard.RegionBoards
             using (View.OrderProperties())
             {
                 View.Property(p => p.Region).Show();
+                View.Property(p => p.RegionBoardType).Show();
+                //View.Property(p => p.DeviceStatus).Show();
+                //View.Property(p => p.HeatTreatment).Show();
+                //View.Property(p => p.ProductionOutput).Show();
                 View.ChildrenProperty(p => p.RegionBoardDetailList).Show(ChildShowInWhere.All);
+                View.ChildrenProperty(p => p.RegionBoardMRBList).Show(ChildShowInWhere.All);
             }
         }
 
@@ -30,6 +35,10 @@ namespace SIE.Web.MES.DashBoard.KzBoard.RegionBoards
             using (View.OrderProperties())
             {
                 View.Property(p => p.Region).Show();
+                View.Property(p => p.RegionBoardType).Show();
+                //View.Property(p => p.DeviceStatus).Show();
+                //View.Property(p => p.HeatTreatment).Show();
+                //View.Property(p => p.ProductionOutput).Show();
             }
         }
 
@@ -38,6 +47,10 @@ namespace SIE.Web.MES.DashBoard.KzBoard.RegionBoards
             using (View.OrderProperties())
             {
                 View.Property(p => p.Region).Show();
+                View.Property(p => p.RegionBoardType).Show();
+                //View.Property(p => p.DeviceStatus).Show();
+                //View.Property(p => p.HeatTreatment).Show();
+                //View.Property(p => p.ProductionOutput).Show();
             }
         }
     }

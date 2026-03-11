@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Resources",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Resources",
   "SIE.Web.Resources.Employees.Commands.DeleteSignCommand.js": "SIE.Web.Resources/Employees/Commands/DeleteSignCommand.js",
   "SIE.Web.Resources.Employees.Commands.EmployeeEnterpriseDelCommand.js": "SIE.Web.Resources/Employees/Commands/EmployeeEnterpriseDelCommand.js",
   "SIE.Web.Resources.Employees.Commands.EmployeeLabelPrintCommand.js": "SIE.Web.Resources/Employees/Commands/EmployeeLabelPrintCommand.js",

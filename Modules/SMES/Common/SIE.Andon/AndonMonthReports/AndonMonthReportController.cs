@@ -65,7 +65,10 @@ namespace SIE.Andon.AndonMonthReports
             if (res.Any())
             {
                 var andonManageIds = res.Select(p => p.Id).ToList();
-                oprateList = Query<AndonManageOperateLog>().Where(m => andonManageIds.Contains(m.AndonManageId)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+                oprateList = andonManageIds.SplitContains(ids =>
+                {
+                    return Query<AndonManageOperateLog>().Where(m => ids.Contains(m.AndonManageId)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+                });
             }
             FiterGroupResultInfos(criteria, andonMonthReportInfos, res, oprateList);
 

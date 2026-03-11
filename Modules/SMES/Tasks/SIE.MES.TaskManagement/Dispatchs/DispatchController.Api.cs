@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.EMMA;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.EMMA;
 using DocumentFormat.OpenXml.Office2021.DocumentTasks;
 using Microsoft.Scripting.Utils;
 using NPOI.SS.Formula.Functions;
@@ -8,6 +9,7 @@ using SIE.Api;
 using SIE.Barcodes.Configs;
 using SIE.Barcodes.WipBatchs;
 using SIE.Common.Configs;
+using SIE.Common.NumberRules;
 using SIE.Core.ApiModels;
 using SIE.Core.Common.Service;
 using SIE.Core.Labels;
@@ -25,6 +27,7 @@ using SIE.MES.ItemFixture;
 using SIE.MES.LineAndon;
 using SIE.MES.PackingQC;
 using SIE.MES.ReworkLayoutVersions;
+using SIE.MES.ReworkLayoutVersions.Configs;
 using SIE.MES.TaskManagement.Dispatchs.Datas;
 using SIE.MES.TaskManagement.FeedingRecords;
 using SIE.MES.TaskManagement.Models;
@@ -33,6 +36,7 @@ using SIE.MES.TaskManagement.ProcessPrepareRecords;
 using SIE.MES.TaskManagement.SuspectProductLabels;
 using SIE.MES.WIP.Runtime;
 using SIE.MES.WorkOrders;
+using SIE.MES.WorkOrders.Configs;
 using SIE.Packages.ItemLabels;
 using SIE.Packages.ItemLabels.Configs;
 using SIE.ProductIntfc.OutputProducts;
@@ -123,8 +127,8 @@ namespace SIE.MES.TaskManagement.Dispatchs
             if (first.IsRework == false)
                 throw new ValidationException("标签{0}非返工标签".L10nFormat(key));
 
-            EntityList<ReworkInfoRecordDtl> reworkInfoRecordDtls = RT.Service.Resolve<ReworkLayoutVersionController>().GetReworkInfoRecordDtls(key);
-            if (reworkInfoRecordDtls.Count > 0)
+            ReworkInfoRecordDtl reworkInfoRecordDtls = RT.Service.Resolve<ReworkLayoutVersionController>().GetReworkInfoRecordDtl(key);
+            if (reworkInfoRecordDtls != null)
                 throw new ValidationException("标签已扫描过，不允许重复扫描".L10N());
 
             PdaReworkConfirmScanInfo info = new PdaReworkConfirmScanInfo();
@@ -164,7 +168,91 @@ namespace SIE.MES.TaskManagement.Dispatchs
             return infos;
         }
 
+        /// <summary>
+        /// 返工确认:获取返工工艺路线工序信息s
+        /// </summary>
+        /// <param name="VersionId"></param>
+        /// <returns></returns>
+        [ApiService("返工确认:获取返工工艺路线工序信息")]
+        public virtual List<PdaReworkLayoutInfo> GetPdaReworkLayoutInfos(double VersionId)
+        {
+            List<PdaReworkLayoutInfo> infos = new List<PdaReworkLayoutInfo>();
+            var version = RF.GetById<ReworkLayoutVersion>(VersionId, new EagerLoadOptions().LoadWithViewProperty());
+            foreach (var detail in version.ReworkLayoutList)
+            {
+                PdaReworkLayoutInfo info = new PdaReworkLayoutInfo();
+                info.Vornr = detail.Vornr;
+                info.ProcessCode = detail.ProcessCode;
+                info.WorkCenterCode = detail.WorkCenterCode;
+                info.Steus = detail.Steus;
+                info.Factory = detail.Factory;
+                info.Zcode = detail.Zcode;
+                infos.Add(info);
+            }
+            return infos;
+        }
 
+        /// <summary>
+        /// 返工确认:提交
+        /// </summary>
+        /// <param name="data"></param>
+        [ApiService("返工确认:提交")]
+        public virtual void SubmitReworkLayoutInfo(PdaSubmitReworkLayoutInfo data)
+        {
+
+            var config = ConfigService.GetConfig(new ReworkInfoRecordEntityConfig(), typeof(ReworkInfoRecord));
+            if (config == null || config.NumberRuleId == null || config.NumberRuleId == 0)
+                throw new ValidationException("未配置返工信息唯一码编码规则".L10N());
+            //获取返工工艺路线信息
+            var version = RF.GetById<ReworkLayoutVersion>(data.VersionId, new EagerLoadOptions().LoadWithViewProperty());
+
+            var wipBatchs = RT.Service.Resolve<WipBatchController>().GetWipBatches(data.WipBatchIds);
+
+            ReworkInfoRecord reworkInfoRecord = new ReworkInfoRecord();
+            reworkInfoRecord.State = ReworkInfoRecordState.Create;
+            reworkInfoRecord.Factory = version.Factory;
+            reworkInfoRecord.ItemId = version.ItemId;
+            reworkInfoRecord.Qty = data.ReworkQty;
+            reworkInfoRecord.BeginDateTime = data.BeginDateTime;
+            reworkInfoRecord.EndDateTime = data.EndDateTime;
+            reworkInfoRecord.ReworkLayoutVersionId = version.Id;
+            reworkInfoRecord.Department = data.Department;
+            reworkInfoRecord.UniqueCode = RT.Service.Resolve<NumberRuleController>().GenerateSegment(config.BacodeRule.Id, 1).FirstOrDefault();//GetUniqueShortGuid(Guid.NewGuid());
+            foreach (var wipBatch in wipBatchs)
+            {
+                ReworkInfoRecordDtl reworkInfoRecordDtl = new ReworkInfoRecordDtl();
+                reworkInfoRecordDtl.WipBatchId = wipBatch.Id;
+                reworkInfoRecordDtl.ReworkInfoRecord = reworkInfoRecord;
+                reworkInfoRecord.ReworkInfoRecordDtlList.Add(reworkInfoRecordDtl);
+            }
+            RF.Save(reworkInfoRecord);
+        }
+
+        /// <summary>
+        /// 生成唯一的24位缩短Guid（URL安全，无损转换，100%唯一）
+        /// </summary>
+        public static string GetUniqueShortGuid(Guid guid)
+        {
+
+            // Base64中可能的特殊字符替换（URL安全，不影响唯一性）
+            char Base64Plus = '+';
+            char Base64Slash = '/';
+            char SafePlus = '-';
+            char SafeSlash = '_';
+
+            // 步骤1：将Guid转为16字节二进制数组（无损，保留全部128位信息）
+            byte[] guidBytes = guid.ToByteArray();
+
+            // 步骤2：转为Base64字符串（24位，无损，唯一映射）
+            string base64 = Convert.ToBase64String(guidBytes);
+
+            // 步骤3：替换特殊字符（仅字符替换，不改变二进制本质，仍唯一）
+            string safeBase64 = base64.Replace(Base64Plus, SafePlus)
+                                      .Replace(Base64Slash, SafeSlash);
+
+            // 最终长度：24位（≤25位），且100%唯一
+            return safeBase64;
+        }
 
         #endregion
 
@@ -333,7 +421,7 @@ namespace SIE.MES.TaskManagement.Dispatchs
             );
 
             if (!key.IsNullOrEmpty())
-                q.Where(p => p.WorkOrder.No.Contains(key) || p.No.Contains(key));
+                q.Where(p => p.WorkOrder.No.Contains(key) || p.No.Contains(key) || p.Product.ShortDescription.Contains(key));
 
             var tasks = q.OrderBy(p => p.PlanBeginTime).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
 
@@ -347,6 +435,7 @@ namespace SIE.MES.TaskManagement.Dispatchs
                 taskInfo.Qty = task.DispatchQty;
                 taskInfo.WorkOrderNo = task.WorkOrderNo;
                 taskInfo.Process = task.ProcessCode;
+                taskInfo.OldItemCode = task.ShortDescription;
                 taskInfos.Add(taskInfo);
             }
 
@@ -374,14 +463,18 @@ namespace SIE.MES.TaskManagement.Dispatchs
 
             var records = Query<FeedingRecord>().Where(p => (p.ResourceId == task.ResourceId || areIds.Contains(p.FeedingAreaId)) && itemIds.Contains(p.ItemLabel.ItemId)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
 
+            var workOrderBomList = Query<WorkOrderBom>().Where(p => p.WorkOrderId == task.WorkOrderId).ToList();
+
             foreach (var processBom in processBoms)
             {
+                var requireQty = workOrderBomList.Where(p => p.ItemId == processBom.ItemId).Max(p => p.RequireQty);
                 var rds = records.Where(p => p.ItemId == processBom.ItemId).ToList();
                 Pda_AssemblyProcessBomInfo info = new Pda_AssemblyProcessBomInfo();
                 info.ProcessBomId = processBom.Id;
                 info.ProductCode = processBom.ItemCode;
                 info.ProductName = processBom.ItemName;
                 info.Qty = task.DispatchQty * processBom.SingleQty;//processBom.SingleQty * processBom.PlanQty;
+                info.CardDemandQty = task.DispatchQty/ processBom.PlanQty* requireQty;
                 info.RemainingQty = rds.Sum(p => (p.RemainingQty ?? 0));
                 info.Unit = processBom.ItemUnitName;
                 info.Factory = processBom.Werks;
@@ -1567,7 +1660,13 @@ namespace SIE.MES.TaskManagement.Dispatchs
                 }
             }
 
-            var tasks = Query<DispatchTask>().Where(p => p.TaskStatus <= DispatchTaskStatus.Dispatching && (p.Resource.Code.Contains(key) || p.Resource.Code == workCenter || p.WorkOrder.No.Contains(key))).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var tasks = Query<DispatchTask>()
+                .Where(p => p.TaskStatus <= DispatchTaskStatus.Dispatching
+                && (p.Resource.Code.Contains(key)
+                || p.Resource.Code == workCenter
+                || p.Product.ShortDescription.Contains(key)
+                || p.WorkOrder.No.Contains(key)))
+                .ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             var list = tasks.Select(task => new DispatchTaskInfo()
             {
                 TaskId = task.Id,
@@ -1596,6 +1695,7 @@ namespace SIE.MES.TaskManagement.Dispatchs
                 WorkOrderId = task.WorkOrder.Id,
                 WorkOrderNo = task.WorkOrder.No,
                 //Zcode = layoutInfo?.Zcode ?? 0,
+                OldItemCode = task.ShortDescription,
             }).ToList();
 
             return list;
@@ -1637,7 +1737,7 @@ namespace SIE.MES.TaskManagement.Dispatchs
                 workCenter = resource.Code;
             }
 
-            var list = RT.Service.Resolve<WipResourceController>().GetWipResourcesByWorkCenterCode(workCenter, task.ProductId);
+            var list = RT.Service.Resolve<WipResourceController>().GetWipResourcesByWorkCenterCode(workCenter, tasks.Select(p => p.ProductId).Distinct().ToList());
 
             List<Pda_WipResourceInfo> resourceInfos = new List<Pda_WipResourceInfo>();
             foreach (var l in list)
@@ -1723,7 +1823,7 @@ namespace SIE.MES.TaskManagement.Dispatchs
                 }
             }
             //获取对应资源，如果资源是安灯产线，那么同时，也要获取该产线的工作中心下的任务单
-            var tasks = Query<DispatchTask>().Where(p => p.TaskStatus == DispatchTaskStatus.Dispatched && (p.Resource.Code.Contains(key) || p.Resource.Code == workCenter || p.WorkOrder.No.Contains(key))).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var tasks = Query<DispatchTask>().Where(p => p.TaskStatus == DispatchTaskStatus.Dispatched && (p.Resource.Code.Contains(key) || p.Resource.Code == workCenter || p.Product.ShortDescription.Contains(key) || p.WorkOrder.No.Contains(key))).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
 
             var list = tasks.Select(task => new DispatchTaskInfo()
             {

@@ -99,6 +99,77 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl">
+            <summary>
+            FeedingAreaScanControl.xaml 的交互逻辑
+            </summary>
+            <summary>
+            FeedingAreaScanControl
+            </summary>
+        </member>
+        <member name="F:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.OperateType">
+            <summary>
+            操作类型(0:扫描供料区编码,1:扫描批次标签)
+            </summary>
+        </member>
+        <member name="P:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.baseDataInfo">
+            <summary>
+            供料区信息
+            </summary>
+        </member>
+        <member name="P:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.itemLabelInfos">
+            <summary>
+            扫描的标签信息
+            </summary>
+        </member>
+        <member name="F:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.Labels">
+            <summary>
+            已扫描标签
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.btnSubmit_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            提交
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.btnReStart_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            重新开始
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.reset">
+            <summary>
+            重置
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.btnBack_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            返回
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.showError(System.String)">
+            <summary>
+            显示错误
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.showTip(System.String)">
+            <summary>
+            显示信息
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingAreaScanControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:SIE.Wpf.MES.TaskManagement.KZReports.Controls.FeedingScanControl">
             <summary>
             FeedingScanControl.xaml 的交互逻辑
@@ -524,6 +595,13 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ReportMainControl.taskList_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            任务列表按钮
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ReportMainControl.InitializeComponent">
             <summary>
             InitializeComponent
@@ -571,6 +649,13 @@
             
             </summary>
             <param name="_model"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ReportMulitStationControl.btnFeedingArea_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            区域上料
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ReportMulitStationControl.InitializeComponent">
             <summary>
@@ -689,6 +774,13 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ReportProcessControl.taskList_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            任务列表按钮
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ReportProcessControl.InitializeComponent">
             <summary>
             InitializeComponent
@@ -760,6 +852,11 @@
             标签列表
             </summary>
         </member>
+        <member name="P:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ScanReportControl.dispatchTaskList">
+            <summary>
+            任务列表
+            </summary>
+        </member>
         <member name="P:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ScanReportControl.ResourceId">
             <summary>
             资源Id
@@ -786,6 +883,11 @@
             
             </summary>
             <param name="_model"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ScanReportControl.LoadTaskList">
+            <summary>
+            获取任务单列表
+            </summary>
         </member>
         <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ScanReportControl.btnSubmit_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
@@ -1083,7 +1185,7 @@
             
             </summary>
         </member>
-        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ViewTaskListControl.#ctor(SIE.Wpf.MES.TaskManagement.KZReports.KZTaskReportViewModelBase)">
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ViewTaskListControl.#ctor(SIE.Wpf.MES.TaskManagement.KZReports.KZTaskReportViewModelBase,System.Boolean)">
             <summary>
             
             </summary>
@@ -1093,6 +1195,20 @@
             <summary>
             获取任务单列表
             </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ViewTaskListControl.btnPause_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            暂停
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ViewTaskListControl.btnExecute_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            执行
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.Controls.ViewTaskListControl.InitializeComponent">
             <summary>
@@ -1342,6 +1458,12 @@
             资源列表
             </summary>
         </member>
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.KZReportHelper.ShowFeedingAreaScan">
+            <summary>
+            显示区域上料
+            </summary>
+            <param name="vm"></param>
+        </member>
         <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.KZReportHelper.ShowMulitSelectResourceList(SIE.Wpf.MES.TaskManagement.KZReports.KZTaskReportViewModel,System.Action)">
             <summary>
             资源列表(多选)
@@ -1373,7 +1495,7 @@
             任务列表
             </summary>
         </member>
-        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.KZReportHelper.ShowViewTaskList(System.Nullable{System.Double},System.Nullable{System.Double})">
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.KZReportHelper.ShowViewTaskList(System.Nullable{System.Double},System.Nullable{System.Double},System.Boolean)">
             <summary>
             任务列表
             </summary>
@@ -2587,7 +2709,7 @@
             清空提示信息
             </summary>
         </member>
-        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.KZTaskReportViewModelBase.LoadResourceList(System.Boolean)">
+        <member name="M:SIE.Wpf.MES.TaskManagement.KZReports.KZTaskReportViewModelBase.LoadResourceList(System.Boolean,System.String)">
             <summary>
             获取资源列表
             </summary>

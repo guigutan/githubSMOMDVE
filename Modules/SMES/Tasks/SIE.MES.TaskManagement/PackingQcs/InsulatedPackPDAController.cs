@@ -30,9 +30,11 @@ namespace SIE.MES.TaskManagement.PackingQcs
         /// </summary>
         /// <param name="barcode">蓝标信息</param>
         /// <param name="boxExChange">是否开箱 1=换箱,0不换箱</param>
+        /// <param name="firstBarcode">原蓝标</param>
+        /// <param name="isFirst">是否原蓝标</param>
         /// <returns></returns>
         [ApiService("扫码蓝标")]
-        public virtual InsulatePackWoinfo ScanBlueLabel([ApiParameter("扫码蓝标")] string barcode, int boxExChange)
+        public virtual InsulatePackWoinfo ScanBlueLabel([ApiParameter("扫码蓝标")] string barcode, int boxExChange, string firstBarcode, bool isFirst)
         {
             InsulatePackWoinfo info = new InsulatePackWoinfo();
             var packingQc = RT.Service.Resolve<PackingQcController>().GetPackingQc(barcode);
@@ -44,14 +46,16 @@ namespace SIE.MES.TaskManagement.PackingQcs
             info.Scan = false;
             info.IsUse = true;
             SIE.MES.BlueLable.BlueLable blueBable = new BlueLable.BlueLable();
-            if (boxExChange == 0)
-            {
-                blueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(barcode);
-            }
-            else
-            {
-                blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(barcode);
-            }
+            //if (boxExChange == 0)
+            //{
+            //    blueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(barcode);
+            //}
+            //else
+            //{
+            //    blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(barcode);
+            //}
+
+            blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(barcode);
 
             if (blueBable == null)
             {
@@ -75,6 +79,20 @@ namespace SIE.MES.TaskManagement.PackingQcs
 
             if (packingQc == null)
             {
+                if (boxExChange == 1 && isFirst == true)
+                {
+                    info.Error = "新蓝标无需换箱";
+                    return info;
+                }
+
+                //蓝标下明细为空，且有删除标识
+                var Blue = RT.Service.Resolve<PackingQcController>().AllBlueLable(barcode);
+                if (Blue.CreateDeleteident == "删除")
+                {
+                    info.Error = "该蓝标存在装箱明细，不允许换箱";
+                    return info;
+                }
+
                 if (boxExChange == 1)
                 {
                     info.XtBlue = barcode;
@@ -85,6 +103,18 @@ namespace SIE.MES.TaskManagement.PackingQcs
             }
             else
             {
+                //换箱，且原标签不为空，就说明当前扫的是第二个蓝标
+                if (boxExChange == 1 && isFirst == false)
+                {
+                    //第二个蓝标需要校验
+                    if (packingQc.PackingDetailList.Count > 0)
+                    {
+                        throw new ValidationException("该蓝标存在装箱明细，不允许换箱".L10N());
+                        //info.Error = "该蓝标存在装箱明细，不允许换箱";
+                        //return info;
+                    }
+                }
+
                 //开箱
                 var packDetailList = RT.Service.Resolve<PackingQcController>().GetPackingDetail(packingQc.Id);
                 //记录已经装了多少箱数量
@@ -155,7 +185,7 @@ namespace SIE.MES.TaskManagement.PackingQcs
 
             packingQc = RT.Service.Resolve<PackingQcController>().GetPackingQc(info.XtBlue);
 
-            var blueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(info.XtBlue);
+            var blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(info.XtBlue);
 
             //获取产品
             var itemData = RT.Service.Resolve<PackingQcController>().GetItem(blueBable.ItemId);
@@ -169,6 +199,14 @@ namespace SIE.MES.TaskManagement.PackingQcs
                 return DeleteLabel(woInfo.XtBlue, barcode, itemData, info);
 
             }
+            else
+            {
+                if (blueBable.CreateDeleteident == "删除")
+                {
+                    throw new ValidationException("删除的蓝标不允许其他操作，只能移除!");
+                }
+            }
+
 
             //批次标签等于null， 在去物料标签查询。
             itemLabel = RT.Service.Resolve<ItemLabelController>().GetPackingItemLabel(barcode);
@@ -335,7 +373,7 @@ namespace SIE.MES.TaskManagement.PackingQcs
                     throw new ValidationException("原蓝标不能为空!");
                 }
 
-                var XtblueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(xtBlue);
+                var XtblueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(xtBlue);
                 if (XtblueBable == null)
                 {
                     throw new ValidationException("蓝标不存在!");
@@ -363,7 +401,8 @@ namespace SIE.MES.TaskManagement.PackingQcs
                         {
                             packingQc.PackIdent = PackIdentEnum.NotFullTank;
                         }
-                        if (XtblueBable.PackageNum >= detailSum)
+                        //if (XtblueBable.PackageNum >= detailSum)
+                        if (XtblueBable.PackageNum >= packdetails.Sum(p => p.PackingNum))
                         {
                             packingQc.BlueLableNum = XtblueBable.PackageNum;
 
@@ -371,6 +410,10 @@ namespace SIE.MES.TaskManagement.PackingQcs
                             packingQc.OldBlueLabel = yxtBlue;
                             packingQc.IsUploadSap = false;
                             packingQc.UploadResult = "";
+                            if (packingQc.PackingDetailList.Sum(p => p.PackingNum) == packingQc.BlueLableNum)
+                            {
+                                packingQc.PackIdent = PackIdentEnum.FullTank;
+                            }
                             RF.Save(packingQc);
                             YXtblueBable.IsPack = false;
                             XtblueBable.IsPack = true;

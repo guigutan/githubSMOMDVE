@@ -12,6 +12,7 @@ namespace SIE.Web.MES.TaskManagement.SuspectProductLabels
         protected override void ConfigQueryView()
         {
             View.Property(p => p.BatchNo);
+            View.Property(p => p.SubBatchNo);
             View.Property(p => p.ProductName);
             View.Property(p => p.LineType);
             View.Property(p => p.ProcessName);
@@ -22,6 +23,8 @@ namespace SIE.Web.MES.TaskManagement.SuspectProductLabels
             View.Property(p => p.HandleName);
             View.Property(p => p.HandleDate);
             View.Property(p => p.ScrapDate);
+            View.Property(p => p.MrpController);
+            View.Property(p => p.ShortDescription);
         }
     }
 }

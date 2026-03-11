@@ -536,6 +536,22 @@
             </summary>
             <param name="relastions"></param>
         </member>
+        <member name="M:SIE.ERPInterface.Common.Controller.UploadBaseController.UploadReworkInfoRecordToInf">
+            <summary>
+            返工信息上传事务
+            </summary>
+        </member>
+        <member name="M:SIE.ERPInterface.Common.Controller.UploadBaseController.GetReworkInfoRecords">
+            <summary>
+            获取返工信息
+            </summary>
+        </member>
+        <member name="M:SIE.ERPInterface.Common.Controller.UploadBaseController.CreateReworkInfoRecordTransaction(SIE.MES.ReworkLayoutVersions.ReworkInfoRecord,System.DateTime)">
+            <summary>
+            创建事务上传
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:SIE.ERPInterface.Common.Datas.AddressData">
             <summary>
             地址信息
@@ -9636,6 +9652,12 @@
             事务上传控制器
             </summary>
         </member>
+        <member name="M:SIE.ERPInterface.Common.Logs.UploadLogControllercs.EditScrapWeighingRecordQty(System.Collections.Generic.List{System.Double})">
+            <summary>
+            更新余料称重记录的数量
+            </summary>
+            <param name="ids"></param>
+        </member>
         <member name="M:SIE.ERPInterface.Common.Logs.UploadLogControllercs.EditDeductionRecordQty(System.Collections.Generic.List{System.Double})">
             <summary>
             更新扣料记录的数量
@@ -10462,6 +10484,16 @@
             工单车间
             </summary>
         </member>
+        <member name="F:SIE.ERPInterface.Common.Logs.UploadTransaction.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Common.Logs.UploadTransaction.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
         <member name="F:SIE.ERPInterface.Common.Logs.UploadTransaction.SourceIdProperty">
             <summary>
             来源Id
@@ -10620,6 +10652,26 @@
         <member name="P:SIE.ERPInterface.Common.Logs.UploadTransaction.Mjahr">
             <summary>
             返回物料凭证年度
+            </summary>
+        </member>
+        <member name="F:SIE.ERPInterface.Common.Logs.UploadTransaction.DepartmentProperty">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Common.Logs.UploadTransaction.Department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="F:SIE.ERPInterface.Common.Logs.UploadTransaction.VersionProperty">
+            <summary>
+            生产版本
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Common.Logs.UploadTransaction.Version">
+            <summary>
+            生产版本
             </summary>
         </member>
         <member name="T:SIE.ERPInterface.Common.Logs.UploadTransactionConfig">
@@ -10815,6 +10867,16 @@
         <member name="P:SIE.ERPInterface.Common.Logs.UploadTransactionCriteria.WorkShop">
             <summary>
             车间
+            </summary>
+        </member>
+        <member name="F:SIE.ERPInterface.Common.Logs.UploadTransactionCriteria.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Common.Logs.UploadTransactionCriteria.WorkShopCode">
+            <summary>
+            车间编码
             </summary>
         </member>
         <member name="M:SIE.ERPInterface.Common.Logs.UploadTransactionCriteria.Fetch">

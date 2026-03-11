@@ -123,6 +123,30 @@
             </summary>
             <param name="app">应用程序</param>
         </member>
+        <member name="T:SIE.Web.MES.DashBoard.ProductionProcesss.Commands.ProductionProcessDLTemplateCommand">
+            <summary>
+            下载模板
+            </summary>
+        </member>
+        <member name="M:SIE.Web.MES.DashBoard.ProductionProcesss.Commands.ProductionProcessDLTemplateCommand.Excute(SIE.Web.Command.ViewArgs,System.String)">
+            <summary>
+            执行
+            </summary>
+            <param name="args"></param>
+            <param name="scope"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SIE.Web.MES.DashBoard.ProductionProcesss.Commands.ProductionProcessImportCommand">
+            <summary>
+            导入
+            </summary>
+        </member>
+        <member name="M:SIE.Web.MES.DashBoard.ProductionProcesss.Commands.ProductionProcessImportCommand.OnSave(System.Collections.Generic.IList{SIE.Common.Import.RowData})">
+            <summary>
+            保存
+            </summary>
+            <param name="batch"></param>
+        </member>
         <member name="T:SIE.Web.MES.DashBoard.Reports.FpySettings.Commands.AddSettingCommand">
             <summary>
             产品直通率设置命令

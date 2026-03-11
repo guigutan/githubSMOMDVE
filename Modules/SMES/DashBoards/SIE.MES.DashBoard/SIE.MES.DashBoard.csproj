@@ -22,6 +22,7 @@
     <AdditionalFiles Include="..\..\..\..\.sonarlint\sie.smom\CSharp\SonarLint.xml" Link="SonarLint.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\KaiZhong\SIE.KZ.Group\SIE.KZ.Group.csproj" />
     <ProjectReference Include="..\..\Tasks\SIE.MES.TaskManagement\SIE.MES.TaskManagement.csproj" />
     <ProjectReference Include="..\..\Teams\SIE.MES.TeamManagement\SIE.MES.TeamManagement.csproj" />
   </ItemGroup>

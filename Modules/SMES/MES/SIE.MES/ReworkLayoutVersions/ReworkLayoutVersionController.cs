@@ -13,6 +13,31 @@ namespace SIE.MES.ReworkLayoutVersions
         #region 返工信息
 
         /// <summary>
+        /// 根据Id获取返工信息
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public virtual EntityList<ReworkInfoRecord> GetReworkInfoRecordsByIds(List<double> ids)
+        {
+            var list = ids.SplitContains(temp =>
+            {
+                return Query<ReworkInfoRecord>().Where(p => temp.Contains(p.Id)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            return list;
+        }
+
+        /// <summary>
+        /// 根据标签号获取返工信息的标签信息
+        /// </summary>
+        /// <param name="sn"></param>
+        /// <returns></returns>
+        public virtual ReworkInfoRecordDtl GetReworkInfoRecordDtl(string sn)
+        {
+            var first = Query<ReworkInfoRecordDtl>().Where(p => p.WipBatch.BatchNo == sn).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
+            return first;
+        }
+
+        /// <summary>
         /// 根据标签号获取返工信息的标签信息
         /// </summary>
         /// <param name="sn"></param>

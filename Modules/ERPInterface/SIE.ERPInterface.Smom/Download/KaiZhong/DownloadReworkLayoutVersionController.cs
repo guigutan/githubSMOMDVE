@@ -63,7 +63,7 @@ namespace SIE.ERPInterface.Smom.Download.KaiZhong
                             if (!result.errorMsg.IsNullOrEmpty())
                                 throw new ValidationException(result.errorMsg);
 
-                            var reworkLayoutVersion = reworkLayoutVersions.FirstOrDefault(p => p.ItemCode == d.MATNR && p.Factory == d.WERKS);
+                            var reworkLayoutVersion = reworkLayoutVersions.FirstOrDefault(p => p.ItemCode == d.MATNR && p.Factory == d.WERKS && p.Version == d.VERID);
 
                             var item = items.FirstOrDefault(p => p.Code == d.MATNR);
                             if (item == null)
@@ -126,9 +126,9 @@ namespace SIE.ERPInterface.Smom.Download.KaiZhong
                     reworkLayoutVersion.EndDateTime = gltrp;
                 reworkLayoutVersion.Type = data.PLNTY;
                 if (!data.BDATU.IsNullOrEmpty() && DateTimeFormat.SafeConvertToDateTime(data.BDATU, out var bdatu))
-                    reworkLayoutVersion.EffBeginDateTime = bdatu;
+                    reworkLayoutVersion.EffEndDateTime = bdatu;
                 if (!data.ADATU.IsNullOrEmpty() && DateTimeFormat.SafeConvertToDateTime(data.ADATU, out var adatu))
-                    reworkLayoutVersion.EffEndDateTime = adatu;
+                    reworkLayoutVersion.EffBeginDateTime = adatu;
                 reworkLayoutVersion.Group = data.PLNNR;
                 reworkLayoutVersion.Counter = data.ALNAL;
 

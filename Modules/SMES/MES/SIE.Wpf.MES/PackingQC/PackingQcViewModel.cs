@@ -255,14 +255,23 @@ namespace SIE.Wpf.MES.PackingQC
             #endregion
             //BoolBlue=true 扫码蓝标,否则批次或耐压标签
             if (BoolBlue)
-            
             {
                 if (DeleteIdent == 0)
                 {
                     DeleteState = "扫码中";
                 }
 
-                    var packingQc = RT.Service.Resolve<PackingQcController>().GetPackingQc(Barcode);
+                var packingQc = RT.Service.Resolve<PackingQcController>().GetPackingQc(Barcode);
+
+                //蓝标下明细为空，且有删除标识
+                var Blue = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
+                if (packingQc == null && Blue.CreateDeleteident == "删除")
+                {
+                    Error = "该蓝标状态为删除，不允许包装";
+                    Barcode = "";
+                    return;
+                }
+
                 if (BoxExChange == 0)
                 {
                     PackageSnRecordList.Clear();
@@ -317,7 +326,9 @@ namespace SIE.Wpf.MES.PackingQC
                                 YXtBlue = "";
                                 return;
                             }
-                            if (xtBlue.PackageNum <= yXtBlue.PackageNum && xtBlue.PackageNum >= detailSum)
+
+                            //if (xtBlue.PackageNum <= yXtBlue.PackageNum && xtBlue.PackageNum >= detailSum)
+                            if (xtBlue.PackageNum <= yXtBlue.PackageNum && xtBlue.PackageNum >= packdetails.Sum(p => p.PackingNum))
                             {
                                 Barcode = "";
                                 Tips = "请点提交按钮,确认换箱!!!";
@@ -334,18 +345,36 @@ namespace SIE.Wpf.MES.PackingQC
                             }
                         }
                     }
+                    else
+                    {
+                        if (YXtBlue != "")
+                        {
+                            var xtBluePackDtls = RT.Service.Resolve<PackingQcController>().GetPackingDetailsByBlueLabel(packingQc.BlueLabel);
+                            if (xtBluePackDtls.Count > 0)
+                            {
+                                Error = "该蓝标存在装箱明细，不允许换箱";
+                                Barcode = "";
+                                XtBlue = "";
+                                YXtBlue = "";
+                                return;
+                            }
+                        }
+                    }
+
                 }
 
                 XtBlue = Barcode;
                 //第一步 系统中是否有蓝标
-                if (BoxExChange == 0)
-                {
-                    blueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(Barcode);
-                }
-                else
-                {
-                    blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
-                }
+                //if (BoxExChange == 0)
+                //{
+                //    blueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(Barcode);
+                //}
+                //else
+                //{
+                //    blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
+                //}
+
+                blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
 
                 if (blueBable == null)
                 {
@@ -584,6 +613,15 @@ namespace SIE.Wpf.MES.PackingQC
                         return;
                     }
                 }
+                else
+                {
+                    if (blueBable.CreateDeleteident == "删除")
+                    {
+                        Error = "删除的蓝标不允许其他操作，只能移除";
+                        Barcode = "";
+                        return;
+                    }
+                }
                 //批次标签
                 WipBatch wipBatch = new WipBatch();
                 //包装采集主表
@@ -804,7 +842,7 @@ namespace SIE.Wpf.MES.PackingQC
                 try
                 {
                     //SN和批次标签校验 前置是否报工
-                    RT.Service.Resolve<ITaskReportKZ>().ValidatePrepareProcessHasReport(Barcode, "成品包装");
+                    RT.Service.Resolve<ITaskReportKZ>().ValidatePrepareProcessHasReport(Barcode, "包装");
                 }
                 catch (Exception ex)
                 {

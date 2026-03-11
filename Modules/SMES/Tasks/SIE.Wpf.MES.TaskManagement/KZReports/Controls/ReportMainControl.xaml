@@ -27,6 +27,7 @@
                     <Button Content="切换资源" Style="{StaticResource CommonButtonStyle}" Background="DeepSkyBlue" Width="100" Height="40" FontSize="16" Margin="10 0 0 0" x:Name="btnResource" Click="btnResource_Click" />
                     <Button Content="生产队列" Style="{StaticResource CommonButtonStyle}" Background="DeepSkyBlue" Width="100" Height="40" FontSize="16" Margin="10 0 0 0" Name="btnTaskQueueList" Click="btnTaskQueueList_Click" local:Badge.Text="{Binding DispatchTaskQueueList.Count }" ></Button>
                     <Button Content="称重" Style="{StaticResource CommonButtonStyle}" Background="DeepSkyBlue" Width="100" Height="40" FontSize="16" Margin="10 0 0 0" x:Name="Weighing" Click="btnWeighing_Click" />
+                    <Button Content="任务列表" Style="{StaticResource CommonButtonStyle}" Background="DeepSkyBlue" Width="100" Height="40" FontSize="16" Margin="10 0 0 0" x:Name="taskList" Click="taskList_Click" />
                     <Button Name="btnAndon" Content="安灯管理" Style="{StaticResource CommonButtonStyle}" Width="120" Height="40" Margin="10"   Click="btnAndon_Click" Background="Red"></Button>
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" MinHeight="40" HorizontalAlignment="Right" VerticalAlignment="Center" >
@@ -39,7 +40,7 @@
                 </StackPanel >
             </Grid>
 
-            <Border x:Name="mainPanel" Grid.Row="1" Margin="0 0" BorderThickness="0" BorderBrush="#CCC" VerticalAlignment="Center" Background="Transparent">
+            <Border x:Name="mainPanel" Grid.Row="1" Margin="0 0" BorderThickness="0" BorderBrush="#CCC" VerticalAlignment="Top" Background="Transparent" >
 
             </Border>
 

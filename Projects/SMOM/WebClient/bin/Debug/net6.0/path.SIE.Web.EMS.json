@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
   "SIE.Web.EMS.AssetRequisitions.Commands.AssetRequisitionAttachmentDeleteCommand.js": "SIE.Web.EMS/AssetRequisitions/Commands/AssetRequisitionAttachmentDeleteCommand.js",
   "SIE.Web.EMS.Checks.Confirmations.Commands.RevokeUploadPicCommand.js": "SIE.Web.EMS/Checks/Confirmations/Commands/RevokeUploadPicCommand.js",
   "SIE.Web.EMS.AssetDisposals.Commands.AddAndPrintAssetDisposalSparePartSnCommand.js": "SIE.Web.EMS/AssetDisposals/Commands/AddAndPrintAssetDisposalSparePartSnCommand.js",

@@ -24,6 +24,12 @@ namespace SIE.KZ.Base.Interfaces.Enums
         [Label("MOM到NC")]
         MomToNc = 1,
 
+        /// <summary>
+        /// SAP到MOM
+        /// </summary>
+        [Label("SAP到MOM")]
+        SAPToMom = 2,
+
         ///// <summary>
         ///// 飞书到MOM
         ///// </summary>

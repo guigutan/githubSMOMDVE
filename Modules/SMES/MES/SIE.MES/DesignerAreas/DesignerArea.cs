@@ -63,12 +63,12 @@ namespace SIE.MES.DesignerAreas
         /// 看板区域与产线 列表
         /// </summary>
         [Label("产线")]
-        public static readonly ListProperty<EntityList<DesignerAreaReource>> ResourceListProperty = P<DesignerArea>.RegisterList(e => e.ResourceList);
+        public static readonly ListProperty<EntityList<DesignerAreaResources>> ResourceListProperty = P<DesignerArea>.RegisterList(e => e.ResourceList);
 
         /// <summary>
         /// 看板区域与产线 列表
         /// </summary>
-        public EntityList<DesignerAreaReource> ResourceList
+        public EntityList<DesignerAreaResources> ResourceList
         {
             get { return this.GetLazyList(ResourceListProperty); }
         }

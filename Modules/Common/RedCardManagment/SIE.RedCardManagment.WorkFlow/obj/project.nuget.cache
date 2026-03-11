@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gQhaGu2dVOs=",
+  "dgSpecHash": "aspMGS9eKLE=",
   "success": true,
-  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\RedCardManagment\\SIE.RedCardManagment.WorkFlow\\SIE.RedCardManagment.WorkFlow.csproj",
+  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\RedCardManagment\\SIE.RedCardManagment.WorkFlow\\SIE.RedCardManagment.WorkFlow.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
@@ -218,9 +218,9 @@
       "code": "NU1608",
       "level": "Warning",
       "message": "检测到的包版本在依赖项约束之外: Rebus.ServiceProvider 6.4.1 需要 Microsoft.Extensions.DependencyInjection.Abstractions (>= 2.0.0 && < 6.0.0)，但版本 Microsoft.Extensions.DependencyInjection.Abstractions 6.0.0 已解决。",
-      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\RedCardManagment\\SIE.RedCardManagment.WorkFlow\\SIE.RedCardManagment.WorkFlow.csproj",
+      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\RedCardManagment\\SIE.RedCardManagment.WorkFlow\\SIE.RedCardManagment.WorkFlow.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\RedCardManagment\\SIE.RedCardManagment.WorkFlow\\SIE.RedCardManagment.WorkFlow.csproj",
+      "filePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\RedCardManagment\\SIE.RedCardManagment.WorkFlow\\SIE.RedCardManagment.WorkFlow.csproj",
       "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
       "targetGraphs": [
         "net6.0"

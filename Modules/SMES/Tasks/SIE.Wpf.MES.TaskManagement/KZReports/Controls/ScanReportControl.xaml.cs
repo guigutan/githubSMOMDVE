@@ -9,12 +9,14 @@ using SIE.Items;
 using SIE.Items.Items;
 using SIE.MES.TaskManagement.Dispatchs;
 using SIE.MES.TaskManagement.Dispatchs.Datas;
+using SIE.MES.TaskManagement.Models;
 using SIE.MES.TaskManagement.Reports;
 using SIE.MES.TaskManagement.Reports.Datas;
 using SIE.MES.WIP;
 using SIE.Warehouses;
 using SIE.Wpf.MES.WIP;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,6 +46,11 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
         /// 标签列表
         /// </summary>
         protected virtual ObservableCollection<ScanDetailInfo> labelInfoList { get; }
+
+        /// <summary>
+        /// 任务列表
+        /// </summary>
+        protected virtual ObservableCollection<DispatchTask> dispatchTaskList { get; }
 
         #region 资源Id
         /// <summary>
@@ -112,6 +119,9 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
             //标签列表数据源
             labelInfoList = new ObservableCollection<ScanDetailInfo>();
             this.dataGrid.ItemsSource = labelInfoList;
+            //任务列表数据源
+            dispatchTaskList = new ObservableCollection<DispatchTask>();
+            this.dataGridRecord.ItemsSource = dispatchTaskList;
         }
 
         private void Control_Loaded(object sender, RoutedEventArgs e)
@@ -133,8 +143,10 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
             {
                 showError("请先选择工作单元");
             }
+            LoadTaskList();
             ScanType = 1;
         }
+
 
         void InitModelScan()
         {
@@ -159,6 +171,34 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
             //限定资源列表
             modelScan.Workstation.Resources.Clear();
             modelScan.Workstation.Resources.Add(model.Resource);
+        }
+
+
+        /// <summary>
+        /// 获取任务单列表
+        /// </summary>
+        public virtual void LoadTaskList()
+        {
+            TaskQueryInfo info = new TaskQueryInfo()
+            {
+                EmployeeId = model.ReportEmployee.Id,
+                ResourceId = ResourceId,
+                TaskType = 1,
+                ProcessArray = modelScan.Workstation.ProcessId==null?"": modelScan.Workstation.ProcessId.ToString()
+            };
+            var status = new List<DispatchTaskStatus>() { DispatchTaskStatus.Dispatched, DispatchTaskStatus.Dispatching, DispatchTaskStatus.ToDispatch, DispatchTaskStatus.Executing, DispatchTaskStatus.Pause/*, DispatchTaskStatus.Finished, DispatchTaskStatus.Closed*/ };
+            PagingInfo pagingInfo = new PagingInfo(info.PageNumber ?? 1, info.PageSize ?? int.MaxValue - 1, true);
+            var tasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByEmployee(info, status, pagingInfo, false).OrderBy(p => p.ProductCode).ThenBy(p => p.PlanEndTime).ToList();
+
+            CRT.MainThread.InvokeIfRequired(() =>
+            {
+                dispatchTaskList.Clear();
+                foreach (var item in tasks)
+                {
+                    dispatchTaskList.Add(item);
+                }
+                //dispatchTaskList.MarkSaved();
+            });
         }
 
 
@@ -212,6 +252,9 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
                     var printInfos = RT.Service.Resolve<ReportController>().SubmitScanInfo(submitInfo);
 
                     modelScan.DispatchTask = modelScan.LoadTask(modelScan.DispatchTaskId);
+                    var tuple = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(modelScan.DispatchTask, SIE.MES.TaskManagement.Reports.Enums.SourceType.Report_Manual);
+                    modelScan.MaxRemainQty = tuple.Item2;
+                    modelScan.ProcessMaxRemainQty = tuple.Item2;
 
                     showTip("提交成功".L10N());
 
@@ -277,7 +320,11 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
                         SuspectQty = 0
                     });
                     if (ret.DispatchTaskId > 0)
+                    {
                         modelScan.DispatchTask = modelScan.LoadTask(ret.DispatchTaskId);
+                        modelScan.MaxRemainQty = ret.MaxRemainQty;
+                        modelScan.ProcessMaxRemainQty = ret.ProcessMaxRemainQty;
+                    }
 
                     showTip("[{0}]扫描成功".L10nFormat(barcode));
                 }
@@ -457,6 +504,11 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports.Controls
         private void btnAndon_Click(object sender, RoutedEventArgs e)
         {
             kZReportHelper.ShowViewAndon(modelScan.Workstation);
+        }
+
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            LoadTaskList();
         }
     }
 }

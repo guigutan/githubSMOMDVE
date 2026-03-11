@@ -9210,6 +9210,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "SIE.KZ.Group": "1.0.0",
           "SIE.MES.TaskManagement": "1.0.0",
           "SIE.MES.TeamManagement": "1.0.0"
         },
@@ -9251,6 +9252,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "SIE.MES.TaskManagement": "1.0.0",
           "SIE.MES.TeamManagement": "1.0.0"
         },
         "compile": {
@@ -9278,6 +9280,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "SIE.Andon": "1.0.0",
+          "SIE.Items": "1.0.0",
           "SIE.MES": "1.0.0",
           "SIE.ProductIntfc": "1.0.0"
         },
@@ -22515,17 +22518,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+      "projectUniqueName": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
       "projectName": "SIE.WebApiHost",
-      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
       "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-      "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\obj\\",
+      "outputPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\NuGet.Config",
         "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -22536,105 +22539,105 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\nupkgs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo.Job\\SIE.AbnormalInfo.Job.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo.Job\\SIE.AbnormalInfo.Job.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo.Job\\SIE.AbnormalInfo.Job.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo\\SIE.AbnormalInfo.Job\\SIE.AbnormalInfo.Job.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core.Job\\SIE.Core.Job.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core.Job\\SIE.Core.Job.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core.Job\\SIE.Core.Job.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Core.Job\\SIE.Core.Job.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Defects\\SIE.Defects\\SIE.Defects.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\FMS\\SIE.FMS\\SIE.FMS.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\FMS\\SIE.FMS\\SIE.FMS.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\FMS\\SIE.FMS\\SIE.FMS.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\FMS\\SIE.FMS\\SIE.FMS.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.Dock\\SIE.Dock.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.Dock\\SIE.Dock.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.Dock\\SIE.Dock.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.Dock\\SIE.Dock.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.LES.Job\\SIE.LES.Job.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.LES.Job\\SIE.LES.Job.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.LES.Job\\SIE.LES.Job.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.LES.Job\\SIE.LES.Job.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Traces\\SIE.Traces\\SIE.Traces.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Traces\\SIE.Traces\\SIE.Traces.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Traces\\SIE.Traces\\SIE.Traces.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Traces\\SIE.Traces\\SIE.Traces.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.API\\SIE.ERPInterface.Api.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.API\\SIE.ERPInterface.Api.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.API\\SIE.ERPInterface.Api.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.API\\SIE.ERPInterface.Api.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Job\\SIE.ERPInterface.Job.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Job\\SIE.ERPInterface.Job.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Job\\SIE.ERPInterface.Job.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Job\\SIE.ERPInterface.Job.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Base\\SIE.KZ.Base.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Base\\SIE.KZ.Base.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Base\\SIE.KZ.Base.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Base\\SIE.KZ.Base.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.FactoryToGroup\\SIE.KZ.FactoryToGroup.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.FactoryToGroup\\SIE.KZ.FactoryToGroup.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.FactoryToGroup\\SIE.KZ.FactoryToGroup.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.FactoryToGroup\\SIE.KZ.FactoryToGroup.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Group\\SIE.KZ.Group.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Group\\SIE.KZ.Group.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Group\\SIE.KZ.Group.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Group\\SIE.KZ.Group.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Print\\SIE.KZ.Print.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Print\\SIE.KZ.Print.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Print\\SIE.KZ.Print.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\KaiZhong\\SIE.KZ.Print\\SIE.KZ.Print.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EarlierStage\\SIE.EMS.EarlierStage.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EarlierStage\\SIE.EMS.EarlierStage.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EarlierStage\\SIE.EMS.EarlierStage.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EarlierStage\\SIE.EMS.EarlierStage.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Job\\SIE.EMS.Job.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Job\\SIE.EMS.Job.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Job\\SIE.EMS.Job.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Job\\SIE.EMS.Job.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.MeteringEquipment\\SIE.EMS.MeteringEquipment.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.MeteringEquipment\\SIE.EMS.MeteringEquipment.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.MeteringEquipment\\SIE.EMS.MeteringEquipment.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.MeteringEquipment\\SIE.EMS.MeteringEquipment.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Purchases\\SIE.EMS.Purchases.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Report\\SIE.EMS.Report.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Report\\SIE.EMS.Report.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Report\\SIE.EMS.Report.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.Report\\SIE.EMS.Report.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.SpecialEquipment\\SIE.EMS.SpecialEquipment.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.SpecialEquipment\\SIE.EMS.SpecialEquipment.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.SpecialEquipment\\SIE.EMS.SpecialEquipment.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.SpecialEquipment\\SIE.EMS.SpecialEquipment.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.Andon\\SIE.Andon.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.Andon\\SIE.Andon.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.Andon\\SIE.Andon.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.Andon\\SIE.Andon.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.MES.Common\\SIE.MES.Common.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.MES.Common\\SIE.MES.Common.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.MES.Common\\SIE.MES.Common.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Common\\SIE.MES.Common\\SIE.MES.Common.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Esop\\SIE.ESop\\SIE.ESop.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Esop\\SIE.ESop\\SIE.ESop.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Esop\\SIE.ESop\\SIE.ESop.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Esop\\SIE.ESop\\SIE.ESop.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Job\\SIE.MES.Job.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Job\\SIE.MES.Job.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Job\\SIE.MES.Job.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Job\\SIE.MES.Job.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Mes.Mq\\SIE.Mes.Mq.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Mes.Mq\\SIE.Mes.Mq.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Mes.Mq\\SIE.Mes.Mq.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Mes.Mq\\SIE.Mes.Mq.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Traces\\SIE.MES.Traces.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Traces\\SIE.MES.Traces.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Traces\\SIE.MES.Traces.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.MES.Traces\\SIE.MES.Traces.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\ProductIntfc\\SIE.ProductInsp.Job\\SIE.ProductInsp.Job.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\ProductIntfc\\SIE.ProductInsp.Job\\SIE.ProductInsp.Job.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\ProductIntfc\\SIE.ProductInsp.Job\\SIE.ProductInsp.Job.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\ProductIntfc\\SIE.ProductInsp.Job\\SIE.ProductInsp.Job.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Reports\\SIE.MES.Report\\SIE.MES.Report.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Reports\\SIE.MES.Report\\SIE.MES.Report.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Reports\\SIE.MES.Report\\SIE.MES.Report.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Reports\\SIE.MES.Report\\SIE.MES.Report.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks\\SIE.MES.TaskManagement\\SIE.MES.TaskManagement.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks\\SIE.MES.TaskManagement\\SIE.MES.TaskManagement.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks\\SIE.MES.TaskManagement\\SIE.MES.TaskManagement.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Tasks\\SIE.MES.TaskManagement\\SIE.MES.TaskManagement.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Teams\\SIE.MES.TeamManagement.Job\\SIE.MES.TeamManagement.Job.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Teams\\SIE.MES.TeamManagement.Job\\SIE.MES.TeamManagement.Job.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Teams\\SIE.MES.TeamManagement.Job\\SIE.MES.TeamManagement.Job.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Teams\\SIE.MES.TeamManagement.Job\\SIE.MES.TeamManagement.Job.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.MES.Workbench\\SIE.MES.Workbench.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.MES.Workbench\\SIE.MES.Workbench.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.MES.Workbench\\SIE.MES.Workbench.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.MES.Workbench\\SIE.MES.Workbench.csproj"
             }
           }
         }

@@ -177,7 +177,10 @@ namespace SIE.ERPInterface.Smom.Download.KaiZhong
                 andonLine.FactoryId = factory.Id;
                 andonLine.WorkShopId = workShop.Id;
                 if (andonUphold != null)
+                {
                     andonLine.AndonUpholdId = andonUphold.Id;
+                    andonLine.AndonCode = andonUphold.AndonCode;
+                }
 
                 RF.Save(andonLine);
             }

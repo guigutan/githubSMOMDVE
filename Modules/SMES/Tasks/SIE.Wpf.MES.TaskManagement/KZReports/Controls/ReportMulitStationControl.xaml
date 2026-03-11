@@ -34,6 +34,7 @@
                     <Button Content="全部暂停" Style="{StaticResource CommonButtonStyle}" Background="DeepSkyBlue" Width="100" Height="40" FontSize="16" Margin="10 0 0 0" Name="btnPauseWork" Click="btnPauseWork_Click" ></Button>
                     <Button Content="选择工位" Style="{StaticResource CommonButtonStyle}" Background="DeepSkyBlue" Width="100" Height="40" FontSize="16" Margin="10 0 0 0" x:Name="btnResource" Click="btnResource_Click" />
                     <Button Content="清除工位" Style="{StaticResource CommonButtonStyle}" Background="DeepSkyBlue" Width="100" Height="40" FontSize="16" Margin="10 0 0 0" x:Name="btnClearResource" Click="btnClearResource_Click" />
+                    <Button Content="区域上料" Style="{StaticResource CommonButtonStyle}" Background="DeepSkyBlue" Width="100" Height="40" FontSize="16" Margin="10 0 0 0" x:Name="btnFeedingArea" Click="btnFeedingArea_Click" />
                 </StackPanel>
                 <StackPanel  Orientation="Horizontal" MinHeight="40" HorizontalAlignment="Right" VerticalAlignment="Center" >
                     <!--<Label Content="资源" FontSize="16" FontWeight="Bold" Foreground="Gray" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5" ></Label>-->

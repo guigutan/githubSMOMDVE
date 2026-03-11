@@ -669,6 +669,13 @@
             <param name="datas"></param>
             <returns></returns>
         </member>
+        <member name="M:SIE.ERPInterface.Api.WebApi.KaiZhongGroup.KZGroupWebApiController.SaveOrgLevel(System.Collections.Generic.List{SIE.MES.OrgLevels.OrgLevelInfo})">
+            <summary>
+            保存人员组织架构信息数据
+            </summary>
+            <param name="datas"></param>
+            <returns></returns>
+        </member>
         <member name="M:SIE.ERPInterface.Api.WebApi.KaiZhongGroup.KZGroupWebApiController.SaveWorkCenter(System.Collections.Generic.List{SIE.KZ.Base.Interfaces.Datas.WorkCenterData})">
             <summary>
             保存工作中心数据(其他系统到集团)

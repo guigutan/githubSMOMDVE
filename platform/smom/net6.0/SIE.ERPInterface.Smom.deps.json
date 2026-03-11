@@ -2383,6 +2383,7 @@
       "SIE.MES.TaskManagement/1.0.0": {
         "dependencies": {
           "SIE.Andon": "1.0.0",
+          "SIE.Items": "1.0.0",
           "SIE.MES": "1.0.0",
           "SIE.ProductIntfc": "1.0.0"
         },

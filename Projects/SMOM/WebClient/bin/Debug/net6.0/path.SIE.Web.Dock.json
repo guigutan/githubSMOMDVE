@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\LES",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\LES",
   "SIE.Web.Dock.DockAppoints.Commands.AddDockAppointCommand.js": "SIE.Web.Dock/DockAppoints/Commands/AddDockAppointCommand.js",
   "SIE.Web.Dock.DockAppoints.Commands.CancelAppointCommand.js": "SIE.Web.Dock/DockAppoints/Commands/CancelAppointCommand.js",
   "SIE.Web.Dock.DockAppoints.Commands.EditDockAppointCommand.js": "SIE.Web.Dock/DockAppoints/Commands/EditDockAppointCommand.js",

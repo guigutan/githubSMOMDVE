@@ -1,4 +1,5 @@
-﻿using SIE.Andon.Andons;
+﻿using DocumentFormat.OpenXml.Office2021.DocumentTasks;
+using SIE.Andon.Andons;
 using SIE.Domain;
 using SIE.Domain.Validation;
 using SIE.MetaModel;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Task = System.Threading.Tasks.Task;
 
 namespace SIE.Wpf.MES.TaskManagement.KZReports
 {
@@ -47,6 +49,7 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
         public ResourceMulitSelectListControl resourceMulitSelectListControl; //资源列表控件(可多选,待实现)
         public ReportProcessControl reportProcessControl; //过程工序数采报工控件
         public AndonButtonControl andonButtonControl;   //安灯管理
+        public FeedingAreaScanControl feedingAreaScanControl;   //区域上料
 
         ///// <summary>
         ///// 构造函数
@@ -185,6 +188,23 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
                 };
             });
         }
+
+        /// <summary>
+        /// 显示区域上料
+        /// </summary>
+        /// <param name="vm"></param>
+        public void ShowFeedingAreaScan()
+        {
+            feedingAreaScanControl = new FeedingAreaScanControl();
+
+            CRT.Workbench.ShowDialog("feedingAreaScanControl", feedingAreaScanControl, w =>
+            {
+                SetWindowStyle(w);
+
+                w.Title = "区域上料";
+            });
+        }
+
         /// <summary>
         /// 资源列表(多选)
         /// </summary>
@@ -375,9 +395,9 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
         /// <summary>
         /// 任务列表
         /// </summary>
-        public void ShowViewTaskList(double? resourceId, double? processId)
+        public void ShowViewTaskList(double? resourceId, double? processId, bool isVisible = false)
         {
-            viewTaskListControl = new ViewTaskListControl(modelBase);
+            viewTaskListControl = new ViewTaskListControl(modelBase, isVisible);
             viewTaskListControl.ResourceId = resourceId;
             viewTaskListControl.ProcessId = processId;
 

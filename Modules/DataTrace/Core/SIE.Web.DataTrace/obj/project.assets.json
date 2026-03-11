@@ -17374,17 +17374,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
+      "projectUniqueName": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
       "projectName": "SIE.Web.DataTrace",
-      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
+      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\SIE.Web.DataTrace.csproj",
       "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-      "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\obj\\",
+      "outputPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.Web.DataTrace\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\NuGet.Config",
         "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -17395,18 +17395,18 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\nupkgs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Web.Core\\SIE.Web.Core.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Web.Core\\SIE.Web.Core.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Web.Core\\SIE.Web.Core.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Core\\SIE.Web.Core\\SIE.Web.Core.csproj"
             },
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.DataTrace\\SIE.DataTrace.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.DataTrace\\SIE.DataTrace.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.DataTrace\\SIE.DataTrace.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core\\SIE.DataTrace\\SIE.DataTrace.csproj"
             }
           }
         }

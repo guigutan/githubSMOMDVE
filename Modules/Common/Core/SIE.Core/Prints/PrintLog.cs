@@ -216,7 +216,7 @@ namespace SIE.Core.Prints
         protected override void ConfigMeta()
         {
             Meta.MapTable("PRINT_LOG").MapAllProperties();
-            Meta.Property(PrintLog.DataKeyProperty).ColumnMeta.HasLength(4000);
+            Meta.Property(PrintLog.DataKeyProperty).ColumnMeta.HasLength("MAX");
             Meta.Property(PrintLog.PrintDataProperty).ColumnMeta.HasLength("MAX");
             Meta.Property(PrintLog.RemarkProperty).ColumnMeta.HasLength(4000);
             Meta.DisableInvOrg();

@@ -12,6 +12,7 @@ using SIE.Tech.Stations;
 using SIE.Wpf.MES.WIP;
 using SIE.Wpf.Workbench;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -288,6 +289,14 @@ namespace SIE.Wpf.Andon
                             //{
                             //    item.ConsumeType = item.ConsumeModeView;
                             //}
+                            List<string> problemDescs = new List<string>();
+                            if (!andonManage.ProblemDesc.IsNullOrEmpty())
+                                problemDescs.Add(andonManage.ProblemDesc);
+                            if (andonManage.GeneralProbDtlId > 0)
+                                problemDescs.Add(andonManage.GeneralProbDtl.Desc);
+
+                            andonManage.ProblemDesc = string.Join(";", problemDescs);
+
                             RT.Service.Resolve<AndonManageController>().SaveAndonAndItemDetailAsync(andonManage, null);
                             //异步加载安灯事件列表
                             AsyncExecute(() =>

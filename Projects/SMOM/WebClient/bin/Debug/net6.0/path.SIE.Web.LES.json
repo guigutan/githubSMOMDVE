@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\LES",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\LES",
   "SIE.Web.LES.LinesideWarehouses.Commands.LinesideWarehouseAddCommand.js": "SIE.Web.LES/LinesideWarehouses/Commands/LinesideWarehouseAddCommand.js",
   "SIE.Web.LES.LesStockCounts.Commands.BatchAnalysisSCDetailCommand.js": "SIE.Web.LES/LesStockCounts/Commands/BatchAnalysisSCDetailCommand.js",
   "SIE.Web.LES.LesStockCounts.Commands.AddLesStockCountCommand.js": "SIE.Web.LES/LesStockCounts/Commands/AddLesStockCountCommand.js",

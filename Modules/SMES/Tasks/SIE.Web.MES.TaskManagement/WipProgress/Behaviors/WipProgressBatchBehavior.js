@@ -8,7 +8,7 @@
         //debugger;
         if (meta && meta.gridConfig && meta.gridConfig.columns) {
             meta.gridConfig["features"] = [{ ftype: "summary", dock: 'bottom' }];
-            var summaryFields = ['Qty', 'InProcessQty', 'ReportQty', 'PreReportQty'];
+            var summaryFields = ['Qty', /*'InProcessQty', */'ReportQty', 'PreReportQty'];
             var columns = meta.gridConfig.columns;
             for (var i = 0; i < columns.length; i++) {
                 if (columns[i]["dataIndex"] == 'BatchNo') {

@@ -914,6 +914,40 @@ namespace SIE.Andon.Andons
         }
         #endregion
 
+        #region 通用问题描述 GeneralProbDtl
+        /// <summary>
+        /// 通用问题描述Id
+        /// </summary>
+        [Label("通用问题描述")]
+        public static readonly IRefIdProperty GeneralProbDtlIdProperty =
+            P<AndonManage>.RegisterRefId(e => e.GeneralProbDtlId, ReferenceType.Normal);
+
+        /// <summary>
+        /// 通用问题描述Id
+        /// </summary>
+        public double? GeneralProbDtlId
+        {
+            get { return (double?)this.GetRefNullableId(GeneralProbDtlIdProperty); }
+            set { this.SetRefNullableId(GeneralProbDtlIdProperty, value); }
+        }
+
+        /// <summary>
+        /// 通用问题描述
+        /// </summary>
+        public static readonly RefEntityProperty<GeneralProbDtl> GeneralProbDtlProperty =
+            P<AndonManage>.RegisterRef(e => e.GeneralProbDtl, GeneralProbDtlIdProperty);
+
+        /// <summary>
+        /// 通用问题描述
+        /// </summary>
+        public GeneralProbDtl GeneralProbDtl
+        {
+            get { return this.GetRefEntity(GeneralProbDtlProperty); }
+            set { this.SetRefEntity(GeneralProbDtlProperty, value); }
+        }
+        #endregion
+
+
         #region 视图属性
         #region 优先级 Priority
         /// <summary>
@@ -1114,6 +1148,22 @@ namespace SIE.Andon.Andons
         }
         #endregion
 
+        #region 车间编码 WorkShopCode
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        [Label("车间编码")]
+        public static readonly Property<string> WorkShopCodeProperty = P<AndonManage>.RegisterView(e => e.WorkShopCode, p => p.WorkShop.Code);
+
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        public string WorkShopCode
+        {
+            get { return this.GetProperty(WorkShopCodeProperty); }
+        }
+        #endregion
+
 
         #region 车间名称 WorkShopName
         /// <summary>
@@ -1211,6 +1261,22 @@ namespace SIE.Andon.Andons
         public string AndonCode
         {
             get { return this.GetProperty(AndonCodeProperty); }
+        }
+        #endregion
+
+        #region 通用问题描述 GeneralProbDtlDesc
+        /// <summary>
+        /// 通用问题描述
+        /// </summary>
+        [Label("通用问题描述")]
+        public static readonly Property<string> GeneralProbDtlDescProperty = P<AndonManage>.RegisterView(e => e.GeneralProbDtlDesc, p => p.GeneralProbDtl.Desc);
+
+        /// <summary>
+        /// 通用问题描述
+        /// </summary>
+        public string GeneralProbDtlDesc
+        {
+            get { return this.GetProperty(GeneralProbDtlDescProperty); }
         }
         #endregion
 

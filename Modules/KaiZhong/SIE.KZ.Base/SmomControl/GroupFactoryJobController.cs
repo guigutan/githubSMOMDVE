@@ -20,6 +20,54 @@ namespace SIE.KZ.Base.SmomControl
     {
         //public static IList<InfType> systemRetVOTypes = new List<InfType>() { InfType.Employee, InfType.ItemCategory, InfType.Item, InfType.Customer, InfType.Supplier, InfType.ProductProject, InfType.WorkCenter, InfType.WorkOrder, InfType.Process, InfType.EquipAccount };
 
+
+        /// <summary>
+        /// 执行工单总控到子工厂数据的传输
+        /// </summary>
+        /// <returns></returns>
+        public virtual StringBuilder CorpFactorySOJobExecute(InfType infType,String BatchNo)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            Tuple<OuterSystemRetVO, string> tuple = new(new OuterSystemRetVO(), string.Empty);
+            int failCount = 5;
+            var config = ConfigService.GetConfig(new InfLogFacFailConfig(), typeof(InfNcDataLogFactory));
+
+            if (config != null && config.FailCount > 0)
+            {
+                failCount = config.FailCount;
+            }
+            //查找所有工厂
+            var smomControlSettingDic = RT.Service.Resolve<SmomBaseController>().GetSmomControlSettings().ToDictionary(p => p.FactoryCode);
+            if (smomControlSettingDic == null || smomControlSettingDic.Count == 0)
+            {
+                throw new ValidationException("没有维护SMOM总控配置数据!".L10N());
+            }
+
+            var crtgroup = RT.Service.Resolve<InfNcDataLogGroupController>();
+            var crtfactory = RT.Service.Resolve<InfNcDataLogFactoryController>();
+            //优先查询之前同步失败的数据.条件是:未同步,或者已同步但是还未超过配置的次数的子工厂日志   其次查询总控需要传输的数据条件是:未传输的,传输后直接改成
+            var groupWaitSendList = crtgroup.GetWaitSendInfNcDataLogSOGroups(infType, BatchNo);
+            var factoryWaitSendList = crtfactory.GetWaitSendInfNcDataSOLogFactorys(infType, BatchNo);
+            if (groupWaitSendList.Count == 0 && factoryWaitSendList.Count == 0)
+            {
+                return stringBuilder.Append("接口{0}没有需要传输的数据!".L10nFormat(infType.ToLabel()));
+            }
+            if (factoryWaitSendList.Count > 0)
+            {
+                //推送工厂日志
+                PushFactoryDatas(factoryWaitSendList, smomControlSettingDic, infType, failCount, stringBuilder);
+            }
+            if (groupWaitSendList.Count > 0)
+            {
+                //推送NC总控日志
+                PushGroupLogDatas(groupWaitSendList, smomControlSettingDic, infType, stringBuilder, ref tuple);
+
+            }
+            return stringBuilder;
+
+        }
+
+
         /// <summary>
         /// 执行总控到子工厂数据的传输
         /// </summary>
@@ -197,7 +245,7 @@ namespace SIE.KZ.Base.SmomControl
                                 var factoryInfData = GenerageInfNcDataLogFactory(smomControlSetting.FactoryCode, smomControlSetting.FactoryName, groupWaitSend.BatchNo, groupWaitSend.InfType, errorData, groupWaitSend.NcSystemCode, groupWaitSend.NcOperationType, groupWaitSend.NcInfCode);
                                 factoryInfDatas.Add(factoryInfData);
                             }
-                            if (infTypeCrop == InfType.ReworkLayoutVersion)
+                            else if (infTypeCrop == InfType.ReworkLayoutVersion)
                             {
                                 var errorData = JsonConvert.DeserializeObject<Rlvd>(groupWaitSend.DataJsons);
                                 var factoryInfData = GenerageInfNcDataLogFactory(smomControlSetting.FactoryCode, smomControlSetting.FactoryName, groupWaitSend.BatchNo, groupWaitSend.InfType, errorData, groupWaitSend.NcSystemCode, groupWaitSend.NcOperationType, groupWaitSend.NcInfCode);

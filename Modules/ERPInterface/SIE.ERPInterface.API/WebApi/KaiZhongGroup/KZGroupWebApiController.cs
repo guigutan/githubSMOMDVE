@@ -190,6 +190,32 @@ namespace SIE.ERPInterface.Api.WebApi.KaiZhongGroup
             return Vo;
         }
 
+
+
+        /// <summary>
+        /// 保存人员组织架构信息数据
+        /// </summary>
+        /// <param name="datas"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [ApiService("保存人员组织架构信息数据")]
+        public virtual OuterSystemRetVO SaveOrgLevel(List<SIE.MES.OrgLevels.OrgLevelInfo> datas)
+        {
+            Login();
+            RT.InvOrg = 1;
+            RT.Service.Resolve<KzGroupBaseDateInfController>();
+            string dataJsons = JsonConvert.SerializeObject(datas);
+            ToasyncSave(InfType.OrgLevel, dataJsons, null);
+            OuterSystemRetVO Vo = new OuterSystemRetVO();
+
+            return Vo;
+        }
+
+
+
+
+
+
         /// <summary>
         /// 保存工作中心数据(其他系统到集团)
         /// </summary>

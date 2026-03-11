@@ -4,8 +4,10 @@ using SIE.Api;
 using SIE.Core.ApiModels;
 using SIE.Defects;
 using SIE.Domain;
+using SIE.Domain.Validation;
 using SIE.EventMessages.Tech.Processs;
 using SIE.Items;
+using SIE.Rbac.InvOrgs;
 using SIE.Rbac.Users;
 using SIE.Resources;
 using SIE.Resources.Employees;
@@ -193,6 +195,30 @@ namespace SIE.Tech.Processs
             });
             return list;
         }
+        /// <summary>
+        /// 获取多个库存组织下的工序
+        /// </summary>
+        /// <param name="invOrgs"></param>
+        /// <param name="codes"></param>
+        /// <returns></returns>
+        public virtual Dictionary<string, EntityList<Process>> GetProcessesListByInvOrg(List<string> invOrgs,List<string> codes)
+        {
+            Dictionary<string, EntityList<Process>> pairs = new Dictionary<string, EntityList<Process>>();
+            var invOrgList = Query<InvOrg>().Where(p => invOrgs.Contains(p.ExternalId)).ToList();
+            var invOrgCodes = invOrgList.Select(p => p.Code).ToList();
+            var currInvOrg = RT.InvOrg;
+            foreach (var item in invOrgList)
+            {
+                RT.InvOrg = item.Code;
+                var list = codes.SplitContains(c =>
+                {
+                        return Query<Process>().Where(p => c.Contains(p.Code)).ToList();
+                });
+                pairs.Add(item.ExternalId.ToString(), list);
+            }
+            RT.InvOrg = currInvOrg;
+            return pairs;
+        }
 
         /// <summary>
         /// 查询工序列表
@@ -340,6 +366,27 @@ namespace SIE.Tech.Processs
         {
             Check.NotNull(ProcessTypes, "工序类型列表不能为空".L10N());
             return Query<Process>().Where(p => ProcessTypes.Contains((int)p.Type)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+        }
+
+        /// <summary>
+        /// 通过工序类型获取工序
+        /// </summary>
+        /// <param name="ProcessTypes">工序类型</param>
+        /// <param name="keyWord">关键字</param>
+        /// <param name="pagingInfo">分页条件</param>
+        /// <exception cref="ArgumentNullException">工序类型列表不能为空</exception>
+        /// <returns>工序列表</returns>
+        public virtual EntityList<Process> GetProcessBy(string invCode, string keyWord, PagingInfo pagingInfo)
+        {
+            var invOrgCurr = RT.InvOrg;
+            var invOrg = Query<InvOrg>().Where(p => p.ExternalId == invCode).FirstOrDefault();
+            if(invOrg==null)
+                throw new ValidationException("库存组织不正确,请确定【{0}】！！！;".L10nFormat(invCode));
+            RT.InvOrg = Convert.ToInt32(invOrg.Code);
+            var entityList = Query<Process>().Where(p => p.Code.Contains(keyWord)||p.Name.Contains(keyWord))
+                .ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            RT.InvOrg = invOrgCurr;
+            return entityList;
         }
 
         /// <summary>

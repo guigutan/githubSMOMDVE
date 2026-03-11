@@ -46,6 +46,7 @@ namespace SIE.Web.ERPInterface.Logs
             //View.Property(p => p.PoNo).Readonly();
             //View.Property(p => p.PoLineNo).Readonly();
             View.Property(p => p.WoNo).Readonly();
+            View.Property(p => p.WorkShopCode).Show().Readonly();
             View.Property(p => p.WorkShopName).Show().Readonly();
             View.Property(p => p.Vornr).Readonly();
             View.Property(p => p.ProcessCode).Readonly();
@@ -94,6 +95,8 @@ namespace SIE.Web.ERPInterface.Logs
             View.Property(p => p.Mblnr).Show();
             View.Property(p => p.Mjahr).Show();
             View.Property(p => p.ProcessMessage);
+            View.Property(p => p.Department).Show();
+            View.Property(p => p.Version).Show();
             //View.Property(p => p.FromWarehouseCode);
             //View.Property(p => p.FromLocationCode);
             //View.Property(p => p.ToWarehouseCode);

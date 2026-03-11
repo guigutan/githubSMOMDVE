@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ptp1Fp0xgXk=",
+  "dgSpecHash": "7R0Ta5fIt6c=",
   "success": true,
-  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Projects\\SMOM\\WpfClient\\WpfClient.csproj",
+  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\WpfClient\\WpfClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

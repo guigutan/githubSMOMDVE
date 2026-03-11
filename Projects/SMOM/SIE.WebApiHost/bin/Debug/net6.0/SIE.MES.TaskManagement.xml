@@ -606,6 +606,16 @@
             派工任务单配置值
             </summary>
         </member>
+        <member name="F:SIE.MES.TaskManagement.Configs.DispatchConfigValue.IsCheckProductionLineTaskListProperty">
+            <summary>
+            是否强制校验产线对应任务单
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Configs.DispatchConfigValue.IsCheckProductionLineTaskList">
+            <summary>
+            是否强制校验产线对应任务单
+            </summary>
+        </member>
         <member name="F:SIE.MES.TaskManagement.Configs.DispatchConfigValue.IsCheckEmployeeSkillProperty">
             <summary>
             是否校验员工技能
@@ -824,6 +834,16 @@
         <member name="P:SIE.MES.TaskManagement.Configs.DispatchConfigValue.NewMaterialProValid">
             <summary>
             新材料工序校验
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.Configs.DispatchConfigValue.IsValidScanQtyProperty">
+            <summary>
+            是否启用扫码报工任务单数量校验
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Configs.DispatchConfigValue.IsValidScanQty">
+            <summary>
+            是否启用扫码报工任务单数量校验
             </summary>
         </member>
         <member name="M:SIE.MES.TaskManagement.Configs.DispatchConfigValue.Display">
@@ -2540,6 +2560,41 @@
             批次数量
             </summary>
         </member>
+        <member name="T:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutInfo">
+            <summary>
+            返工工艺路线工序信息
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutInfo.Vornr">
+            <summary>
+            操作活动编号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutInfo.ProcessCode">
+            <summary>
+            标准文本码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutInfo.WorkCenterCode">
+            <summary>
+            工作中心编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutInfo.Steus">
+            <summary>
+            工序控制码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutInfo.Factory">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutInfo.Zcode">
+            <summary>
+            分单数量
+            </summary>
+        </member>
         <member name="T:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutVersionInfo">
             <summary>
             返工工艺路线版本
@@ -2558,6 +2613,41 @@
         <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaReworkLayoutVersionInfo.Desc">
             <summary>
             版本描述
+            </summary>
+        </member>
+        <member name="T:SIE.MES.TaskManagement.Dispatchs.Datas.PdaSubmitReworkLayoutInfo">
+            <summary>
+            返工确认提交
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaSubmitReworkLayoutInfo.VersionId">
+            <summary>
+            返工工艺路线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaSubmitReworkLayoutInfo.ReworkQty">
+            <summary>
+            返工数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaSubmitReworkLayoutInfo.BeginDateTime">
+            <summary>
+            基本开始日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaSubmitReworkLayoutInfo.EndDateTime">
+            <summary>
+            基本完成日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaSubmitReworkLayoutInfo.Department">
+            <summary>
+            需求部门
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.PdaSubmitReworkLayoutInfo.WipBatchIds">
+            <summary>
+            标签数据
             </summary>
         </member>
         <member name="T:SIE.MES.TaskManagement.Dispatchs.Datas.PdaSWRecordScanInfo">
@@ -2705,6 +2795,11 @@
             数量
             </summary>
         </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.Pda_AssemblyGetTaskInfo.OldItemCode">
+            <summary>
+            旧料号
+            </summary>
+        </member>
         <member name="T:SIE.MES.TaskManagement.Dispatchs.Datas.Pda_AssemblyProcessBomInfo">
             <summary>
             上料:获取工序BOM信息
@@ -2733,6 +2828,11 @@
         <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.Pda_AssemblyProcessBomInfo.RemainingQty">
             <summary>
             剩余数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.Pda_AssemblyProcessBomInfo.CardDemandQty">
+            <summary>
+            制卡需求量
             </summary>
         </member>
         <member name="P:SIE.MES.TaskManagement.Dispatchs.Datas.Pda_AssemblyProcessBomInfo.Unit">
@@ -2984,6 +3084,24 @@
             <param name="ProductCode"></param>
             <returns></returns>
         </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetPdaReworkLayoutInfos(System.Double)">
+            <summary>
+            返工确认:获取返工工艺路线工序信息s
+            </summary>
+            <param name="VersionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.SubmitReworkLayoutInfo(SIE.MES.TaskManagement.Dispatchs.Datas.PdaSubmitReworkLayoutInfo)">
+            <summary>
+            返工确认:提交
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetUniqueShortGuid(System.Guid)">
+            <summary>
+            生成唯一的24位缩短Guid（URL安全，无损转换，100%唯一）
+            </summary>
+        </member>
         <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetPdaSWRecordScanInfo(System.String)">
             <summary>
             余料称重:扫描标签
@@ -3205,7 +3323,7 @@
             <param name="endProcessId"></param>
             <param name="workOrderId"></param>
         </member>
-        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.MaxReportQtyAndMaxRemainQty(SIE.MES.TaskManagement.Dispatchs.DispatchTask)">
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.MaxReportQtyAndMaxRemainQty(SIE.MES.TaskManagement.Dispatchs.DispatchTask,System.Nullable{SIE.MES.TaskManagement.Reports.Enums.SourceType})">
             <summary>
             最大报工数和剩余可报工数
             </summary>
@@ -3217,6 +3335,14 @@
             最大报工数
             </summary>
             <param name="dispatchTask"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.IsReportScanRemainQty(SIE.MES.TaskManagement.Dispatchs.DispatchTask,System.Nullable{SIE.MES.TaskManagement.Reports.Enums.SourceType},SIE.Domain.EntityList{SIE.KZ.Base.SmomControl.MtartZtflRelation})">
+            <summary>
+            
+            </summary>
+            <param name="dispatchTask"></param>
+            <param name="SourceType"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetProcessMaxRemainQty(SIE.MES.TaskManagement.Dispatchs.DispatchTask)">
@@ -3690,7 +3816,7 @@
             <param name="workOrderId">工单Id</param>
             <returns>任务单Id列表</returns>
         </member>
-        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetDispatchTasksByEmployee(SIE.MES.TaskManagement.Models.TaskQueryInfo,System.Collections.Generic.List{SIE.MES.TaskManagement.Dispatchs.DispatchTaskStatus},SIE.PagingInfo,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetDispatchTasksByEmployee(SIE.MES.TaskManagement.Models.TaskQueryInfo,System.Collections.Generic.List{SIE.MES.TaskManagement.Dispatchs.DispatchTaskStatus},SIE.PagingInfo,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Int32})">
             <summary>
             获取手动报工的派工任务单
             关联对象为员工或者员工所属班组或者员工所在员工组都查询
@@ -3699,6 +3825,7 @@
             <param name="status">任务单状态列表</param>
             <param name="pagingInfo">分页</param>
             <param name="firstProcess">是否当前工单已生成的第一个工序的任务单(第一张任务单并不一定是首工序)</param>
+            <param name="type">类型(0:PDA手动报工)</param>
             <returns>派工任务单列表</returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchController.GetDispatchTaskNo">
@@ -5703,6 +5830,16 @@
             预计生产时长（H）
             </summary>
         </member>
+        <member name="F:SIE.MES.TaskManagement.Dispatchs.DispatchTask.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.DispatchTask.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
         <member name="F:SIE.MES.TaskManagement.Dispatchs.DispatchTask.WorkShopNameProperty">
             <summary>
             车间名称
@@ -6002,6 +6139,43 @@
             <param name="data">实体对象</param>
             <returns>转换后的数据</returns>
         </member>
+        <member name="T:SIE.MES.TaskManagement.Dispatchs.DispatchTaskController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchTaskController.GetSchedulingWipResourceIds(System.Collections.Generic.List{System.Double})">
+            <summary>
+            获取派工任务产线
+            </summary>
+            <param name="wipResourceIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchTaskController.GetDispatchTasks(System.Collections.Generic.List{System.Double})">
+            <summary>
+            获取工序为“料加工”的派工单状态为待派工、执行中、暂停、派工中的任务
+            </summary>
+            <param name="productIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchTaskController.GetDispatchTaskList(System.Collections.Generic.List{SIE.Core.ApiModels.DictionaryData},System.Collections.Generic.List{SIE.Core.ApiModels.DictionaryData},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            获取派工任务列表
+            </summary>
+            <param name="mrps"></param>
+            <param name="processIds"></param>
+            <param name="startTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Dispatchs.DispatchTaskController.GetDispatchTaskList(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Collections.Generic.List{SIE.Core.ApiModels.DictionaryData})">
+            <summary>
+            获取派工任务列表
+            </summary>
+            <param name="dateType"></param>
+            <param name="dicprocessId"></param>
+            <returns></returns>
+        </member>
         <member name="T:SIE.MES.TaskManagement.Dispatchs.DispatchTaskCriteria">
             <summary>
             派工任务查询实体
@@ -6069,12 +6243,12 @@
         </member>
         <member name="F:SIE.MES.TaskManagement.Dispatchs.DispatchTaskCriteria.WorkShopProperty">
             <summary>
-            车间
+            车间编码
             </summary>
         </member>
         <member name="P:SIE.MES.TaskManagement.Dispatchs.DispatchTaskCriteria.WorkShop">
             <summary>
-            车间
+            车间编码
             </summary>
         </member>
         <member name="F:SIE.MES.TaskManagement.Dispatchs.DispatchTaskCriteria.WorkOrderIdProperty">
@@ -6095,6 +6269,16 @@
         <member name="P:SIE.MES.TaskManagement.Dispatchs.DispatchTaskCriteria.WorkOrder">
             <summary>
             关联工单
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.Dispatchs.DispatchTaskCriteria.WorkOrderNoProperty">
+            <summary>
+            工单号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Dispatchs.DispatchTaskCriteria.WorkOrderNo">
+            <summary>
+            工单号
             </summary>
         </member>
         <member name="F:SIE.MES.TaskManagement.Dispatchs.DispatchTaskCriteria.ProcessIdProperty">
@@ -9553,6 +9737,19 @@
             上料控制器
             </summary>
         </member>
+        <member name="M:SIE.MES.TaskManagement.FeedingRecords.FeedingRecordController.GetScrapWeighingRecordsByIds(System.Collections.Generic.List{System.Double})">
+            <summary>
+            根据余料称重记录Id获取数据
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.FeedingRecords.FeedingRecordController.EditScrapWeighingRecord(System.Collections.Generic.List{SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecord})">
+            <summary>
+            修改余料称重记录
+            </summary>
+            <param name="records"></param>
+        </member>
         <member name="M:SIE.MES.TaskManagement.FeedingRecords.FeedingRecordController.CriteriaScrapWeighingRecords(SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordCriteria)">
             <summary>
             余料称重记录查询方法
@@ -9864,6 +10061,16 @@
             差异数量
             </summary>
         </member>
+        <member name="F:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecord.EditQtyProperty">
+            <summary>
+            原数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecord.EditQty">
+            <summary>
+            原数量
+            </summary>
+        </member>
         <member name="F:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecord.ItemCodeProperty">
             <summary>
             物料编码
@@ -10037,6 +10244,51 @@
         <member name="P:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordCriteria.ItemName">
             <summary>
             物料名称
+            </summary>
+        </member>
+        <member name="T:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordEditLog">
+            <summary>
+            余料称重记录修改记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordEditLog.ScrapWeighingRecordIdProperty">
+            <summary>
+            余料称重记录Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordEditLog.ScrapWeighingRecordId">
+            <summary>
+            余料称重记录Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordEditLog.ScrapWeighingRecordProperty">
+            <summary>
+            余料称重记录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordEditLog.ScrapWeighingRecord">
+            <summary>
+            余料称重记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordEditLog.OldEditQtyProperty">
+            <summary>
+            原修改实际称重数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordEditLog.OldEditQty">
+            <summary>
+            原修改实际称重数量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordEditLog.NewEditQtyProperty">
+            <summary>
+            新修改实际称重数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.FeedingRecords.ScrapWeighingRecordEditLog.NewEditQty">
+            <summary>
+            新修改实际称重数量
             </summary>
         </member>
         <member name="T:SIE.MES.TaskManagement.ForWinform.WinformReportController">
@@ -10443,6 +10695,41 @@
         <member name="P:SIE.MES.TaskManagement.HeatTreatments.Datas.IotApiResponse.Duration">
             <summary>
             耗时（单位未明确，通常为毫秒）
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.HeatTreatments.Datas.KzHeatTreatmentInfo.Barcode">
+            <summary>
+            条码号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.HeatTreatments.Datas.KzHeatTreatmentInfo.Model">
+            <summary>
+            旧料号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.HeatTreatments.Datas.KzHeatTreatmentInfo.MaterialCode">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.HeatTreatments.Datas.KzHeatTreatmentInfo.DevName">
+            <summary>
+            设备实际名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.HeatTreatments.Datas.KzHeatTreatmentInfo.OperationType">
+            <summary>
+            作业类型(1=入炉，2=出炉)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.HeatTreatments.Datas.KzHeatTreatmentInfo.Count00">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.HeatTreatments.Datas.KzHeatTreatmentInfo.CreateDate">
+            <summary>
+            创建时间
             </summary>
         </member>
         <member name="T:SIE.MES.TaskManagement.HeatTreatments.HeatTreatment">
@@ -10968,6 +11255,22 @@
             </summary>
             <param name="process">热处理工序</param>
             <param name="days">多少天前</param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.HeatTreatments.HeatTreatmentController.GetHeatTreatmentList(System.Collections.Generic.List{System.String},System.DateTime,System.DateTime)">
+            <summary>
+            根据产口获取老化炉标签进出炉记录
+            </summary>
+            <param name="productCodes"></param>
+            <param name="startTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.HeatTreatments.HeatTreatmentController.GetHeatTreatmentList(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据条码号获取老化炉标签进出炉记录
+            </summary>
+            <param name="lables"></param>
             <returns></returns>
         </member>
         <member name="T:SIE.MES.TaskManagement.HeatTreatments.OperationType">
@@ -11527,6 +11830,11 @@
             报工校验
             </summary>
         </member>
+        <member name="P:SIE.MES.TaskManagement.Models.DispatchTaskInfo.OldItemCode">
+            <summary>
+            旧料号
+            </summary>
+        </member>
         <member name="T:SIE.MES.TaskManagement.Models.ReportRecordInfo">
             <summary>
             报工记录信息
@@ -11918,7 +12226,7 @@
             <param name="keyWord">资源名称，资源编码</param>
             <returns></returns>
         </member>
-        <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorPackingController.ScanBluelLabel(System.String,System.Double,System.String,System.Int32)">
+        <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorPackingController.ScanBluelLabel(System.String,System.Double,System.String,System.Int32,System.String,System.Boolean)">
             <summary>
             扫描蓝标
             </summary>
@@ -11926,6 +12234,8 @@
             <param name="resourceId">资源id</param>
             <param name="resourceName">资源名称</param>
             <param name="boxExChange">是否开想 1 换箱  0 不换箱</param>
+            <param name="firstBarcode">原蓝标</param>
+            <param name="isFirst">是否原蓝标</param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorPackingController.ScanBatchLabel(System.String,System.Double,System.String,SIE.MES.TaskManagement.PackingQcs.Data.PakcingWoInfo,System.Int32,System.Int32)">
@@ -11938,6 +12248,12 @@
             <param name="woInfo"></param>
             <param name="exceed">0是不超出，1是超出</param>
             /// <param name="packType">0：取数量，1：累加1</param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorPackingController.ValidBatchSn(SIE.Barcodes.WipBatchs.WipBatch)">
+            <summary>
+            校验批次标签
+            </summary>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorPackingController.SaveWipBatch(System.Double,System.Int32,System.String,System.String,System.String,System.Nullable{System.Double})">
@@ -11966,6 +12282,13 @@
             <param name="boxExChange">1换箱 其他提交</param>
             <returns></returns>
         </member>
+        <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorPackingController.ValidBatchDeleteLabel(System.String,System.Double)">
+            <summary>
+            校验批次标签移除
+            </summary>
+            <param name="barcode"></param>
+            <param name="woId"></param>
+        </member>
         <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorPackingController.DeleteLabel(System.String,System.String,SIE.Core.Items.Item,SIE.MES.TaskManagement.PackingQcs.Data.PakcingWoInfo)">
             <summary>
             移除批次标签
@@ -11987,7 +12310,7 @@
             <param name="keyWord">资源名称，资源编码</param>
             <returns></returns>
         </member>
-        <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorSnPackingController.ScanBluelLabel(System.String,System.Double,System.String,System.Int32)">
+        <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorSnPackingController.ScanBluelLabel(System.String,System.Double,System.String,System.Int32,System.String,System.Boolean)">
             <summary>
             扫描蓝标
             </summary>
@@ -11995,6 +12318,8 @@
             <param name="resourceId">资源id</param>
             <param name="resourceName">资源名称</param>
             <param name="boxExChange">是否开想 1 换箱  0 不换箱</param>
+            <param name="firstBarcode">原蓝标</param>
+            <param name="isFirst">是否原蓝标</param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorSnPackingController.ScanBatchLabel(System.String,System.Double,SIE.MES.TaskManagement.PackingQcs.Data.ConnectorSnData)">
@@ -12004,6 +12329,12 @@
             <param name="barcode"></param>
             <param name="resourceId"></param>
             <param name="resourceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorSnPackingController.ValidBatchSn(SIE.Barcodes.WipBatchs.WipBatch)">
+            <summary>
+            校验批次标签
+            </summary>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.PackingQcs.ConnectorSnPackingController.ScanSnLabel(System.String,System.Double,System.String,SIE.MES.TaskManagement.PackingQcs.Data.ConnectorSnData,System.Int32)">
@@ -12457,12 +12788,14 @@
             绝缘线包装采集
             </summary>
         </member>
-        <member name="M:SIE.MES.TaskManagement.PackingQcs.InsulatedPackPDAController.ScanBlueLabel(System.String,System.Int32)">
+        <member name="M:SIE.MES.TaskManagement.PackingQcs.InsulatedPackPDAController.ScanBlueLabel(System.String,System.Int32,System.String,System.Boolean)">
             <summary>
             扫描蓝标
             </summary>
             <param name="barcode">蓝标信息</param>
             <param name="boxExChange">是否开箱 1=换箱,0不换箱</param>
+            <param name="firstBarcode">原蓝标</param>
+            <param name="isFirst">是否原蓝标</param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.PackingQcs.InsulatedPackPDAController.ScanItemLabel(System.String,SIE.MES.TaskManagement.PackingQcs.Data.InsulatePackWoinfo,System.Int32)">
@@ -12512,7 +12845,7 @@
             <param name="keyWord">资源名称，资源编码</param>
             <returns></returns>
         </member>
-        <member name="M:SIE.MES.TaskManagement.PackingQcs.PackingQcPDAController.ScanBluelLabel(System.String,System.Double,System.String,System.Int32)">
+        <member name="M:SIE.MES.TaskManagement.PackingQcs.PackingQcPDAController.ScanBluelLabel(System.String,System.Double,System.String,System.Int32,System.String,System.Boolean)">
             <summary>
             扫描蓝标
             </summary>
@@ -12520,6 +12853,8 @@
             <param name="resourceId">资源id</param>
             <param name="resourceName">资源名称</param>
             <param name="boxExChange">是否开想 1 换箱  0 不换箱</param>
+            <param name="firstBarcode">原蓝标</param>
+            <param name="isFirst">是否原蓝标</param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.PackingQcs.PackingQcPDAController.ScanBatchLabel(System.String,System.Double,System.String,SIE.MES.TaskManagement.PackingQcs.Data.PakcingWoInfo,System.Int32,System.Int32)">
@@ -14996,18 +15331,20 @@
             <param name="workOrderTaskInfo">工单任务信息</param>
             <param name="dicTasks">任务单字典</param>
         </member>
-        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.GetDispatchTaskDic(SIE.MES.TaskManagement.Models.TaskQueryInfo)">
+        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.GetDispatchTaskDic(SIE.MES.TaskManagement.Models.TaskQueryInfo,System.Nullable{System.Int32})">
             <summary>
             获取报工任务字典
             </summary>
             <param name="info">报工任务查询信息</param>
+            <param name="type">类型(0:PDA手动报工)</param>
             <returns>任务字典</returns>
         </member>
-        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.GetAllDispatchTaskDic(SIE.MES.TaskManagement.Models.TaskQueryInfo)">
+        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.GetAllDispatchTaskDic(SIE.MES.TaskManagement.Models.TaskQueryInfo,System.Nullable{System.Int32})">
             <summary>
             获取报工任务字典
             </summary>
             <param name="info">报工任务查询信息</param>
+            <param name="type">类型(0:PDA手动报工)</param>
             <returns>任务字典</returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.Reports.ReportController.ValidateDispatchTaskQueryInfo(SIE.MES.TaskManagement.Models.TaskQueryInfo)">
@@ -15152,6 +15489,16 @@
             <param name="info"></param>
             <param name="IsSn">是否耐压SN标签</param>
         </member>
+        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.SuspectProductLabelReport(SIE.MES.TaskManagement.Reports.Datas.ReportSnInfo,SIE.MES.TaskManagement.Dispatchs.DispatchTask,System.Double)">
+            <summary>
+            耐压SN可疑品提交报工
+            </summary>
+            <param name="snInfo"></param>
+            <param name="dispatchTask"></param>
+            <param name="resourceId"></param>
+            <returns></returns>
+            <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
+        </member>
         <member name="M:SIE.MES.TaskManagement.Reports.ReportController.SubmitReportWipBatchs(SIE.MES.TaskManagement.Reports.Datas.SubmitPdaReportInfo,SIE.MES.TaskManagement.Dispatchs.DispatchTask,SIE.MES.TaskManagement.Configs.DispatchConfigValue,SIE.Domain.EntityList{SIE.Barcodes.WipBatchs.WipBatch},SIE.Domain.EntityList{SIE.Barcodes.WipBatchs.WipBatch},SIE.Domain.EntityList{SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabel})">
             <summary>
             处理批次标签
@@ -15285,6 +15632,14 @@
             <param name="pdaScanInfo"></param>
             <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
         </member>
+        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.ScanValidation(SIE.MES.TaskManagement.Reports.Datas.PdaScanInfo)">
+            <summary>
+            扫描验证
+            </summary>
+            <param name="pdaScanInfo"></param>
+            <returns></returns>
+            <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
+        </member>
         <member name="M:SIE.MES.TaskManagement.Reports.ReportController.CombinationPgInfo(SIE.MES.TaskManagement.Reports.Datas.PdaPgInfo)">
             <summary>
             组合派工信息
@@ -15371,11 +15726,25 @@
             <param name="reportRecordId"></param>
             <returns></returns>
         </member>
+        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.GetReportWipBatchsByReportIds(System.Collections.Generic.List{System.Double})">
+            <summary>
+            根据报工记录获取报工标签列表
+            </summary>
+            <param name="reportRecordIds"></param>
+            <returns></returns>
+        </member>
         <member name="M:SIE.MES.TaskManagement.Reports.ReportController.GetReportWipBatchsByWipBatchId(System.Double)">
             <summary>
             根据报工标签获取报工标签列表
             </summary>
             <param name="wipBatchId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.GetReportWipBatchesBySn(System.String)">
+            <summary>
+            根据标签号获取报工标签
+            </summary>
+            <param name="sn"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.Reports.ReportController.UpdateSuspectQty(System.Double)">
@@ -16119,7 +16488,7 @@
             <param name="task">报工记录</param>
             <returns>报工任务单</returns>
         </member>
-        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.ValidateReportQty(SIE.MES.TaskManagement.Reports.ReportRecord,SIE.MES.TaskManagement.Dispatchs.DispatchTask,System.Boolean,System.Boolean)">
+        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.ValidateReportQty(SIE.MES.TaskManagement.Reports.ReportRecord,SIE.MES.TaskManagement.Dispatchs.DispatchTask,System.Boolean,System.Boolean,System.Nullable{SIE.MES.TaskManagement.Reports.Enums.SourceType})">
             <summary>
             验证任务单报工数量
             </summary>
@@ -16400,6 +16769,20 @@
             暂停更新记录结束信息
             </summary>
             <param name="tasks"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.GetReportRecordExaminesByProcessId(System.Double)">
+            <summary>
+            根据工序获取报工记录
+            </summary>
+            <param name="ProcessId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.Reports.ReportController.GetReportRecordExaminesByWoNos(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据工单Id获取报工记录
+            </summary>
+            <param name="woIds"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.Reports.ReportController.QueryReportRecordExamine(SIE.MES.TaskManagement.Reports.ReportRecordExamineCriteria)">
@@ -18356,6 +18739,16 @@
             产品名称
             </summary>
         </member>
+        <member name="F:SIE.MES.TaskManagement.Reports.ReportRecordExamine.ProductCodeProperty">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Reports.ReportRecordExamine.ProductCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
         <member name="F:SIE.MES.TaskManagement.Reports.ReportRecordExamine.ResourceNameProperty">
             <summary>
             资源名称
@@ -18364,6 +18757,26 @@
         <member name="P:SIE.MES.TaskManagement.Reports.ReportRecordExamine.ResourceName">
             <summary>
             资源名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.Reports.ReportRecordExamine.ResourceCodeProperty">
+            <summary>
+            资源编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Reports.ReportRecordExamine.ResourceCode">
+            <summary>
+            资源编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.Reports.ReportRecordExamine.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Reports.ReportRecordExamine.WorkShopCode">
+            <summary>
+            车间编码
             </summary>
         </member>
         <member name="F:SIE.MES.TaskManagement.Reports.ReportRecordExamine.ProcessCodeProperty">
@@ -18477,6 +18890,16 @@
             </summary>
         </member>
         <member name="P:SIE.MES.TaskManagement.Reports.ReportRecordExamineCriteria.WorkShop">
+            <summary>
+            车间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.Reports.ReportRecordExamineCriteria.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.Reports.ReportRecordExamineCriteria.WorkShopCode">
             <summary>
             车间
             </summary>
@@ -20468,6 +20891,14 @@
             <summary>
             排程退回原因
             </summary>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.SchedulingInfs.SchedulingInfController.GetSchedulingInfValue(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="productIds"></param>
+            <param name="mrps"></param>
+            <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.SchedulingInfs.SchedulingInfController.SchedulingInfCancel(SIE.MES.TaskManagement.SchedulingInfs.ViewModels.SchedulingInfCancelViewModel)">
             <summary>
@@ -23416,6 +23847,211 @@
             耐压SN
             </summary>
         </member>
+        <member name="T:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail">
+            <summary>
+            报废明细查询实体 - 视图实体
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.BatchNoProperty">
+            <summary>
+            可疑品标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.BatchNo">
+            <summary>
+            可疑品标签
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.SubBatchNoProperty">
+            <summary>
+            可疑品子标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.SubBatchNo">
+            <summary>
+            可疑品子标签
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.WipCodeProperty">
+            <summary>
+            资源编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.WipCode">
+            <summary>
+            资源编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.WipNameProperty">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.WipName">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ItemCodeProperty">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ItemCode">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ItemNameProperty">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ItemName">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ItemTypeProperty">
+            <summary>
+            基本分类
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ItemType">
+            <summary>
+            基本分类
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.MtartProperty">
+            <summary>
+            物料类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.Mtart">
+            <summary>
+            物料类型
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.MrpControllerProperty">
+            <summary>
+            Mrp控制者
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.MrpController">
+            <summary>
+            Mrp控制者
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ShortDescriptionProperty">
+            <summary>
+            旧物料号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ShortDescription">
+            <summary>
+            旧物料号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ScrapNumProperty">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ScrapNum">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.CreateNameProperty">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.CreateName">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.HandleNameProperty">
+            <summary>
+            处理人
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.HandleName">
+            <summary>
+            处理人
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.DefectCodeProperty">
+            <summary>
+            不良代码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.DefectCode">
+            <summary>
+            不良代码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.DefectDesProperty">
+            <summary>
+            不良现象
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.DefectDes">
+            <summary>
+            不良现象
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ClassNameProperty">
+            <summary>
+            班别
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ClassName">
+            <summary>
+            班别
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.UnitCodeProperty">
+            <summary>
+            基本计量单位
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.UnitCode">
+            <summary>
+            基本计量单位
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ProcessCodeProperty">
+            <summary>
+            工序编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ProcessCode">
+            <summary>
+            工序编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ProcessNameProperty">
+            <summary>
+            工序名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail.ProcessName">
+            <summary>
+            工序名称
+            </summary>
+        </member>
+        <member name="T:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailEntityConfig">
+            <summary>
+            报废明细查询实体 实体配置
+            </summary>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailEntityConfig.ConfigMeta">
+            <summary>
+            配置元数据
+            </summary>
+        </member>
         <member name="T:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria">
             <summary>
             报废明细查询实体
@@ -23429,6 +24065,16 @@
         <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria.BatchNo">
             <summary>
             可疑品标签
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria.SubBatchNoProperty">
+            <summary>
+            可疑品子标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria.SubBatchNo">
+            <summary>
+            可疑品子标签
             </summary>
         </member>
         <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria.ProductNameProperty">
@@ -23529,6 +24175,26 @@
         <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria.HandleDate">
             <summary>
             处理时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria.MrpControllerProperty">
+            <summary>
+            Mrp控制者
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria.MrpController">
+            <summary>
+            Mrp控制者
+            </summary>
+        </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria.ShortDescriptionProperty">
+            <summary>
+            旧物料号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria.ShortDescription">
+            <summary>
+            旧物料号
             </summary>
         </member>
         <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.ClassesScrapType.Day">
@@ -23876,6 +24542,16 @@
             资源名称
             </summary>
         </member>
+        <member name="F:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabel.WorkOrderNoProperty">
+            <summary>
+            工单号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabel.WorkOrderNo">
+            <summary>
+            工单号
+            </summary>
+        </member>
         <member name="T:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelEntityConfig">
             <summary>
             可疑品标签 实体配置
@@ -23940,6 +24616,11 @@
             <exception cref="T:SIE.Domain.Validation.ValidationException"></exception>
             <exception cref="T:SIE.Domain.EntityNotFoundException"></exception>
         </member>
+        <member name="M:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelController.WipSnReportProcess(SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabel,SIE.MES.TaskManagement.SuspectProductLabels.ApiModels.SuspectProductLabelData,System.Boolean,SIE.MES.TaskManagement.Dispatchs.DispatchTask)">
+            <summary>
+            耐压可疑品标签处理
+            </summary>
+        </member>
         <member name="M:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelController.HandleSuspectProductLabel(SIE.MES.TaskManagement.SuspectProductLabels.ApiModels.SuspectProductLabelData,SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabel,SIE.Barcodes.WipBatchs.WipBatch,SIE.Domain.EntityList{SIE.Barcodes.WipBatchs.WipBatch},SIE.Domain.EntityList{SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelDetail})">
             <summary>
             可疑品处理
@@ -23978,6 +24659,13 @@
             上传可疑品处理标签附件
             </summary>
             <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelController.GetSuspectProductLabelsByWoNos(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据工单号获取可疑品标签
+            </summary>
+            <param name="woNos"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelController.GetSuspectProductLabels(SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelCriteria)">
@@ -24024,6 +24712,17 @@
             </summary>
             <param name="criteria"></param>
             <returns></returns>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelController.GetScrapDetail(SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetailCriteria)">
+            <summary>
+            获取报废明细数据
+            </summary>
+            <param name="criteria">查询条件</param>
+        </member>
+        <member name="M:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelController.ApplyClassTypeCriteria(System.Linq.IQueryable{SIE.MES.TaskManagement.SuspectProductLabels.ScrapDetail},SIE.MES.TaskManagement.SuspectProductLabels.ClassesScrapType)">
+            <summary>
+            应用班别查询条件
+            </summary>
         </member>
         <member name="T:SIE.MES.TaskManagement.SuspectProductLabels.SuspectProductLabelCriteria">
             <summary>

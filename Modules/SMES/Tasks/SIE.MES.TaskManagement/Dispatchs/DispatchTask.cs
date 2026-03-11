@@ -1447,6 +1447,22 @@ namespace SIE.MES.TaskManagement.Dispatchs
         }
         #endregion
 
+        #region 车间编码 WorkShopCode
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        [Label("车间编码")]
+        public static readonly Property<string> WorkShopCodeProperty = P<DispatchTask>.RegisterView(e => e.WorkShopCode, p => p.WorkShop.Code);
+
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        public string WorkShopCode
+        {
+            get { return this.GetProperty(WorkShopCodeProperty); }
+        }
+        #endregion
+
         #region 车间名称 WorkShopName
         /// <summary>
         /// 车间名称
@@ -1589,20 +1605,21 @@ namespace SIE.MES.TaskManagement.Dispatchs
         /// 最大可报工数
         /// </summary>
         [Label("最大可报工数")]
-        public static readonly Property<int> MaxReportQtyProperty = P<DispatchTask>.RegisterReadOnly(
+        public static readonly Property<decimal> MaxReportQtyProperty = P<DispatchTask>.RegisterReadOnly(
             e => e.MaxReportQty, e => e.GetMaxReportQty(), UebtoProperty);
         /// <summary>
         /// 最大可报工数
         /// </summary>
 
-        public int MaxReportQty
+        public decimal MaxReportQty
         {
             get { return this.GetProperty(MaxReportQtyProperty); }
         }
-        private int GetMaxReportQty()
+        private decimal GetMaxReportQty()
         {
+            //单位非PCS的不需要取整，单位为PCS的向上取整
             if (Uebto.IsNullOrEmpty())
-                return (int)DispatchQty;
+                return string.Equals(UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(DispatchQty) : DispatchQty;
             else
             {
                 decimal uebto = 0;
@@ -1611,7 +1628,7 @@ namespace SIE.MES.TaskManagement.Dispatchs
                 decimal qty = 0;
 
                 qty = DispatchQty * (1 + uebto / 100);
-                return (int)Math.Ceiling(qty);
+                return string.Equals(UnitName, "PCS", StringComparison.OrdinalIgnoreCase) ? Math.Ceiling(qty) : qty;
             }
         }
         #endregion

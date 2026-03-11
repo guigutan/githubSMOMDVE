@@ -17,6 +17,7 @@ namespace SIE.MES.ReworkLayoutVersions
     [RootEntity, Serializable]
     [CriteriaQuery]
     [Label("返工工艺路线版本")]
+    [DisplayMember(nameof(Version))]
     public class ReworkLayoutVersion : DataEntity
     {
         #region 生产版本 Version
@@ -296,12 +297,21 @@ namespace SIE.MES.ReworkLayoutVersions
     {
         protected override void AddValidations(IValidationDeclarer rules)
         {
-            rules.AddRule(ReworkLayoutVersion.VersionProperty, new NotDuplicateRule());
-            rules.AddRule(ReworkLayoutVersion.DescProperty, new NotDuplicateRule());
-            rules.AddRule(ReworkLayoutVersion.FactoryProperty, new NotDuplicateRule());
-            rules.AddRule(ReworkLayoutVersion.TypeProperty, new NotDuplicateRule());
-            rules.AddRule(ReworkLayoutVersion.GroupProperty, new NotDuplicateRule());
-            rules.AddRule(ReworkLayoutVersion.CounterProperty, new NotDuplicateRule());
+            //rules.AddRule(ReworkLayoutVersion.VersionProperty, new NotDuplicateRule());
+            //rules.AddRule(ReworkLayoutVersion.DescProperty, new NotDuplicateRule());
+            //rules.AddRule(ReworkLayoutVersion.FactoryProperty, new NotDuplicateRule());
+            //rules.AddRule(ReworkLayoutVersion.TypeProperty, new NotDuplicateRule());
+            //rules.AddRule(ReworkLayoutVersion.GroupProperty, new NotDuplicateRule());
+            //rules.AddRule(ReworkLayoutVersion.CounterProperty, new NotDuplicateRule());
+            rules.AddRule(new NotDuplicateRule()
+            {
+                Properties = {
+                ReworkLayoutVersion.VersionProperty,ReworkLayoutVersion.FactoryProperty,ReworkLayoutVersion.ItemIdProperty
+                },
+                MessageBuilder = (e) => {
+                    return "存在相同生产本版,相同工厂,相同物料的数据".L10N();
+                }
+            });
             base.AddValidations(rules);
         }
 

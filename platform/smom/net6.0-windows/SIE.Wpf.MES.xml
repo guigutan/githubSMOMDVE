@@ -3766,6 +3766,16 @@
             蓝标装箱总数
             </summary>
         </member>
+        <member name="F:SIE.Wpf.MES.ConnectorPackings.ConnectorPackingViewModel.NeedQtyProperty">
+            <summary>
+            需装箱数
+            </summary>
+        </member>
+        <member name="P:SIE.Wpf.MES.ConnectorPackings.ConnectorPackingViewModel.NeedQty">
+            <summary>
+            需装箱数
+            </summary>
+        </member>
         <member name="F:SIE.Wpf.MES.ConnectorPackings.ConnectorPackingViewModel.XtBlueProperty">
             <summary>
             蓝标
@@ -3858,7 +3868,7 @@
             </summary>
             <param name="levelString">层级字符串</param>
         </member>
-        <member name="M:SIE.Wpf.MES.ConnectorPackings.ConnectorPackingViewModel.SaveWipBatch(System.Double,System.Int32,System.String,System.String,System.String)">
+        <member name="M:SIE.Wpf.MES.ConnectorPackings.ConnectorPackingViewModel.SaveWipBatch(System.Double,System.Int32,System.String,System.String,System.String,System.Nullable{System.Double})">
             <summary>
             保存批次标签
             </summary>
@@ -9634,6 +9644,402 @@
         <member name="M:SIE.Wpf.MES.NewPackingQC.NewPackingQcViewModelViewConfig.ConfigView">
             <summary>
             默认视图配置
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyA.Commands.OnOffDutyAInputCommand">
+            <summary>
+            选择批次命令
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.Commands.OnOffDutyAInputCommand.CanExecute(SIE.Wpf.DetailLogicalView)">
+            <summary>
+            是否可执行的逻辑
+            </summary>
+            <param name="view">视图对象</param>
+            <returns>返回是否可执行</returns>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.Commands.OnOffDutyAInputCommand.Execute(SIE.Wpf.DetailLogicalView)">
+            <summary>
+            执行具体的逻辑。
+            </summary>
+            <param name="view">视图对象</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.Commands.OnOffDutyAInputCommand.ValidateWorkCell(SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel)">
+            <summary>
+            验证工作单元
+            </summary>
+            <param name="vm">采集视图模型</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.Commands.OnOffDutyAInputCommand.Template_BlocksDefined(System.Object,SIE.MetaModel.View.CodeBlocksDefinedEventArgs)">
+            <summary>
+            块定义
+            </summary>
+            <param name="sender">所有者</param>
+            <param name="e">参数</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyACollectDetailViewModelViewConfig.ConfigView">
+            <summary>
+            配置默认视图
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyACollectDetailViewModelViewConfig.CollectionView">
+            <summary>
+            配置CollectionView视图
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyA.OnOffDutyARecrodsInputCriteriaViewConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyARecrodsInputCriteriaViewConfig.ConfigView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyARecrodsInputCriteriaViewConfig.ConfigQueryView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyA.OnOffDutyARecrodsViewConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyARecrodsViewConfig.ConfigView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyARecrodsViewConfig.ConfigListView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyA.OnOffDutyATimeSettingViewModeliewConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyATimeSettingViewModeliewConfig.ConfigView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyATimeSettingViewModeliewConfig.ConfigDetailsView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAUITemplate">
+            <summary>
+            维修采集模板
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAUITemplate.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAUITemplate.OnUIGenerated(SIE.Wpf.ControlResult)">
+            <summary>
+            创建UI
+            </summary>
+            <param name="ui">控件结果</param>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel">
+            <summary>
+            A上下岗
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.#ctor">
+            <summary>
+            维修采集视图模型，初始化工序类型
+            </summary>
+        </member>
+        <member name="F:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.ModuleKeyProperty">
+            <summary>
+            模块KEY
+            </summary>
+        </member>
+        <member name="P:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.ModuleKey">
+            <summary>
+            模块KEY
+            </summary>
+        </member>
+        <member name="F:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.OnOffDutyCollectDetailViewModelListProperty">
+            <summary>
+            采集结果
+            </summary>
+        </member>
+        <member name="P:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.OnOffDutyCollectDetailViewModelList">
+            <summary>
+            采集结果
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.LoadOnOffDutyCollectDetailViewModelList">
+            <summary>
+            加载采集结果
+            </summary>
+            <returns>采集结果列表</returns>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.Onload">
+            <summary>
+            加载数据
+            </summary>
+        </member>
+        <member name="F:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.IsOnDutyProperty">
+            <summary>
+            是否上岗
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.OnIsOffDuty(SIE.ManagedProperty.ManagedPropertyChangedEventArgs)">
+            <summary>
+            是否上岗值变更
+            </summary>
+            <param name="e">参数</param>
+        </member>
+        <member name="P:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.IsOnDuty">
+            <summary>
+            是否上岗
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.OnPropertyChanged(SIE.ManagedProperty.ManagedPropertyChangedEventArgs)">
+            <summary>
+            属性变更事件，重置显示信息及数据
+            </summary>
+            <param name="e">参数</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.OnBarcodeChanged(SIE.ManagedProperty.ManagedPropertyChangedEventArgs)">
+            <summary>
+            条码变更事件，采集条码
+            </summary>
+            <param name="e">参数</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.AddDetail(SIE.MES.OnOffDutyA.OnOffDutyRecrodsA)">
+            <summary>
+            添加采集结果记录
+            </summary>
+            <param name="onOffDutyRecrods"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.LoadWorkstationData">
+            <summary>
+            加载工作单元数据
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.Reset(SIE.Wpf.MES.WIP.ResetType)">
+            <summary>
+            重新开始
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.CanSubmit">
+            <summary>
+            能否提交
+            </summary>
+            <returns>能提交返回true，否则返回false</returns>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModelViewConfig">
+            <summary>
+            维修采集视图配置
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModelViewConfig.ConfigView">
+            <summary>
+            配置默认视图
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyB.Commands.OnOffDutyBInputCommand">
+            <summary>
+            选择批次命令
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.Commands.OnOffDutyBInputCommand.CanExecute(SIE.Wpf.DetailLogicalView)">
+            <summary>
+            是否可执行的逻辑
+            </summary>
+            <param name="view">视图对象</param>
+            <returns>返回是否可执行</returns>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.Commands.OnOffDutyBInputCommand.Execute(SIE.Wpf.DetailLogicalView)">
+            <summary>
+            执行具体的逻辑。
+            </summary>
+            <param name="view">视图对象</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.Commands.OnOffDutyBInputCommand.ValidateWorkCell(SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel)">
+            <summary>
+            验证工作单元
+            </summary>
+            <param name="vm">采集视图模型</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.Commands.OnOffDutyBInputCommand.Template_BlocksDefined(System.Object,SIE.MetaModel.View.CodeBlocksDefinedEventArgs)">
+            <summary>
+            块定义
+            </summary>
+            <param name="sender">所有者</param>
+            <param name="e">参数</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModelViewConfig.ConfigView">
+            <summary>
+            配置默认视图
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModelViewConfig.CollectionView">
+            <summary>
+            配置CollectionView视图
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteriaViewConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteriaViewConfig.ConfigView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBRecrodsInputCriteriaViewConfig.ConfigQueryView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBRecrodsViewConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBRecrodsViewConfig.ConfigView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBRecrodsViewConfig.ConfigListView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBTimeSettingViewModeliewConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBTimeSettingViewModeliewConfig.ConfigView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBTimeSettingViewModeliewConfig.ConfigDetailsView">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBUITemplate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBUITemplate.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBUITemplate.OnUIGenerated(SIE.Wpf.ControlResult)">
+            <summary>
+            创建UI
+            </summary>
+            <param name="ui">控件结果</param>
+        </member>
+        <member name="T:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel">
+            <summary>
+            B上下岗
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.#ctor">
+            <summary>
+            视图模型，初始化工序类型
+            </summary>
+        </member>
+        <member name="F:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.ModuleKeyProperty">
+            <summary>
+            模块KEY
+            </summary>
+        </member>
+        <member name="P:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.ModuleKey">
+            <summary>
+            模块KEY
+            </summary>
+        </member>
+        <member name="F:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.OnOffDutyBCollectDetailViewModelListProperty">
+            <summary>
+            B采集结果
+            </summary>
+        </member>
+        <member name="P:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.OnOffDutyBCollectDetailViewModelList">
+            <summary>
+            B采集结果
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.LoadOnOffDutyCollectDetailViewModelList">
+            <summary>
+            B加载采集结果
+            </summary>
+            <returns>B采集结果列表</returns>
+        </member>
+        <member name="F:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.IsOnDutyProperty">
+            <summary>
+            是否上岗
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.OnIsOffDuty(SIE.ManagedProperty.ManagedPropertyChangedEventArgs)">
+            <summary>
+            是否上岗值变更
+            </summary>
+            <param name="e">参数</param>
+        </member>
+        <member name="P:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.IsOnDuty">
+            <summary>
+            是否上岗
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.OnPropertyChanged(SIE.ManagedProperty.ManagedPropertyChangedEventArgs)">
+            <summary>
+            属性变更事件，重置显示信息及数据
+            </summary>
+            <param name="e">参数</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.OnBarcodeChanged(SIE.ManagedProperty.ManagedPropertyChangedEventArgs)">
+            <summary>
+            条码变更事件，采集条码
+            </summary>
+            <param name="e">参数</param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.AddDetail(SIE.MES.OnOffDutyB.OnOffDutyBRecrods)">
+            <summary>
+            添加采集结果记录
+            </summary>
+            <param name="onOffDutyBRecrods"></param>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.LoadWorkstationData">
+            <summary>
+            加载工作单元数据
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.Reset(SIE.Wpf.MES.WIP.ResetType)">
+            <summary>
+            重新开始
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModel.CanSubmit">
+            <summary>
+            能否提交
+            </summary>
+            <returns>能提交返回true，否则返回false</returns>
+        </member>
+        <member name="M:SIE.Wpf.MES.OnOffDutyB.OnOffDutyBViewModelViewConfig.ConfigView">
+            <summary>
+            配置默认视图
             </summary>
         </member>
         <member name="T:SIE.Wpf.MES.OnOffDuty.Commands.OnOffDutyInputCommand">

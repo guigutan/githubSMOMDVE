@@ -4,6 +4,822 @@
         <name>SIE.MES.Report</name>
     </assembly>
     <members>
+        <member name="T:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctDtl">
+            <summary>
+            缺陷代码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctDtl.SuspectProductLabelIdProperty">
+            <summary>
+            可疑品标签Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctDtl.SuspectProductLabelId">
+            <summary>
+            可疑品标签Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctDtl.SuspectProductLabelProperty">
+            <summary>
+            可疑品标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctDtl.SuspectProductLabel">
+            <summary>
+            可疑品标签
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctDtl.DefectCodeProperty">
+            <summary>
+            缺陷代码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctDtl.DefectCode">
+            <summary>
+            缺陷代码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctDtl.DefectDescProperty">
+            <summary>
+            缺陷描述
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctDtl.DefectDesc">
+            <summary>
+            缺陷描述
+            </summary>
+        </member>
+        <member name="T:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl">
+            <summary>
+            产品缺陷记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.BatchNoProperty">
+            <summary>
+            标签号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.BatchNo">
+            <summary>
+            标签号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.QtyProperty">
+            <summary>
+            批次数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.Qty">
+            <summary>
+            批次数量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.SuspectProductLabelIdProperty">
+            <summary>
+            可疑品标签Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.SuspectProductLabelId">
+            <summary>
+            可疑品标签Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.SuspectProductLabelProperty">
+            <summary>
+            可疑品标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.SuspectProductLabel">
+            <summary>
+            可疑品标签
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.ProcessIdProperty">
+            <summary>
+            工序Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.ProcessId">
+            <summary>
+            工序Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.ProcessProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackDefetctLabelDtl.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="T:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl">
+            <summary>
+            产品生产关键件
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ReportRecordIdProperty">
+            <summary>
+            报工记录Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ReportRecordId">
+            <summary>
+            报工记录Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ReportRecordProperty">
+            <summary>
+            报工记录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ReportRecord">
+            <summary>
+            报工记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ProcessCodeProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ProcessCode">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.SourceSnProperty">
+            <summary>
+            来源条码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.SourceSn">
+            <summary>
+            来源条码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ItemLabelLotProperty">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ItemLabelLot">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.DeductedQtyProperty">
+            <summary>
+            用料量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.DeductedQty">
+            <summary>
+            用料量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ItemCodeProperty">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ItemCode">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ItemNameProperty">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ItemName">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ShortDescriptionProperty">
+            <summary>
+            扣料物料旧料号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.ShortDescription">
+            <summary>
+            扣料物料旧料号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.UnitProperty">
+            <summary>
+            单位
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackKeyDtl.Unit">
+            <summary>
+            单位
+            </summary>
+        </member>
+        <member name="T:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup">
+            <summary>
+            开机准备记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.DispatchTaskIdProperty">
+            <summary>
+            派工单Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.DispatchTaskId">
+            <summary>
+            派工单Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.DispatchTaskProperty">
+            <summary>
+            派工单
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.DispatchTask">
+            <summary>
+            派工单
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.ToolCodeProperty">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.ToolCode">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.ToolNameProperty">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.ToolName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.DrawingNoProperty">
+            <summary>
+            图号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.DrawingNo">
+            <summary>
+            图号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.ToolStateProperty">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.ToolState">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.UniqueCodeProperty">
+            <summary>
+            唯一码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.UniqueCode">
+            <summary>
+            唯一码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.CheckerFixtureTypeProperty">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackPreSetup.CheckerFixtureType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="T:SIE.MES.Report.BatchTracebacks.BatchTracebackReport">
+            <summary>
+            批次追溯通用报表
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WipBatchIdProperty">
+            <summary>
+            批次标签Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WipBatchId">
+            <summary>
+            批次标签Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WipBatchProperty">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WipBatch">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.BatchNoProperty">
+            <summary>
+            批次标签号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.BatchNo">
+            <summary>
+            批次标签号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ReportRecordIdProperty">
+            <summary>
+            报工记录Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ReportRecordId">
+            <summary>
+            报工记录Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ReportRecordProperty">
+            <summary>
+            报工记录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ReportRecord">
+            <summary>
+            报工记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.QtyProperty">
+            <summary>
+            批次数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.Qty">
+            <summary>
+            批次数量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WorkOrderIdProperty">
+            <summary>
+            工单Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WorkOrderId">
+            <summary>
+            工单Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WorkOrderProperty">
+            <summary>
+            工单
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WorkOrder">
+            <summary>
+            工单
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.NextProcessIdProperty">
+            <summary>
+            下一工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.NextProcessId">
+            <summary>
+            下一工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ReworkQtyProperty">
+            <summary>
+            工单返工数
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ReworkQty">
+            <summary>
+            工单返工数
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.SuspectQtyProperty">
+            <summary>
+            工单可疑品数
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.SuspectQty">
+            <summary>
+            工单可疑品数
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ScrapQtyProperty">
+            <summary>
+            报废数
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ScrapQty">
+            <summary>
+            报废数
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.IsOutsourcingProperty">
+            <summary>
+            委外中
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.IsOutsourcing">
+            <summary>
+            委外中
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.BatchTypeProperty">
+            <summary>
+            批次类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.BatchType">
+            <summary>
+            批次类型
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.IsFinishProperty">
+            <summary>
+            是否完工下线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.IsFinish">
+            <summary>
+            是否完工下线
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.NextProcessCodeProperty">
+            <summary>
+            下一工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.NextProcessCode">
+            <summary>
+            下一工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WorkOrderNoProperty">
+            <summary>
+            工单号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.WorkOrderNo">
+            <summary>
+            工单号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.TypeProperty">
+            <summary>
+            工单类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.Type">
+            <summary>
+            工单类型
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.PlanQtyProperty">
+            <summary>
+            工单数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.PlanQty">
+            <summary>
+            工单数量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.FinishQtyProperty">
+            <summary>
+            工单完工数
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.FinishQty">
+            <summary>
+            工单完工数
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.FevorProperty">
+            <summary>
+            车间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.Fevor">
+            <summary>
+            车间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ProductCodeProperty">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ProductCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ProductNameProperty">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ShortDescriptionProperty">
+            <summary>
+            旧料号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ShortDescription">
+            <summary>
+            旧料号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ProcessCodeProperty">
+            <summary>
+            当前工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReport.ProcessCode">
+            <summary>
+            当前工序
+            </summary>
+        </member>
+        <member name="T:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria">
+            <summary>
+            批次追溯通用报表查询实体
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.WorkOrderNoProperty">
+            <summary>
+            工单号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.WorkOrderNo">
+            <summary>
+            工单号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.ProductCodeProperty">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.ProductCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.ShortDescriptionProperty">
+            <summary>
+            旧料号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.ShortDescription">
+            <summary>
+            旧料号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.BatchTypeProperty">
+            <summary>
+            批次类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.BatchType">
+            <summary>
+            批次类型
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.WorkShopNameProperty">
+            <summary>
+            车间名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.WorkShopName">
+            <summary>
+            车间名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.ProcessIdProperty">
+            <summary>
+            当前工序Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.ProcessId">
+            <summary>
+            当前工序Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.ProcessProperty">
+            <summary>
+            当前工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.Process">
+            <summary>
+            当前工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.NextProcessIdProperty">
+            <summary>
+            下一工序Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.NextProcessId">
+            <summary>
+            下一工序Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.NextProcessProperty">
+            <summary>
+            下一工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.NextProcess">
+            <summary>
+            下一工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.IsFinishProperty">
+            <summary>
+            是否完工下线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.IsFinish">
+            <summary>
+            是否完工下线
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.ItemLabelLotProperty">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria.ItemLabelLot">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="T:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl">
+            <summary>
+            批次采集记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.WipBatchIdProperty">
+            <summary>
+            批次标签Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.WipBatchId">
+            <summary>
+            批次标签Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.WipBatchProperty">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.WipBatch">
+            <summary>
+            批次标签
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.BatchNoProperty">
+            <summary>
+            批次号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.BatchNo">
+            <summary>
+            批次号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ReportRecordIdProperty">
+            <summary>
+            报工记录Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ReportRecordId">
+            <summary>
+            报工记录Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ReportRecordProperty">
+            <summary>
+            报工记录
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ReportRecord">
+            <summary>
+            报工记录
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.QtyProperty">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.Qty">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ShiftAlgorithmProperty">
+            <summary>
+            班次
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ShiftAlgorithm">
+            <summary>
+            班次
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ProcessCodeProperty">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ProcessCode">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ResourceCodeProperty">
+            <summary>
+            资源编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.Report.BatchTracebacks.BatchTracebackReportDtl.ResourceCode">
+            <summary>
+            资源编码
+            </summary>
+        </member>
+        <member name="M:SIE.MES.Report.BatchTracebacks.BatchTracebacksController.GetBatchTracebackPreSetups(System.String,System.String,SIE.PagingInfo,System.Collections.Generic.IList{SIE.Domain.OrderInfo})">
+            <summary>
+            根据标签号和工序编码获取开机准备记录
+            </summary>
+            <param name="batchNo"></param>
+            <param name="processCode"></param>
+            <param name="pagingInfo"></param>
+            <param name="orderInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.Report.BatchTracebacks.BatchTracebacksController.GetBatchTracebackDefetctDtlsById(System.Double,SIE.PagingInfo,System.Collections.Generic.IList{SIE.Domain.OrderInfo})">
+            <summary>
+            根据可疑品标签Id获取缺陷代码
+            </summary>
+            <param name="suspectProductLabelId"></param>
+            <param name="pagingInfo"></param>
+            <param name="orderInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.Report.BatchTracebacks.BatchTracebacksController.GetBatchTracebackDefetctLabelDtlsById(System.String,System.String,SIE.PagingInfo,System.Collections.Generic.IList{SIE.Domain.OrderInfo})">
+            <summary>
+            根据id获取产品缺陷记录明细
+            </summary>
+            <param name="id"></param>
+            <param name="pagingInfo"></param>
+            <param name="orderInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.Report.BatchTracebacks.BatchTracebacksController.GetBatchTracebackKeyDtlsByReportRecordId(System.Double,SIE.PagingInfo,System.Collections.Generic.IList{SIE.Domain.OrderInfo})">
+            <summary>
+            根据报工记录id获取产品生产关键件明细
+            </summary>
+            <param name="reportRecordId"></param>
+            <param name="pagingInfo"></param>
+            <param name="orderInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.Report.BatchTracebacks.BatchTracebacksController.GetBatchTracebackReportDtlsByIds(System.Double,SIE.PagingInfo,System.Collections.Generic.IList{SIE.Domain.OrderInfo})">
+            <summary>
+            根据id获取批次采集记录明细
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.Report.BatchTracebacks.BatchTracebacksController.CriteriaBatchTracebackReports(SIE.MES.Report.BatchTracebacks.BatchTracebackReportCriteria)">
+            <summary>
+            查询方法
+            </summary>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
         <member name="T:SIE.MES.Report.BatchWipProducts.BatchDefectMeasureReport">
             <summary>
             产品缺陷维修措施

@@ -748,6 +748,14 @@
             <param name="codes"></param>
             <returns></returns>
         </member>
+        <member name="M:SIE.Tech.Processs.ProcessController.GetProcessesListByInvOrg(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            获取多个库存组织下的工序
+            </summary>
+            <param name="invOrgs"></param>
+            <param name="codes"></param>
+            <returns></returns>
+        </member>
         <member name="M:SIE.Tech.Processs.ProcessController.GetProcessList(SIE.Tech.Processs.ProcessCriteria)">
             <summary>
             查询工序列表
@@ -810,6 +818,16 @@
             <returns>工序列表</returns>
         </member>
         <member name="M:SIE.Tech.Processs.ProcessController.GetProcessByType(System.Collections.Generic.List{System.Int32},System.String,SIE.PagingInfo)">
+            <summary>
+            通过工序类型获取工序
+            </summary>
+            <param name="ProcessTypes">工序类型</param>
+            <param name="keyWord">关键字</param>
+            <param name="pagingInfo">分页条件</param>
+            <exception cref="T:System.ArgumentNullException">工序类型列表不能为空</exception>
+            <returns>工序列表</returns>
+        </member>
+        <member name="M:SIE.Tech.Processs.ProcessController.GetProcessBy(System.String,System.String,SIE.PagingInfo)">
             <summary>
             通过工序类型获取工序
             </summary>

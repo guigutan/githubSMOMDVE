@@ -75,7 +75,7 @@ namespace SIE.Web.Andon.Andons
             View.UseCommands(typeof(AndonManageAddCommand).FullName, "SIE.Web.Andon.Andons.Commands.AndonManageLookUpCommand",
                 typeof(AndonManageCancelCommand).FullName, typeof(AndonManageResponseCommand).FullName, typeof(AndonManageReassignmentCommand).FullName,
                 typeof(AndonManageHandleCommand).FullName, typeof(AndonManageCheckCommand).FullName, typeof(AndonManageRejectCommand).FullName);
-            View.UseCommands("SIE.Web.Andon.Andons.Commands.AndonManageGoExpCommand", typeof(AndonManageImageCommand).FullName);
+            View.UseCommands("SIE.Web.Andon.Andons.Commands.AndonManageGoExpCommand", typeof(AndonManageImageCommand).FullName, WebCommandNames.ExportXls, WebCommandNames.ExportXlsAll);
             View.DisableEditing();
             using (View.OrderProperties())
             {
@@ -97,6 +97,7 @@ namespace SIE.Web.Andon.Andons
                 View.Property(p => p.CloseTime).ShowInList(width: 150);
                 View.Property(p => p.LastTime);
                 View.Property(p => p.ActualTime);
+                View.Property(p => p.GeneralProbDtlId).Show();
                 View.Property(p => p.Factory);
                 View.Property(p => p.WorkShop);
                 View.Property(p => p.WipResource).UsePagingLookUpEditor((m, e) =>

@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
   "SIE.Web.EMS.EquipMaint.Maintains.Confirmations.Commands.EmsDownloadCommand.js": "SIE.Web.EMS.EquipMaint/Maintains/Confirmations/Commands/EmsDownloadCommand.js",
   "SIE.Web.EMS.EquipMaint.Maintains.Confirmations.Commands.RevokeUploadPicCommand.js": "SIE.Web.EMS.EquipMaint/Maintains/Confirmations/Commands/RevokeUploadPicCommand.js",
   "SIE.Web.EMS.EquipMaint.Maintains.Confirmations.Commands.SubmitMaintainConfirmationCommand.js": "SIE.Web.EMS.EquipMaint/Maintains/Confirmations/Commands/SubmitMaintainConfirmationCommand.js",

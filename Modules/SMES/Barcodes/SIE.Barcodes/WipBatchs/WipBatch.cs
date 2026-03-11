@@ -707,7 +707,7 @@ namespace SIE.Barcodes.WipBatchs
             var qty = Qty == 0 ? 0 : (Qty - ReportQty);
             //if (qty < 0) qty = 0;
 
-            return qty;
+            return qty <= 0 ? 0 : qty;
         }
         #endregion
 
@@ -795,6 +795,23 @@ namespace SIE.Barcodes.WipBatchs
             get { return this.GetProperty(WorkOrderNoProperty); }
         }
         #endregion
+
+        #region 产品Id ProductId
+        /// <summary>
+        /// 产品Id
+        /// </summary>
+        [Label("产品Id")]
+        public static readonly Property<double> ProductIdProperty = P<WipBatch>.RegisterView(e => e.ProductId, p => p.WorkOrder.ProductId);
+
+        /// <summary>
+        /// 产品Id
+        /// </summary>
+        public double ProductId
+        {
+            get { return this.GetProperty(ProductIdProperty); }
+        }
+        #endregion
+
 
         #region 产品编码 ProductCode
         /// <summary>

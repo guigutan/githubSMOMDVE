@@ -204,6 +204,7 @@ namespace SIE.Web.MES.TaskManagement.Dispatchs
             View.Property(p => p.ProcessHourSum).ShowInList(width: 150).Readonly();
             View.Property(p => p.ExpectedProductionTime).ShowInList(width: 150).Readonly();
             View.Property(p => p.ReportMode).Readonly();
+            View.Property(p => p.WorkShopCode).Readonly();
             View.Property(p => p.WorkShopName).Readonly();
             View.Property(p => p.ResourceName).Readonly();
             View.Property(p => p.ResourceCode).Readonly();

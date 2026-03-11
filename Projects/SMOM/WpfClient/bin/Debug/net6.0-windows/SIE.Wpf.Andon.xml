@@ -459,7 +459,7 @@
         </member>
         <member name="T:SIE.Wpf.Andon.Commands.AndonManageResponseCommand">
             <summary>
-            安灯事件验收命令
+            安灯事件响应命令
             </summary>
         </member>
         <member name="M:SIE.Wpf.Andon.Commands.AndonManageResponseCommand.CanExecute(SIE.Wpf.DetailLogicalView)">

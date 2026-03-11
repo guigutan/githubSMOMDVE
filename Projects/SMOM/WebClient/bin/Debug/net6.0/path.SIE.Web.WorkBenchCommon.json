@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\WorkBenchs",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\WorkBenchs",
   "SIE.Web.WorkBenchCommon.Workbench.Base.Commands.DesignWorkbenchCommand.js": "SIE.Web.WorkBenchCommon/Workbench/Base/Commands/DesignWorkbenchCommand.js",
   "SIE.Web.WorkBenchCommon.Workbench.Base.Commands.AddWorkbenchCommand.js": "SIE.Web.WorkBenchCommon/Workbench/Base/Commands/AddWorkbenchCommand.js",
   "SIE.Web.WorkBenchCommon.Workbench.Base.Commands.ComponentPreviewCommand.js": "SIE.Web.WorkBenchCommon/Workbench/Base/Commands/ComponentPreviewCommand.js",

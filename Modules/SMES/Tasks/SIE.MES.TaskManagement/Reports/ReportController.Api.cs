@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.EMMA;
 using DotLiquid.Util;
+using IronPython.Runtime.Operations;
 using Microsoft.Scripting.Utils;
 using NPOI.OpenXmlFormats.Vml;
 using SIE.Andon.Andons;
@@ -10,6 +11,7 @@ using SIE.Barcodes.WipBatchs;
 using SIE.Common;
 using SIE.Common.Configs;
 using SIE.Common.NumberRules;
+using SIE.Core.ApiLogs;
 using SIE.Domain;
 using SIE.Domain.Validation;
 using SIE.EventMessages.LES;
@@ -36,6 +38,7 @@ using SIE.Rbac.InvOrgs;
 using SIE.Resources.Employees;
 using SIE.Resources.WipResources;
 using SIE.Tech.Processs;
+using SIE.Tech.Stations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,8 +73,8 @@ namespace SIE.MES.TaskManagement.Reports
 
             WorkOrderTaskInfo workOrderTaskInfo = new WorkOrderTaskInfo();
             ValidateDispatchTaskQueryInfo(info);
-            Dictionary<DispatchTaskStatus, List<DispatchTask>> dicTasks = GetDispatchTaskDic(info);
-            Dictionary<DispatchTaskStatus, List<DispatchTask>> dicTasksAll = GetAllDispatchTaskDic(info);
+            Dictionary<DispatchTaskStatus, List<DispatchTask>> dicTasks = GetDispatchTaskDic(info, 0);
+            Dictionary<DispatchTaskStatus, List<DispatchTask>> dicTasksAll = GetAllDispatchTaskDic(info, 0);
             List<DispatchTask> tasks = new List<DispatchTask>();
             List<DispatchTask> dispatchingtasks = null;
             List<DispatchTask> toDispatchtasks = null;
@@ -152,7 +155,7 @@ namespace SIE.MES.TaskManagement.Reports
                         ReportQty = task.RemainQty,
                         RemainQty = task.RemainQty,
                         MaxRemainQty = MaxRemainQty,//task.MaxRemainQty,
-                        ProcessMaxRemainQty = maxReportQty,//ProcessMaxRemainQty,
+                        ProcessMaxRemainQty = ProcessMaxRemainQty,//maxReportQty
                         Priority = task.Priority.ToLabel(),
                         PriorityValue = task.Priority,
                         ResourceId = task.ResourceId,
@@ -183,7 +186,7 @@ namespace SIE.MES.TaskManagement.Reports
                     taskInfo.Progress = date <= task.PlanEndTime ? 0 : 1;
                     workOrderTaskInfo.TaskInfos.Add(taskInfo);
                 });
-            }         
+            }
             return workOrderTaskInfo;
         }
 
@@ -354,8 +357,9 @@ namespace SIE.MES.TaskManagement.Reports
         /// 获取报工任务字典
         /// </summary>
         /// <param name="info">报工任务查询信息</param>
+        /// <param name="type">类型(0:PDA手动报工)</param>
         /// <returns>任务字典</returns>
-        private Dictionary<DispatchTaskStatus, List<DispatchTask>> GetDispatchTaskDic(TaskQueryInfo info)
+        private Dictionary<DispatchTaskStatus, List<DispatchTask>> GetDispatchTaskDic(TaskQueryInfo info, int? type = null)
         {
             var status = new List<DispatchTaskStatus>() { DispatchTaskStatus.Dispatched, DispatchTaskStatus.Dispatching, DispatchTaskStatus.ToDispatch, DispatchTaskStatus.Executing, DispatchTaskStatus.Finished, DispatchTaskStatus.Closed };
             PagingInfo pagingInfo = new PagingInfo(info.PageNumber ?? 1, info.PageSize ?? int.MaxValue - 1, true);
@@ -365,7 +369,7 @@ namespace SIE.MES.TaskManagement.Reports
             //{
             //    firstProcess = true;
             //}
-            var taskList = RT.Service.Resolve<DispatchController>().GetDispatchTasksByEmployee(info, status, pagingInfo, !firstProcess, firstProcess);
+            var taskList = RT.Service.Resolve<DispatchController>().GetDispatchTasksByEmployee(info, status, pagingInfo, !firstProcess, firstProcess, type);
             var dicTasks = taskList.GroupBy(p => p.TaskStatus).ToDictionary(p => p.Key, p => p.ToList());
             return dicTasks;
         }
@@ -374,8 +378,9 @@ namespace SIE.MES.TaskManagement.Reports
         /// 获取报工任务字典
         /// </summary>
         /// <param name="info">报工任务查询信息</param>
+        /// <param name="type">类型(0:PDA手动报工)</param>
         /// <returns>任务字典</returns>
-        private Dictionary<DispatchTaskStatus, List<DispatchTask>> GetAllDispatchTaskDic(TaskQueryInfo info)
+        private Dictionary<DispatchTaskStatus, List<DispatchTask>> GetAllDispatchTaskDic(TaskQueryInfo info, int? type = null)
         {
             var status = new List<DispatchTaskStatus>() { DispatchTaskStatus.Dispatched, DispatchTaskStatus.Dispatching, DispatchTaskStatus.ToDispatch, DispatchTaskStatus.Executing, DispatchTaskStatus.Finished, DispatchTaskStatus.Closed };
             var firstProcess = false;
@@ -384,7 +389,7 @@ namespace SIE.MES.TaskManagement.Reports
             //{
             //    firstProcess = true;
             //}
-            var taskList = RT.Service.Resolve<DispatchController>().GetDispatchTasksByEmployee(info, status, null, !firstProcess, firstProcess);
+            var taskList = RT.Service.Resolve<DispatchController>().GetDispatchTasksByEmployee(info, status, null, !firstProcess, firstProcess, type);
             var dicTasks = taskList.GroupBy(p => p.TaskStatus).ToDictionary(p => p.Key, p => p.ToList());
             return dicTasks;
         }
@@ -865,6 +870,10 @@ namespace SIE.MES.TaskManagement.Reports
                 var batchNos = goodWipBatchs.Select(p => p.BatchNo).ToList();
                 ValidateProcessHasReport(batchNos, dispatchTask.ProcessCode);
 
+                //校验标签工单与派工任务工单是否一致
+                if (goodWipBatchs.Any(p => p.WorkOrderId != info.WorkOrderId))
+                    throw new ValidationException("标签对应的工单与提交的派工任务工单不一致,请检查");
+
                 //调用报工接口
                 //合格数和不合格数都为0的时候，就不给报工，否则没有合格也没有不合格，报个什么工
 
@@ -946,6 +955,10 @@ namespace SIE.MES.TaskManagement.Reports
             OutsourcingRequest request = RT.Service.Resolve<OutsourcingRequestController>().GetOutsourcingRequestsByWoIdProcessCode(dispatchTask.WorkOrderId.Value, dispatchTask.Process.Code).FirstOrDefault(p => p.OutFactory == invOrg.ExternalId);
             if (request != null)
             {
+                var sns = goodWipBatchs.Select(p => p.BatchNo).ToList();
+                //var list = request.OutsourcingReportLogList.Where(p => sns.Contains(p.SN)).ToList();
+                //if(list.Count>0)
+                //    throw new ValidationException("委外单【{0}】,批次【{1}】已经报工，不能重复报工！".L10nFormat(request.NO, string.Join(',',list.Select(p => p.SN).ToList())));
                 EntityList<OutsourcingReportLog> logs = new EntityList<OutsourcingReportLog>();
                 //良品标签创建报工记录
                 foreach (var goodWipBatch in goodWipBatchs)
@@ -1060,11 +1073,14 @@ namespace SIE.MES.TaskManagement.Reports
             SuspectProductLabel suspectLabel;
             if (IsSn)
             {
-                suspectLabel = NewSuspectProductLabel(snInfo.Sn, snInfo.SuspectQty, dispatchTask, info.ResourceId, LabelType.WipSn);
-                RF.Save(suspectLabel);
+                //suspectLabel = NewSuspectProductLabel(snInfo.Sn, snInfo.SuspectQty, dispatchTask, info.ResourceId, LabelType.WipSn);
+                //RF.Save(suspectLabel);
 
-                RT.Service.Resolve<WipPressureController>().SetSnSuspectState(snInfo.Sn, true);
+                //RT.Service.Resolve<WipPressureController>().SetSnSuspectState(snInfo.Sn, true);
 
+                //return suspectLabel;
+                //耐压SN可疑品提交报工
+                suspectLabel = SuspectProductLabelReport(snInfo, dispatchTask, info.ResourceId);
                 return suspectLabel;
             }
 
@@ -1105,6 +1121,56 @@ namespace SIE.MES.TaskManagement.Reports
             //DateTime dbTime = RF.Find<ReportRecord>().GetDbTime();
             //UpdateDispatchTaskState(info.DispatchTaskId, dbTime, info.IsTaskFinish);
 
+            return suspectLabel;
+        }
+
+        /// <summary>
+        /// 耐压SN可疑品提交报工
+        /// </summary>
+        /// <param name="snInfo"></param>
+        /// <param name="dispatchTask"></param>
+        /// <param name="resourceId"></param>
+        /// <returns></returns>
+        /// <exception cref="ValidationException"></exception>
+        private SuspectProductLabel SuspectProductLabelReport(ReportSnInfo snInfo, DispatchTask dispatchTask, double resourceId)
+        {
+            SuspectProductLabel suspectLabel;
+            var wipPressureSn = RT.Service.Resolve<WipPressureController>().GetWipPressureSn(snInfo.Sn);
+
+            if (wipPressureSn.WipPressure.BatchNo.IsNullOrEmpty())
+                throw new ValidationException("未找到耐压SN标签【{0}】对应的工序标签".L10nFormat(snInfo.Sn));
+            var wipBatch = RT.Service.Resolve<WipBatchController>().GetWipBatch(wipPressureSn.WipPressure.BatchNo);
+            if (dispatchTask == null)
+                throw new ValidationException("工序标签[{0}]不存在".L10nFormat(snInfo.Sn));
+
+            if (snInfo.SuspectQty < wipBatch.Qty)
+            {
+                var splitWipBatch = RT.Service.Resolve<WipBatchController>().CreateSplitWipBatch(wipBatch, snInfo.SuspectQty, dispatchTask.ProcessCode);
+                splitWipBatch.GenerateProcessCode = dispatchTask.ProcessCode;
+                splitWipBatch.IsSuspectProduct = YesNo.Yes;
+                RF.Save(splitWipBatch);
+                //如果修改数量就要记录在哪个工序进行修改的
+                if (snInfo.SuspectQty > 0)
+                {
+                    wipBatch.EditQtyProcessCode = dispatchTask.ProcessCode;
+                }
+                //更新原标签数量
+                wipBatch.Qty -= snInfo.SuspectQty;
+                RF.Save(wipBatch);
+
+                suspectLabel = NewSuspectProductLabel(snInfo.Sn, snInfo.SuspectQty, dispatchTask, resourceId, LabelType.WipSn, splitWipBatch.BatchNo);
+                RF.Save(suspectLabel);
+            }
+            else
+            {
+                wipBatch.IsSuspectProduct = YesNo.Yes;
+                RF.Save(wipBatch);
+
+                suspectLabel = NewSuspectProductLabel(snInfo.Sn, snInfo.SuspectQty, dispatchTask, resourceId, LabelType.WipSn, wipBatch.BatchNo);
+                RF.Save(suspectLabel);
+            }
+            wipPressureSn.IsSuspectProduct = true;
+            RF.Save(wipPressureSn);
             return suspectLabel;
         }
 
@@ -1735,7 +1801,7 @@ namespace SIE.MES.TaskManagement.Reports
                     wipId = dispatchTask.ResourceId.GetValueOrDefault();
                 }
                 var manage = andonManagect.CreateAndonManage(item.Id, 0, dispatchTask.ProcessId.GetValueOrDefault(), wipId, dispatchTask.FactoryId, dispatchTask.WorkShopId, dispatchTask.WorkOrderId, isValidAndonEquipAccount: false);
-                manage.ProblemDesc = "可疑品";
+                manage.ProblemDesc = "可疑品达到阈值";
                 andonManages.Add(manage);
             }
             RF.Save(andonManages);
@@ -1861,6 +1927,7 @@ namespace SIE.MES.TaskManagement.Reports
         /// <returns>获取生产资源列表</returns>
         [ApiService("获取工单信息")]
         [return: ApiReturn("工单信息. 参数类型: List<PdaWorkOrderInfo>")]
+        [ApiLog]
         public virtual PdaScanReturnInfo GetWorkOrderInfo(string key, double processId)
         {
             if (key.IsNullOrEmpty())
@@ -1900,6 +1967,7 @@ namespace SIE.MES.TaskManagement.Reports
         /// <returns>获取生产资源列表</returns>
         [ApiService("验证扫码信息")]
         [return: ApiReturn("工单信息. 参数类型: List<PdaResourceInfo>")]
+        [ApiLog]
         public virtual PdaProcessScanReturnInfo CheckProcessScanInfo(PdaScanInfo pdaScanInfo)
         {
             var result = ValidationProcessScanInfo(pdaScanInfo);
@@ -1913,6 +1981,7 @@ namespace SIE.MES.TaskManagement.Reports
         /// <returns>获取生产资源列表</returns>
         [ApiService("验证扫码信息")]
         [return: ApiReturn("工单信息. 参数类型: List<PdaResourceInfo>")]
+        [ApiLog]
         public virtual PdaScanReturnInfo CheckScanInfo(PdaScanInfo pdaScanInfo)
         {
             PdaScanReturnInfo workOrderInfo = ValidationScanInfo(pdaScanInfo);
@@ -1927,6 +1996,7 @@ namespace SIE.MES.TaskManagement.Reports
         /// <returns>获取生产资源列表</returns>
         [ApiService("获取派工单")]
         [return: ApiReturn("工单信息. 参数类型: List<PdaResourceInfo>")]
+        [ApiLog]
         public virtual List<PdaPgReturnInfo> ShowPgInfo(PdaPgInfo pdaPgInfo)
         {
             List<PdaPgReturnInfo> pdaPgReturnInfo = CombinationPgInfo(pdaPgInfo);
@@ -2010,7 +2080,7 @@ namespace SIE.MES.TaskManagement.Reports
                     workOrderInfo.MaxReportQty = maxReportQty;//firstTask.MaxReportQty;
                     workOrderInfo.RemainQty = firstTask.RemainQty;
                     workOrderInfo.Zcode = layoutInfo.Zcode;
-                    workOrderInfo.MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(firstTask).Item2;
+                    workOrderInfo.MaxRemainQty = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(firstTask, Enums.SourceType.Report_Scan).Item2;
                     workOrderInfo.ProcessMaxRemainQty = RT.Service.Resolve<DispatchController>().GetProcessMaxRemainQty(firstTask);
 
 
@@ -2092,19 +2162,8 @@ namespace SIE.MES.TaskManagement.Reports
         private PdaScanReturnInfo ValidationScanInfo(PdaScanInfo pdaScanInfo)
         {
             PdaScanReturnInfo workOrderInfo = new PdaScanReturnInfo();
-            if (pdaScanInfo.Sn.IsNullOrEmpty())
-                throw new ValidationException("标签不能为空.".L10N());
-            if (pdaScanInfo.ProcessId == 0)
-                throw new ValidationException("工序不正确.".L10N());
-
-            var wipBatch = RT.Service.Resolve<WipBatchController>().GetWipBatch(pdaScanInfo.Sn);
-            if (wipBatch == null)
-                throw new ValidationException("标签[{0}]不存在.".L10nFormat(pdaScanInfo.Sn));
-            if (wipBatch.IsScraped)
-                throw new ValidationException("标签[{0}]已报废.".L10nFormat(pdaScanInfo.Sn));
-            if (wipBatch.IsRework)
-                throw new ValidationException("标签[{0}]为返工标签, 不允许报工.".L10nFormat(pdaScanInfo.Sn));
-
+            //扫描验证
+            var wipBatch = ScanValidation(pdaScanInfo);
             bool isExists = RT.Service.Resolve<ProcessPtyController>().GetIsTransferProcessPty(pdaScanInfo.ProcessId, wipBatch.WorkOrder.ProductId);
             //转入模式判断当前工序是否启用
             if (pdaScanInfo.ScanType == 2 && isExists == false)
@@ -2135,8 +2194,19 @@ namespace SIE.MES.TaskManagement.Reports
                 //else
                 //    exp = p => p.WorkOrderId == wipBatch.WorkOrderId && p.ProcessId == pdaScanInfo.ProcessId && /*p.ResourceId == pdaScanInfo.ResourceId &&*/
                 //    /*(p.TaskStatus == DispatchTaskStatus.Executing || p.TaskStatus == DispatchTaskStatus.Dispatched) &&*/ (p.IsOutsourcing == false || p.IsOutsourcing == null);
-                exp = p => p.WorkOrderId == wipBatch.WorkOrderId && p.ProcessId == pdaScanInfo.ProcessId;
-                var tasks = _dispatchController.GetDispatchTaskByExpression(exp, p => p.CreateDate);
+
+                var tasks = new EntityList<DispatchTask>();
+                var resource = RF.GetById<WipResource>(pdaScanInfo.ResourceId, new EagerLoadOptions().LoadWithViewProperty());
+
+                var dispatchConfig = RT.Service.Resolve<DispatchController>().GetDispatchConfig();
+                if (dispatchConfig.IsCheckProductionLineTaskList)//派工管理配置是否强制校验产线对应任务单True只能选择任务单执行对象
+                {
+                    var station = RF.GetById<Station>(pdaScanInfo.StationId);
+                    exp = p => p.WorkOrderId == wipBatch.WorkOrderId && p.ProcessId == pdaScanInfo.ProcessId && p.TaskPerformer.Contains($"%{station.Name}%");
+                }
+                else
+                    exp = p => p.WorkOrderId == wipBatch.WorkOrderId && p.ProcessId == pdaScanInfo.ProcessId;
+                tasks = _dispatchController.GetDispatchTaskByExpression(exp, p => p.CreateDate);
                 if (tasks.Count < 1)
                     throw new ValidationException("找不到对应的任务单号.".L10N());
                 //把任务单和状态也显示出来
@@ -2183,14 +2253,14 @@ namespace SIE.MES.TaskManagement.Reports
                     }
                 }
 
-                var tuple = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(firstTask);
+                var tuple = RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(firstTask, Enums.SourceType.Report_Scan);
                 var maxReportQty = tuple.Item1;
                 var remainQty = tuple.Item2;
                 workOrderInfo.MaxReportQty = maxReportQty;//firstTask.MaxReportQty;
                 workOrderInfo.RemainQty = firstTask.RemainQty;
                 workOrderInfo.Zcode = layoutInfo.Zcode;
                 workOrderInfo.MaxRemainQty = remainQty;//RT.Service.Resolve<DispatchController>().MaxReportQtyAndMaxRemainQty(firstTask).Item2;
-                workOrderInfo.ProcessMaxRemainQty = remainQty;//RT.Service.Resolve<DispatchController>().GetProcessMaxRemainQty(firstTask);
+                workOrderInfo.ProcessMaxRemainQty = RT.Service.Resolve<DispatchController>().GetProcessMaxRemainQty(firstTask);//remainQty
 
 
                 var processPty = RT.Service.Resolve<ProcessPtyController>().GetProcessPtysByProcessId(firstTask.ProcessId ?? 0, firstTask.ProductId);
@@ -2256,6 +2326,29 @@ namespace SIE.MES.TaskManagement.Reports
             workOrderInfo.LabelQty = wipBatch.Qty;
             workOrderInfo.IsSuspectProduct = wipBatch.IsSuspectProduct == YesNo.Yes;
             return workOrderInfo;
+        }
+
+        /// <summary>
+        /// 扫描验证
+        /// </summary>
+        /// <param name="pdaScanInfo"></param>
+        /// <returns></returns>
+        /// <exception cref="ValidationException"></exception>
+        private WipBatch ScanValidation(PdaScanInfo pdaScanInfo)
+        {
+            if (pdaScanInfo.Sn.IsNullOrEmpty())
+                throw new ValidationException("标签不能为空.".L10N());
+            if (pdaScanInfo.ProcessId == 0)
+                throw new ValidationException("工序不正确.".L10N());
+
+            var wipBatch = RT.Service.Resolve<WipBatchController>().GetWipBatch(pdaScanInfo.Sn);
+            if (wipBatch == null)
+                throw new ValidationException("标签[{0}]不存在.".L10nFormat(pdaScanInfo.Sn));
+            if (wipBatch.IsScraped)
+                throw new ValidationException("标签[{0}]已报废.".L10nFormat(pdaScanInfo.Sn));
+            if (wipBatch.IsRework)
+                throw new ValidationException("标签[{0}]为返工标签, 不允许报工.".L10nFormat(pdaScanInfo.Sn));
+            return wipBatch;
         }
 
         /// <summary>
@@ -2334,8 +2427,8 @@ namespace SIE.MES.TaskManagement.Reports
         /// <param name="process"></param>
         public virtual void ValidateProcessHasReport(List<string> batchNos, string process)
         {
-            //当遇到成品包装的时候就跳过这个校验
-            if (process == "成品包装")
+            //当遇到包装的时候就跳过这个校验
+            if (process.Contains("包装"))
                 return;
             var processList = process.Split(',');
             var reportWibatchs = DB.Query<ReportWipBatch>().Where(p => batchNos.Contains(p.BatchNo) && (processList.Contains(p.ReportRecord.Process.Code) || processList.Contains(p.ReportRecord.Process.Name))).Select(p => p.BatchNo).ToList<string>();
@@ -2413,6 +2506,7 @@ namespace SIE.MES.TaskManagement.Reports
         /// </summary>
         ///  <param name="submitInfo">提交数据</param>
         [ApiService("提交工单扫码验证")]
+        [ApiLog]
         public virtual string SubmitScanValid(PdaScanSubmitInfo submitInfo)
         {
             if (submitInfo.DispatchTaskId == 0)
@@ -2451,6 +2545,7 @@ namespace SIE.MES.TaskManagement.Reports
         /// </summary>
         ///  <param name="submitInfo">提交数据</param>
         [ApiService("提交工单扫码数据")]
+        [ApiLog]
         public virtual List<PdaPrintInfo> SubmitScanInfo(PdaScanSubmitInfo submitInfo)
         {
             var datas = ValidationSubmitInfo(submitInfo);
@@ -2771,6 +2866,23 @@ namespace SIE.MES.TaskManagement.Reports
 
             return list;
         }
+
+        /// <summary>
+        /// 根据报工记录获取报工标签列表
+        /// </summary>
+        /// <param name="reportRecordIds"></param>
+        /// <returns></returns>
+        public virtual EntityList<ReportWipBatch> GetReportWipBatchsByReportIds(List<double> reportRecordIds)
+        {
+            var reportWipBatches = reportRecordIds.SplitContains(ids =>
+             {
+                 var q = Query<ReportWipBatch>().Where(p => ids.Contains(p.ReportRecordId));
+                 var list = q.ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+                 return list;
+             });
+            return reportWipBatches;
+        }
+
         /// <summary>
         /// 根据报工标签获取报工标签列表
         /// </summary>
@@ -2780,6 +2892,17 @@ namespace SIE.MES.TaskManagement.Reports
         {
             var q = Query<ReportWipBatch>().Where(p => p.WipBatchId == wipBatchId);
             var list = q.ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            return list;
+        }
+
+        /// <summary>
+        /// 根据标签号获取报工标签
+        /// </summary>
+        /// <param name="sn"></param>
+        /// <returns></returns>
+        public virtual EntityList<ReportWipBatch> GetReportWipBatchesBySn(string sn)
+        {
+            var list = Query<ReportWipBatch>().Where(p => p.BatchNo == sn).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             return list;
         }
 

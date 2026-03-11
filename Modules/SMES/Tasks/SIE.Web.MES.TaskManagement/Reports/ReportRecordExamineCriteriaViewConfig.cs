@@ -1,4 +1,6 @@
-﻿using SIE.MES.TaskManagement.Reports;
+﻿using SIE.Domain;
+using SIE.MES.TaskManagement.Reports;
+using SIE.Resources.Enterprises;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +27,17 @@ namespace SIE.Web.MES.TaskManagement.Reports
                 View.Property(p => p.ProductName).Show();
                 View.Property(p => p.ShortDescription).Show();
                 View.Property(p => p.Resource).Show();
-                View.Property(p => p.WorkShop).Show();
+                //View.Property(p => p.WorkShop).UseDataSource((source, pagingInfo, keyword) =>
+                //{
+                //    var workshop = RT.Service.Resolve<EnterpriseController>().GetWorkShops(pagingInfo, keyword, null);
+                //    if (workshop == null || workshop.Count <= 0)
+                //    {
+                //        return new EntityList<Enterprise>();
+                //    }
+                //    workshop.ForEach(p => p.TreePId = null);
+                //    return workshop;
+                //}).Show();
+                View.Property(p => p.WorkShopCode).Show();
                 View.Property(p => p.InspectionStatus).Show();
                 View.Property(p => p.InspectionResult).Show();
                 View.Property(p => p.ExamineState).Show();

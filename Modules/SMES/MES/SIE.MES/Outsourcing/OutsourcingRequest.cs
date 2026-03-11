@@ -432,15 +432,15 @@ namespace SIE.MES.Outsourcing
 		}
         #endregion
 
-        #region 车间 WorkShop
+        #region 车间编码 WorkShop
         /// <summary>
-        /// 车间
+        /// 车间编码
         /// </summary>
-        [Label("车间")]
+        [Label("车间编码")]
         public static readonly Property<string> WorkShopProperty = P<OutsourcingRequest>.RegisterView(e => e.WorkShop, p => p.WorkOrder.WorkShop.Code);
 
         /// <summary>
-        /// 车间
+        /// 车间编码
         /// </summary>
         public string WorkShop
         {

@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Drawing.Diagrams;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.Scripting.Utils;
 using NPOI.POIFS.FileSystem;
 using SIE.Barcodes;
@@ -494,6 +495,8 @@ namespace SIE.MES.WorkOrders
                 q.Where(p => p.PlanNo.Contains(criteria.PlanNo));
 
             ////产品型号查询...
+            if (!criteria.WorkShopCode.IsNullOrEmpty())
+                q.Exists<Enterprise>((a, b) => b.Where(p => p.Id == a.WorkShopId).WhereIf(criteria.WorkShopCode.IsNotEmpty(), p => p.Code.Contains(criteria.WorkShopCode)));
             if (criteria.Workshop != null)
                 q.Where(p => p.WorkShopId == criteria.WorkshopId);
             if (criteria.Resource != null)
@@ -1145,24 +1148,39 @@ namespace SIE.MES.WorkOrders
             var layoutInfos = workOrder.LayoutInfoList;//RT.Service.Resolve<WorkOrderController>().GetLayoutInfosByWorkOrderId(workOrder.Id);
             double? startProcess = null;
             double? endProcess = null;
-            //判断首工序
-            foreach (var layoutInfo in layoutInfos.OrderBy(p => Convert.ToDecimal(p.Vornr)))
+
+            if (workOrder.Type == Core.WorkOrders.WorkOrderType.Rework)
             {
-                var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode && (p.Scheduling == true || p.DispatchWork == true));
-                if (processPty != null)
-                {
-                    startProcess = processPty.ProcessId;
-                    break;
-                }
+                //返工工单只有最后一个工序需要生成任务单不管是不是工序属性有没有配置
+                //var layoutInfo = layoutInfos.OrderByDescending(p => Convert.ToDecimal(p.Vornr)).FirstOrDefault();
+                //var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode);
+                //startProcess = processPty.ProcessId;
+                //endProcess = processPty.ProcessId;
+                //返工任务单只有最后一个工序,设置为首末工序
+                startProcess = workOrder.RoutingProcessList.OrderByDescending(p => p.Index).FirstOrDefault().ProcessId.Value;
+                endProcess = workOrder.RoutingProcessList.OrderByDescending(p => p.Index).FirstOrDefault().ProcessId.Value;
             }
-            //判断尾工序
-            foreach (var layoutInfo in layoutInfos.OrderByDescending(p => Convert.ToDecimal(p.Vornr)))
+            else
             {
-                var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode && (p.Scheduling == true || p.DispatchWork == true));
-                if (processPty != null)
+                //判断首工序
+                foreach (var layoutInfo in layoutInfos.OrderBy(p => Convert.ToDecimal(p.Vornr)))
                 {
-                    endProcess = processPty.ProcessId;
-                    break;
+                    var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode && (p.Scheduling == true || p.DispatchWork == true));
+                    if (processPty != null)
+                    {
+                        startProcess = processPty.ProcessId;
+                        break;
+                    }
+                }
+                //判断尾工序
+                foreach (var layoutInfo in layoutInfos.OrderByDescending(p => Convert.ToDecimal(p.Vornr)))
+                {
+                    var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode && (p.Scheduling == true || p.DispatchWork == true));
+                    if (processPty != null)
+                    {
+                        endProcess = processPty.ProcessId;
+                        break;
+                    }
                 }
             }
             foreach (var item in workOrder.RoutingProcessList)

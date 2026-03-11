@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\DataTrace\\Core",
   "SIE.Web.DataTrace.TraceMainDatas.Commands.UploadAttachmentCommand.js": "SIE.Web.DataTrace/TraceMainDatas/Commands/UploadAttachmentCommand.js",
   "SIE.Web.DataTrace.TraceMainDatas.Commands.ViewMutiDocumenttCommand.js": "SIE.Web.DataTrace/TraceMainDatas/Commands/ViewMutiDocumenttCommand.js"
 }

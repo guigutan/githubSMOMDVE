@@ -456,6 +456,39 @@ namespace SIE.Andon.Andons
         }
         #endregion
 
+        #region 安灯责任组 AndonResponseDetailList
+        /// <summary>
+        /// 安灯责任组
+        /// </summary>
+        [Label("安灯责任组")]
+        public static readonly ListProperty<EntityList<AndonResponseDetail>> AndonResponseDetailListProperty = P<Andon>.RegisterList(e => e.AndonResponseDetailList);
+
+        /// <summary>
+        /// 安灯责任组
+        /// </summary>
+        public EntityList<AndonResponseDetail> AndonResponseDetailList
+        {
+            get { return this.GetLazyList(AndonResponseDetailListProperty); }
+        }
+        #endregion
+
+        #region 通用问题描述 GeneralProbDtlList
+        /// <summary>
+        /// 通用问题描述
+        /// </summary>
+        [Label("通用问题描述")]
+        public static readonly ListProperty<EntityList<GeneralProbDtl>> GeneralProbDtlListProperty = P<Andon>.RegisterList(e => e.GeneralProbDtlList);
+
+        /// <summary>
+        /// 通用问题描述
+        /// </summary>
+        public EntityList<GeneralProbDtl> GeneralProbDtlList
+        {
+            get { return this.GetLazyList(GeneralProbDtlListProperty); }
+        }
+        #endregion
+
+
         #region 视图属性
         //#region 推送模板名称 PushPlugName
         ///// <summary>

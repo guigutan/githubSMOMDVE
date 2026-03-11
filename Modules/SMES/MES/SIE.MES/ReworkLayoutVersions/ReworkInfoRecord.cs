@@ -1,5 +1,8 @@
-﻿using SIE.Domain;
+﻿using SIE.Common.Configs;
+using SIE.Domain;
+using SIE.Domain.Validation;
 using SIE.Items;
+using SIE.MES.ReworkLayoutVersions.Configs;
 using SIE.MetaModel;
 using SIE.ObjectModel;
 using System;
@@ -15,6 +18,7 @@ namespace SIE.MES.ReworkLayoutVersions
     /// </summary>
     [RootEntity, Serializable]
     [Label("返工信息")]
+    [EntityWithConfig(typeof(ReworkInfoRecordEntityConfig))]
     [CriteriaQuery]
     public class ReworkInfoRecord : DataEntity
     {
@@ -169,11 +173,11 @@ namespace SIE.MES.ReworkLayoutVersions
         }
         #endregion
 
-        #region 生产部门 Department
+        #region 需求部门 Department
         /// <summary>
-        /// 生产部门
+        /// 需求部门
         /// </summary>
-        [Label("生产部门")]
+        [Label("需求部门")]
         public static readonly Property<string> DepartmentProperty = P<ReworkInfoRecord>.Register(e => e.Department);
 
         /// <summary>
@@ -359,6 +363,12 @@ namespace SIE.MES.ReworkLayoutVersions
 
     internal class ReworkInfoRecordConfig : EntityConfig<ReworkInfoRecord>
     {
+
+        protected override void AddValidations(IValidationDeclarer rules)
+        {
+            rules.AddRule(ReworkInfoRecord.UniqueCodeProperty, new NotDuplicateRule());
+            base.AddValidations(rules);
+        }
         protected override void ConfigMeta()
         {
             Meta.MapTable("REWORK_INFO_RECORD").MapAllProperties();

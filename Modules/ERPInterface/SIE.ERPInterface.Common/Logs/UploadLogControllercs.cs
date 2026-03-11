@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static NPOI.HSSF.Util.HSSFColor;
 
 namespace SIE.ERPInterface.Common.Logs
 {
@@ -24,6 +25,34 @@ namespace SIE.ERPInterface.Common.Logs
     /// </summary>
     public class UploadLogControllercs : DomainController, IUploadLogControllercs
     {
+
+        /// <summary>
+        /// 更新余料称重记录的数量
+        /// </summary>
+        /// <param name="ids"></param>
+        public virtual void EditScrapWeighingRecordQty(List<double> ids)
+        {
+            //获取事务上传
+            var trans = ids.SplitContains(i =>
+            {
+                return Query<UploadTransaction>().Where(p => i.Contains((double)p.BillId) && (p.State == ProcessState.Retry || p.State == ProcessState.Failed || p.State == ProcessState.Unprocessed) && p.TransactionType == TransactionType.ScrapWeighing && p.OrderType == OrderType.Deduction).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            //获取余料称重记录
+            var records = RT.Service.Resolve<FeedingRecordController>().GetScrapWeighingRecordsByIds(ids);
+
+            foreach (var record in records)
+            {
+                var tran = trans.FirstOrDefault(p => p.BillId == record.Id);
+                if (tran != null)
+                {
+                    tran.PersistenceStatus = PersistenceStatus.Modified;
+                    tran.Quantity = record.DeductedQty.Value;
+                }
+            }
+            if (trans.Count > 0)
+                RF.Save(trans);
+        }
+
         /// <summary>
         /// 更新扣料记录的数量
         /// </summary>
@@ -382,6 +411,8 @@ namespace SIE.ERPInterface.Common.Logs
                 q.Exists<ParentItem>((x, y) => y.Where(p => p.ItemId == x.ItemId && p.Bismt.Contains(criteria.Bismt)));
             if (criteria.WorkShopId != null)
                 q.Join<WorkOrder>((x, y) => x.WoNo == y.No).Join<WorkOrder, Enterprise>((x, y) => x.WorkShopId == y.Id && y.Name == criteria.WorkShop.Name);
+            if (!criteria.WorkShopCode.IsNullOrEmpty())
+                q.Join<WorkOrder>((x, y) => x.WoNo == y.No).Join<WorkOrder, Enterprise>((x, y) => x.WorkShopId == y.Id && y.Code == criteria.WorkShopCode);
             //ExtensionWoCrieriaCondition(q, criteria);
             var list = q.OrderBy(criteria.OrderInfoList).ToList(criteria.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
 
@@ -393,6 +424,7 @@ namespace SIE.ERPInterface.Common.Logs
                 foreach (var item in list.Where(p => p.WoNo == wo.No))
                 {
                     item.WorkShopName = wo.WorkShopName;
+                    item.WorkShopCode = wo.WorkShopCode;
                 }
             }
 

@@ -68,9 +68,9 @@ namespace SIE.Resources.WipResources
         /// </summary>
         /// <param name="workCenterCode"></param>
         /// <returns></returns>
-        public virtual EntityList<WipResource> GetWipResourcesByWorkCenterCode(string workCenterCode, double itemId, string key = null)
+        public virtual EntityList<WipResource> GetWipResourcesByWorkCenterCode(string workCenterCode, List<double> itemIds, string key = null)
         {
-            var list = Query<WipResource>().Join<AndonLine>((x, y) => x.Code == y.MachineCode).Join<AndonLine, WorkCenter>((x, y) => x.WorkCenterId == y.Id && y.Code == workCenterCode).Where(p => p.SQL<bool>($"EXISTS(SELECT 1 FROM PRODUCT_LINE WHERE PRODUCT_LINE.Wip_Resource_Id = T0.ID AND PRODUCT_LINE.IS_PHANTOM = 0 AND PRODUCT_LINE.Item_Id = {itemId})")).WhereIf(!key.IsNullOrEmpty(), p => p.Code.Contains(key) || p.Name.Contains(key)).OrderByDescending(p => p.SourceType).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var list = Query<WipResource>().Join<AndonLine>((x, y) => x.Code == y.MachineCode).Join<AndonLine, WorkCenter>((x, y) => x.WorkCenterId == y.Id && y.Code == workCenterCode).Where(p => p.SQL<bool>($"EXISTS(SELECT 1 FROM PRODUCT_LINE WHERE PRODUCT_LINE.Wip_Resource_Id = T0.ID AND PRODUCT_LINE.IS_PHANTOM = 0 AND PRODUCT_LINE.Item_Id in ({string.Join(",", itemIds)}))")).WhereIf(!key.IsNullOrEmpty(), p => p.Code.Contains(key) || p.Name.Contains(key)).OrderByDescending(p => p.SourceType).Distinct().ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             var ids1 = list.Select(p => p.Id).Distinct().ToList();
 
             var list1 = Query<WipResource>().Join<AndonLine>((x, y) => x.Code == y.MachineCode).Join<AndonLine, WorkCenter>((x, y) => x.WorkCenterId == y.Id && y.Code == workCenterCode).Where(p => !ids1.Contains(p.Id)).OrderByDescending(p => p.SourceType).WhereIf(!key.IsNullOrEmpty(), p => p.Code.Contains(key) || p.Name.Contains(key)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
@@ -483,7 +483,7 @@ namespace SIE.Resources.WipResources
             var query = Query<WipResource>();
             if (!keyword.IsNullOrEmpty())
             {
-                query.Where(p => p.Code.Contains(keyword) || p.Name.Contains(keyword));
+                query.Where(p => p.Code.Contains($"%{keyword}%") || p.Name.Contains($"%{keyword}%"));
             }
             if (employeeId.HasValue)
             {

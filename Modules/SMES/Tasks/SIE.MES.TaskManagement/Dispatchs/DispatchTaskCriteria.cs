@@ -148,15 +148,15 @@ namespace SIE.MES.TaskManagement.Dispatchs
         }
         #endregion
 
-        #region 车间 WorkShop
+        #region 车间编码 WorkShop
         /// <summary>
-        /// 车间
+        /// 车间编码
         /// </summary>
-        [Label("车间")]
+        [Label("车间编码")]
         public static readonly Property<string> WorkShopProperty = P<DispatchTaskCriteria>.Register(e => e.WorkShop);
 
         /// <summary>
-        /// 车间
+        /// 车间编码
         /// </summary>
         public string WorkShop
         {
@@ -227,6 +227,24 @@ namespace SIE.MES.TaskManagement.Dispatchs
             set { SetRefEntity(WorkOrderProperty, value); }
         }
         #endregion
+
+        #region 工单号 WorkOrderNo
+        /// <summary>
+        /// 工单号
+        /// </summary>
+        [Label("工单号")]
+        public static readonly Property<string> WorkOrderNoProperty = P<DispatchTaskCriteria>.Register(e => e.WorkOrderNo);
+
+        /// <summary>
+        /// 工单号
+        /// </summary>
+        public string WorkOrderNo
+        {
+            get { return this.GetProperty(WorkOrderNoProperty); }
+            set { this.SetProperty(WorkOrderNoProperty, value); }
+        }
+        #endregion
+
 
         #region 关联工序 Process
         /// <summary>

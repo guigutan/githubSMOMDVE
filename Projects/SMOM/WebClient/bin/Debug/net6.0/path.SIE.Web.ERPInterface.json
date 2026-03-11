@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\ERPInterface",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\ERPInterface",
   "SIE.Web.ERPInterface.DownloadManual.Common.Commands.DownloadCommand.js": "SIE.Web.ERPInterface/DownloadManual/Common/Commands/DownloadCommand.js",
   "SIE.Web.ERPInterface.DownloadManual.Customers.Commands.DlCustomerCommand.js": "SIE.Web.ERPInterface/DownloadManual/Customers/Commands/DlCustomerCommand.js",
   "SIE.Web.ERPInterface.DownloadManual.Employees.Commands.DlEmployeeCommand.js": "SIE.Web.ERPInterface/DownloadManual/Employees/Commands/DlEmployeeCommand.js",

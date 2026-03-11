@@ -41,7 +41,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                     View.Property(p => p.AndonTime1).Readonly().UseListSetting(p=>p.HelpInfo= andonTimeHelpInfoTips);
                     View.Property(p => p.AndonStopNum1).Readonly();
                     View.Property(p => p.AndonStopLine1).Readonly().UseListSetting(p=>p.HelpInfo= andonStopLineHelpInfoTips);
-                    View.Property(p => p.TriggerAccuracy1).Readonly().UseListSetting(p=>p.HelpInfo= triggerAccuracyHelpInfoTips);
+                    //View.Property(p => p.TriggerAccuracy1).Readonly().UseListSetting(p=>p.HelpInfo= triggerAccuracyHelpInfoTips);
                 }
                 using (View.DeclareBand("2月".L10N()))
                 {
@@ -49,7 +49,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                     View.Property(p => p.AndonTime2).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                     View.Property(p => p.AndonStopNum2).Readonly();
                     View.Property(p => p.AndonStopLine2).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                    View.Property(p => p.TriggerAccuracy2).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                    //View.Property(p => p.TriggerAccuracy2).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
                 }
                 using (View.DeclareBand("3月".L10N()))
                 {
@@ -57,7 +57,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                     View.Property(p => p.AndonTime3).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                     View.Property(p => p.AndonStopNum3).Readonly();
                     View.Property(p => p.AndonStopLine3).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                    View.Property(p => p.TriggerAccuracy3).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                    //View.Property(p => p.TriggerAccuracy3).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
                 }
                 using (View.DeclareBand("4月".L10N()))
                 {
@@ -65,7 +65,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                     View.Property(p => p.AndonTime4).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                     View.Property(p => p.AndonStopNum4).Readonly();
                     View.Property(p => p.AndonStopLine4).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                    View.Property(p => p.TriggerAccuracy4).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                    //View.Property(p => p.TriggerAccuracy4).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
                 }
                 using (View.DeclareBand("5月".L10N()))
                 {
@@ -73,7 +73,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                     View.Property(p => p.AndonTime5).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                     View.Property(p => p.AndonStopNum5).Readonly();
                     View.Property(p => p.AndonStopLine5).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                    View.Property(p => p.TriggerAccuracy5).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                    //View.Property(p => p.TriggerAccuracy5).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
                 }
                 using (View.DeclareBand("6月".L10N()))
                 {
@@ -81,7 +81,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                     View.Property(p => p.AndonTime6).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                     View.Property(p => p.AndonStopNum6).Readonly();
                     View.Property(p => p.AndonStopLine6).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                    View.Property(p => p.TriggerAccuracy6).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                    //View.Property(p => p.TriggerAccuracy6).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
                 }
                 
                 NextYear();
@@ -99,7 +99,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                 View.Property(p => p.AndonTime7).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                 View.Property(p => p.AndonStopNum7).Readonly();
                 View.Property(p => p.AndonStopLine7).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                View.Property(p => p.TriggerAccuracy7).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                //View.Property(p => p.TriggerAccuracy7).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
             }
             using (View.DeclareBand("8月".L10N()))
             {
@@ -107,7 +107,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                 View.Property(p => p.AndonTime8).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                 View.Property(p => p.AndonStopNum8).Readonly();
                 View.Property(p => p.AndonStopLine8).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                View.Property(p => p.TriggerAccuracy8).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                //View.Property(p => p.TriggerAccuracy8).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
             }
             using (View.DeclareBand("9月".L10N()))
             {
@@ -115,7 +115,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                 View.Property(p => p.AndonTime9).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                 View.Property(p => p.AndonStopNum9).Readonly();
                 View.Property(p => p.AndonStopLine9).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                View.Property(p => p.TriggerAccuracy9).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                //View.Property(p => p.TriggerAccuracy9).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
             }
             using (View.DeclareBand("10月".L10N()))
             {
@@ -123,7 +123,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                 View.Property(p => p.AndonTime10).Readonly();
                 View.Property(p => p.AndonStopNum10).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                 View.Property(p => p.AndonStopLine10).Readonly();
-                View.Property(p => p.TriggerAccuracy10).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                //View.Property(p => p.TriggerAccuracy10).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
             }
             using (View.DeclareBand("11月".L10N()))
             {
@@ -131,7 +131,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                 View.Property(p => p.AndonTime11).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                 View.Property(p => p.AndonStopNum11).Readonly();
                 View.Property(p => p.AndonStopLine11).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                View.Property(p => p.TriggerAccuracy11).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                //View.Property(p => p.TriggerAccuracy11).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
             }
             using (View.DeclareBand("12月".L10N()))
             {
@@ -139,7 +139,7 @@ namespace SIE.Web.Andon.AndonMonthReports
                 View.Property(p => p.AndonTime12).Readonly().UseListSetting(p => p.HelpInfo = andonTimeHelpInfoTips);
                 View.Property(p => p.AndonStopNum12).Readonly();
                 View.Property(p => p.AndonStopLine12).Readonly().UseListSetting(p => p.HelpInfo = andonStopLineHelpInfoTips);
-                View.Property(p => p.TriggerAccuracy12).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
+                //View.Property(p => p.TriggerAccuracy12).Readonly().UseListSetting(p => p.HelpInfo =triggerAccuracyHelpInfoTips);
             }
         }
     }

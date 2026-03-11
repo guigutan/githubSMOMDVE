@@ -2976,6 +2976,31 @@
             已出站
             </summary>
         </member>
+        <member name="T:SIE.Barcodes.WipBatchs.BatchType">
+            <summary>
+            批次类型
+            </summary>
+        </member>
+        <member name="F:SIE.Barcodes.WipBatchs.BatchType.Rework">
+            <summary>
+            返工
+            </summary>
+        </member>
+        <member name="F:SIE.Barcodes.WipBatchs.BatchType.Scraped">
+            <summary>
+            报废
+            </summary>
+        </member>
+        <member name="F:SIE.Barcodes.WipBatchs.BatchType.Suspect">
+            <summary>
+            可疑品
+            </summary>
+        </member>
+        <member name="F:SIE.Barcodes.WipBatchs.BatchType.Good">
+            <summary>
+            良品
+            </summary>
+        </member>
         <member name="T:SIE.Barcodes.WipBatchs.BatchWorkOrder">
             <summary>
             批次工单
@@ -3428,6 +3453,16 @@
             任务单Id
             </summary>
         </member>
+        <member name="F:SIE.Barcodes.WipBatchs.WipBatch.PackingTaskIdProperty">
+            <summary>
+            包装任务单Id
+            </summary>
+        </member>
+        <member name="P:SIE.Barcodes.WipBatchs.WipBatch.PackingTaskId">
+            <summary>
+            包装任务单Id
+            </summary>
+        </member>
         <member name="F:SIE.Barcodes.WipBatchs.WipBatch.ResourceCodeProperty">
             <summary>
             资源编码
@@ -3598,6 +3633,16 @@
             工单号
             </summary>
         </member>
+        <member name="F:SIE.Barcodes.WipBatchs.WipBatch.ProductIdProperty">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="P:SIE.Barcodes.WipBatchs.WipBatch.ProductId">
+            <summary>
+            产品Id
+            </summary>
+        </member>
         <member name="F:SIE.Barcodes.WipBatchs.WipBatch.ProductCodeProperty">
             <summary>
             产品编码
@@ -3649,6 +3694,13 @@
             </summary>
             <param name="wipBatches"></param>
             <param name="invOrg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.Barcodes.WipBatchs.WipBatchController.GetWipBatchesByPackingTaskIds(System.Collections.Generic.List{System.Double})">
+            <summary>
+            根据包装任务单获取标签
+            </summary>
+            <param name="taskIds"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.Barcodes.WipBatchs.WipBatchController.GetWipBatchType(SIE.Barcodes.WipBatchs.WipBatch)">

@@ -1228,6 +1228,51 @@
             接口添加
             </summary>
         </member>
+        <member name="T:SIE.Items.Items.UnValidFactoryItem">
+            <summary>
+            不校验工厂物料清单
+            </summary>
+        </member>
+        <member name="F:SIE.Items.Items.UnValidFactoryItem.ItemIdProperty">
+            <summary>
+            物料Id
+            </summary>
+        </member>
+        <member name="P:SIE.Items.Items.UnValidFactoryItem.ItemId">
+            <summary>
+            物料Id
+            </summary>
+        </member>
+        <member name="F:SIE.Items.Items.UnValidFactoryItem.ItemProperty">
+            <summary>
+            物料
+            </summary>
+        </member>
+        <member name="P:SIE.Items.Items.UnValidFactoryItem.Item">
+            <summary>
+            物料
+            </summary>
+        </member>
+        <member name="F:SIE.Items.Items.UnValidFactoryItem.ItemNameProperty">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="P:SIE.Items.Items.UnValidFactoryItem.ItemName">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="F:SIE.Items.Items.UnValidFactoryItem.ItemCodeProperty">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="P:SIE.Items.Items.UnValidFactoryItem.ItemCode">
+            <summary>
+            物料编码
+            </summary>
+        </member>
         <member name="T:SIE.Items.ItemBaseData">
             <summary>
             物料基本信息
@@ -2625,6 +2670,27 @@
             物料单位精度
             </summary>
             <returns>任务组集合</returns>
+        </member>
+        <member name="M:SIE.Items.ItemController.GetUnValidFactoryItemsByItemCodes(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据物料编码获取物料清单
+            </summary>
+            <param name="itemCodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.Items.ItemController.GetUnValidFactoryItemByItemCode(System.String)">
+            <summary>
+            根据物料编码获取物料清单
+            </summary>
+            <param name="itemCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.Items.ItemController.GetUnValidFactoryItemsByItemIds(System.Collections.Generic.List{System.Double})">
+            <summary>
+            根据物料ID获取物料清单
+            </summary>
+            <param name="itemIds"></param>
+            <returns></returns>
         </member>
         <member name="M:SIE.Items.ItemController.GetItemCusotmerRelationData(System.Double)">
             <summary>

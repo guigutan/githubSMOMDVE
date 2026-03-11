@@ -226,6 +226,11 @@
             采购送货单暂收上传业务数据接口实现
             </summary>
         </member>
+        <member name="M:SIE.ERPInterface.Sap.Upload.ReworkLayoutVersions.HttpSapReworkLayoutVersionController.UploadReworkLayoutVersionToErp">
+            <summary>
+            扣料上传
+            </summary>      
+        </member>
         <member name="T:SIE.ERPInterface.Sap.Upload.SaleOut.HttpSapSaleOutController">
             <summary>
             销售出库事务上传
@@ -1237,6 +1242,86 @@
         <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.PurchaseIn.SapTemporaryReceiveUploadData`1.ZSRMID">
             <summary>
             SRM单号
+            </summary>
+        </member>
+        <member name="T:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionResultData">
+            <summary>
+            返工信息返工数据
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionResultData.AUFNR">
+            <summary>
+            生产订单
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionResultData.ABLAD">
+            <summary>
+            卸货点
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionResultData.ZFKBS">
+            <summary>
+            反馈标识(S代表成功，E代表失败)
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionResultData.ZFKXX">
+            <summary>
+            反馈信息
+            </summary>
+        </member>
+        <member name="T:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData">
+            <summary>
+            上传数据
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.ZJSBS">
+            <summary>
+            标记(1、新增 2、修改3、关闭)
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.WERKS">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.MATNR">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.GAMNG">
+            <summary>
+            订单数量
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.DAUAT">
+            <summary>
+            订单类型
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.GSTRP">
+            <summary>
+            基本开始日期
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.GLTRP">
+            <summary>
+            基本完成日期
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.VERID">
+            <summary>
+            生产版本
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.ABLAD">
+            <summary>
+            卸货点
+            </summary>
+        </member>
+        <member name="P:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.ReworkLayoutVersions.KzReworkLayoutVersionUploadData.WEMPF">
+            <summary>
+            收货方
             </summary>
         </member>
         <member name="T:SIE.ERPInterface.Sap.Datas.ErpInfoDatas.SaleOut.SapSaleOutUploadDetail">

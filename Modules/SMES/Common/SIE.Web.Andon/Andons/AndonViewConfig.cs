@@ -74,9 +74,10 @@ namespace SIE.Web.Andon.Andons
             //View.Property(p => p.PushPlug);
             //View.Property(p => p.MessageTemplate).UseTextButtonFieldEditor(p => { p.ExtendJsObj = "SIE.Web.Andon.Andons.Scripts.AndonTypeMessageTemplateEditor"; p.Editable = false; });
             View.ChildrenProperty(p => p.MessageSendList).HasLabel("消息推送&升级机制").HasOrderNo(0);
-            View.ChildrenProperty(p => p.AndonSespList).HasLabel("安灯清单").HasOrderNo(1);
+            View.ChildrenProperty(p => p.AndonSespList).HasLabel("安灯清单").HasOrderNo(1).Show(ChildShowInWhere.Hide);
             View.ChildrenProperty(p => p.AndonPrepareProjectDetailList).HasOrderNo(2).Show(ChildShowInWhere.List);
-
+            View.ChildrenProperty(p => p.AndonResponseDetailList).Show(ChildShowInWhere.All).HasOrderNo(5);
+            View.ChildrenProperty(p => p.GeneralProbDtlList).Show(ChildShowInWhere.All).HasOrderNo(10);
         }
 
         /// <summary>

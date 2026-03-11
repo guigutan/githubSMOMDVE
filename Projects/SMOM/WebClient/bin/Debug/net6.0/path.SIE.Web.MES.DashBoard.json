@@ -1,6 +1,8 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards",
   "SIE.Web.MES.DashBoard.KzBoard.RegionBoards.Commands.SelectResourceCommand.js": "SIE.Web.MES.DashBoard/KzBoard/RegionBoards/Commands/SelectResourceCommand.js",
+  "SIE.Web.MES.DashBoard.ProductionProcesss.Commands.ProductionProcessDLTemplateCommand.js": "SIE.Web.MES.DashBoard/ProductionProcesss/Commands/ProductionProcessDLTemplateCommand.js",
+  "SIE.Web.MES.DashBoard.ProductionProcesss.Commands.ProductionProcessImportCommand.js": "SIE.Web.MES.DashBoard/ProductionProcesss/Commands/ProductionProcessImportCommand.js",
   "SIE.Web.MES.DashBoard.Reports.FpySettings.Commands.AddSettingCommand.js": "SIE.Web.MES.DashBoard/Reports/FpySettings/Commands/AddSettingCommand.js",
   "SIE.Web.MES.DashBoard.Reports.LineFPY.Commands.LineReportCriteriaCommand.js": "SIE.Web.MES.DashBoard/Reports/LineFPY/Commands/LineReportCriteriaCommand.js",
   "SIE.Web.MES.DashBoard.Reports.LineFPY.Commands.TargetParaCommand.js": "SIE.Web.MES.DashBoard/Reports/LineFPY/Commands/TargetParaCommand.js",

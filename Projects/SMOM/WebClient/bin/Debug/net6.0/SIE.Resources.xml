@@ -6869,6 +6869,111 @@
             库存组织备注
             </summary>
         </member>
+        <member name="T:SIE.Resources.UserGroups.UserGroupLog">
+            <summary>
+            用户组操作日志
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLog.UserGroupProperty">
+            <summary>
+            用户组
+            </summary>
+        </member>
+        <member name="P:SIE.Resources.UserGroups.UserGroupLog.UserGroup">
+            <summary>
+            用户组
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLog.UserGroupIdProperty">
+            <summary>
+            用户组Id
+            </summary>
+        </member>
+        <member name="P:SIE.Resources.UserGroups.UserGroupLog.UserGroupId">
+            <summary>
+            用户组Id
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLog.TypeProperty">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:SIE.Resources.UserGroups.UserGroupLog.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLog.StateProperty">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:SIE.Resources.UserGroups.UserGroupLog.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLog.OperateDataProperty">
+            <summary>
+            操作数据
+            </summary>
+        </member>
+        <member name="P:SIE.Resources.UserGroups.UserGroupLog.OperateData">
+            <summary>
+            操作数据
+            </summary>
+        </member>
+        <member name="T:SIE.Resources.UserGroups.UserGroupLogType">
+            <summary>
+            用户组操作日志类型
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLogType.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLogType.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLogType.Resource">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLogType.Factory">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLogType.InvOrg">
+            <summary>
+            库存组织
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLogType.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="T:SIE.Resources.UserGroups.UserGroupLogState">
+            <summary>
+            用户组操作日志状态
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLogState.Add">
+            <summary>
+            添加
+            </summary>
+        </member>
+        <member name="F:SIE.Resources.UserGroups.UserGroupLogState.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
         <member name="T:SIE.Resources.UserGroups.UserGroupResource">
             <summary>
             用户组与资源
@@ -6933,6 +7038,15 @@
             <summary>
             资源名称
             </summary>
+        </member>
+        <member name="M:SIE.Resources.UserGroups.UserGroupsController.CreateUserGroupLog(SIE.Rbac.Users.UserGroup,SIE.Resources.UserGroups.UserGroupLogType,SIE.Resources.UserGroups.UserGroupLogState,System.String)">
+            <summary>
+            创建操作日志
+            </summary>
+            <param name="userGroup"></param>
+            <param name="type"></param>
+            <param name="state"></param>
+            <param name="operateData"></param>
         </member>
         <member name="M:SIE.Resources.UserGroups.UserGroupsController.DeleteUserGroupEnterpriseSyncEmployee(SIE.Domain.EntityList{SIE.Resources.UserGroups.UserGroupEnterprise})">
             <summary>
@@ -7793,7 +7907,7 @@
             删除用户组中失效的资源
             </summary>
         </member>
-        <member name="M:SIE.Resources.WipResources.WipResourceController.GetWipResourcesByWorkCenterCode(System.String,System.Double,System.String)">
+        <member name="M:SIE.Resources.WipResources.WipResourceController.GetWipResourcesByWorkCenterCode(System.String,System.Collections.Generic.List{System.Double},System.String)">
             <summary>
             根据工作中心编码获取工作中心的产线资源
             </summary>

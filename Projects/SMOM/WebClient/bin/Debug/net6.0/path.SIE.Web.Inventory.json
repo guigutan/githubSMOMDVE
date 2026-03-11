@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Inventorys",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Inventorys",
   "SIE.Web.Inventory.Piles.Commands.BatchGeneratePileCommand.js": "SIE.Web.Inventory/Piles/Commands/BatchGeneratePileCommand.js",
   "SIE.Web.Inventory.Piles.Commands.PilePrintCommand.js": "SIE.Web.Inventory/Piles/Commands/PilePrintCommand.js",
   "SIE.Web.Inventory.Strategy.Commands.AddAssignRuleCommand.js": "SIE.Web.Inventory/Strategy/Commands/AddAssignRuleCommand.js",

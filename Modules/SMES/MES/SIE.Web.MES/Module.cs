@@ -20,11 +20,14 @@ using SIE.MES.ItemFixture;
 using SIE.MES.ItemLine;
 using SIE.MES.ItemProcess;
 using SIE.MES.LineAndon;
+using SIE.MES.ListAtts;
 using SIE.MES.LoadItemRecords;
 using SIE.MES.LoadItems;
 using SIE.MES.MtartProcessLookups;
 using SIE.MES.OnOffDuty;
 using SIE.MES.OnOffDutyA;
+using SIE.MES.OnOffDutyB;
+using SIE.MES.OrgLevels;
 using SIE.MES.Outsourcing;
 using SIE.MES.PackingPrints;
 using SIE.MES.PackingQC;
@@ -33,6 +36,7 @@ using SIE.MES.PanelBindings;
 using SIE.MES.PrepareProducts;
 using SIE.MES.ProcessPrepareRecords;
 using SIE.MES.ProcessProperty;
+using SIE.MES.ProductAgingProcesss;
 using SIE.MES.ProjectDesigns;
 using SIE.MES.Projects;
 using SIE.MES.QTimes;
@@ -360,10 +364,25 @@ namespace SIE.Web.MES
                 EntityType = typeof(OnOffDutyRecrodsA)
             }, new WebModuleMeta()
             {
+                Label = "B在岗信息",
+                EntityType = typeof(OnOffDutyBRecrods)
+            }, new WebModuleMeta()
+            {
                 Label = "看板区域维护",
                 EntityType = typeof(DesignerArea)
+            }, new WebModuleMeta()
+            {
+                Label = "人员组织架构",
+                EntityType = typeof(OrgLevel)
+            }, new WebModuleMeta()
+            {
+                Label = "产品老化工艺时间维护",
+                EntityType = typeof(ProductAgingProcess)
+            }, new WebModuleMeta()
+            {
+                Label = "考勤原始数据",
+                EntityType = typeof(ListAtt)
             }
-
             );
         }
 

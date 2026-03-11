@@ -10,6 +10,7 @@ using SIE.Resources.ProcessTechs;
 using SIE.Resources.ProcessTechTypes;
 using SIE.Resources.ShiftTypes;
 using SIE.Resources.Skills;
+using SIE.Resources.UserGroups;
 using SIE.Resources.WipResources;
 using SIE.Resources.WorkCenters;
 using SIE.Web.Configs;
@@ -100,6 +101,10 @@ namespace SIE.Web.Resources
             {
                 Label = "人员技能基础数据",
                 EntityType = typeof(PersonnelSkill)
+            },new WebModuleMeta()
+            { 
+                EntityType = typeof(UserGroupLog),
+                Label = "用户组操作日志"
             }
             );
 

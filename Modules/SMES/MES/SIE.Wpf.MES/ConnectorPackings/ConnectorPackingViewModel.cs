@@ -10,6 +10,7 @@ using SIE.EventMessages.MES.Dispatchs;
 using SIE.ManagedProperty;
 using SIE.MES.BlueLable;
 using SIE.MES.PackingQC;
+using SIE.MES.PackRule;
 using SIE.MES.TaskManagement.Dispatchs;
 using SIE.MES.TaskManagement.PackingQcs;
 using SIE.MES.TaskManagement.PackingQcs.Data;
@@ -110,12 +111,12 @@ namespace SIE.Wpf.MES.ConnectorPackings
         /// 需装箱数
         /// </summary>
         [Label("需装箱数")]
-        public static readonly Property<int> NeedQtyProperty = P<ConnectorPackingViewModel>.Register(e => e.NeedQty);
+        public static readonly Property<decimal> NeedQtyProperty = P<ConnectorPackingViewModel>.Register(e => e.NeedQty);
 
         /// <summary>
         /// 需装箱数
         /// </summary>
-        public int NeedQty
+        public decimal NeedQty
         {
             get { return this.GetProperty(NeedQtyProperty); }
             set { this.SetProperty(NeedQtyProperty, value); }
@@ -251,6 +252,15 @@ namespace SIE.Wpf.MES.ConnectorPackings
 
                 var packingQc = RT.Service.Resolve<PackingQcController>().GetPackingQc(Barcode);
 
+                //蓝标下明细为空，且有删除标识
+                var Blue = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
+                if (packingQc == null && Blue.CreateDeleteident == "删除")
+                {
+                    Error = "该蓝标状态为删除，不允许包装";
+                    Barcode = "";
+                    return;
+                }
+
                 if (BoxExChange == 0)
                 {
                     PackageSnRecordList.Clear();
@@ -307,7 +317,8 @@ namespace SIE.Wpf.MES.ConnectorPackings
                                 YXtBlue = "";
                                 return;
                             }
-                            if (xtBlue.PackageNum >= detailSum)
+                            //if (xtBlue.PackageNum >= detailSum)
+                            if (xtBlue.PackageNum >= packdetails.Sum(p => p.PackingNum))
                             {
                                 Barcode = "";
                                 Tips = "请点提交按钮,确认换箱!!!";
@@ -324,18 +335,35 @@ namespace SIE.Wpf.MES.ConnectorPackings
                             }
                         }
                     }
+                    else
+                    {
+                        if (YXtBlue != "")
+                        {
+                            var xtBluePackDtls = RT.Service.Resolve<PackingQcController>().GetPackingDetailsByBlueLabel(packingQc.BlueLabel);
+                            if (xtBluePackDtls.Count > 0)
+                            {
+                                Error = "该蓝标存在装箱明细，不允许换箱";
+                                Barcode = "";
+                                XtBlue = "";
+                                YXtBlue = "";
+                                return;
+                            }
+                        }
+                    }
                 }
 
                 XtBlue = Barcode;
                 //第一步 系统中是否有蓝标
-                if (BoxExChange == 0)
-                {
-                    blueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(Barcode);
-                }
-                else
-                {
-                    blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
-                }
+                //if (BoxExChange == 0)
+                //{
+                //    blueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(Barcode);
+                //}
+                //else
+                //{
+                //    blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
+                //}
+
+                blueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
 
                 if (blueBable == null)
                 {
@@ -455,6 +483,25 @@ namespace SIE.Wpf.MES.ConnectorPackings
             }
             else
             {
+                //批次标签
+                WipBatch wipBatch = new WipBatch();
+                wipBatch = RT.Service.Resolve<WipBatchController>().GetWipBatchPc(Barcode);
+                //第一步 工序标签是否存在
+                if (wipBatch == null)
+                {
+                    Error = "批次标签不存在!";
+                    Barcode = "";
+                    return;
+                }
+
+                var msg = RT.Service.Resolve<ConnectorPackingController>().ValidBatchSn(wipBatch);
+                if (!msg.IsNullOrEmpty())
+                {
+                    Error = msg;
+                    Barcode = "";
+                    return;
+                }
+
                 if (DeleteIdent == 1)
                 {
                     var message = DeleteLabel(Barcode);
@@ -472,23 +519,22 @@ namespace SIE.Wpf.MES.ConnectorPackings
                         return;
                     }
                 }
+                else
+                {
+                    if (blueBable.CreateDeleteident == "删除")
+                    {
+                        Error = "删除的蓝标不允许其他操作，只能移除";
+                        Barcode = "";
+                        return;
+                    }
+                }
 
                 var wipResource = RT.Service.Resolve<WipResourceController>().GetWipResource(PackresourceId);
-                //批次标签
-                WipBatch wipBatch = new WipBatch();
                 //包装采集主表
                 PackingQc packingQc = new PackingQc();
 
                 PackingDetail packingDetail = new PackingDetail();
 
-                //第一步 工序标签是否存在
-                wipBatch = RT.Service.Resolve<WipBatchController>().GetWipBatchPc(Barcode);
-                if (wipBatch == null)
-                {
-                    Error = "批次标签不存在!";
-                    Barcode = "";
-                    return;
-                }
                 string pcSn = "";
                 pcSn = wipBatch.BatchNo;
                 if (wipBatch.Isuse)
@@ -514,7 +560,7 @@ namespace SIE.Wpf.MES.ConnectorPackings
                 try
                 {
                     //SN和批次标签校验 前置是否报工
-                    RT.Service.Resolve<ITaskReportKZ>().ValidatePrepareProcessHasReport(Barcode, "成品包装");
+                    RT.Service.Resolve<ITaskReportKZ>().ValidatePrepareProcessHasReport(Barcode, "包装");
                 }
                 catch (Exception ex)
                 {
@@ -526,13 +572,13 @@ namespace SIE.Wpf.MES.ConnectorPackings
                 var dispatchTasks = RT.Service.Resolve<DispatchController>().GetDispatchTaskByWoPacking(WorkOrder.Id, PackresourceId);
                 if (dispatchTasks.Count == 0)
                 {
-                    Error = "工单【{0}】,资源【{1}】,工序【成品包装】对应的派工任务单不存在!".L10nFormat(WorkOrder.No, wipResource.Name);
+                    Error = "工单【{0}】,资源【{1}】,工序【包装】对应的派工任务单不存在!".L10nFormat(WorkOrder.No, wipResource.Name);
                     Barcode = "";
                     return;
                 }
-                var taskRemainQty = 0;
+                decimal taskRemainQty = 0;
                 //任务单与剩余可报工数字典，用于后面拆分标签的时候使用
-                Dictionary<double, int> taskDic = new Dictionary<double, int>();
+                Dictionary<double, decimal> taskDic = new Dictionary<double, decimal>();
                 NeedQty = 0;
                 foreach (var dispatchTask in dispatchTasks)
                 {
@@ -638,7 +684,7 @@ namespace SIE.Wpf.MES.ConnectorPackings
                             //先赋值，后面会对surplusNum进行重新计算
                             if (wipBatch.Qty > 0 && wipBatch.Qty != surplusNum)
                             {
-                                wipBatch.EditQtyProcessCode = "成品包装";
+                                wipBatch.EditQtyProcessCode = "包装";
                             }
                             wipBatch.Qty = surplusNum;
                             //packingDetail.PackingNum = splitNum;
@@ -673,7 +719,7 @@ namespace SIE.Wpf.MES.ConnectorPackings
                                         break;
                                     }
                                 }
-                                SaveWipBatch((double)WorkOrderId, (int)chaiQty/*packingQty*//*(blueZInt - blueInt)*/, newWipName, Barcode, "成品包装", dic.Key);
+                                SaveWipBatch((double)WorkOrderId, (int)chaiQty/*packingQty*//*(blueZInt - blueInt)*/, newWipName, Barcode, "包装", dic.Key);
                                 SnTaskDic.Add(newWipName, dic.Key);
                                 pq -= chaiQty;
                                 if (pq <= 0)
@@ -701,7 +747,7 @@ namespace SIE.Wpf.MES.ConnectorPackings
                             pq = wipBatch.Qty;
                         }
                         var index = 0;
-                        var num = 0;
+                        decimal num = 0;
                         //此处要记一个数量，如2个任务单，数量分别是10，10，但是如果标签数为15，那么就只能拆一个标签出来，因为需要保存原标签，否则原标签数量就变成了0,index永远要比任务单数量少,计算有多少个任务单可以参与计算
                         foreach (var dic in taskDic)
                         {
@@ -740,7 +786,7 @@ namespace SIE.Wpf.MES.ConnectorPackings
                                     break;
                                 }
                             }
-                            SaveWipBatch((double)WorkOrderId, (int)chaiQty/*packingQty*//*(blueZInt - blueInt)*/, newWipName, Barcode, "成品包装", dic.Key);
+                            SaveWipBatch((double)WorkOrderId, (int)chaiQty/*packingQty*//*(blueZInt - blueInt)*/, newWipName, Barcode, "包装", dic.Key);
                             SnTaskDic.Add(newWipName, dic.Key);
                             blueInt += (int)chaiQty;
                             pq -= chaiQty;
@@ -897,7 +943,7 @@ namespace SIE.Wpf.MES.ConnectorPackings
                     SnIdent = 0;
                     packingQc.BoxState = BoxStateEnum.NO;
                     RF.Save(packingQc);
-                    string submitMessage = RT.Service.Resolve<PackingQcController>().SubmitData(packingQc, autoFeeding: true, IsTaskFinish: false, SnTaskDic);
+                    string submitMessage = RT.Service.Resolve<PackingQcController>().SubmitData(packingQc, autoFeeding: true, IsTaskFinish: false);
                     record.ReturnMessage = submitMessage;
                     RF.Save(record);
                     if (submitMessage != "")
@@ -1020,6 +1066,15 @@ namespace SIE.Wpf.MES.ConnectorPackings
         {
             //主表
             var packingQc = RT.Service.Resolve<PackingQcController>().GetPackingQc(XtBlue);
+            try
+            {
+                //校验移除
+                RT.Service.Resolve<ConnectorPackingController>().ValidBatchDeleteLabel(barcode, WorkOrder.Id);
+            }
+            catch (Exception ex)
+            {
+                return ex.GetBaseException().Message;
+            }
             //从表
             var packingDetailList = RT.Service.Resolve<PackingQcController>().GetPackingDetailsByids(packingQc.Id);
             var wipBatch = RT.Service.Resolve<WipBatchController>().GetWipBatch(barcode);

@@ -322,6 +322,14 @@ namespace SIE.Inventory.Transactions
         /// </summary>
         [Category("KZ")]
         [Label("发货确认")]
-        OutboundConfirm = 133
+        OutboundConfirm = 133,
+
+        /// <summary>
+        /// 返工信息
+        /// </summary>
+        [Category("KZ")]
+        [Label("返工信息")]
+        ReworkInfoRecord = 134,
+
     }
 }

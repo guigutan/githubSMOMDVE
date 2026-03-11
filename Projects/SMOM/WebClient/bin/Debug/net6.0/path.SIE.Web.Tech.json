@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Techs",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Techs",
   "SIE.Web.Tech.Common.Commands.ImportDataCommonCommand.js": "SIE.Web.Tech/Common/Commands/ImportDataCommonCommand.js",
   "SIE.Web.Tech.Processs.Commands.EditProcessCommand.js": "SIE.Web.Tech/Processs/Commands/EditProcessCommand.js",
   "SIE.Web.Tech.Processs.Commands.ProcessDownloadTemplateCommand.js": "SIE.Web.Tech/Processs/Commands/ProcessDownloadTemplateCommand.js",

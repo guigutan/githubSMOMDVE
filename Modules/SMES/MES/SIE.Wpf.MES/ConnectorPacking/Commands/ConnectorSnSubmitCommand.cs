@@ -1,4 +1,5 @@
 ﻿using SIE.Domain;
+using SIE.MES.BlueLable;
 using SIE.MES.PackingQC;
 using SIE.Wpf.Command;
 using SIE.Wpf.MES.WIP;
@@ -45,8 +46,8 @@ namespace SIE.Wpf.MES.ConnectorPacking.Commands
                 MessageBoxImage.Information);
                 if (result == MessageBoxResult.OK)
                 {
-                    var XtblueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(vm1.XtBlue);
-                    var YXtblueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(vm1.YXtBlue);
+                    var XtblueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(vm1.XtBlue);
+                    var YXtblueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(vm1.YXtBlue);
                     if (XtblueBable.ProductionNo == YXtblueBable.ProductionNo)
                     {
                         //查找包装QC主表BlueLableController
@@ -62,6 +63,10 @@ namespace SIE.Wpf.MES.ConnectorPacking.Commands
                             packingQc.IsUploadSap = false;
                             packingQc.UploadResult = "";
                             packingQc.BlueLableNum = XtblueBable.PackageNum;
+                            if (packingQc.PackingDetailList.Sum(p => p.PackingNum) == packingQc.BlueLableNum)
+                            {
+                                packingQc.PackIdent = PackIdentEnum.FullTank;
+                            }
                             RF.Save(packingQc);
                             YXtblueBable.IsPack = false;
                             XtblueBable.IsPack = true;
@@ -110,6 +115,10 @@ namespace SIE.Wpf.MES.ConnectorPacking.Commands
                             packingQc.BoxState = BoxStateEnum.NO;
 
                             RF.Save(packingQc);
+                            if (vm1.blueInt == vm1.blueZInt)
+                            {
+                                packingQc.PackIdent = PackIdentEnum.FullTank;
+                            }
 
                             PackingReportRecord record = new PackingReportRecord();
                             record.BeginDate = DateTime.Now;
@@ -146,7 +155,7 @@ namespace SIE.Wpf.MES.ConnectorPacking.Commands
                     {
                         vm1.PackageSnRecordList.Clear();
                         packingQc.BoxState = BoxStateEnum.NO;
-                        packingQc.PackIdent = PackIdentEnum.FullTank;
+                        //packingQc.PackIdent = PackIdentEnum.FullTank;
                         RF.Save(packingQc);
                     }
 

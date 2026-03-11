@@ -209,6 +209,16 @@ namespace SIE.Wpf.MES.NewPackingQcC
             if (BoolBlue)
             {
                 var packingQc = RT.Service.Resolve<PackingQcController>().GetPackingQc(Barcode);
+
+                //蓝标下明细为空，且有删除标识
+                var Blue = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
+                if (packingQc == null && Blue.CreateDeleteident == "删除")
+                {
+                    Error = "该蓝标状态为删除，不允许包装";
+                    Barcode = "";
+                    return;
+                }
+
                 if (BoxExChange == 0)
                 {
                     PackageSnRecordList.Clear();
@@ -263,7 +273,8 @@ namespace SIE.Wpf.MES.NewPackingQcC
                                 YXtBlue = "";
                                 return;
                             }
-                            if (xtBlue.PackageNum >= detailSum)
+                            //if (xtBlue.PackageNum >= detailSum)
+                            if (xtBlue.PackageNum >= packdetails.Sum(p => p.PackingNum))
                             {
                                 Barcode = "";
                                 Tips = "请点提交按钮,确认换箱!!!";
@@ -280,6 +291,22 @@ namespace SIE.Wpf.MES.NewPackingQcC
                             }
                         }
                     }
+                    else
+                    {
+                        if (YXtBlue != "")
+                        {
+                            var xtBluePackDtls = RT.Service.Resolve<PackingQcController>().GetPackingDetailsByBlueLabel(packingQc.BlueLabel);
+                            if (xtBluePackDtls.Count > 0)
+                            {
+                                Error = "该蓝标存在装箱明细，不允许换箱";
+                                Barcode = "";
+                                XtBlue = "";
+                                YXtBlue = "";
+                                return;
+                            }
+                        }
+                    }
+
                 }
 
                 XtBlue = Barcode;
@@ -506,7 +533,7 @@ namespace SIE.Wpf.MES.NewPackingQcC
                         {
 
                             //把物料标签放入到批次标签里面
-                            if (!SaveWipBatch(itemLabel, (double)WorkOrderId, "成品包装"))
+                            if (!SaveWipBatch(itemLabel, (double)WorkOrderId, "包装"))
                             {
                                 Error = "物料标签保存失败!";
                                 Barcode = "";

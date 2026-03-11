@@ -89,6 +89,45 @@ namespace SIE.Andon.Andons
         }
         #endregion
 
+        #region 安灯责任组维护基础表
+
+        /// <summary>
+        /// 根据安灯管理获取安灯责任组用户
+        /// </summary>
+        /// <param name="AndonManageId"></param>
+        /// <returns></returns>
+        public virtual EntityList<AndonGroupDetail> GetAndonGroupDetailsByAndonManageId(double andonManageId, double andonUpholdId)
+        {
+            var list = Query<AndonGroupDetail>().Join<AndonGroup>((x, y) => x.AndonGroupId == y.Id)
+                .Join<AndonGroup, AndonResponseDetail>((x, y) => x.Id == y.AndonGroupId && y.AndonUpholdId == andonUpholdId)
+                .Join<AndonResponseDetail, Andon>((x, y) => x.AndonId == y.Id)
+                .Join<Andon, AndonManage>((x, y) => x.Id == y.AndonId && y.Id == andonManageId).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            return list;               
+        }
+
+        /// <summary>
+        /// 添加安灯责任组维护基础表明细
+        /// </summary>
+        /// <param name="datas"></param>
+        public virtual void SaveAndonGroupDetail(List<AndonGroupDetail> datas)
+        {
+            EntityList<AndonGroupDetail> list = new EntityList<AndonGroupDetail>();
+            foreach (var data in datas)
+            {
+                AndonGroupDetail detail = new AndonGroupDetail();
+
+                detail.PersistenceStatus = PersistenceStatus.New;
+                detail.AndonGroupId = data.AndonGroupId;
+                detail.UserId = data.UserId;
+                list.Add(detail);
+            }
+            if (list.Count > 0)
+                RF.Save(list);
+        }
+
+
+        #endregion
+
         /// <summary>
         /// 根据安灯类型Id获取安灯类型
         /// </summary>

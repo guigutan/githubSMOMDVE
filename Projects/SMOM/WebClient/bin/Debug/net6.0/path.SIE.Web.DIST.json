@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DIST",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DIST",
   "SIE.Web.DIST.Distribution.Commands.BillLabelPrintCommand.js": "SIE.Web.DIST/Distribution/Commands/BillLabelPrintCommand.js",
   "SIE.Web.DIST.GoodsIssue.Commands.GoodsIssuePropertyValueAddCommand.js": "SIE.Web.DIST/GoodsIssue/Commands/GoodsIssuePropertyValueAddCommand.js",
   "SIE.Web.DIST.GoodsIssue.Commands.DistributionCommand.js": "SIE.Web.DIST/GoodsIssue/Commands/DistributionCommand.js",

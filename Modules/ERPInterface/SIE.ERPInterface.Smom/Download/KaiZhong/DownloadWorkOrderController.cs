@@ -911,7 +911,22 @@ namespace SIE.ERPInterface.Smom.Download.KaiZhong
 
                         }
                     }
+
+                    //返工类型的工单要自动派工,不需要走下面的校验
+                    if (workOrder.Type == WorkOrderType.Rework)
+                    {
+                        var errMsg = RT.Service.Resolve<DispatchController>().DispatchTasks(new List<double>() { task.Id });
+                        if (errMsg.Length == 0)
+                        { }
+                        else
+                            throw new ValidationException(errMsg);
+                        continue;
+                    }
+
                     EntityList<ProcessPty> processPtys = RT.Service.Resolve<ProcessPtyController>().GetProcessPtysByProcessIds(new List<double>() { task.ProcessId.Value }, workOrder.ProductId);
+                    if (processPtys.Count < 1)
+                        continue;
+
                     var kzItemCategory = RT.Service.Resolve<KzItemCategorysController>().GetKzItemCategorieByItemId(workOrder.ProductId);
                     var pps = new List<ProcessPty>();
                     if (kzItemCategory != null)
@@ -1259,24 +1274,38 @@ namespace SIE.ERPInterface.Smom.Download.KaiZhong
             var layoutInfos = workOrder.LayoutInfoList;//RT.Service.Resolve<WorkOrderController>().GetLayoutInfosByWorkOrderId(workOrder.Id);
             double? startProcess = null;
             double? endProcess = null;
-            //判断首工序
-            foreach (var layoutInfo in layoutInfos.OrderBy(p => Convert.ToDecimal(p.Vornr)))
+            if (workOrder.Type == Core.WorkOrders.WorkOrderType.Rework)
             {
-                var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode && (p.Scheduling == true || p.DispatchWork == true));
-                if (processPty != null)
-                {
-                    startProcess = processPty.ProcessId;
-                    break;
-                }
+                //返工工单只有最后一个工序需要生成任务单不管是不是工序属性有没有配置
+                //var layoutInfo = layoutInfos.OrderByDescending(p => Convert.ToDecimal(p.Vornr)).FirstOrDefault();
+                //var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode);
+                //startProcess = processPty.ProcessId;
+                //endProcess = processPty.ProcessId;
+                //返工任务单只有最后一个工序,设置为首末工序
+                startProcess = workOrder.RoutingProcessList.OrderByDescending(p => p.Index).FirstOrDefault().ProcessId.Value;
+                endProcess = workOrder.RoutingProcessList.OrderByDescending(p => p.Index).FirstOrDefault().ProcessId.Value;
             }
-            //判断尾工序
-            foreach (var layoutInfo in layoutInfos.OrderByDescending(p => Convert.ToDecimal(p.Vornr)))
+            else
             {
-                var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode && (p.Scheduling == true || p.DispatchWork == true));
-                if (processPty != null)
+                //判断首工序
+                foreach (var layoutInfo in layoutInfos.OrderBy(p => Convert.ToDecimal(p.Vornr)))
                 {
-                    endProcess = processPty.ProcessId;
-                    break;
+                    var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode && (p.Scheduling == true || p.DispatchWork == true));
+                    if (processPty != null)
+                    {
+                        startProcess = processPty.ProcessId;
+                        break;
+                    }
+                }
+                //判断尾工序
+                foreach (var layoutInfo in layoutInfos.OrderByDescending(p => Convert.ToDecimal(p.Vornr)))
+                {
+                    var processPty = processPtys.FirstOrDefault(p => p.ProcessCode == layoutInfo.ProcessCode && (p.Scheduling == true || p.DispatchWork == true));
+                    if (processPty != null)
+                    {
+                        endProcess = processPty.ProcessId;
+                        break;
+                    }
                 }
             }
             foreach (var item in workOrder.RoutingProcessList)

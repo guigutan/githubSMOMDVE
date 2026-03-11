@@ -16,8 +16,13 @@ namespace SIE.Web.MES.DesignerAreas
             View.UseDefaultCommands();
             View.UseCommands(WebCommandNames.ExportXls, WebCommandNames.ExportXlsSelection, WebCommandNames.ExportXlsAll);
 
-            //View.UseCommands(typeof(DesignerAreaImportCommand).FullName, typeof(DesignerAreaDLTemplateCommand).FullName);
-           
+            View.UseCommands(typeof(DesignerAreaImportCommand).FullName, typeof(DesignerAreaDLTemplateCommand).FullName);
+
+            using (View.OrderProperties())
+            {
+                View.Property(p => p.AreaCode).ShowInList(width: 100);
+                View.Property(p => p.AreaName).ShowInList(width: 100);
+            }
             View.Property(p => p.AreaCode).ShowInList(width: 100);
             View.Property(p => p.AreaName).ShowInList(width: 100); 
 

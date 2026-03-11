@@ -4976,6 +4976,11 @@
             发货确认
             </summary>
         </member>
+        <member name="F:SIE.Core.Enums.OrderType.ReworkInfoRecord">
+            <summary>
+            返工信息
+            </summary>
+        </member>
         <member name="T:SIE.Core.Enums.ProcessStatus">
             <summary>
             

@@ -152,7 +152,7 @@ namespace SIE.Core
         public static bool IsValidDate(int year, int month, int day)
         {
             // 年份范围限制（可根据业务调整）
-            if (year < 1900 || year > 2100) return false;
+            if (year < 1900 || year > 9999) return false;
 
             // 月份必须1-12
             if (month < 1 || month > 12) return false;

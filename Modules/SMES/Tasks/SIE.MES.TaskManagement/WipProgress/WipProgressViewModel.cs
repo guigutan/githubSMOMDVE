@@ -307,7 +307,7 @@ namespace SIE.MES.TaskManagement.WipProgress
                 qty = PlanQty - FinishQty;
             else
                 qty = PreOkQty - FinishQty;
-            return qty;
+            return qty<=0?0:qty;
         }
         #endregion
 

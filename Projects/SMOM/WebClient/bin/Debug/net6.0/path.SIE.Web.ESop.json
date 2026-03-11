@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Esop",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Esop",
   "SIE.Web.ESop.Displays.Commands.InitESopCommand.js": "SIE.Web.ESop/Displays/Commands/InitESopCommand.js",
   "SIE.Web.ESop.Documents.Commands.DocumentSaveCommand.js": "SIE.Web.ESop/Documents/Commands/DocumentSaveCommand.js",
   "SIE.Web.ESop.Documents.Commands.DownloadCommand.js": "SIE.Web.ESop/Documents/Commands/DownloadCommand.js",

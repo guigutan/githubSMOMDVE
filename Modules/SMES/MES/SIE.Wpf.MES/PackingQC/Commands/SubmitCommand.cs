@@ -47,7 +47,7 @@ namespace SIE.Wpf.MES.PackingQC.Commands
                 MessageBoxImage.Information);
                 if (result == MessageBoxResult.OK)
                 {
-                    var XtblueBable = RT.Service.Resolve<PackingQcController>().GetBlueLable(vm1.XtBlue);
+                    var XtblueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(vm1.XtBlue);
                     var YXtblueBable = RT.Service.Resolve<PackingQcController>().AllBlueLable(vm1.YXtBlue);
                     if (XtblueBable.ProductionNo == YXtblueBable.ProductionNo)
                     {
@@ -60,6 +60,10 @@ namespace SIE.Wpf.MES.PackingQC.Commands
                             packingQc.IsUploadSap = false;
                             packingQc.UploadResult = "";
                             packingQc.BlueLableNum = XtblueBable.PackageNum;
+                            if (packingQc.PackingDetailList.Sum(p => p.PackingNum) == packingQc.BlueLableNum)
+                            {
+                                packingQc.PackIdent = PackIdentEnum.FullTank;
+                            }
                             RF.Save(packingQc);
                             YXtblueBable.IsPack = false;
                             XtblueBable.IsPack = true;

@@ -629,6 +629,31 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
+        <member name="M:SIE.Web.Andon.Andons.Commands.AndonGroupDetailSelectUserCommand.Excute(SIE.Web.Command.ViewArgs,System.String)">
+            <summary>
+            添加用户
+            </summary>
+            <param name="args"></param>
+            <param name="scope"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SIE.Web.Andon.Andons.Commands.AndonGroupDtlImportCommand.parentId">
+            <summary>
+            父Id
+            </summary>
+        </member>
+        <member name="M:SIE.Web.Andon.Andons.Commands.AndonGroupDtlImportCommand.OnSave(System.Collections.Generic.IList{SIE.Common.Import.RowData})">
+            <summary>
+            保存
+            </summary>
+            <param name="batch"></param>
+        </member>
+        <member name="M:SIE.Web.Andon.Andons.Commands.AndonGroupImportCommand.OnSave(System.Collections.Generic.IList{SIE.Common.Import.RowData})">
+            <summary>
+            保存
+            </summary>
+            <param name="batch"></param>
+        </member>
         <member name="T:SIE.Web.Andon.Andons.Commands.AndonManageAddCommand">
             <summary>
             安灯管理触发命令
@@ -797,6 +822,17 @@
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
+        <member name="P:SIE.Web.Andon.Andons.Commands.AndonResponseDtlImportCommand.parentId">
+            <summary>
+            父Id
+            </summary>
+        </member>
+        <member name="M:SIE.Web.Andon.Andons.Commands.AndonResponseDtlImportCommand.OnSave(System.Collections.Generic.IList{SIE.Common.Import.RowData})">
+            <summary>
+            保存
+            </summary>
+            <param name="batch"></param>
+        </member>
         <member name="T:SIE.Web.Andon.Andons.Commands.AndonSaveCommand">
             <summary>
             安灯维护保存命令
@@ -869,6 +905,17 @@
             <summary>
             安灯类型维护保存命令
             </summary>
+        </member>
+        <member name="P:SIE.Web.Andon.Andons.Commands.GeneralProbDtlImportCommand.parentId">
+            <summary>
+            父Id
+            </summary>
+        </member>
+        <member name="M:SIE.Web.Andon.Andons.Commands.GeneralProbDtlImportCommand.OnSave(System.Collections.Generic.IList{SIE.Common.Import.RowData})">
+            <summary>
+            保存
+            </summary>
+            <param name="batch"></param>
         </member>
         <member name="T:SIE.Web.Andon.Andons.Configs.AndonManageCodeValueViewConfig">
             <summary>

@@ -233,6 +233,16 @@ namespace SIE.Wpf.MES.NewPackingQcD
             SnIdent = 0;
             // PackresourceId = 0;
             var packingQc = RT.Service.Resolve<PackingQcController>().GetPackingQc(Barcode);
+
+            //蓝标下明细为空，且有删除标识
+            var Blue = RT.Service.Resolve<PackingQcController>().AllBlueLable(Barcode);
+            if (packingQc == null && Blue.CreateDeleteident == "删除")
+            {
+                Error = "该蓝标状态为删除，不允许包装";
+                Barcode = "";
+                return;
+            }
+
             if (BoxExChange == 0)
             {
                 PackageSnRecordList.Clear();
@@ -249,7 +259,6 @@ namespace SIE.Wpf.MES.NewPackingQcD
                     }
                     if (BoxExChange == 1)
                     {
-                        YXtBlue = XtBlue;
                         XtBlue = Barcode;
                         //原蓝标查询所有蓝标
                         var yXtBlue = RT.Service.Resolve<PackingQcController>().AllBlueLable(YXtBlue);
@@ -259,6 +268,7 @@ namespace SIE.Wpf.MES.NewPackingQcD
                         var packdetails = RT.Service.Resolve<PackingQcController>().GetPackingDetailsByids(yXpackingQc.Id);
                         var detailSum = packdetails.Count();
                         var xtBlue = RT.Service.Resolve<PackingQcController>().GetBlueLable(XtBlue);
+                        YXtBlue = XtBlue;
                         if (xtBlue == null)
                         {
                             Error = "新蓝标在系统中不存在,新蓝标【" + Barcode + "】!!!";
@@ -267,7 +277,8 @@ namespace SIE.Wpf.MES.NewPackingQcD
                             YXtBlue = "";
                             return;
                         }
-                        if (xtBlue.PackageNum <= yXtBlue.PackageNum && xtBlue.PackageNum >= detailSum)
+                        //if (xtBlue.PackageNum <= yXtBlue.PackageNum && xtBlue.PackageNum >= detailSum)
+                        if (xtBlue.PackageNum >= packdetails.Sum(p => p.PackingNum))
                         {
                             Barcode = "";
                             Tips = "请点提交按钮,确认换箱!!!";
@@ -280,6 +291,21 @@ namespace SIE.Wpf.MES.NewPackingQcD
                             YXtBlue = "";
                             Error = "换箱失败,新蓝标数量【" + xtBlue.PackageNum + "】,原蓝标数量【" + yXtBlue.PackageNum + "】,已装箱数【" + detailSum + "】";
                             Tips = "请输入已装箱的蓝标!!!";
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    if (YXtBlue != "")
+                    {
+                        var xtBluePackDtls = RT.Service.Resolve<PackingQcController>().GetPackingDetailsByBlueLabel(packingQc.BlueLabel);
+                        if (xtBluePackDtls.Count > 0)
+                        {
+                            Error = "该蓝标存在装箱明细，不允许换箱";
+                            Barcode = "";
+                            XtBlue = "";
+                            YXtBlue = "";
                             return;
                         }
                     }

@@ -70,17 +70,5 @@
 
             }
         });
-
-    //    view.execute({
-    //        data: selectionIds,
-    //        success: function (res) {
-    //            store.commitChanges();
-    //            view.removeSelection();
-    //            view.setCurrent(null, true);
-    //        },
-    //        error: function (res) {
-    //            store.rejectChanges();
-    //        }
-    //    });
     }
 });

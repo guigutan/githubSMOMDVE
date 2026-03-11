@@ -1,8 +1,10 @@
-﻿using SIE.Core.Common;
+﻿using SIE.Common.Configs;
+using SIE.Core.Common;
 using SIE.Core.Items;
 using SIE.Domain;
 using SIE.Domain.Validation;
 using SIE.MES.BatchWIP.Products;
+using SIE.MES.Outsourcing.Configs;
 using SIE.MES.Outsourcing.InStocks;
 using SIE.MES.Outsourcing.Outbounds;
 using SIE.MES.WIP.Products;
@@ -20,7 +22,17 @@ namespace SIE.MES.Outsourcing
     /// </summary>
     public class OutsourcingController : DomainController
     {
-
+        /// <summary>
+        /// 获取委外报工配置项
+        /// </summary>
+        /// <returns></returns>
+        public virtual OutsourcingReportConfigValue GetOutsourcingReportConfig()
+        {
+            var config = ConfigService.GetConfig(new OutsourcingReportConfig(), typeof(OutsourcingRequest));
+            if(config == null)
+                throw new ValidationException("委外报工配置项不存在");
+            return config;
+        }
 
         #region 发货确认明细
 
@@ -183,6 +195,20 @@ namespace SIE.MES.Outsourcing
         }
 
         /// <summary>
+        /// 根据标签号获取委外收货明细
+        /// </summary>
+        /// <param name="sns"></param>
+        /// <returns></returns>
+        public virtual EntityList<ProcessingInStock> GetProcessingInStocksBySns(List<string> sns)
+        {
+            var list = sns.SplitContains(temp =>
+            {
+                return Query<ProcessingInStock>().Where(p => temp.Contains(p.SN)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            return list;
+        }
+
+        /// <summary>
         /// 根据Id获取委外需求单收货列表
         /// </summary>
         /// <param name="Ids"></param>
@@ -192,6 +218,20 @@ namespace SIE.MES.Outsourcing
             var list = Ids.SplitContains(items =>
             {
                 return Query<ProcessingInStock>().Where(p => items.Contains(p.Id)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            return list;
+        }
+
+        /// <summary>
+        /// 根据标签获取委外发货明细
+        /// </summary>
+        /// <param name="sns"></param>
+        /// <returns></returns>
+        public virtual EntityList<ProcessingOutbound> GetProcessingOutboundsBySns(List<string> sns)
+        {
+            var list = sns.SplitContains(temp =>
+            {
+                return Query<ProcessingOutbound>().Where(p => temp.Contains(p.SN)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             });
             return list;
         }

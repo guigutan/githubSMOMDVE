@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
   "SIE.Web.EMS.SpecialEquipment.Commands.SelEquipAccountInspectionCommand.js": "SIE.Web.EMS.SpecialEquipment/Commands/SelEquipAccountInspectionCommand.js",
   "SIE.Web.EMS.SpecialEquipment.Commands.SelModelInspectionCommand.js": "SIE.Web.EMS.SpecialEquipment/Commands/SelModelInspectionCommand.js",
   "SIE.Web.EMS.SpecialEquipment.Commands.SynSpecialModelCommand.js": "SIE.Web.EMS.SpecialEquipment/Commands/SynSpecialModelCommand.js",

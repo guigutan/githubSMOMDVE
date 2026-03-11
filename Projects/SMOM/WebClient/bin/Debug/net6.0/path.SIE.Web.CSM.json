@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\CSM",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\CSM",
   "SIE.Web.CSM.Customers.Commands.CustomerDeleteCommand.js": "SIE.Web.CSM/Customers/Commands/CustomerDeleteCommand.js",
   "SIE.Web.CSM.Customers.Commands.CustomerSaveCommand.js": "SIE.Web.CSM/Customers/Commands/CustomerSaveCommand.js",
   "SIE.Web.CSM.ItemInspCharacteristicses.Commands.BatchSettingCommand.js": "SIE.Web.CSM/ItemInspCharacteristicses/Commands/BatchSettingCommand.js",

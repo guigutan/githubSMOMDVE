@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses",
   "SIE.Web.Warehouses.Commands.AddBaseItemIOLimitCommand.js": "SIE.Web.Warehouses/Commands/AddBaseItemIOLimitCommand.js",
   "SIE.Web.Warehouses.Commands.SynchronizeToEmployeesCommand.js": "SIE.Web.Warehouses/Commands/SynchronizeToEmployeesCommand.js",
   "SIE.Web.Warehouses.Commands.InEmployeeWarehouseCommand.js": "SIE.Web.Warehouses/Commands/InEmployeeWarehouseCommand.js",

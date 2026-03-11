@@ -359,7 +359,7 @@ namespace SIE.MES.TaskManagement.ProcessPrepareRecords
 
         public virtual ProcessPrepareRecord GetProcessPrepareRecord(double id)
         {
-            return Query<ProcessPrepareRecord>().Where(p => p.Id == id).FirstOrDefault();
+            return Query<ProcessPrepareRecord>().Where(p => p.Id == id).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
         }
 
         /// <summary>

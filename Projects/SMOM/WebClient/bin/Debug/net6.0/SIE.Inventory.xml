@@ -18273,6 +18273,11 @@
             发货确认
             </summary>
         </member>
+        <member name="F:SIE.Inventory.Transactions.TransactionType.ReworkInfoRecord">
+            <summary>
+            返工信息
+            </summary>
+        </member>
         <member name="T:SIE.Inventory.PileUpdateData">
             <summary>
             事务交易更新垛数据

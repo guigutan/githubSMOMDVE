@@ -220,6 +220,17 @@ namespace SIE.MES.PackingQC
         }
 
         /// <summary>
+        /// 根据蓝标获取装箱明细
+        /// </summary>
+        /// <param name="blueLabel"></param>
+        /// <returns></returns>
+        public virtual EntityList<PackingDetail> GetPackingDetailsByBlueLabel(string blueLabel)
+        {
+            var list = Query<PackingDetail>().Where(p => p.PackingQc.BlueLabel == blueLabel).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            return list;
+        }
+
+        /// <summary>
         /// 根据包装主表id查询从表数据
         /// </summary>
         /// <param name="packId"></param>

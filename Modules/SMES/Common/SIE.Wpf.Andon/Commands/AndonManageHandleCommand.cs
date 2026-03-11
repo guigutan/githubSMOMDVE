@@ -55,13 +55,31 @@ namespace SIE.Wpf.Andon.Commands
                 {
                     if (w.Result == 0)
                     {
-                        var AndomData = ui.MainView.Data;
-                        var empNo = ((AndonEmpViewModel)AndomData).AndonEmpNo;
-                        employee = RT.Service.Resolve<AndonManageController>().EmpId(empNo);
-                        if (employee == null)
+                        try
                         {
-                            CRT.MessageService.ShowError("员工号输入错误".L10N());
+                            var AndomData = ui.MainView.Data;
+                            var empNo = ((AndonEmpViewModel)AndomData).AndonEmpNo;
+                            employee = RT.Service.Resolve<AndonManageController>().EmpId(empNo);
+                            if (employee == null)
+                            {
+                                throw new ValidationException("员工号输入错误".L10N());
+                            }
+                            var am = view.Current as AndonManage;
+                            var andonGroupDetails = RT.Service.Resolve<AndonController>().GetAndonGroupDetailsByAndonManageId(am.Id, am.WipResource?.AndonUpholdId ?? 0);
+                            if (andonGroupDetails.All(p => p.UserCode != empNo))
+                            {
+                                throw new ValidationException("该员工不属于安灯责任组，无处理权限".L10N());
+                            }
+                            if (andonGroupDetails.Any(p => p.UserCode == empNo && p.UserState == Domain.State.Disable))
+                            {
+                                throw new ValidationException("该员工已离职，无法进行处理操作".L10N());
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            CRT.MessageService.ShowError(ex.GetBaseException().Message.L10N());
                             e.Cancel = true;
+                            employee = null;
                         }
                         textEdit?.Focus();
                     }
@@ -81,7 +99,7 @@ namespace SIE.Wpf.Andon.Commands
             #region
             var andonManage = view.Current as AndonManage;
             var andonManageId = andonManage.Id;
-            RT.Service.Resolve<AndonManageController>().AndonManageHandleAsync(andonManageId, AndonManageOperateType.Handle, "", "","","", employee.Id);
+            RT.Service.Resolve<AndonManageController>().AndonManageHandleAsync(andonManageId, AndonManageOperateType.Handle, "", "", "", "", employee.Id, isCs: true);
             
             ClientRuntime.MessageService.ShowMessage("处理完成成功".L10N());
             andonManage.State = AndonManageState.ToAccepted;

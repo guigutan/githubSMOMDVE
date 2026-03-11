@@ -210,12 +210,12 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
         /// 剩余最大报工数量
         /// </summary>
         [Label("剩余最大报工数量")]
-        public static readonly Property<int> MaxRemainQtyProperty = P<KZTaskReportViewModelBase>.Register(e => e.MaxRemainQty);
+        public static readonly Property<decimal> MaxRemainQtyProperty = P<KZTaskReportViewModelBase>.Register(e => e.MaxRemainQty);
 
         /// <summary>
         /// 剩余最大报工数量
         /// </summary>
-        public int MaxRemainQty
+        public decimal MaxRemainQty
         {
             get { return this.GetProperty(MaxRemainQtyProperty); }
             set { this.SetProperty(MaxRemainQtyProperty, value); }
@@ -227,12 +227,12 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
         /// 最大报工数量
         /// </summary>
         [Label("最大报工数量")]
-        public static readonly Property<int> MaxReportQtyProperty = P<KZTaskReportViewModelBase>.Register(e => e.MaxReportQty);
+        public static readonly Property<decimal> MaxReportQtyProperty = P<KZTaskReportViewModelBase>.Register(e => e.MaxReportQty);
 
         /// <summary>
         /// 最大报工数量
         /// </summary>
-        public int MaxReportQty
+        public decimal MaxReportQty
         {
             get { return this.GetProperty(MaxReportQtyProperty); }
             set { this.SetProperty(MaxReportQtyProperty, value); }
@@ -244,12 +244,12 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
         /// 工序剩余可报工数
         /// </summary>
         [Label("工序剩余可报工数")]
-        public static readonly Property<int> ProcessMaxRemainQtyProperty = P<KZTaskReportViewModelBase>.Register(e => e.ProcessMaxRemainQty);
+        public static readonly Property<decimal> ProcessMaxRemainQtyProperty = P<KZTaskReportViewModelBase>.Register(e => e.ProcessMaxRemainQty);
 
         /// <summary>
         /// 工序剩余可报工数
         /// </summary>
-        public int ProcessMaxRemainQty
+        public decimal ProcessMaxRemainQty
         {
             get { return this.GetProperty(ProcessMaxRemainQtyProperty); }
             set { this.SetProperty(ProcessMaxRemainQtyProperty, value); }
@@ -987,7 +987,7 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
         /// <summary>
         /// 获取资源列表
         /// </summary>
-        public virtual void LoadResourceList(bool loadAll = false)
+        public virtual void LoadResourceList(bool loadAll = false,string keyword = "")
         {
             if (ReportEmployee == null)
                 return;
@@ -1007,11 +1007,12 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
                 var tasks = RT.Service.Resolve<DispatchController>().GetDispatchTasksByEmployee(info, status, pagingInfo, true);
                 resourceIds = tasks.Select(p => p.ResourceId ?? 0).Distinct().ToList(); //有任务的资源Id
             }
-            var resources = RT.Service.Resolve<WipResourceController>().GetWipResources(ReportEmployee.Id); //员工有权限的资源
+            var resources = RT.Service.Resolve<WipResourceController>().GetWipResources(ReportEmployee.Id,null,keyword); //员工有权限的资源
 
             CRT.MainThread.InvokeIfRequired(() =>
             {
                 ResourceList.Clear();
+                
                 if (resourceIds.Count > 0)
                     ResourceList.AddRange(resources.Where(p => resourceIds.Contains(p.Id)).OrderBy(p => p.Name));
                 else
@@ -1518,7 +1519,7 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
                 DeviceName = hostName,
                 ResourceCode = Resource.Code,
                 //PrinterName = Printer,
-                Data = printInfos.Select(p => new KZ.Print.Common.PrintInfo()
+                Data = printInfos.Where(p=>p.Qty>0).Select(p => new KZ.Print.Common.PrintInfo()
                 {
                     BatchNo = p.BatchNo,
                     IsSuspectProduct = p.IsSuspectProduct,
@@ -1532,6 +1533,7 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
             };
             try
             {
+
                 if (IotMode == IotMode.MultiStation)    //多工位模式,不弹框打印
                 {
                     PrintData.PrinterName = Printer;

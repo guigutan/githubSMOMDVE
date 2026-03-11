@@ -539,6 +539,17 @@
             </summary>
             <param name="app">应用程序对象</param>
         </member>
+        <member name="T:SIE.ERPInterface.Job.SyncResources.SyncResourceJob">
+            <summary>
+            同步资源
+            </summary>
+        </member>
+        <member name="M:SIE.ERPInterface.Job.SyncResources.SyncResourceJob.ExecuteJob(System.Object)">
+            <summary>
+            执行
+            </summary>
+            <param name="param"></param>
+        </member>
         <member name="T:SIE.ERPInterface.Job.Upload.AllocateIn.UploadAllocateInJob">
             <summary>
             库存调拨事务上传EBS
@@ -1093,6 +1104,17 @@
             <summary>
             "副产品记录上传调度
             </summary>
+        </member>
+        <member name="T:SIE.ERPInterface.Job.UploadSap.ReworkLayoutVersions.UploadReworkInfoRecordJob">
+            <summary>
+            返工信息上传调度
+            </summary>
+        </member>
+        <member name="M:SIE.ERPInterface.Job.UploadSap.ReworkLayoutVersions.UploadReworkInfoRecordJob.ExecuteJob(System.Object)">
+            <summary>
+            Job执行方法
+            </summary>
+            <param name="param">调度参数</param>
         </member>
         <member name="T:SIE.ERPInterface.Job.UploadSap.ScrapWeighingRecord.UploadScrapWeighingRecordJob">
             <summary>

@@ -201,6 +201,23 @@ namespace SIE.MES.WorkOrders
         }
         #endregion
 
+        #region 车间编码 WorkShopCode
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        [Label("车间编码")]
+        public static readonly Property<string> WorkShopCodeProperty = P<WorkOrderCriteria>.Register(e => e.WorkShopCode);
+
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        public string WorkShopCode
+        {
+            get { return this.GetProperty(WorkShopCodeProperty); }
+            set { this.SetProperty(WorkShopCodeProperty, value); }
+        }
+        #endregion
+
         #region 资源 Resource
         /// <summary>
         /// 资源ID

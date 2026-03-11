@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Teams",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Teams",
   "SIE.Web.MES.TeamManagement.ClockingIns.Commands.EmployeeAttentEditCommand.js": "SIE.Web.MES.TeamManagement/ClockingIns/Commands/EmployeeAttentEditCommand.js",
   "SIE.Web.MES.TeamManagement.ClockingIns.Commands.EmployeeAttentExport.js": "SIE.Web.MES.TeamManagement/ClockingIns/Commands/EmployeeAttentExport.js",
   "SIE.Web.MES.TeamManagement.ClockingIns.Commands.EmployeeAttentSaveCommand.js": "SIE.Web.MES.TeamManagement/ClockingIns/Commands/EmployeeAttentSaveCommand.js",

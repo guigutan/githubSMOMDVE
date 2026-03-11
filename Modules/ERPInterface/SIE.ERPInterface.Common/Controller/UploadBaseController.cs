@@ -22,6 +22,7 @@ using SIE.KZ.Base.SmomControl;
 using SIE.MES.BatchWIP;
 using SIE.MES.DispoLookups;
 using SIE.MES.Outsourcing;
+using SIE.MES.ReworkLayoutVersions;
 using SIE.MES.TaskManagement.Configs;
 using SIE.MES.TaskManagement.Dispatchs;
 using SIE.MES.TaskManagement.FeedingRecords;
@@ -1270,6 +1271,85 @@ namespace SIE.ERPInterface.Common.Controller
                     
                 }
 
+        }
+
+        #endregion
+
+        #region 返工信息上传事务
+
+        /// <summary>
+        /// 返工信息上传事务
+        /// </summary>
+        public virtual void UploadReworkInfoRecordToInf()
+        {
+            //获取返工信息数据
+            var records = GetReworkInfoRecords();
+
+            if (records.Count < 1)
+                return;
+
+            using (var trans = DB.TransactionScope(InterfaceEntityDataProvider.ConnectionStringName))
+            {
+                EntityList<UploadTransaction> uploadTransactions = new EntityList<UploadTransaction>();
+                var dateTime = RF.Find<UploadTransaction>().GetDbTime();
+                foreach (var record in records)
+                {
+                    uploadTransactions.Add(CreateReworkInfoRecordTransaction(record, dateTime));
+
+                    record.IsUpload = true;
+                    record.PersistenceStatus = PersistenceStatus.Modified;
+                    RF.Save(record);
+                }
+                RF.Save(uploadTransactions);
+                trans.Complete();
+            }
+
+        }
+
+        /// <summary>
+        /// 获取返工信息
+        /// </summary>
+        private EntityList<ReworkInfoRecord> GetReworkInfoRecords()
+        {
+            var list = Query<ReworkInfoRecord>().Where(p => p.IsUpload == null || p.IsUpload == false).ToList(new PagingInfo(1, MAX_BATCH_QUANTITY), new EagerLoadOptions().LoadWithViewProperty());
+            return list;
+        }
+
+        /// <summary>
+        /// 创建事务上传
+        /// </summary>
+        /// <returns></returns>
+        public virtual UploadTransaction CreateReworkInfoRecordTransaction(ReworkInfoRecord record, DateTime dateTime)
+        {
+            UploadTransaction uploadTransaction = new UploadTransaction();
+
+            uploadTransaction.OrderType = OrderType.ReworkInfoRecord;
+            uploadTransaction.TransactionId = null;
+            uploadTransaction.TransactionType = TransactionType.ReworkInfoRecord;
+            uploadTransaction.State = ProcessState.Unprocessed;
+            uploadTransaction.BillId = record.Id;
+            uploadTransaction.SourceId = record.Id.ToString();
+
+            uploadTransaction.TransactionDate = dateTime;
+            uploadTransaction.Remark = string.Empty;
+            uploadTransaction.FromOnhandState = null;
+            uploadTransaction.ReasonName = string.Empty;
+
+
+            uploadTransaction.ItemId = record.ItemId;
+            uploadTransaction.ItemCode = record.ItemCode;
+            uploadTransaction.ItemName = record.ItemName;
+
+            uploadTransaction.OrdKey = "ReworkInfoRecord_" + record.Id.ToString();
+            uploadTransaction.Quantity = record.Qty;
+            uploadTransaction.WERKS = record.Factory;
+            uploadTransaction.Zuid = record.UniqueCode;
+            uploadTransaction.Department = record.Department;
+            uploadTransaction.Version = record.Version;
+            uploadTransaction.UploadCount = 0;
+
+            uploadTransaction.PersistenceStatus = PersistenceStatus.New;
+            return uploadTransaction;
         }
 
         #endregion

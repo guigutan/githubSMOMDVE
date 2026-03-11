@@ -424,7 +424,10 @@ namespace SIE.Barcodes.WipBatchs
         /// <returns>批次条码</returns>
         public virtual EntityList<WipBatch> GetWipBatches(List<string> batchNos)
         {
-            return Query<WipBatch>().Where(p => batchNos.Contains(p.BatchNo)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            return batchNos.SplitContains(temp =>
+            {
+                return Query<WipBatch>().Where(p => temp.Contains(p.BatchNo)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });     
         }
 
         /// <summary>

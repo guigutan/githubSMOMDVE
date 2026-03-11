@@ -198,6 +198,14 @@ namespace SIE.Wpf.Andon
                     .ShowInDetail();
 
                 View.Property(p => p.PhotoFile).Readonly().ShowInDetail(columnSpan: 2);
+                View.Property(p => p.GeneralProbDtl).Show().UsePagingLookUpEditor().UseDataSource((e, p, k) =>
+                {
+                    var entity = e as AndonManage;
+                    var list = RT.Service.Resolve<AndonManageController>().GetGeneralProbDtlsByAndonId(entity.AndonId, p, k);
+                    if (list.Count > 0)
+                        return list;
+                    return new EntityList<GeneralProbDtl>();
+                });
                 View.ChildrenProperty(p => p.ItemDetail).Show(ChildShowInWhere.All);
             }
         }

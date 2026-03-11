@@ -3,6 +3,7 @@ using SIE.Andon.Andons;
 using SIE.Andon.Andons.Enum;
 using SIE.Andon.Andons.ForWinform.ApiModels;
 using SIE.Api;
+using SIE.Core.ApiLogs;
 using SIE.Domain;
 using SIE.Domain.Validation;
 using SIE.Items.KzItemCategorys;
@@ -31,6 +32,7 @@ namespace SIE.MES.TaskManagement.ProcessPrepareRecords
         /// <param name="Id"></param>
         /// <param name="infos"></param>
         [ApiService("提交产前准备任务项目")]
+        [ApiLog]
         public virtual void SubmitPprListDetailInfos(double Id, double empId, List<SubmitPprListDetailInfo> infos)
         {
             var prepareRecord = RT.Service.Resolve<ProcessPrepareRecordsController>().GetProcessPrepareRecord(Id);//RF.GetById<ProcessPrepareRecord>(Id, new EagerLoadOptions().LoadWithViewProperty());
@@ -45,7 +47,7 @@ namespace SIE.MES.TaskManagement.ProcessPrepareRecords
             {
                 var item = pros.FirstOrDefault(p => p.Id == info.ProId);
 
-                var prepareRecordDetailItem = details.FirstOrDefault(p => p.PrepareProjectId == info.ProId);
+                ProcessPrepareRecordDetail prepareRecordDetailItem = null;//details.FirstOrDefault(p => p.PrepareProjectId == info.ProId);
                 if (prepareRecordDetailItem == null)
                 {
                     prepareRecordDetailItem = new ProcessPrepareRecordDetail();
@@ -84,7 +86,8 @@ namespace SIE.MES.TaskManagement.ProcessPrepareRecords
                 //};
                 
             }
-            if (details.All(p => p.Result == PrepareProducts.Enums.PrepareRecordDetailResult.Pass))
+            //只要前端的传过来都是通过的，就直接变为通过
+            if (infos.All(p => p.Result == true))
                 prepareRecord.PrepareState = PrepareProducts.Enums.PrepareRecordState.Confirm;
             using (var tran = DB.TransactionScope(TaskManagementEntityDataProvider.ConnectionStringName))
             {
@@ -98,23 +101,36 @@ namespace SIE.MES.TaskManagement.ProcessPrepareRecords
                     var andons = Query<SIE.Andon.Andons.Andon>().Exists<AndonPrepareProjectDetail>((x, y) => y.Where(p => p.AndonId == x.Id && notProIds.Contains(p.PrepareProjectId))).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
                     if (andons.Count > 0)
                     {
+                        var andonUpholdData = Query<SIE.MES.Andon.AndonUphold>().Where(p => p.Id == prepareRecord.DispatchTask.Resource.AndonUpholdId).ToList().FirstOrDefault();
+                        if (andonUpholdData == null)
+                        {
+                            throw new ValidationException("该产线对应的安灯区域没有维护!".L10N());
+                        }
+                        if (!andonUpholdData.AndonEntity.IsNotEmpty())
+                        {
+                            throw new ValidationException("安灯区域IOT实体没有维护!".L10N());
+                        }
+                        if (!andonUpholdData.AndonOrder.IsNotEmpty())
+                        {
+                            throw new ValidationException("安灯区域IOT指令没有维护!".L10N());
+                        }
                         foreach (var andon in andons)
                         {
                             CreateAndonManage(andon, prepareRecord.DispatchTask);
 
-                            var andonUpholdData = Query<SIE.MES.Andon.AndonUphold>().Where(p => p.Id == prepareRecord.DispatchTask.Resource.AndonUpholdId).ToList().FirstOrDefault();
-                            if (andonUpholdData == null)
-                            {
-                                throw new ValidationException("该产线对应的安灯区域没有维护!".L10N());
-                            }
-                            if (!andonUpholdData.AndonEntity.IsNotEmpty())
-                            {
-                                throw new ValidationException("安灯区域IOT实体没有维护!".L10N());
-                            }
-                            if (!andonUpholdData.AndonOrder.IsNotEmpty())
-                            {
-                                throw new ValidationException("安灯区域IOT指令没有维护!".L10N());
-                            }
+                            //var andonUpholdData = Query<SIE.MES.Andon.AndonUphold>().Where(p => p.Id == prepareRecord.DispatchTask.Resource.AndonUpholdId).ToList().FirstOrDefault();
+                            //if (andonUpholdData == null)
+                            //{
+                            //    throw new ValidationException("该产线对应的安灯区域没有维护!".L10N());
+                            //}
+                            //if (!andonUpholdData.AndonEntity.IsNotEmpty())
+                            //{
+                            //    throw new ValidationException("安灯区域IOT实体没有维护!".L10N());
+                            //}
+                            //if (!andonUpholdData.AndonOrder.IsNotEmpty())
+                            //{
+                            //    throw new ValidationException("安灯区域IOT指令没有维护!".L10N());
+                            //}
                             //触发iot接口 打开
                             var strToKen = RT.Service.Resolve<AndonManageController>().IotGetToken();
 
@@ -157,10 +173,22 @@ namespace SIE.MES.TaskManagement.ProcessPrepareRecords
                 throw new ValidationException("产线与安灯区域,没有维护主设备号!".L10N());
             }
             //根据安灯明细获取A1的人员
-            var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
-            if (andonDesc == null)
+            //var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
+            //if (andonDesc == null)
+            //{
+            //    throw new ValidationException("安灯维护下的安灯清单,跟当前安灯信息维护不一致!".L10N());
+            //}
+
+            var responseDtl = andon.AndonResponseDetailList.Where(p => p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonseepLevel).FirstOrDefault();
+            if (responseDtl == null)
             {
-                throw new ValidationException("安灯维护下的安灯清单,跟当前安灯信息维护不一致!".L10N());
+                throw new ValidationException("请先维护安灯维护下面的安灯责任组，触发失败！".L10N());
+            }
+            //任意一个在职的
+            var agD = responseDtl.AndonGroup.AndonGroupDetailList.Where(p => p.User.State == State.Enable && p.User.Employee.EmployeeStatus == Resources.EmployeeStatus.Job).FirstOrDefault();
+            if (agD == null)
+            {
+                throw new ValidationException("安灯责任组维护基础表未维护用户，触发失败！".L10N());
             }
 
             AndonManage andonManage = new AndonManage();
@@ -187,7 +215,8 @@ namespace SIE.MES.TaskManagement.ProcessPrepareRecords
             andonManage.WorkShopId = dispatchTask.WorkShopId.Value;
             andonManage.FactoryId = dispatchTask.FactoryId.Value;
             andonManage.WorkOrderId = dispatchTask.WorkOrderId;
-            andonManage.RespPersonId = (double)andonDesc.EmployeeId;
+            //andonManage.RespPersonId = (double)andonDesc.EmployeeId;
+            andonManage.RespPersonId = agD.User.EmployeeId;
             andonManage.PersistenceStatus = PersistenceStatus.New;
             andonManage.EquipAccount = equipAccount;
             andonManage.ProblemDesc = "产前准备";

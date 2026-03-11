@@ -1,4 +1,5 @@
-﻿using SIE.Domain;
+﻿using Microsoft.Scripting.Utils;
+using SIE.Domain;
 using SIE.EventMessages.ErpCommon;
 using SIE.MES.TaskManagement.Dispatchs.Datas;
 using SIE.MES.TaskManagement.Reports;
@@ -16,6 +17,68 @@ namespace SIE.MES.TaskManagement.FeedingRecords
     {
 
         #region 余料称重记录
+
+        /// <summary>
+        /// 根据余料称重记录Id获取数据
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public virtual EntityList<ScrapWeighingRecord> GetScrapWeighingRecordsByIds(List<double> ids)
+        {
+            var list = ids.SplitContains(i =>
+            {
+                return Query<ScrapWeighingRecord>().Where(p => i.Contains(p.Id)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+            return list;
+        }
+
+        /// <summary>
+        /// 修改余料称重记录
+        /// </summary>
+        /// <param name="records"></param>
+        public virtual void EditScrapWeighingRecord(List<ScrapWeighingRecord> records)
+        {
+            var ids = records.Select(p => p.Id).Distinct().ToList();
+
+            var list = ids.SplitContains(i =>
+            {
+                return Query<ScrapWeighingRecord>().Where(p => i.Contains(p.Id)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            });
+
+            EntityList<ScrapWeighingRecordEditLog> logs = new EntityList<ScrapWeighingRecordEditLog>();
+
+            foreach (var l in list)
+            {
+                var record = records.FirstOrDefault(p => p.Id == l.Id);
+                //记录日志
+                logs.Add(new ScrapWeighingRecordEditLog()
+                {
+                    PersistenceStatus = PersistenceStatus.New,
+                    ScrapWeighingRecordId = l.Id,
+                    OldEditQty = l.EditQty,
+                    NewEditQty = record.EditQty
+                });
+
+                l.EditQty = l.ActualQty;
+                l.ActualQty = record.ActualQty;
+                l.DeductedQty = l.RemainingQty - l.ActualQty;
+                l.DiffQty = l.ActualQty - l.RemainingQty;
+                l.PersistenceStatus = PersistenceStatus.Modified;
+            }
+
+            using (var tran = DB.TransactionScope(TaskManagementEntityDataProvider.ConnectionStringName))
+            {
+                if (list.Count > 0)
+                {
+                    RF.Save(list);
+                    RF.Save(logs);
+
+                    //修改事务上传的数量，改成现在的修改数量
+                    RT.Service.Resolve<IUploadLogControllercs>().EditScrapWeighingRecordQty(ids);
+                }
+                tran.Complete();
+            }
+        }
 
         /// <summary>
         /// 余料称重记录查询方法

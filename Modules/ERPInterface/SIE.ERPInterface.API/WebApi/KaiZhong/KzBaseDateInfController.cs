@@ -62,7 +62,7 @@ namespace SIE.ERPInterface.Api.WebApi.KaiZhong
             var logController = RT.Service.Resolve<InfNcDataLogController>();
             var infType = (InfType)EnumViewModel.LabelToEnum(infCode, typeof(InfType));
 
-            var infDataLog = logController.SaveInfNcDataLog(systemCode, infCode, operationType, dataJsons, DateTime.Now, infType, CallDirection.NcToMom, CallResult.UnSave, groupGuid, errorMsg, null);
+            var infDataLog = logController.SaveInfNcDataLog(systemCode, infCode, operationType, dataJsons, DateTime.Now, infType, CallDirection.SAPToMom, CallResult.UnSave, groupGuid, errorMsg, null);
 
             try
             {

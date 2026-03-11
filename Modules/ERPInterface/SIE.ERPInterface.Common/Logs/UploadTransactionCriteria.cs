@@ -2,6 +2,7 @@
 using SIE.Domain;
 using SIE.ERPInterface.Common.Enums;
 using SIE.Inventory.Transactions;
+using SIE.MES.TaskManagement.Reports;
 using SIE.ObjectModel;
 using SIE.Resources.Enterprises;
 using System;
@@ -321,6 +322,23 @@ namespace SIE.ERPInterface.Common.Logs
         {
             get { return this.GetRefEntity(WorkShopProperty); }
             set { this.SetRefEntity(WorkShopProperty, value); }
+        }
+        #endregion
+
+        #region 车间编码 WorkShopCode
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        [Label("车间编码")]
+        public static readonly Property<string> WorkShopCodeProperty = P<UploadTransactionCriteria>.Register(e => e.WorkShopCode);
+
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        public string WorkShopCode
+        {
+            get { return this.GetProperty(WorkShopCodeProperty); }
+            set { this.SetProperty(WorkShopCodeProperty, value); }
         }
         #endregion
 

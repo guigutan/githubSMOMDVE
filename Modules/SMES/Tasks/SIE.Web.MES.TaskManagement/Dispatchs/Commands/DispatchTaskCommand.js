@@ -9,8 +9,8 @@
                     return false;
                 }
             }
-            //当资源来源类型只有一种，且是同一个工作中心、同一产品的时候，才能多选一起派工
-            if (selecteditems.groupBy(p => p.getResourceSourceType()).length == 1 && selecteditems.groupBy(p => p.getResourceId()).length == 1 && selecteditems.groupBy(p => p.getProductId()).length == 1)
+            //当资源来源类型只有一种，且是同一个工作中心，才能多选一起派工
+            if (selecteditems.groupBy(p => p.getResourceSourceType()).length == 1 && selecteditems.groupBy(p => p.getResourceId()).length == 1)
                 return true;
         }
         return false;

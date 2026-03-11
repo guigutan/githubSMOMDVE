@@ -4,10 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SIE.Wpf.MES.TaskManagement.KZReports.Controls"
+             xmlns:conv="clr-namespace:SIE.Wpf.MES.TaskManagement.KZReports.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1024">
     <UserControl.Resources>
-        <ResourceDictionary Source="/SIE.Wpf.MES.TaskManagement;component/Styles/ReportStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/SIE.Wpf.MES.TaskManagement;component/Styles/ReportStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <conv:TaskStatusConverter x:Key="TaskStatusConverter"/>
+        </ResourceDictionary >
     </UserControl.Resources>
     <Border Background="White">
         <DockPanel x:Name ="dockPanel" MaxWidth="1200" Margin="50 30">
@@ -16,6 +22,7 @@
                     <!--<RowDefinition Height="auto"/>-->
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
 
@@ -61,7 +68,108 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border x:Name="templateBorder" Grid.Row="2" Margin="0 5" BorderThickness="1" BorderBrush="#CCC" VerticalAlignment="Top">
+
+                <TabControl Grid.Row="2" Margin="0 0" FontSize="18">
+                    <TabItem Header="任务列表" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0">
+                                <Button Name="refresh" Content="刷新" Width="90" Height="25" Margin="0,0,5,5"  Style="{StaticResource CommonButtonStyle}" Click="refresh_Click" Background="DeepSkyBlue"/>
+                            </StackPanel>
+                            <!--<Button Name="refresh" Grid.Row="0" Content="刷新"  Style="{StaticResource CommonButtonStyle}" Width="120" Height="40" Margin="10"   Click="refresh_Click" Background="DeepSkyBlue"></Button>-->
+                            <DataGrid Grid.Row="1" x:Name="dataGridRecord" BorderThickness="0" AutoGenerateColumns="False" FontSize="18" BorderBrush="#EEEEEE" Margin="0"
+				   HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"  CanUserSortColumns="True" IsReadOnly="True"  MaxHeight="200"
+					 SelectionMode="Single" GridLinesVisibility="None">
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Id" Visibility="Hidden" Binding="{Binding Id}" />
+                                    <DataGridTemplateColumn Header="计划完成时间"  Width="120" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding PlanEndTime, StringFormat=yyyy-MM-dd}" TextTrimming="CharacterEllipsis" ToolTip="{Binding PlanEndTime, StringFormat=yyyy-MM-dd HH:mm}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="派工单号"  Width="200" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding No}" TextTrimming="CharacterEllipsis" ToolTip="{Binding No}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="产品编码"  Width="150" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ProductCode}" TextTrimming="CharacterEllipsis" ToolTip="{Binding ProductCode}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="产品名称" Width="300">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ProductName}" ToolTip="{Binding ProductName}" VerticalAlignment="Center" HorizontalAlignment ="Center" TextWrapping="Wrap"  FontSize="16"  />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="旧料号"   Width="150" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ShortDescription}" ToolTip="{Binding ShortDescription}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"  FontSize="16" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="父级旧料号"   Width="150" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ParShortDescription}" ToolTip="{Binding ParShortDescription}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"  FontSize="16" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="任务数量"  Width="100">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding DispatchQty}" TextTrimming="CharacterEllipsis" ToolTip="{Binding DispatchQty}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="已报工数量"  Width="100">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ReportQty}" TextTrimming="CharacterEllipsis" ToolTip="{Binding ReportQty}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="工单号"  Width="200" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding WorkOrderNo}" TextTrimming="CharacterEllipsis" ToolTip="{Binding WorkOrderNo}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="状态"  Width="100">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding TaskStatus, Converter={StaticResource TaskStatusConverter}}" TextTrimming="CharacterEllipsis" ToolTip="{Binding TaskStatus}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="工序名称"  MinWidth="200" >
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ProcessName}" TextTrimming="CharacterEllipsis" ToolTip="{Binding ProcessName}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+
+                <Border x:Name="templateBorder" Grid.Row="3" Margin="0 5" BorderThickness="1" BorderBrush="#CCC" VerticalAlignment="Top">
                     <Grid Grid.Row="2" >
                         <Grid.RowDefinitions >
                             <RowDefinition Height="40"/>
@@ -137,7 +245,7 @@
                     </Grid>
                 </Border>
 
-                <TabControl Grid.Row="3" Margin="0 0" FontSize="18" >
+                <TabControl Grid.Row="4" Margin="0 0" FontSize="18" >
                     <TabItem Header="报工信息" >
                         <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
                             <DataGrid.Columns>

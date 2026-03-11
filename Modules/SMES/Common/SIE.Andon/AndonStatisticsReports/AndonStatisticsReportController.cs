@@ -55,17 +55,17 @@ namespace SIE.Andon.AndonStatisticsReports
             }
             if (criteria.CreateTime.BeginValue.HasValue && criteria.CreateTime.EndValue.HasValue)
             {
-                query.Where(m => m.Andon.CreateDate >= criteria.CreateTime.BeginValue && m.Andon.CreateDate <= criteria.CreateTime.EndValue);
+                query.Where(m => m.CreateDate >= criteria.CreateTime.BeginValue && m.CreateDate <= criteria.CreateTime.EndValue);
             }
             else
             {
                 if (criteria.CreateTime.BeginValue.HasValue)
                 {
-                    query.Where(m => m.Andon.CreateDate >= criteria.CreateTime.BeginValue);
+                    query.Where(m => m.CreateDate >= criteria.CreateTime.BeginValue);
                 }
                 if (criteria.CreateTime.EndValue.HasValue)
                 {
-                    query.Where(m => m.Andon.CreateDate <= criteria.CreateTime.EndValue);
+                    query.Where(m => m.CreateDate <= criteria.CreateTime.EndValue);
                 }
             }
 
@@ -76,7 +76,10 @@ namespace SIE.Andon.AndonStatisticsReports
             if (res.Any())
             {
                 var andonManageIds = res.Select(p => p.Id).ToList();
-                oprateList = Query<AndonManageOperateLog>().Where(m => andonManageIds.Contains(m.AndonManageId)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+                oprateList = andonManageIds.SplitContains(temp =>
+                {
+                    return Query<AndonManageOperateLog>().Where(m => temp.Contains(m.AndonManageId)).ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+                }); 
             }
             //按条件分组
             FiterGroupResultInfos(criteria, andonReportInfos, res, oprateList);

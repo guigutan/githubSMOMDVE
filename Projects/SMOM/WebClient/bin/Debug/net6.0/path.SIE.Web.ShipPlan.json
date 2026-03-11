@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\ShipPlans",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\ShipPlans",
   "SIE.Web.ShipPlan.AssignWarehouseRules.Commands.AddAssignWarehouseRuleCommand.js": "SIE.Web.ShipPlan/AssignWarehouseRules/Commands/AddAssignWarehouseRuleCommand.js",
   "SIE.Web.ShipPlan.DeliveryPlans.Commands.AddDeliveryPlanCommand.js": "SIE.Web.ShipPlan/DeliveryPlans/Commands/AddDeliveryPlanCommand.js",
   "SIE.Web.ShipPlan.DeliveryPlans.Commands.AssignWarehouseCommand.js": "SIE.Web.ShipPlan/DeliveryPlans/Commands/AssignWarehouseCommand.js",

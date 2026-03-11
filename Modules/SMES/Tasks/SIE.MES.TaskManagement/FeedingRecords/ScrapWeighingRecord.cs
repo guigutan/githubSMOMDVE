@@ -154,6 +154,24 @@ namespace SIE.MES.TaskManagement.FeedingRecords
         }
         #endregion
 
+        #region 原数量 EditQty
+        /// <summary>
+        /// 原数量
+        /// </summary>
+        [Label("原数量")]
+        public static readonly Property<decimal?> EditQtyProperty = P<ScrapWeighingRecord>.Register(e => e.EditQty);
+
+        /// <summary>
+        /// 原数量
+        /// </summary>
+        public decimal? EditQty
+        {
+            get { return this.GetProperty(EditQtyProperty); }
+            set { this.SetProperty(EditQtyProperty, value); }
+        }
+        #endregion
+
+
         #region 视图属性
 
         #region 物料编码 ItemCode

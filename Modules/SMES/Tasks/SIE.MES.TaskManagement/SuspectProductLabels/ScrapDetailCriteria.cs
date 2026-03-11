@@ -1,5 +1,6 @@
 ﻿using SIE.Domain;
 using SIE.MES.QTimes.Services;
+using SIE.MES.TaskManagement.SuspectProductLabels;
 using SIE.MES.TaskManagement.SuspectProductLabels.ViewModels;
 using SIE.ObjectModel;
 using System;
@@ -31,6 +32,23 @@ namespace SIE.MES.TaskManagement.SuspectProductLabels
         {
             get { return GetProperty(BatchNoProperty); }
             set { SetProperty(BatchNoProperty, value); }
+        }
+        #endregion
+
+        #region 可疑品子标签 SubBatchNo
+        /// <summary>
+        /// 可疑品子标签
+        /// </summary>
+        [Label("可疑品子标签")]
+        public static readonly Property<string> SubBatchNoProperty = P<ScrapDetailCriteria>.Register(e => e.SubBatchNo);
+
+        /// <summary>
+        /// 可疑品子标签
+        /// </summary>
+        public string SubBatchNo
+        {
+            get { return GetProperty(SubBatchNoProperty); }
+            set { SetProperty(SubBatchNoProperty, value); }
         }
         #endregion
 
@@ -204,10 +222,44 @@ namespace SIE.MES.TaskManagement.SuspectProductLabels
         }
         #endregion
 
+        #region Mrp控制者 MrpController
+        /// <summary>
+        /// Mrp控制者
+        /// </summary>
+        [Label("Mrp控制者")]
+        public static readonly Property<string> MrpControllerProperty = P<ScrapDetailCriteria>.Register(e => e.MrpController);
+
+        /// <summary>
+        /// Mrp控制者
+        /// </summary>
+        public string MrpController
+        {
+            get { return GetProperty(MrpControllerProperty); }
+            set { SetProperty(MrpControllerProperty, value); }
+        }
+        #endregion
+
+        #region 旧物料号 ShortDescription
+        /// <summary>
+        /// 旧物料号
+        /// </summary>
+        [Label("旧物料号")]
+        public static readonly Property<string> ShortDescriptionProperty = P<ScrapDetailCriteria>.Register(e => e.ShortDescription);
+
+        /// <summary>
+        /// 旧物料号
+        /// </summary>
+        public string ShortDescription
+        {
+            get { return this.GetProperty(ShortDescriptionProperty); }
+            set { this.SetProperty(ShortDescriptionProperty, value); }
+        }
+        #endregion
+
 
         protected override EntityList Fetch()
         {
-            return RT.Service.Resolve<SuspectProductLabelController>().QueryScrapDetailReports(this);
+            return RT.Service.Resolve<SuspectProductLabelController>().GetScrapDetail(this);
         }
     }
 

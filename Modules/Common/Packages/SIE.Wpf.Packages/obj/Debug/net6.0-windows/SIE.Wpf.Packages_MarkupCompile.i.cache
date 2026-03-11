@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\SMOMWokers\SMOM.DEV.10.3\SMOM.KAIZHONG\SMOM.KAIZHONG\Modules\Common\Packages\SIE.Wpf.Packages\obj\Debug\net6.0-windows\
+D:\SMOMDev0310\SMOM.KAIZHONG\Modules\Common\Packages\SIE.Wpf.Packages\obj\Debug\net6.0-windows\
 SIE.Wpf.Packages
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET
 21378813884
 
 421743902087
-393-131275532
+393913329598
 Packings\Layouts\PackingLayout.xaml;Packings\Layouts\PackingRelationLayout.xaml;
 
 True

@@ -13,10 +13,10 @@ using System.Linq;
 namespace SIE.Wpf.MES.OnOffDutyA
 {
     /// <summary>
-    /// 上下岗
+    /// A上下岗
     /// </summary>
     [RootEntity, Serializable]
-    [Label("上下岗")]
+    [Label("A上下岗")]
     public partial class OnOffDutyAViewModel : DataCollectionViewModel<OnOffDutyController>
     {
 

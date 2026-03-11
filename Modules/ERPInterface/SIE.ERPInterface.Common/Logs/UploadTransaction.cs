@@ -1334,6 +1334,23 @@ namespace SIE.ERPInterface.Common.Logs
         }
         #endregion
 
+        #region 车间编码 WorkShopCode
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        [Label("车间编码")]
+        public static readonly Property<string> WorkShopCodeProperty = P<UploadTransaction>.Register(e => e.WorkShopCode);
+
+        /// <summary>
+        /// 车间编码
+        /// </summary>
+        public string WorkShopCode
+        {
+            get { return this.GetProperty(WorkShopCodeProperty); }
+            set { this.SetProperty(WorkShopCodeProperty, value); }
+        }
+        #endregion
+
         #endregion
 
         #region 来源Id SourceId
@@ -1610,6 +1627,40 @@ namespace SIE.ERPInterface.Common.Logs
         }
         #endregion
 
+        #region 部门 Department
+        /// <summary>
+        /// 部门
+        /// </summary>
+        [Label("部门")]
+        public static readonly Property<string> DepartmentProperty = P<UploadTransaction>.Register(e => e.Department);
+
+        /// <summary>
+        /// 部门
+        /// </summary>
+        public string Department
+        {
+            get { return this.GetProperty(DepartmentProperty); }
+            set { this.SetProperty(DepartmentProperty, value); }
+        }
+        #endregion
+
+        #region 生产版本 Version
+        /// <summary>
+        /// 生产版本
+        /// </summary>
+        [Label("生产版本")]
+        public static readonly Property<string> VersionProperty = P<UploadTransaction>.Register(e => e.Version);
+
+        /// <summary>
+        /// 生产版本
+        /// </summary>
+        public string Version
+        {
+            get { return this.GetProperty(VersionProperty); }
+            set { this.SetProperty(VersionProperty, value); }
+        }
+        #endregion
+
         #endregion
 
     }
@@ -1642,6 +1693,7 @@ namespace SIE.ERPInterface.Common.Logs
             Meta.Property(UploadTransaction.ShortDescriptionProperty).DontMapColumn();
             Meta.Property(UploadTransaction.BismtProperty).DontMapColumn();
             Meta.Property(UploadTransaction.WorkShopNameProperty).DontMapColumn();
+            Meta.Property(UploadTransaction.WorkShopCodeProperty).DontMapColumn();
             Meta.EnablePhantoms();
         }
     }

@@ -22,7 +22,7 @@ namespace SIE.Web.MES.DesignerAreas.Commands
         {
             var meta = ClientEntities.Find(args.Type);
             var savedData = RF.Find(meta.EntityType).NewList();
-            var datas = args.Data.ToJsonObject<List<DesignerAreaReource>>();
+            var datas = args.Data.ToJsonObject<List<DesignerAreaResources>>();
             Check.NotNullOrEmpty(datas, nameof(datas));
 
             if (null == datas || datas.Count == 0)
@@ -30,7 +30,7 @@ namespace SIE.Web.MES.DesignerAreas.Commands
 
             foreach (var item in datas)
             {
-                var data = new DesignerAreaReource();
+                var data = new DesignerAreaResources();
                 data.DesignerAreaId = item.DesignerAreaId;
                 data.ResourceId = item.ResourceId;
                 savedData.Add(data);

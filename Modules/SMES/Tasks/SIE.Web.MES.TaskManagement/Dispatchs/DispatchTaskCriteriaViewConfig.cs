@@ -52,7 +52,8 @@ namespace SIE.Web.MES.TaskManagement.Dispatchs
                     p.Format = "Y/m/d";
                     p.DateRangeType = ObjectModel.DateRangeType.Week;
                 });
-                View.Property(p => p.WorkOrder).UsePagingLookUpEditor().Show(ShowInWhere.Detail);
+                //View.Property(p => p.WorkOrder).UsePagingLookUpEditor().Show(ShowInWhere.Detail);
+                View.Property(p => p.WorkOrderNo).Show(ShowInWhere.Detail);
                 View.Property(p => p.Fevor).Show(ShowInWhere.Detail);
                 View.Property(p => p.Process).UsePagingLookUpEditor().Show(ShowInWhere.Detail);
                 View.Property(p => p.TaskStatus).UseEnumMutilEditor(x=>x.EnumType=typeof(DispatchTaskStatus)).Show(ShowInWhere.Detail);

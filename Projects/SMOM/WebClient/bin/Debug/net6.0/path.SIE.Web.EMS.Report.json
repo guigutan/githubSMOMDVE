@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS",
   "SIE.Web.EMS.Report.EquipmentIntegrateStatistics.Commands.ExportCommand.js": "SIE.Web.EMS.Report/EquipmentIntegrateStatistics/Commands/ExportCommand.js",
   "SIE.Web.EMS.Report.EquipmentIntegrateStatistics.Commands.ExportCommandBase.js": "SIE.Web.EMS.Report/EquipmentIntegrateStatistics/Commands/ExportCommandBase.js",
   "SIE.Web.EMS.Report.EquipmentMixReport.Commands.EmsMixReportQuery.js": "SIE.Web.EMS.Report/EquipmentMixReport/Commands/EmsMixReportQuery.js",

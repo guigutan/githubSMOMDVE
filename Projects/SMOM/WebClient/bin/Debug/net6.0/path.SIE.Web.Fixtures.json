@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\Equipments",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Equipments",
   "SIE.Web.Fixtures.Demands.Commands.AddDemandCommand.js": "SIE.Web.Fixtures/Demands/Commands/AddDemandCommand.js",
   "SIE.Web.Fixtures.Demands.Commands.EditDemandCommand.js": "SIE.Web.Fixtures/Demands/Commands/EditDemandCommand.js",
   "SIE.Web.Fixtures.Demands.Commands.ExamineDemandCommand.js": "SIE.Web.Fixtures/Demands/Commands/ExamineDemandCommand.js",

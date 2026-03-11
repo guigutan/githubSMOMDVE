@@ -20,7 +20,7 @@ namespace SIE.Web.MES.LineAndon
         /// </summary>
         protected override void ConfigListView()
         {
-            View.UseCommands(WebCommandNames.Add, WebCommandNames.Edit, WebCommandNames.Delete, WebCommandNames.Save);
+            View.UseCommands(WebCommandNames.Add, WebCommandNames.Edit, WebCommandNames.Save);
             View.UseCommands(typeof(AndonLineImportCommand).FullName, typeof(AndonLineDLTemplateCommand).FullName);
             View.UseCommands(WebCommandNames.ExportXls, WebCommandNames.ExportXlsAll);
             View.UseCommands(typeof(AdonlineLabelPrintCommand).FullName);
@@ -28,7 +28,7 @@ namespace SIE.Web.MES.LineAndon
             {
                 View.Property(p => p.Seq).ShowInList();
                 View.Property(p => p.MachineName).ShowInList(width: 150);
-                View.Property(p => p.MachineCode).ShowInList(width: 150);
+                View.Property(p => p.MachineCode).ShowInList(width: 150).Readonly();
                 //View.Property(p => p.Equipment).UseDataSource((o, e, r) =>
                 //{
                 //    return RT.Service.Resolve<AndonLineController>().GetEquipAccounts(r, e);
@@ -43,6 +43,7 @@ namespace SIE.Web.MES.LineAndon
                 View.Property(p => p.EquipmentDate);
                 View.Property(p => p.WorkCenter).ShowInList(width: 150);
                 View.Property(p => p.Factory).ShowInList().UseFactoryEditor();
+                View.Property(p => p.WorkShopCode).ShowInList();
                 View.Property(p => p.WorkShop).ShowInList().UseResourceWorkShopEditor();
                 View.Property(p => p.AndonUphold).UsePagingLookUpEditor((m, e) =>
                 {

@@ -153,35 +153,35 @@
                     trackMouse: true,
                     renderer: 'onLineBarChartSeriesTooltipRender'
                 }
-            },
-            {
-                type: 'line',
-                title: '安灯名称变更率'.t(),
-                xField: 'GroupName',
-                yField: 'TriggerAccuracy',
-                style: {
-                    lineWidth: 2,
-                },
-                label: {
-                    display: 'rotate',
-                    field: 'TriggerAccuracy',
-                    renderer: 'onBarSeriesLabelRender'
-                },
-                marker: {
-                    animation: {
-                        duration: 200,
-                        easing: 'backOut'
-                    }
-                },
-                highlightCfg: {
-                    scaling: 2,
-                    rotationRads: Math.PI / 4
-                },
-                tooltip: {
-                    trackMouse: true,
-                    renderer: 'onLineBarChartSeriesTooltipRender'
-                }
             }
+            //,{
+            //    type: 'line',
+            //    title: '安灯名称变更率'.t(),
+            //    xField: 'GroupName',
+            //    yField: 'TriggerAccuracy',
+            //    style: {
+            //        lineWidth: 2,
+            //    },
+            //    label: {
+            //        display: 'rotate',
+            //        field: 'TriggerAccuracy',
+            //        renderer: 'onBarSeriesLabelRender'
+            //    },
+            //    marker: {
+            //        animation: {
+            //            duration: 200,
+            //            easing: 'backOut'
+            //        }
+            //    },
+            //    highlightCfg: {
+            //        scaling: 2,
+            //        rotationRads: Math.PI / 4
+            //    },
+            //    tooltip: {
+            //        trackMouse: true,
+            //        renderer: 'onLineBarChartSeriesTooltipRender'
+            //    }
+            //}
         ]
     }
 });

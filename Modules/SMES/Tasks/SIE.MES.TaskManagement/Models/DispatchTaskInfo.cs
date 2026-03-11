@@ -166,5 +166,10 @@ namespace SIE.MES.TaskManagement.Models
         /// 报工校验
         /// </summary>
         public bool IsReportValid { get; set; }
+
+        /// <summary>
+        /// 旧料号
+        /// </summary>
+        public string OldItemCode { get; set; }
     }
 }

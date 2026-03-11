@@ -1,4 +1,5 @@
-﻿using DevExpress.Xpf.Editors;
+﻿using DevExpress.CodeParser;
+using DevExpress.Xpf.Editors;
 using SIE.Andon.Andons;
 using SIE.Andon.Andons.Enum;
 using SIE.Domain;
@@ -9,12 +10,13 @@ using SIE.Security;
 using SIE.Wpf.Command;
 using SIE.Wpf.Workbench;
 using System;
+using System.Linq;
 
 namespace SIE.Wpf.Andon.Commands
 {
 
     /// <summary>
-    /// 安灯事件验收命令
+    /// 安灯事件响应命令
     /// </summary>
     [Command(ImageName = "ArrowRightDropCircleOutline", Label = "响应", ToolTip = "响应", GroupType = CommandGroupType.Edit)]
     public class AndonManageResponseCommand : DetailViewCommand
@@ -54,15 +56,38 @@ namespace SIE.Wpf.Andon.Commands
                 {
                     if (w.Result == 0)
                     {
-                        var AndomData = ui.MainView.Data;
-                        var empNo = ((AndonEmpViewModel)AndomData).AndonEmpNo;
-                        employee = RT.Service.Resolve<AndonManageController>().EmpId(empNo);
-                        if (employee == null)
+
+                        try
                         {
-                            CRT.MessageService.ShowError("员工号输入错误".L10N());
-                            e.Cancel = true;
+                            var AndomData = ui.MainView.Data;
+                            var empNo = ((AndonEmpViewModel)AndomData).AndonEmpNo;
+                            employee = RT.Service.Resolve<AndonManageController>().EmpId(empNo);
+                            if (employee == null)
+                            {
+                                throw new ValidationException("员工号输入错误".L10N());
+                            }
+                            var am = view.Current as AndonManage;
+                            var andonGroupDetails = RT.Service.Resolve<AndonController>().GetAndonGroupDetailsByAndonManageId(am.Id, am.WipResource?.AndonUpholdId ?? 0);
+                            if (andonGroupDetails.All(p => p.UserCode != empNo))
+                            {
+                                throw new ValidationException("该员工不属于安灯责任组，无响应权限".L10N());
+                            }
+                            if (andonGroupDetails.Any(p => p.UserCode == empNo && p.UserState == Domain.State.Disable))
+                            {
+                                throw new ValidationException("该员工已离职，无法进行响应操作".L10N());
+                            }
                         }
-                        textEdit?.Focus();
+                        catch (Exception ex)
+                        {
+                            CRT.MessageService.ShowError(ex.GetBaseException().Message);
+                            e.Cancel = true;
+                            //设置为空，后面就不会继续运行
+                            employee = null;
+                        }
+                        finally
+                        {
+                            textEdit?.Focus();
+                        }
                     }
                 };
                  CRT.MainThread.InvokeIfRequired(() =>
@@ -91,7 +116,7 @@ namespace SIE.Wpf.Andon.Commands
             {
                 reason = "处理人更新为" + nowHandler.Name;
             }
-            RT.Service.Resolve<AndonManageController>().AndonManageResponse(andonManageId, AndonManageOperateType.Response, reason.L10N(), employee.Id);
+            RT.Service.Resolve<AndonManageController>().AndonManageResponse(andonManageId, AndonManageOperateType.Response, reason.L10N(), employee.Id, isCs: true);
             ClientRuntime.MessageService.ShowMessage("响应成功".L10N());
             andonManage.State = AndonManageState.Processing;
             #endregion

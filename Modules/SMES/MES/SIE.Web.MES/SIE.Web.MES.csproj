@@ -45,6 +45,9 @@
     <None Remove="DataBarcode\Commands\DataBarcodeDeleteCommand.js" />
     <None Remove="DataBarcode\Commands\DataBarcodeImportCommand.js" />
     <None Remove="DataBarcode\Commands\DataBarcodeLabelPrintCommand.js" />
+    <None Remove="DesignerAreas\Commands\DesignerAreaDLTemplateCommand.js" />
+    <None Remove="DesignerAreas\Commands\DesignerAreaImportCommand.js" />
+    <None Remove="DesignerAreas\Commands\DesignerAreaResourceSelectCommand.js" />
     <None Remove="Edge\Commands\ReSubmitMessageCommand.js" />
     <None Remove="Fixture\Commands\FixtureUpholdSaveCommands.js" />
     <None Remove="InspectionStandards\Commands\ImportInspectionCommand.js" />
@@ -151,6 +154,8 @@
     <None Remove="ProcessProperty\Commands\ProcessPtyDLTemplateCommand.js" />
     <None Remove="ProcessProperty\Commands\ProcessPtyImportCommand.js" />
     <None Remove="ProcessProperty\Commands\ProcessPtySaveCommands.js" />
+    <None Remove="ProductAgingProcesss\Commands\ProductAgingProcessImportCommand.js" />
+    <None Remove="ProductAgingProcesss\Commands\ProductAgingProcessTemplateCommand.js" />
     <None Remove="ProjectDesigns\Behaviors\ProjectDesignDetailBehavior.js" />
     <None Remove="ProjectDesigns\ChildCommands\BasicPropertyAddCommand.js" />
     <None Remove="ProjectDesigns\ChildCommands\BasicPropertySaveCommand.js" />
@@ -315,6 +320,9 @@
     <EmbeddedResource Include="DataBarcode\Commands\DataBarcodeDeleteCommand.js" />
     <EmbeddedResource Include="DataBarcode\Commands\DataBarcodeImportCommand.js" />
     <EmbeddedResource Include="DataBarcode\Commands\DataBarcodeLabelPrintCommand.js" />
+    <EmbeddedResource Include="DesignerAreas\Commands\DesignerAreaDLTemplateCommand.js" />
+    <EmbeddedResource Include="DesignerAreas\Commands\DesignerAreaImportCommand.js" />
+    <EmbeddedResource Include="DesignerAreas\Commands\DesignerAreaResourceSelectCommand.js" />
     <EmbeddedResource Include="Fixture\Commands\FixtureUpholdDLTemplateCommand.js" />
     <EmbeddedResource Include="Fixture\Commands\FixtureUpholdImportCommand.js" />
     <EmbeddedResource Include="ItemChecker\Commands\CheckerItemDLTemplateCommand.js" />
@@ -347,6 +355,8 @@
     <EmbeddedResource Include="ProcessProperty\Commands\ProcessPtyDLTemplateCommand.js" />
     <EmbeddedResource Include="ProcessProperty\Commands\ProcessPtyImportCommand.js" />
     <EmbeddedResource Include="ProcessProperty\Commands\ProcessPtySaveCommands.js" />
+    <EmbeddedResource Include="ProductAgingProcesss\Commands\ProductAgingProcessTemplateCommand.js" />
+    <EmbeddedResource Include="ProductAgingProcesss\Commands\ProductAgingProcessImportCommand.js" />
     <EmbeddedResource Include="ProjectDesigns\Behaviors\ProjectDesignDetailBehavior.js" />
     <EmbeddedResource Include="ProjectDesigns\ChildCommands\BomCommands\TreeBomDetailImportCommand.js" />
     <EmbeddedResource Include="ProjectDesigns\ChildCommands\DocumentCommands\DocumentAddCommand.js" />

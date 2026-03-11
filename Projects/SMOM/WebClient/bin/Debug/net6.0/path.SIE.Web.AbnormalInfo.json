@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\AbnormalInfo",
   "SIE.Web.AbnormalInfo.AbnormalInfos.Commands.AbnormalInfoDefHandlerSelectCommand.js": "SIE.Web.AbnormalInfo/AbnormalInfos/Commands/AbnormalInfoDefHandlerSelectCommand.js",
   "SIE.Web.AbnormalInfo.AbnormalInfos.Commands.AddAbnormalInfoCategoryCommand.js": "SIE.Web.AbnormalInfo/AbnormalInfos/Commands/AddAbnormalInfoCategoryCommand.js",
   "SIE.Web.AbnormalInfo.AbnormalInfos.Commands.AddAbnormalInfoDefinitionCommand.js": "SIE.Web.AbnormalInfo/AbnormalInfos/Commands/AddAbnormalInfoDefinitionCommand.js",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jYQW7PBTNOk=",
+  "dgSpecHash": "+F+17Oua/K0=",
   "success": true,
-  "projectFilePath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.Wpf.MES.Workbench\\SIE.Wpf.MES.Workbench.csproj",
+  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Workbenchs\\SIE.Wpf.MES.Workbench\\SIE.Wpf.MES.Workbench.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\caching.csredis\\3.6.60\\caching.csredis.3.6.60.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",

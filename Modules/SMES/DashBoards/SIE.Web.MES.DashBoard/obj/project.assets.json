@@ -5316,6 +5316,20 @@
           "bin/placeholder/SIE.KZ.Base.dll": {}
         }
       },
+      "SIE.KZ.Group/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SIE.EventMessages": "1.0.0",
+          "SIE.KZ.Base": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SIE.KZ.Group.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SIE.KZ.Group.dll": {}
+        }
+      },
       "SIE.LES/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -5370,6 +5384,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "SIE.KZ.Group": "1.0.0",
           "SIE.MES.TaskManagement": "1.0.0",
           "SIE.MES.TeamManagement": "1.0.0"
         },
@@ -5398,6 +5413,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "SIE.Andon": "1.0.0",
+          "SIE.Items": "1.0.0",
           "SIE.MES": "1.0.0",
           "SIE.ProductIntfc": "1.0.0"
         },
@@ -15515,6 +15531,11 @@
       "path": "../../../KaiZhong/SIE.KZ.Base/SIE.KZ.Base.csproj",
       "msbuildProject": "../../../KaiZhong/SIE.KZ.Base/SIE.KZ.Base.csproj"
     },
+    "SIE.KZ.Group/1.0.0": {
+      "type": "project",
+      "path": "../../../KaiZhong/SIE.KZ.Group/SIE.KZ.Group.csproj",
+      "msbuildProject": "../../../KaiZhong/SIE.KZ.Group/SIE.KZ.Group.csproj"
+    },
     "SIE.LES/1.0.0": {
       "type": "project",
       "path": "../../../Common/LES/SIE.LES/SIE.LES.csproj",
@@ -15594,17 +15615,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.Web.MES.DashBoard\\SIE.Web.MES.DashBoard.csproj",
+      "projectUniqueName": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.Web.MES.DashBoard\\SIE.Web.MES.DashBoard.csproj",
       "projectName": "SIE.Web.MES.DashBoard",
-      "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.Web.MES.DashBoard\\SIE.Web.MES.DashBoard.csproj",
+      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.Web.MES.DashBoard\\SIE.Web.MES.DashBoard.csproj",
       "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-      "outputPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.Web.MES.DashBoard\\obj\\",
+      "outputPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.Web.MES.DashBoard\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\NuGet.Config",
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\NuGet.Config",
         "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -15615,15 +15636,15 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\nupkgs": {},
+        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\nupkgs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj": {
-              "projectPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj"
+            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj": {
+              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj"
             }
           }
         }

@@ -25,8 +25,9 @@ namespace SIE.Web.MES.WorkOrders
 
             View.Property(p => p.ItemCode).Show(ShowInWhere.Detail).HasOrderNo(30);
             View.Property(p => p.ItemName).Show(ShowInWhere.Detail).HasOrderNo(40);
-            View.Property(p => p.Workshop).UseResourceWorkShopEditor().Cascade(p => p.Resource, null).Show(ShowInWhere.Detail)
-                .UseListSetting(e => { e.HelpInfo = "更改车间清空资源"; }).HasOrderNo(50);
+            View.Property(p=>p.WorkShopCode).Show(ShowInWhere.Detail).HasOrderNo(40);
+            //View.Property(p => p.Workshop).UseResourceWorkShopEditor().Cascade(p => p.Resource, null).Show(ShowInWhere.Detail)
+            //    .UseListSetting(e => { e.HelpInfo = "更改车间清空资源"; }).HasOrderNo(50);
             View.Property(p => p.Resource).Show(ShowInWhere.Detail).UseDataSource((e, pagingInfo, keyword) =>
             {
                 var criteria = e as WorkOrderCriteria;

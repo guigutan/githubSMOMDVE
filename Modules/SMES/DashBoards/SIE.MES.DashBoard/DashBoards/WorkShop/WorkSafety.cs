@@ -1,4 +1,5 @@
 ﻿using SIE.Domain;
+using SIE.Domain.Validation;
 using SIE.Equipments.EquipAccounts;
 using SIE.MetaModel;
 using SIE.ObjectModel;
@@ -79,6 +80,12 @@ namespace SIE.MES.DashBoard.DashBoards.WorkShop
     /// </summary>
     public class WorkSafetyConfig : EntityConfig<WorkSafety>
     {
+        protected override void AddValidations(IValidationDeclarer rules)
+        {
+            rules.AddRule(WorkSafety.FactoryIdProperty, new NotDuplicateRule());
+            base.AddValidations(rules);
+        }
+
         /// <summary>
         /// 配置元数据
         /// </summary>

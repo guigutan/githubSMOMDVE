@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+﻿using Castle.Facilities.TypedFactory.Internal;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
 using SIE.Andon.Andons.Configs;
 using SIE.Andon.Andons.Enum;
@@ -40,6 +41,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -738,7 +740,7 @@ namespace SIE.Andon.Andons
         /// <param name="operateType"></param>
         /// <param name="reason"></param>
         /// /// <param name="employee"></param>
-        public virtual void AndonManageResponse(double andonManageId, AndonManageOperateType operateType, string reason, double employee = -1)
+        public virtual void AndonManageResponse(double andonManageId, AndonManageOperateType operateType, string reason, double employee = -1, bool? isCs = null)
         {
 
             var andonManage = RF.GetById<AndonManage>(andonManageId);
@@ -754,6 +756,13 @@ namespace SIE.Andon.Andons
                 AndonManageCommandCreateOperate(andonManageId, operateType, reason, employee);
                 //响应消息推送
                 RT.Service.Resolve<MessageSendController>().SendInstantMessage(andonManage, andonManage.State, false);
+                //只有CS端需要推给企微
+                if (isCs == true)
+                {
+                    var emp = RF.GetById<Employee>(employee);
+                    //推送安灯给企微
+                    SendMarkdownMessage(andonManage, operateType, isCs, emp?.Name);
+                }
                 tran.Complete();
             }
             var andonUpholdId = Query<WipResource>().LeftJoin<AndonManage>((x, y) => x.Id == y.WipResourceId)
@@ -885,20 +894,34 @@ namespace SIE.Andon.Andons
         /// <param name="handleWay">处理方式</param>
         /// <param name="measure">预防措施</param>
         /// <param name="operaterId">操作人</param>
-        public virtual void AndonManageHandleAsync(double andonManageId, AndonManageOperateType operateType, string reason, string enventReason = "", string handleWay = "", string measure = "", double operaterId = -1)
+        /// <param name="isCs">是否CS端</param>
+        public virtual void AndonManageHandleAsync(double andonManageId, AndonManageOperateType operateType, string reason, string enventReason = "", string handleWay = "", string measure = "", double operaterId = -1, bool? isCs = null)
         {
             var andonManage = RF.GetById<AndonManage>(andonManageId);
             var andonUpholdId = Query<WipResource>().LeftJoin<AndonManage>((x, y) => x.Id == y.WipResourceId)
                                 .Where<AndonManage>((x, y) => y.Id == andonManageId).ToList().FirstOrDefault().AndonUpholdId;
 
-            //根据安灯明细获取A1的人员
-            var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andonManage.AndonId && p.AndonUpholdId == andonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
-
-            if (andonDesc == null)
+            var responseDtl = andonManage.Andon.AndonResponseDetailList.Where(p => p.AndonUpholdId == andonUpholdId).OrderBy(p => p.AndonseepLevel).FirstOrDefault();
+            if (responseDtl == null)
             {
-                throw new ValidationException("请先维护安灯维护下面的安灯清单，触发失败！".L10N());
+                throw new ValidationException("请先维护安灯维护下面的安灯责任组，触发失败！".L10N());
             }
-            andonManage.RespPersonId = andonDesc.EmployeeId;
+            //任意一个在职的
+            var agD = responseDtl.AndonGroup.AndonGroupDetailList.Where(p => p.User.State == State.Enable && p.User.Employee.EmployeeStatus == Resources.EmployeeStatus.Job).FirstOrDefault();
+            if (agD == null)
+            {
+                throw new ValidationException("安灯责任组维护基础表未维护用户，触发失败！".L10N());
+            }
+            andonManage.RespPersonId = agD.User.EmployeeId;
+
+            //根据安灯明细获取A1的人员
+            //var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andonManage.AndonId && p.AndonUpholdId == andonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
+
+            //if (andonDesc == null)
+            //{
+            //    throw new ValidationException("请先维护安灯维护下面的安灯清单，触发失败！".L10N());
+            //}
+            //andonManage.RespPersonId = andonDesc.EmployeeId;
 
             if (andonManage.State != AndonManageState.Processing)
             {
@@ -923,6 +946,14 @@ namespace SIE.Andon.Andons
                 AndonManageCommandCreateOperate(andonManageId, operateType, reason, operaterId);
                 //处理完成消息推送
                 //RT.Service.Resolve<MessageSendController>().SendInstantMessage(andonManage, andonManage.State, false);
+
+                //只有CS端需要推给企微
+                if (isCs == true)
+                {
+                    var emp = RF.GetById<Employee>(operaterId);
+                    //推送安灯给企微
+                    SendMarkdownMessage(andonManage, operateType, isCs, emp?.Name);
+                }
                 tran.Complete();
             }
 
@@ -964,7 +995,8 @@ namespace SIE.Andon.Andons
         /// <param name="operateType"></param>
         /// <param name="reason"></param>
         /// <param name="actualTime"></param>
-        public virtual void AndonManageCheck(double andonManageId, AndonManageOperateType operateType, string reason, double? actualTime)
+        /// <param name="isCs">是否CS端</param>
+        public virtual void AndonManageCheck(double andonManageId, AndonManageOperateType operateType, string reason, double? actualTime, bool? isCs = null, double employee = -1)
         {
             var andonManage = RF.GetById<AndonManage>(andonManageId);
             if (andonManage.State != AndonManageState.ToAccepted)
@@ -979,9 +1011,16 @@ namespace SIE.Andon.Andons
                 andonManage.LastTime = Math.Round((nowTime - andonManage.TriggerTime).TotalHours, 1);
                 andonManage.ActualTime = actualTime;
                 RF.Save(andonManage);
-                AndonManageCommandCreateOperate(andonManageId, operateType, reason);
+                AndonManageCommandCreateOperate(andonManageId, operateType, reason, employee);
                 //验收消息推送
                 RT.Service.Resolve<MessageSendController>().SendInstantMessage(andonManage, andonManage.State, false);
+                //只有CS端需要推给企微
+                if (isCs == true)
+                {
+                    var emp = RF.GetById<Employee>(employee);
+                    //推送安灯给企微
+                    SendMarkdownMessage(andonManage, operateType, isCs, emp?.Name);
+                }
                 trans.Complete();
             }
         }
@@ -994,7 +1033,8 @@ namespace SIE.Andon.Andons
         /// <param name="andonManageId"></param>
         /// <param name="operateType"></param>
         /// <param name="reason"></param>
-        public virtual void AndonManageReject(double andonManageId, AndonManageOperateType operateType, string reason)
+        /// <param name="isCs">是否CS端</param>
+        public virtual void AndonManageReject(double andonManageId, AndonManageOperateType operateType, string reason, bool? isCs = null, double employee = -1)
         {
             var andonManage = RF.GetById<AndonManage>(andonManageId);
             if (andonManage.State != AndonManageState.ToAccepted)
@@ -1005,9 +1045,16 @@ namespace SIE.Andon.Andons
             {
                 andonManage.State = Enum.AndonManageState.Processing;
                 RF.Save(andonManage);
-                AndonManageCommandCreateOperate(andonManageId, operateType, reason);
+                AndonManageCommandCreateOperate(andonManageId, operateType, reason, employee);
                 //驳回
                 RT.Service.Resolve<MessageSendController>().SendInstantMessage(andonManage, andonManage.State, true);
+                //只有CS端需要推给企微
+                if (isCs == true)
+                {
+                    var emp = RF.GetById<Employee>(employee);
+                    //推送安灯给企微
+                    SendMarkdownMessage(andonManage, operateType, isCs, emp?.Name);
+                }
                 trans.Complete();
             }
         }
@@ -1876,6 +1923,28 @@ namespace SIE.Andon.Andons
         }
         #endregion
 
+
+        #region 通用问题描述
+
+        /// <summary>
+        /// 根据安灯维护获取通用问题描述
+        /// </summary>
+        /// <param name="AndonId"></param>
+        /// <param name="pagingInfo"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public virtual EntityList<GeneralProbDtl> GetGeneralProbDtlsByAndonId(double AndonId,PagingInfo pagingInfo,string key)
+        {
+            var query = Query<GeneralProbDtl>().Where(p => p.AndonId == AndonId);
+            if (!key.IsNullOrEmpty())
+                query.Where(p => p.Desc.Contains(key));
+
+            var list = query.ToList(pagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+            return list;
+        }
+
+        #endregion
+
         /// <summary>
         /// 保存安灯管理
         /// </summary>
@@ -1892,6 +1961,20 @@ namespace SIE.Andon.Andons
                 tran.Complete();
             }
 
+        }
+
+        /// <summary>
+        /// 获取安灯异常产线
+        /// </summary>
+        /// <param name="wipResourceIds"></param>
+        /// <returns></returns>
+        public virtual List<double> GetAndonManageIds(List<double> wipResourceIds)
+        {
+           var andonWipResourceIds =  Query<AndonManage>()
+                .Where(p=> wipResourceIds.Contains(p.WipResourceId))
+                .Where(p=>p.State!= AndonManageState.Closed&& p.State != AndonManageState.Cancel)
+                .Select(p=>p.WipResourceId).ToList<double>();
+            return andonWipResourceIds.ToList();
         }
 
         /// <summary>
@@ -2090,14 +2173,27 @@ namespace SIE.Andon.Andons
             //获取当前产线下的安灯区域
             var resData = Query<WipResource>().Where(p => p.Id == andonManage.WipResourceId).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
 
-            //根据安灯明细获取A1的人员
-            var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andonManage.AndonId && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
-
-            if (andonDesc == null)
+            var responseDtl = andonManage.Andon.AndonResponseDetailList.Where(p => p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonseepLevel).FirstOrDefault();
+            if (responseDtl == null)
             {
-                throw new ValidationException("请先维护安灯维护下面的安灯清单，触发失败！".L10N());
+                throw new ValidationException("请先维护安灯维护下面的安灯责任组，触发失败！".L10N());
             }
-            andonManage.RespPersonId = andonDesc.EmployeeId;
+            //任意一个在职的
+            var agD = responseDtl.AndonGroup.AndonGroupDetailList.Where(p => p.User.State == State.Enable && p.User.Employee.EmployeeStatus == Resources.EmployeeStatus.Job).FirstOrDefault();
+            if (agD == null)
+            {
+                throw new ValidationException("安灯责任组维护基础表未维护用户，触发失败！".L10N());
+            }
+            andonManage.RespPersonId = agD.User.EmployeeId;
+
+            //根据安灯明细获取A1的人员
+            //var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andonManage.AndonId && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
+
+            //if (andonDesc == null)
+            //{
+            //    throw new ValidationException("请先维护安灯维护下面的安灯清单，触发失败！".L10N());
+            //}
+            //andonManage.RespPersonId = andonDesc.EmployeeId;
 
 
 
@@ -2189,8 +2285,11 @@ namespace SIE.Andon.Andons
         /// 推送企业微信
         /// </summary>
         /// <param name="andonManage"></param>
+        /// <param name="operateType">操作类型</param>
+        /// <param name="isCs">是否CS端</param>
+        /// <param name="specifyName">指定人</param>
         /// <returns></returns>
-        public virtual void SendMarkdownMessage(AndonManage andonManage)
+        public virtual void SendMarkdownMessage(AndonManage andonManage, AndonManageOperateType? operateType = null, bool? isCs = null, string specifyName = null)
         {
             if (andonManage.Id > 0)
             {
@@ -2205,16 +2304,39 @@ namespace SIE.Andon.Andons
             //获取当前产线下的安灯区域
             var resData = Query<WipResource>().Where(p => p.Id == andonManage.WipResourceId).FirstOrDefault(new EagerLoadOptions().LoadWithViewProperty());
             //根据安灯明细获取A1的人员
-            var andonSesps = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).ToList();
+            //var andonSesps = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).ToList();
             try
             {
-                if (andonSesps.Count == 0)
-                    throw new ValidationException("安灯责任清单为空".L10N());
-                string andonLevel = andonSesps.FirstOrDefault().AndonLevel;
-                andonSesps = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId && p.AndonLevel == andonLevel).ToList();
-                employeeId.AddRange(andonSesps.Select(x => x.EmployeeId).Distinct());
+                //if (andonSesps.Count == 0)
+                //    throw new ValidationException("安灯责任清单为空".L10N());
+                //string andonLevel = andonSesps.FirstOrDefault().AndonLevel;
+                //andonSesps = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId && p.AndonLevel == andonLevel).ToList();
+                //employeeId.AddRange(andonSesps.Select(x => x.EmployeeId).Distinct());
+                //string userIds = GetEmpCodes(employeeId);
+                //string userNames = GetEmpNames(employeeId);
+
+
+                var responseDtl = andon.AndonResponseDetailList.Where(p => p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonseepLevel).FirstOrDefault();
+                if (responseDtl == null)
+                    throw new ValidationException("安灯维护未维护安灯责任组".L10N());
+                //获取安灯责任组明细
+                var andonGroupsDtls = responseDtl.AndonGroup.AndonGroupDetailList;
+                employeeId = andonGroupsDtls.Where(p => p.User.State == State.Enable).Select(p => p.User.EmployeeId ?? 0).Where(p => p != 0).Distinct().ToList();
+                //责任人
+                var responseIds = andonGroupsDtls.Where(p => p.IsResponser == true && p.User.State == State.Enable).Select(p => p.User.EmployeeId ?? 0).Where(p => p != 0).Distinct().ToList();
+                //验收人
+                var AcceptancerIds = andonGroupsDtls.Where(p => p.IsAcceptancer == true && p.User.State == State.Enable).Select(p => p.User.EmployeeId ?? 0).Where(p => p != 0).Distinct().ToList();
+                //组员
+                var groupIds = andonGroupsDtls.Where(p => (p.IsAcceptancer == null || p.IsAcceptancer == false) && (p.IsResponser == null || p.IsResponser == false) && p.User.State == State.Enable).Select(p => p.User.EmployeeId ?? 0).Where(p => p != 0).Distinct().ToList();
+
+                //责任人
+                string responseNames = GetEmpNames(responseIds);
+                //验收人
+                string AcceptancerNames = GetEmpNames(AcceptancerIds);
+                //组员
+                string groupNames = GetEmpNames(groupIds);
+                //发送给全部人
                 string userIds = GetEmpCodes(employeeId);
-                string userNames = GetEmpNames(employeeId);
 
                 var senders = new WeComMessageSender(
                            corpId: "wx78ac1de6dc983cb0",
@@ -2226,17 +2348,66 @@ namespace SIE.Andon.Andons
                 if (andonManage.EquipAccount != null)
                     eqCode = andonManage.EquipAccount.Code;
 
+                var proDesc = "";
+                proDesc += andonManage.ProblemDesc;
+                //当有通用问题描述的时候，要将合并起来
+                //if (andonManage.GeneralProbDtlId != null && andonManage.GeneralProbDtlId > 0)
+                //{
+                //    if (proDesc == "")
+                //        proDesc += andonManage.GeneralProbDtlDesc;
+                //    else
+                //        proDesc += (";" + andonManage.GeneralProbDtlDesc);
+                //}
+                TimeSpan timeDifference = System.DateTime.Now - andonManage.FaultTime;
+                var waitingTime = Math.Round((double)timeDifference.TotalMinutes, 1);
+
                 string message = "您有一个**" + andonManage.AndonName + "**安灯待处理\n" +
                         "**安灯事件编号**：" + andonManage.AndonManageCode + "\n" +
                         "**工**\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0**厂**：" + factoryName.Name + "\n" +
                         "**产**\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0**线**：" + andonManage.WipResourceName + "\n" +
                         "**所属区域**：" + resData.AndonUphold?.AndonDesc + "\n" +
                         "**设备编码**：" + eqCode + "\n" +
-                        "**问题描述**：" + andonManage.ProblemDesc + "\n" +
+                        "**问题描述**：" + proDesc + "\n" + 
                          "**异常发生时间**：" + andonManage.FaultTime + "\n" +
-                         "**等待时长**：" + 0 + "分钟\n" +
-                        "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + userNames + "\n" +
+                         "**等待时长**：" + waitingTime + "分钟\n" +
+                        "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + responseNames + "\n" +
+                        "**验**\u00A0\u00A0**收**\u00A0\u00A0**人**：" + AcceptancerNames + "\n" +
+                        "**组**\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0**员**：" + groupNames + "\n" +
                         "请及时处理!";
+
+                if (operateType != null && isCs == true)
+                {
+                    var oType = "";
+                    switch (operateType)
+                    {
+                        case AndonManageOperateType.Response:
+                            oType = "响应";
+                            break;
+                        case AndonManageOperateType.Handle:
+                            oType = "处理";
+                            break;
+                        case AndonManageOperateType.Check:
+                            oType = "验收";
+                            break;
+                        case AndonManageOperateType.Reject:
+                            oType = "驳回";
+                            break;
+                    }
+                    message = andonManage.AndonName + "安灯已" + oType + "\n" +
+                        "**安灯事件编号**：" + andonManage.AndonManageCode + "\n" +
+                        "**工**\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0**厂**：" + factoryName.Name + "\n" +
+                        "**产**\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0**线**：" + andonManage.WipResourceName + "\n" +
+                        "**所属区域**：" + resData.AndonUphold?.AndonDesc + "\n" +
+                        "**设备编码**：" + eqCode + "\n" +
+                        "**问题描述**：" + proDesc + "\n" +
+                         "**异常发生时间**：" + andonManage.FaultTime + "\n" +
+                         "**等待时长**：" + waitingTime + "分钟\n" +
+                        "**责**\u00A0\u00A0**任**\u00A0\u00A0**人**：" + responseNames + "\n" +
+                        "**验**\u00A0\u00A0**收**\u00A0\u00A0**人**：" + AcceptancerNames + "\n" +
+                        "**组**\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0**员**：" + groupNames + "\n" +
+                        "**" + oType + "人" + "**：" + specifyName + "\n" +
+                        "请及时处理!";
+                }
 
                 senders.SendMarkdownMessageAsync
                       (userIds: userIds,//userIds"00101074"
@@ -2315,16 +2486,29 @@ namespace SIE.Andon.Andons
                 throw new ValidationException("资源下没有维护安灯区域，触发失败！".L10N());
             }
             //根据安灯明细获取A1的人员
-            var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
+            //var andonDesc = Query<AndonSesp>().Where(p => p.AndonId == andon.Id && p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonLevel).FirstOrDefault();
 
-            if (andonDesc == null)
+            //if (andonDesc == null)
+            //{
+            //    throw new ValidationException("请先维护安灯维护下面的安灯清单，触发失败！".L10N());
+            //}
+
+            var responseDtl = andonManage.Andon.AndonResponseDetailList.Where(p => p.AndonUpholdId == resData.AndonUpholdId).OrderBy(p => p.AndonseepLevel).FirstOrDefault();
+            if (responseDtl == null)
             {
-                throw new ValidationException("请先维护安灯维护下面的安灯清单，触发失败！".L10N());
+                throw new ValidationException("请先维护安灯维护下面的安灯责任组，触发失败！".L10N());
             }
+            //任意一个在职的
+            var agD = responseDtl.AndonGroup.AndonGroupDetailList.Where(p => p.User.State == State.Enable && p.User.Employee.EmployeeStatus == Resources.EmployeeStatus.Job).FirstOrDefault();
+            if (agD == null)
+            {
+                throw new ValidationException("安灯责任组维护基础表未维护用户，触发失败！".L10N());
+            }
+            andonManage.RespPersonId = agD.User.EmployeeId;
 
             CreateAndonManage(andonManage, andon);
 
-            andonManage.RespPersonId = (double)andonDesc.EmployeeId;
+            //andonManage.RespPersonId = (double)andonDesc.EmployeeId;
             if (andon.RepeatTrigger && AndonManageRepeatTrigger(andonManage))
             {
                 throw new ValidationException("该安灯{0}存在未关闭的事件，请确认是否重复触发".L10nFormat(andon.AndonCode));

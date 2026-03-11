@@ -1,5 +1,8 @@
-﻿using SIE.Domain;
+﻿using Org.BouncyCastle.Security;
+using SIE.Domain;
 using SIE.ObjectModel;
+using SIE.Tech.Processs;
+using SIE.Wpf.MES.TaskManagement.KZReports.Controls;
 using System;
 
 namespace SIE.Wpf.MES.TaskManagement.KZReports
@@ -11,6 +14,5 @@ namespace SIE.Wpf.MES.TaskManagement.KZReports
     [Label("扫码报工")]
     public class KZScanReportViewModel : KZTaskReportViewModelBase
     {
-        
     }
 }

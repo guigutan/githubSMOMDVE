@@ -38,6 +38,11 @@ namespace SIE.MES.TaskManagement.Dispatchs.Datas
         public decimal RemainingQty { get; set; }
 
         /// <summary>
+        /// 制卡需求量
+        /// </summary>
+        public decimal CardDemandQty { get; set; }
+
+        /// <summary>
         /// 单位
         /// </summary>
         public string Unit { get; set; }

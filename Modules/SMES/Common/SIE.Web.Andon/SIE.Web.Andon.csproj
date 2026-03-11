@@ -44,6 +44,11 @@
 		<None Remove="Andons\Commands\AndonAddCommand.js" />
 		<None Remove="Andons\Commands\AndonEditCommand.js" />
 		<None Remove="Andons\Commands\AndonExpRemoveCommand.js" />
+		<None Remove="Andons\Commands\AndonGroupDetailSelectUserCommand.js" />
+		<None Remove="Andons\Commands\AndonGroupDLTemplateCommand.js" />
+		<None Remove="Andons\Commands\AndonGroupDtlDLTemplateCommand.js" />
+		<None Remove="Andons\Commands\AndonGroupDtlImportCommand.js" />
+		<None Remove="Andons\Commands\AndonGroupImportCommand.js" />
 		<None Remove="Andons\Commands\AndonManageAddCommand.js" />
 		<None Remove="Andons\Commands\AndonManageAddExpCommand.js" />
 		<None Remove="Andons\Commands\AndonManageAttachmentClearCommand.js" />
@@ -63,6 +68,8 @@
 		<None Remove="Andons\Commands\AndonManageResponseCommand.js" />
 		<None Remove="Andons\Commands\AndonMessageAddCommand.js" />
 		<None Remove="Andons\Commands\AndonPushObjectAddCommand.js" />
+		<None Remove="Andons\Commands\AndonResponseDetailDLTemplateCommand.js" />
+		<None Remove="Andons\Commands\AndonResponseDtlImportCommand.js" />
 		<None Remove="Andons\Commands\AndonSaveCommand.js" />
 		<None Remove="Andons\Commands\AndonSeepDLTemplateCommand.js" />
 		<None Remove="Andons\Commands\AndonSeepImportCommand.js" />
@@ -77,6 +84,8 @@
 		<None Remove="Andons\Commands\AndonTypeTriggerPowerAddUserGroupCommand.js" />
 		<None Remove="Andons\Commands\AndonTypeTriggerPowerAddWorkGroupCommand.js" />
 		<None Remove="Andons\Commands\CopyAndonTypeMessageSendCommand.js" />
+		<None Remove="Andons\Commands\GeneralProbDtlDLTemplateCommand.js" />
+		<None Remove="Andons\Commands\GeneralProbDtlImportCommand.js" />
 		<None Remove="Andons\Scripts\AndonManageIdLinkComboPopup.js" />
 		<None Remove="Andons\Scripts\AndonManageIpSpMultiWhComboPopup.js" />
 		<None Remove="Andons\Scripts\AndonManageUploadAttachmentButtonEditor.js" />
@@ -113,6 +122,11 @@
 		<EmbeddedResource Include="Andons\Commands\AndonAddCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonEditCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonExpRemoveCommand.js" />
+		<EmbeddedResource Include="Andons\Commands\AndonGroupDetailSelectUserCommand.js" />
+		<EmbeddedResource Include="Andons\Commands\AndonGroupDLTemplateCommand.js" />
+		<EmbeddedResource Include="Andons\Commands\AndonGroupDtlDLTemplateCommand.js" />
+		<EmbeddedResource Include="Andons\Commands\AndonGroupDtlImportCommand.js" />
+		<EmbeddedResource Include="Andons\Commands\AndonGroupImportCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonManageAddCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonManageAddExpCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonManageAttachmentClearCommand.js" />
@@ -132,6 +146,8 @@
 		<EmbeddedResource Include="Andons\Commands\AndonManageResponseCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonMessageAddCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonPushObjectAddCommand.js" />
+		<EmbeddedResource Include="Andons\Commands\AndonResponseDetailDLTemplateCommand.js" />
+		<EmbeddedResource Include="Andons\Commands\AndonResponseDtlImportCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonSaveCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonSeepDLTemplateCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonSeepImportCommand.js" />
@@ -146,6 +162,8 @@
 		<EmbeddedResource Include="Andons\Commands\AndonTypeTriggerPowerAddUserGroupCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\AndonTypeTriggerPowerAddWorkGroupCommand.js" />
 		<EmbeddedResource Include="Andons\Commands\CopyAndonTypeMessageSendCommand.js" />
+		<EmbeddedResource Include="Andons\Commands\GeneralProbDtlDLTemplateCommand.js" />
+		<EmbeddedResource Include="Andons\Commands\GeneralProbDtlImportCommand.js" />
 		<EmbeddedResource Include="Andons\Scripts\AndonManageIdLinkComboPopup.js" />
 		<EmbeddedResource Include="Andons\Scripts\AndonManageIpSpMultiWhComboPopup.js" />
 		<EmbeddedResource Include="Andons\Scripts\AndonManageUploadAttachmentButtonEditor.js" />

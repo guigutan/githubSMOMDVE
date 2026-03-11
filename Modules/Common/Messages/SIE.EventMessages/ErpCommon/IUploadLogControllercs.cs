@@ -12,6 +12,12 @@ namespace SIE.EventMessages.ErpCommon
     public interface IUploadLogControllercs
     {
         /// <summary>
+        /// 更新余料称重记录的数量
+        /// </summary>
+        /// <param name="ids"></param>
+        void EditScrapWeighingRecordQty(List<double> ids);
+
+        /// <summary>
         /// 更新扣料记录的数量
         /// </summary>
         /// <param name="ids"></param>
@@ -66,6 +72,16 @@ namespace SIE.EventMessages.ErpCommon
 
     public class DefaultIUploadLogControllercs : IUploadLogControllercs
     {
+
+        /// <summary>
+        /// 更新余料称重记录的数量
+        /// </summary>
+        /// <param name="ids"></param>
+        public void EditScrapWeighingRecordQty(List<double> ids)
+        { 
+            
+        }
+
         /// <summary>
         /// 更新扣料记录的数量
         /// </summary>

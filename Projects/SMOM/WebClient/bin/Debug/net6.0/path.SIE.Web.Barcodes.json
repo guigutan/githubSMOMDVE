@@ -1,5 +1,5 @@
 {
-  "RootPath": "D:\\SMOMWokers\\SMOM.DEV.10.3\\SMOM.KAIZHONG\\SMOM.KAIZHONG\\Modules\\SMES\\Barcodes",
+  "RootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Barcodes",
   "SIE.Web.Barcodes.Barcodes.Commands.BarcodeBelongCommand.js": "SIE.Web.Barcodes/Barcodes/Commands/BarcodeBelongCommand.js",
   "SIE.Web.Barcodes.Barcodes.Commands.BarcodePrintCommand.js": "SIE.Web.Barcodes/Barcodes/Commands/BarcodePrintCommand.js",
   "SIE.Web.Barcodes.Barcodes.Commands.BarcodeResumeCommand.js": "SIE.Web.Barcodes/Barcodes/Commands/BarcodeResumeCommand.js",

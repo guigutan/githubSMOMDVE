@@ -25,15 +25,16 @@ namespace SIE.Web.ERPInterface.Logs
                 View.Property(p => p.ShortDescription).Show();
                 View.Property(p => p.Bismt).Show();
                 View.Property(p => p.WoNo).Show();
-                View.Property(p => p.WorkShopId).Show(ShowInWhere.Detail).UseDataSource((source, pagingInfo, keyword) =>
-    {
-        var entity = source as UploadTransactionCriteria;
-        var workshop = RT.Service.Resolve<EnterpriseController>().GetResourceWorkShops(pagingInfo, keyword);
-        if (workshop == null || workshop.Count <= 0)
-            return new EntityList<Enterprise>();
-        workshop.ForEach(p => p.TreePId = null);
-        return workshop;
-    });
+                //            View.Property(p => p.WorkShopId).Show(ShowInWhere.Detail).UseDataSource((source, pagingInfo, keyword) =>
+                //{
+                //    var entity = source as UploadTransactionCriteria;
+                //    var workshop = RT.Service.Resolve<EnterpriseController>().GetResourceWorkShops(pagingInfo, keyword);
+                //    if (workshop == null || workshop.Count <= 0)
+                //        return new EntityList<Enterprise>();
+                //    workshop.ForEach(p => p.TreePId = null);
+                //    return workshop;
+                //});
+                View.Property(p => p.WorkShopCode).Show();
                 View.Property(p => p.LotCode).Show();
                 View.Property(p => p.ProcessCode).Show();
                 View.Property(p => p.Mblnr).Show();
