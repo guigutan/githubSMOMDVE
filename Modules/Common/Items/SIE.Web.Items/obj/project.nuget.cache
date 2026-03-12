@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LHUW3lE69fk=",
+  "dgSpecHash": "un2Vxp76xLw=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Web.Items\\SIE.Web.Items.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Web.Items\\SIE.Web.Items.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.13.0\\aliyun.oss.sdk.netcore.2.13.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",

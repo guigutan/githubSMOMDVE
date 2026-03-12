@@ -86,6 +86,9 @@ namespace SIE.Web.Andon.Andons
                 View.Property(p => p.Solution).ShowInList(width: 200);
                 View.Property(p => p.ProblemDesc);
                 View.Property(p => p.Priority);
+                View.Property(p => p.ResponseTime).Show().Readonly();
+                View.Property(p => p.HandleTime).Show().Readonly();
+                View.Property(p => p.CheckTime).Show().Readonly();
                 View.Property(p => p.Defect).ShowInList(width: 200);
                 View.Property(p => p.Department);
                 View.Property(p => p.State);

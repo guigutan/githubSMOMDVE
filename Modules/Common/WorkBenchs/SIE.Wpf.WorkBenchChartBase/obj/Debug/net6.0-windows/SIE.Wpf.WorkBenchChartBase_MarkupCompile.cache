@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\SMOMDev0310\SMOM.KAIZHONG\Modules\Common\WorkBenchs\SIE.Wpf.WorkBenchChartBase\obj\Debug\net6.0-windows\
+D:\SMOMDev0312\SMOM.KAIZHONG\Modules\Common\WorkBenchs\SIE.Wpf.WorkBenchChartBase\obj\Debug\net6.0-windows\
 SIE.Wpf.WorkBenchChartBase
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET
 5-1822868040
 
 17547277071
-392-767007934
+392-1903968717
 ChartGroups\ChartGroup.xaml;ChartGroups\ChartInfo.xaml;Commons\PopupItem.xaml;Themes\HeaderTemplate.xaml;Themes\ReportChartTemplate.xaml;
 
 False

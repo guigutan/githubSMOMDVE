@@ -1,10 +1,14 @@
-﻿using SIE.Domain;
+﻿using DevExpress.DataProcessing;
+using DevExpress.Xpf.CodeView;
+using SIE.Domain;
 using SIE.Domain.Validation;
 using SIE.ManagedProperty;
 using SIE.MES.OnOffDutyB;
 using SIE.ObjectModel;
 using SIE.Resources.Employees;
+using SIE.Resources.WipResources;
 using SIE.Tech.Processs;
+using SIE.Wpf.MES.Controls;
 using SIE.Wpf.MES.WIP;
 using System;
 using System.Collections.Generic;
@@ -29,14 +33,8 @@ namespace SIE.Wpf.MES.OnOffDutyB
         public OnOffDutyBViewModel()
         {
             InitWorkstationB(ProcessType.Pqc, ProcessType.Fix, ProcessType.Rework,
-            ProcessType.Assembly, ProcessType.Packing, ProcessType.BatchAssembly, ProcessType.BatchPqc,
-            ProcessType.BatchFix, ProcessType.BatchPacking, ProcessType.Ageing);
-
-
-            InitWorkstation(ProcessType.Pqc, ProcessType.Fix, ProcessType.Rework,
-            ProcessType.Assembly, ProcessType.Packing, ProcessType.BatchAssembly, ProcessType.BatchPqc,
-            ProcessType.BatchFix, ProcessType.BatchPacking, ProcessType.Ageing);
-
+                            ProcessType.Assembly, ProcessType.Packing, ProcessType.BatchAssembly, ProcessType.BatchPqc,
+                            ProcessType.BatchFix, ProcessType.BatchPacking, ProcessType.Ageing);
         }
 
         #region 模块KEY ModuleKey
@@ -152,9 +150,9 @@ namespace SIE.Wpf.MES.OnOffDutyB
 
                 }
                 var onoffDutyBRecord = new OnOffDutyBRecrods();
-                onoffDutyBRecord.ProcessId = workcell.ProcessId;
+                //onoffDutyBRecord.ProcessId = workcell.ProcessId;
                 onoffDutyBRecord.EmployeeId = staff.Id;
-                onoffDutyBRecord.StationId = workcell.StationId;
+                //onoffDutyBRecord.StationId = workcell.StationId;
                 onoffDutyBRecord.ResourceId = workcell.ResourceId;
                 onoffDutyBRecord.OnOffDutyType = IsOnDuty ? OnOffDutyBType.OnDuty : OnOffDutyBType.OffDuty;
                 Controller.OnOffDuty(onoffDutyBRecord, workcell, IsOnDuty);
@@ -185,8 +183,8 @@ namespace SIE.Wpf.MES.OnOffDutyB
                 CollectUseName = RT.Identity.Name,
                 InputDate = DateTime.Now,
                 CollectDate = DateTime.Now,
-                ProcessName = onOffDutyBRecrods.Process.Name,
-                StationName = onOffDutyBRecrods.Station.Name,
+                //ProcessName = onOffDutyBRecrods.Process.Name,
+                //StationName = onOffDutyBRecrods.Station.Name,
                 StaffNO = onOffDutyBRecrods.Employee.Code,
                 StaffName = onOffDutyBRecrods.Employee.Name,
                 ResourceName = onOffDutyBRecrods.Resource.Name
@@ -220,8 +218,8 @@ namespace SIE.Wpf.MES.OnOffDutyB
         public bool CanSubmit()
         {
             return Workstation.EmployeeId.HasValue
-                && Workstation.ProcessId.HasValue
-                && Workstation.StationId.HasValue
+                //&& Workstation.ProcessId.HasValue
+                //&& Workstation.StationId.HasValue
                 && Workstation.ResourceId.HasValue;
         }
 

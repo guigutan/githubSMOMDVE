@@ -35,6 +35,9 @@ namespace SIE.Web.MES.WorkOrders
                 View.Property(p => p.Factory).Show();
                 View.Property(p => p.Aufpl).Show();
                 View.Property(p => p.Aplzl).Show();
+                View.Property(p => p.Vgw01).Show();
+                View.Property(p => p.Vgw02).Show();
+                View.Property(p => p.Vgw03).Show();
             }
         }
 
@@ -52,6 +55,10 @@ namespace SIE.Web.MES.WorkOrders
                 View.Property(p => p.Factory).Show().Readonly();
                 View.Property(p => p.Aufpl).Show().Readonly();
                 View.Property(p => p.Aplzl).Show().Readonly();
+                View.Property(p => p.Vgw01).Show().Readonly();
+                View.Property(p => p.Vgw02).Show().Readonly();
+                View.Property(p => p.Vgw03).Show().Readonly();
+
             }
         }
     }

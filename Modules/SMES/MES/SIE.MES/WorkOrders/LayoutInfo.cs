@@ -201,6 +201,58 @@ namespace SIE.MES.WorkOrders
             set { this.SetProperty(AplzlProperty, value); }
         }
         #endregion
+
+        #region 直接人工-人工时间 Vgw01
+        /// <summary>
+        /// 直接人工-人工时间
+        /// </summary>
+        [Label("直接人工-人工时间")]
+        public static readonly Property<decimal?> Vgw01Property = P<LayoutInfo>.Register(e => e.Vgw01);
+
+        /// <summary>
+        /// 直接人工-人工时间
+        /// </summary>
+        public decimal? Vgw01
+        {
+            get { return this.GetProperty(Vgw01Property); }
+            set { this.SetProperty(Vgw01Property, value); }
+        }
+        #endregion
+
+        #region 间接人工-循环时间 Vgw02
+        /// <summary>
+        /// 间接人工-循环时间
+        /// </summary>
+        [Label("间接人工-循环时间")]
+        public static readonly Property<decimal?> Vgw02Property = P<LayoutInfo>.Register(e => e.Vgw02);
+
+        /// <summary>
+        /// 间接人工-循环时间
+        /// </summary>
+        public decimal? Vgw02
+        {
+            get { return this.GetProperty(Vgw02Property); }
+            set { this.SetProperty(Vgw02Property, value); }
+        }
+        #endregion
+
+        #region 动力-机器时间 Vgw03
+        /// <summary>
+        /// 动力-机器时间
+        /// </summary>
+        [Label("动力-机器时间")]
+        public static readonly Property<decimal?> Vgw03Property = P<LayoutInfo>.Register(e => e.Vgw03);
+
+        /// <summary>
+        /// 动力-机器时间
+        /// </summary>
+        public decimal? Vgw03
+        {
+            get { return this.GetProperty(Vgw03Property); }
+            set { this.SetProperty(Vgw03Property, value); }
+        }
+        #endregion
+
     }
 
     internal class LayoutInfoConfig : EntityConfig<LayoutInfo>

@@ -382,6 +382,10 @@ namespace SIE.Web.MES
             {
                 Label = "考勤原始数据",
                 EntityType = typeof(ListAtt)
+            },new WebModuleMeta()
+            { 
+                EntityType = typeof(LineArea),
+                Label = "产线区域维护"
             }
             );
         }

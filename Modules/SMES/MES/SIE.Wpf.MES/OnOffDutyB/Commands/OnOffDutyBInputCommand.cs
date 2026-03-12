@@ -138,8 +138,8 @@ namespace SIE.Wpf.MES.OnOffDutyB.Commands
                                                 selected.OnDutyDuration = (selected.OffDutyTime - selected.OnDutyTime).Value.TotalMinutes;
                                                 selected.OnOffDutyType = OnOffDutyBType.OffDuty;
                                                 selected.ResourceId = vm.Workstation.ResourceId.Value;
-                                                selected.StationId = vm.Workstation.StationId.Value;
-                                                selected.ProcessId = vm.Workstation.ProcessId.Value;
+                                                //selected.StationId = vm.Workstation.StationId.Value;
+                                                //selected.ProcessId = vm.Workstation.ProcessId.Value;
                                                 selected.IsAdditionalRecording = true;
                                             }
                                         }
@@ -194,8 +194,8 @@ namespace SIE.Wpf.MES.OnOffDutyB.Commands
                                 selected.OnDutyDuration = (selected.OffDutyTime - selected.OnDutyTime).Value.TotalMinutes;
                                 selected.OnOffDutyType = OnOffDutyBType.OffDuty;
                                 selected.ResourceId = vm.Workstation.ResourceId.Value;
-                                selected.StationId = vm.Workstation.StationId.Value;
-                                selected.ProcessId = vm.Workstation.ProcessId.Value;
+                                //selected.StationId = vm.Workstation.StationId.Value;
+                                //selected.ProcessId = vm.Workstation.ProcessId.Value;
                                 selected.IsAdditionalRecording = true;
                                 selectedList.Add(selected);
                             }

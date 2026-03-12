@@ -100,6 +100,8 @@
     <None Remove="LineAndon\Commands\AndonLineDLTemplateCommand.js" />
     <None Remove="LineAndon\Commands\AndonLineImportCommand.js" />
     <None Remove="LineAndon\Commands\AndonLineLabelPrintCommand.js" />
+    <None Remove="LineAndon\Commands\LineAreaDLTemplateCommand.js" />
+    <None Remove="LineAndon\Commands\LineAreaImportCommand.js" />
     <None Remove="LoadItems\DeductItems\Commands\WoCostItemAddCommand.js" />
     <None Remove="LoadItems\DeductItems\Commands\WoCostItemCloseCommand.js" />
     <None Remove="LoadItems\DeductItems\Commands\WoCostItemDeleteCommand.js" />
@@ -345,6 +347,8 @@
     <EmbeddedResource Include="LineAndon\Commands\AdonlineLabelPrintCommand.js" />
     <EmbeddedResource Include="LineAndon\Commands\AndonLineDLTemplateCommand.js" />
     <EmbeddedResource Include="LineAndon\Commands\AndonLineImportCommand.js" />
+    <EmbeddedResource Include="LineAndon\Commands\LineAreaDLTemplateCommand.js" />
+    <EmbeddedResource Include="LineAndon\Commands\LineAreaImportCommand.js" />
     <EmbeddedResource Include="Outsourcing\Commands\OutboundConfirmDetailSaveCommand.js" />
     <EmbeddedResource Include="Outsourcing\Commands\OutboundConfirmSnDetailAddCommand.js" />
     <EmbeddedResource Include="Outsourcing\Commands\OutboundConfirmSnDetailDeleteCommand.js" />

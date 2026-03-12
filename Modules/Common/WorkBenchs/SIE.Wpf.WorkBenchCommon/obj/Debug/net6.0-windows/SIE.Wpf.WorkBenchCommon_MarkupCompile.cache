@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\SMOMDev0310\SMOM.KAIZHONG\Modules\Common\WorkBenchs\SIE.Wpf.WorkBenchCommon\obj\Debug\net6.0-windows\
+D:\SMOMDev0312\SMOM.KAIZHONG\Modules\Common\WorkBenchs\SIE.Wpf.WorkBenchCommon\obj\Debug\net6.0-windows\
 SIE.Wpf.WorkBenchCommon
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET
 81899533281
 
 35-1392913882
-390-891117906
+390294371509
 Workbench\AlertInfo.xaml;Workbench\Announcement.xaml;Workbench\Chat.xaml;Workbench\InfoWidgets.xaml;Workbench\KpiAnalysis.xaml;Workbench\MyTask.xaml;Workbench\TaskManager.xaml;Workbench\ThemeBorder.xaml;
 
 False

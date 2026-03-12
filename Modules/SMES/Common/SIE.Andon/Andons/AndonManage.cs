@@ -1345,6 +1345,56 @@ namespace SIE.Andon.Andons
         }
         #endregion
 
+        #region 响应时间 ResponseTime
+        /// <summary>
+        /// 响应时间
+        /// </summary>
+        [Label("响应时间")]
+        public static readonly Property<DateTime?> ResponseTimeProperty = P<AndonManage>.Register(e => e.ResponseTime);
+
+        /// <summary>
+        /// 响应时间
+        /// </summary>
+        public DateTime? ResponseTime
+        {
+            get { return this.GetProperty(ResponseTimeProperty); }
+            set { this.SetProperty(ResponseTimeProperty, value); }
+        }
+        #endregion
+
+        #region 处理时间 HandleTime
+        /// <summary>
+        /// 处理时间
+        /// </summary>
+        [Label("处理时间")]
+        public static readonly Property<DateTime?> HandleTimeProperty = P<AndonManage>.Register(e => e.HandleTime);
+
+        /// <summary>
+        /// 处理时间
+        /// </summary>
+        public DateTime? HandleTime
+        {
+            get { return this.GetProperty(HandleTimeProperty); }
+            set { this.SetProperty(HandleTimeProperty, value); }
+        }
+        #endregion
+
+        #region 验收时间 CheckTime
+        /// <summary>
+        /// 验收时间
+        /// </summary>
+        [Label("验收时间")]
+        public static readonly Property<DateTime?> CheckTimeProperty = P<AndonManage>.Register(e => e.CheckTime);
+
+        /// <summary>
+        /// 验收时间
+        /// </summary>
+        public DateTime? CheckTime
+        {
+            get { return this.GetProperty(CheckTimeProperty); }
+            set { this.SetProperty(CheckTimeProperty, value); }
+        }
+        #endregion
 
         #endregion
 
@@ -1387,6 +1437,9 @@ namespace SIE.Andon.Andons
             Meta.Property(AndonManage.DefectIdsProperty).ColumnMeta.HasLength(960);
             Meta.Property(AndonManage.DefectProperty).ColumnMeta.HasLength(960);
             Meta.Property(AndonManage.AttachmentProperty).ColumnMeta.HasLength(4000);
+            Meta.Property(AndonManage.HandleTimeProperty).DontMapColumn();
+            Meta.Property(AndonManage.ResponseTimeProperty).DontMapColumn();
+            Meta.Property(AndonManage.CheckTimeProperty).DontMapColumn();
             Meta.EnablePhantoms();
         }
     }

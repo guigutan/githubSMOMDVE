@@ -1,5 +1,7 @@
 ﻿
+using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Wordprocessing;
 using SIE.Domain;
 using SIE.Domain.Validation;
 using SIE.Equipments.EquipAccounts;
@@ -20,6 +22,90 @@ namespace SIE.MES.LineAndon
     /// </summary>
     public class AndonLineController : DomainController
     {
+        #region 产线区域维护
+
+        /// <summary>
+        /// 更新产线与安灯区域
+        /// </summary>
+        /// <param name="lineArea"></param>
+        public virtual void UpdateAndonLine(LineArea data)
+        {
+            var andonLine = Query<AndonLine>().Where(p => p.MachineCode == data.MachineCode).FirstOrDefault();
+            if (andonLine == null)
+            {
+                andonLine = new AndonLine();
+            }
+            andonLine.MachineCode = data.MachineCode;
+            andonLine.MachineName = data.MachineName;
+            andonLine.Equipment = data.Equipment;
+            andonLine.WorkCenter = data.WorkCenter;
+            andonLine.Factory = data.Factory;
+            andonLine.WorkShop = data.WorkShop;
+            andonLine.AndonUphold = data.AndonUphold;
+            andonLine.AndonCode = data.AndonCode;
+            RF.Save(andonLine);
+        }
+
+        /// <summary>
+        /// 查询方式
+        /// </summary>
+        /// <param name="criteria"></param>
+        /// <returns></returns>
+        public virtual EntityList<LineArea> CriteriaLineArea(LineAreaCriteria criterial)
+        {
+            if (criterial == null)
+            {
+                throw new ValidationException("产线与安灯区域查询实体异常！".L10N());
+            }
+            var q = Query<LineArea>();
+            if (criterial.WorkCenterId.HasValue)
+            {
+                q.Where(p => p.WorkCenterId == criterial.WorkCenterId);
+            }
+            if (criterial.WorkShopId.HasValue)
+            {
+                q.Where(p => p.WorkShopId == criterial.WorkShopId);
+            }
+            if (criterial.FactoryId.HasValue)
+            {
+                q.Where(p => p.FactoryId == criterial.FactoryId);
+            }
+            if (criterial.AndonUpholdId.HasValue)
+            {
+                q.Where(p => p.AndonUpholdId == criterial.AndonUpholdId);
+            }
+            if (!criterial.AndonCode.IsNullOrEmpty())
+            {
+                q.Where(m => m.AndonCode.Contains("%" + criterial.AndonCode + "%"));
+            }
+            if (!criterial.MachineCode.IsNullOrEmpty())
+            {
+                q.Where(m => m.MachineCode.Contains("%" + criterial.MachineCode + "%"));
+            }
+            if (!criterial.MachineName.IsNullOrEmpty())
+            {
+                q.Where(m => m.MachineName.Contains("%" + criterial.MachineName + "%"));
+            }
+            if (!criterial.EquipmentNo.IsNullOrEmpty())
+            {
+                q.Where(m => m.Equipment.Code.Contains("%" + criterial.EquipmentNo + "%"));
+            }
+            if (criterial.EquipmentDate.BeginValue != null)
+            {
+                q.Where(p => p.Equipment.PurchaseDate >= criterial.EquipmentDate.BeginValue);
+            }
+            if (criterial.EquipmentDate.EndValue != null)
+            {
+                q.Where(p => p.Equipment.PurchaseDate <= criterial.EquipmentDate.EndValue);
+            }
+            if (!criterial.WorkShopCode.IsNullOrEmpty())
+                q.Exists<Enterprise>((a, b) => b.Where(p => p.Id == a.WorkShopId).WhereIf(criterial.WorkShopCode.IsNotEmpty(), p => p.Code == criterial.WorkShopCode));
+
+            return q.OrderBy(criterial.OrderInfoList).ToList(criterial.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+        }
+
+        #endregion
+
         /// <summary>
         /// 根据工作中心编码获取产线与安灯区域
         /// </summary>

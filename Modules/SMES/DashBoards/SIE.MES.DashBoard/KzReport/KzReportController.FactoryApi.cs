@@ -1,18 +1,31 @@
-﻿using DocumentFormat.OpenXml.EMMA;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.EMMA;
+using DotLiquid.Util;
+using IronPython.Runtime.Operations;
 using SIE.Andon.Andons;
+using SIE.Andon.Andons.Enum;
 using SIE.Api;
+using SIE.Common.InvOrg;
 using SIE.Core.ApiModels;
 using SIE.Core.Common;
 using SIE.Core.Enums;
+using SIE.Defects;
 using SIE.Domain;
 using SIE.Domain.Validation;
+using SIE.Items;
+using SIE.MES.DashBoard.KzBoard.Datas;
 using SIE.MES.DashBoard.KzReport.Datas;
 using SIE.MES.DashBoard.KzReport.OrganizeCodes;
 using SIE.MES.DashBoard.KzReport.ProductionProcesss;
 using SIE.MES.TaskManagement.Dispatchs;
 using SIE.MES.TaskManagement.FeedingRecords;
 using SIE.MES.TaskManagement.Reports;
+using SIE.MES.TaskManagement.SuspectProductLabels;
+using SIE.MES.WorkOrders;
 using SIE.ObjectModel;
+using SIE.Rbac.InvOrgs;
+using SIE.Resources.Enterprises;
 using SIE.Security;
 using System;
 using System.Collections.Generic;
@@ -25,6 +38,399 @@ namespace SIE.MES.DashBoard.KzReport
 {
     public partial class KzReportController
     {
+        #region 安灯异常统计报表
+
+        /// <summary>
+        /// 安灯异常统计报表-工厂
+        /// </summary>
+        /// <param name="factory"></param>
+        /// <param name="resource"></param>
+        /// <param name="andonName"></param>
+        /// <param name="equipAccountCode"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("安灯异常统计报表-工厂")]
+        [AllowAnonymous]
+        public virtual List<AndonReportData> GetAndonReportDatasFactory(List<string> factoryCodes, string resource, string andonName, string equipAccountCode, int? state, DateTime? beginTime, DateTime? endTime)
+        {
+            List<AndonReportData> datas = new List<AndonReportData>();
+
+            var querySql = "1 = 1";
+            if (factoryCodes.Count > 0)
+            {
+                var escapedItems = factoryCodes.Select(s => $"'{s}'");
+                querySql += $" and sio.External_Id in ({string.Join(",", escapedItems)})";
+            }
+            if (!resource.IsNullOrEmpty())
+            {
+                if (resource.Contains("%"))
+                    querySql += $" and rws.code like '{resource}' or rws.name like '{resource}'";
+                else
+                    querySql += $" and rws.code = '{resource}' or rws.name = '{resource}'";
+            }
+            if (!andonName.IsNullOrEmpty())
+            {
+                if (andonName.Contains("%"))
+                    querySql += $" and ma.andon_Name like '{andonName}'";
+                else
+                    querySql += $" and ma.andon_Name = '{andonName}'";
+            }
+            if (!equipAccountCode.IsNullOrEmpty())
+            {
+                if (equipAccountCode.Contains("%"))
+                    querySql += $" and eea.code like '{equipAccountCode}'";
+                else
+                    querySql += $" and eea.code = '{equipAccountCode}'";
+            }
+            if (state != null)
+            {
+                querySql += $" and am.state = {state}";
+            }
+            var sql = $@"
+                with
+--先将安灯责任维护基础表中的人名用/拼接好，方便下面可以直接匹配编码
+andonGroup as
+(
+  select ag.code,ag.inv_org_id,(select xmlagg(xmlparse(content re.name || '/' wellformed) order by agd.is_responser).getclobval() from ANDON_GROUP_DTL agd 
+  inner join SYS_USER su on su.id = agd.user_id and su.is_phantom = 0 
+  inner join RES_EMP re on re.id = su.employee_id and re.is_phantom = 0
+  where agd.is_phantom = 0 and agd.andon_group_id = ag.id) levelname
+  from ANDON_GROUP ag
+    --判断必须有明细才能拼接人名
+  where exists(select 1 from ANDON_GROUP_DTL agd inner join SYS_USER su on su.id = agd.user_id and su.is_phantom = 0 inner join RES_EMP re on re.id = su.employee_id and re.is_phantom = 0 where agd.is_phantom = 0 and agd.andon_group_id = ag.id) and ag.is_phantom = 0
+),
+--获取安灯管理的操作明细，对库存组织、安灯管理Id、操作类型进行分组，然后去每组第一条，方便后面找出他的每一组的操作时间去计算
+mao as (
+select *
+from (select mao.inv_org_id,mao.andon_manage_id,mao.operate_type,mao.Operate_Time,row_number() over (partition by mao.inv_org_id,mao.andon_manage_id,mao.operate_type order by mao.create_date desc) as row_num
+from MES_ANDONMANAGEOPERATELOG mao)
+where row_num = 1
+)
+SELECT sio.name Factory,rws.code ResourceCode,eea.code EquipAccountCode,ma.andon_name AndonName,am.problem_desc ProblemDesc,am.Fault_Time FaultTime
+,am.Last_Time LastTime,nvl(lv4.levelname,'') lv4,nvl(lv3.levelname,'') lv3,nvl(lv2.levelname,'') lv2,nvl(lv1.levelname,'') lv1,ROUND((mao1.Operate_Time - am.Fault_Time) * 24, 2) AS ResponseTime,
+ROUND((mao3.Operate_Time - am.Fault_Time) * 24, 2) AS HandleTime,am.state
+FROM MES_ANDONMANAGE am         --安灯管理
+inner join SYS_INV_ORG sio on sio.code = am.inv_org_id and sio.is_phantom = 0               --库存组织
+inner join RES_WIP_SCHE rws on rws.id = am.wip_resource_id and rws.is_phantom = 0           --生产资源
+left join EMS_EQUIP_ACCOUNT eea on eea.id = am.equip_account_id and eea.is_phantom = 0      --设备台账
+inner join MES_ANDON ma on ma.id = am.andon_id and ma.is_phantom = 0                        --安灯维护
+left join ANDON_LINE al on al.machine_code = rws.code and al.is_phantom = 0                 --产线与安灯区域
+left join andonGroup lv4 on lv4.code = al.andon_code||ma.andon_name||'LV4' and lv4.inv_org_id = am.inv_org_id   --获取LV4的人名
+left join andonGroup lv3 on lv4.code = al.andon_code||ma.andon_name||'LV3' and lv3.inv_org_id = am.inv_org_id   --获取LV3的人名
+left join andonGroup lv2 on lv4.code = al.andon_code||ma.andon_name||'LV2' and lv2.inv_org_id = am.inv_org_id   --获取LV2的人名
+left join andonGroup lv1 on lv4.code = al.andon_code||ma.andon_name||'LV1' and lv1.inv_org_id = am.inv_org_id   --获取LV1的人名
+left join mao mao1 on mao1.andon_manage_id = am.id and mao1.inv_org_id = am.inv_org_id and mao1.operate_type = 1    --获取操作时间
+left join mao mao3 on mao3.andon_manage_id = am.id and mao3.inv_org_id = am.inv_org_id and mao3.operate_type = 3    --获取操作时间
+where {querySql}
+";
+            using (var db = DB.Create("MES"))
+            {
+                try
+                {
+                    var dt = db.ExecuteDataTable(sql, CommandType.Text);
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        var Factory = row["Factory"].ToString();
+                        var Resource = row["ResourceCode"].ToString();
+                        var EquipAccountCode = row["EquipAccountCode"].ToString();
+                        var AndonName = row["AndonName"].ToString();
+                        var ProblemDesc = row["ProblemDesc"].ToString();
+                        var FaultTime = row["FaultTime"].ToString();
+                        var LastTime = row["LastTime"].ToString();
+                        var lv4 = row["lv4"].ToString();
+                        var lv3 = row["lv3"].ToString();
+                        var lv2 = row["lv2"].ToString();
+                        var lv1 = row["lv1"].ToString();
+                        var ResponseTime = row["ResponseTime"].ToString();
+                        var HandleTime = row["HandleTime"].ToString();
+                        var State = row["state"].ToString();
+
+                        AndonReportData data = new AndonReportData();
+                        data.Factory = Factory;
+                        data.Resource = Resource;
+                        data.EquipAccountCode = EquipAccountCode;
+                        data.AndonName = AndonName;
+                        data.ProblemDesc = ProblemDesc;
+                        data.FaultTime = FaultTime;
+                        data.LastTime = LastTime;
+                        data.Level4 = lv4.TrimEnd('/');
+                        data.Level3 = lv3.TrimEnd('/');
+                        data.Level2 = lv2.TrimEnd('/');
+                        data.Level1 = lv1.TrimEnd('/');
+                        data.ResponseTime = ResponseTime;
+                        data.HandleTime = HandleTime;
+                        if (!State.IsNullOrEmpty())
+                        {
+                            data.State = ((AndonManageState)Convert.ToInt32(State)).ToLabel();
+                        }
+                        datas.Add(data);
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new ValidationException(e.GetBaseException().Message);
+                }
+            }
+            return datas;
+        }
+
+        /// <summary>
+        /// 安灯异常统计报表柱形图-工厂
+        /// </summary>
+        /// <param name="factoryCodes"></param>
+        /// <param name="resource"></param>
+        /// <param name="andonName"></param>
+        /// <param name="equipAccountCode"></param>
+        /// <param name="state"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("安灯异常统计报表柱形图-工厂")]
+        [AllowAnonymous]
+        public virtual List<AndonReportBarChartData> GetAndonReportBarChartDatasFactory(List<string> factoryCodes, string resource, string andonName, string equipAccountCode, int? state, DateTime? beginTime, DateTime? endTime)
+        {
+            List<AndonReportBarChartData> datas = new List<AndonReportBarChartData>();
+
+            using (InvOrgs.WithAll())
+            {
+                var q = DB.Query<AndonManage>("am")
+                    .Join<Rbac.InvOrgs.InvOrg>("org", (x, y) => x.SQL<int>("am.Inv_Org_Id") == y.Code)
+                    //只找待响应、待验收、处理中数据
+                    .Where(p => p.State == AndonManageState.Standby || p.State == AndonManageState.Processing || p.State == AndonManageState.ToAccepted);
+                if (state != null)
+                    q.Where(p => p.State == (AndonManageState)(int)state);
+                if (!resource.IsNullOrEmpty())
+                    q.Where(p => p.WipResource.Code.Contains(resource) || p.WipResource.Name.Contains(resource));
+                if (!andonName.IsNullOrEmpty())
+                    q.Where(p => p.Andon.AndonName.Contains(andonName));
+                if (!equipAccountCode.IsNullOrEmpty())
+                    q.Where(p => p.EquipAccount.Code.Contains(equipAccountCode));
+                if (beginTime != null)
+                    q.Where(p => p.FaultTime >= beginTime);
+                if (endTime != null)
+                    q.Where(p => p.FaultTime <= endTime);
+                if (factoryCodes.Count > 0)
+                    q.Where(p => factoryCodes.Contains(p.SQL<string>("org.External_Id")));
+
+                var factoryDatas = q.GroupBy(p => p.State).Select(p => new { State = p.State, Qty = p.SQL<decimal>("count(1) Qty") }).ToList<AndonReportBarChartDataFactory>().ToList();
+
+                if (factoryDatas.Count > 0)
+                {
+                    AndonReportBarChartData data = new AndonReportBarChartData();
+
+                    data.Standby = factoryDatas.Where(p => p.State == AndonManageState.Standby).FirstOrDefault()?.Qty ?? 0;
+                    data.Processing = factoryDatas.Where(p => p.State == AndonManageState.Processing).FirstOrDefault()?.Qty ?? 0;
+                    data.ToAccepted = factoryDatas.Where(p => p.State == AndonManageState.ToAccepted).FirstOrDefault()?.Qty ?? 0;
+
+                    datas.Add(data);
+                }
+            }
+
+            return datas;
+        }
+
+        #endregion
+
+        #region 可疑品处理报表
+
+        /// <summary>
+        /// 可疑品处理报表-工厂
+        /// </summary>
+        /// <param name="factoryCodes"></param>
+        /// <param name="mrpControllers"></param>
+        /// <param name="process"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("可疑品处理报表-工厂")]
+        [AllowAnonymous]
+        public virtual List<SuspectReportData> GetSuspectReportDatasFactory(List<string> factoryCodes, List<string> mrpControllers, string process, DateTime? beginTime, DateTime? endTime)
+        {
+            List<SuspectReportData> datas = new List<SuspectReportData>();
+
+            using (InvOrgs.WithAll())
+            {
+                var q = DB.Query<ReportRecord>("rr")
+                    .Join<Rbac.InvOrgs.InvOrg>("org", (x, y) => x.SQL<int>("rr.Inv_Org_Id") == y.Code)
+                    .Join<DispatchTask>((x, y) => x.DispatchTaskId == y.Id);
+                q.WhereIf(beginTime != null, p => p.ReportTime >= beginTime);
+                q.WhereIf(endTime != null, p => p.ReportTime <= endTime);
+                if (factoryCodes.Count > 0)
+                {
+                    q.Where(p => factoryCodes.Contains(p.SQL<string>("org.External_Id")));
+                }
+                q.WhereIf(mrpControllers.Count > 0, p => mrpControllers.Contains(p.WorkOrder.WorkShop.Code));
+                q.WhereIf(!process.IsNullOrEmpty(), p => p.Process.Code.Contains(process));
+                //先在报工记录中按照工序分组，计算总量、报废总量
+                datas = q.GroupBy(p => p.Process.Code).Select(p => new { Process = p.Process.Code, TotalQty = p.ReportQty.SUM(), TotalNgQty = p.NgQty.SUM() }).ToList<SuspectReportData>().ToList();
+
+                //再单独计算可疑品数
+                //同样按照工序分组
+                var qSuppect = DB.Query<SuspectProductLabel>("spl")
+                               .Join<Rbac.InvOrgs.InvOrg>("org", (x, y) => x.SQL<int>("spl.Inv_Org_Id") == y.Code);
+                qSuppect.WhereIf(beginTime != null, p => p.CreateDate >= beginTime);
+                qSuppect.WhereIf(endTime != null, p => p.CreateDate <= endTime);
+                if (factoryCodes.Count > 0)
+                {
+                    q.Where(p => factoryCodes.Contains(p.SQL<string>("org.External_Id")));
+                }
+                qSuppect.WhereIf(mrpControllers.Count > 0, p => mrpControllers.Contains(p.WorkOrder.WorkShop.Code));
+                qSuppect.WhereIf(!process.IsNullOrEmpty(), p => p.Process.Code.Contains(process));
+                var rSuppect = qSuppect.GroupBy(p => p.Process.Code).Select(p => new { Process = p.Process.Code, TotalSuspectQty = p.Qty.SUM() }).ToList<SuspectReportData>().ToList();
+
+                //然后再以result为主，将两个集合的数量合在一起
+                foreach (var r in datas)
+                {
+                    r.TotalSuspectQty = rSuppect.Where(p => p.Process == r.Process).Sum(p => p.TotalSuspectQty);
+                }
+
+            }
+
+            return datas;
+        }
+
+        /// <summary>
+        /// 缺陷报表-工厂
+        /// </summary>
+        /// <param name="factoryCodes"></param>
+        /// <param name="mrpControllers"></param>
+        /// <param name="process"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("缺陷报表-工厂")]
+        [AllowAnonymous]
+        public virtual List<SuspectDefectData> GetSuspectDefectDatasFactory(List<string> factoryCodes, List<string> mrpControllers, string process, DateTime? beginTime, DateTime? endTime)
+        {
+            List<SuspectDefectData> datas = new List<SuspectDefectData>();
+
+            using (InvOrgs.WithAll())
+            {
+                var q = DB.Query<Defect>("d")
+                .Join<SuspectProductLabelDetail>("spld",(x, y) => x.Id == y.DefectId)
+                .Join<SuspectProductLabelDetail, SuspectProductLabel>((x, y) => x.SuspectProductLabelId == y.Id)
+                .Join<Rbac.InvOrgs.InvOrg>("org", (x, y) => x.SQL<int>("d.Inv_Org_Id") == y.Code);
+
+                if (beginTime != null)
+                {
+                    q.Where<SuspectProductLabel>((d, spl) => spl.CreateDate >= beginTime);
+                }
+                if (endTime != null)
+                {
+                    q.Where<SuspectProductLabel>((d, spl) => spl.CreateDate <= endTime);
+                }
+                if (factoryCodes.Count > 0)
+                {
+                    q.Where(p => factoryCodes.Contains(p.SQL<string>("org.External_Id")));
+                }
+                if (mrpControllers.Count > 0)
+                {
+                    q.Where<SuspectProductLabel>((d, spl) => mrpControllers.Contains(spl.WorkOrder.WorkShop.Code));
+                }
+                if (!process.IsNullOrEmpty())
+                {
+                    q.Where<SuspectProductLabel>((d, spl) => spl.Process.Code.Contains(process));
+                }
+                datas = q.GroupBy(p => p.Code).GroupBy(p => p.Description).Select(p => new { DefectCode = p.Code, DefectName = p.Description, Qty = p.SQL<decimal>("Sum(nvl(spld.Qty,0)) Qty") }).ToList<SuspectDefectData>().ToList();
+            }
+
+            return datas;
+        }
+
+        #endregion
+
+        #region 产品直通率报表
+
+        /// <summary>
+        /// 物料平衡报表-工厂
+        /// </summary>
+        /// <param name="factoryCodes"></param>
+        /// <param name="mrpControllers"></param>
+        /// <param name="itemType"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("产品直通率报表-工厂")]
+        [AllowAnonymous]
+        public virtual List<ProductFirstPassYieldFactoryData> GetProductFirstPassYieldDatasFactory(List<string> factoryCodes, List<string> mrpControllers, string product, DateTime? beginTime, DateTime? endTime)
+        {
+            List<ProductFirstPassYieldFactoryData> datas = new List<ProductFirstPassYieldFactoryData>();
+
+            using (InvOrgs.WithAll())
+            {
+                var q = DB.Query<WorkOrder>("wo")
+                    .Join<Enterprise>("e", (x, y) => x.WorkShopId == y.Id)
+                    .Join<Item>("i", (x, y) => x.ProductId == y.Id)
+                    .Join<Rbac.InvOrgs.InvOrg>("org", (x, y) => x.SQL<int>("wo.Inv_Org_Id") == y.Code);
+                if (factoryCodes.Count > 0)
+                {
+                    q.Where(p => factoryCodes.Contains(p.SQL<string>("org.External_Id")));
+                }
+                if (mrpControllers.Count > 0)
+                {
+                    q.Where(p => mrpControllers.Contains(p.WorkShop.Code));
+                }
+                if (!product.IsNullOrEmpty())
+                {
+                    q.Where(p => p.Product.Code.Contains(product));
+                }
+                q.Exists<ReportRecord>((x, y) => y.Where(p => p.WorkOrderId == x.Id).WhereIf(beginTime != null, p => p.ReportTime >= beginTime).WhereIf(endTime != null, p => p.ReportTime <= endTime));
+                //要对车间和物料分组,后面需要用这个进行查询直通率
+                var result = q.GroupBy(p => p.Product.Code).GroupBy(p => p.SQL<string>("org.External_Id")).GroupBy(p => p.WorkShop.Code).Select(p => new { Product = p.Product.Code, Inv_Org_Id = p.SQL<string>("org.External_Id Inv_Org_Id"), WorkShopCode = p.WorkShop.Code }).ToList<ProductFirstPassYieldFactoryData>().ToList();
+
+                //将查出来的按照库存组织去分，这样就只会查询3次
+                foreach (var g in result.GroupBy(p=>p.Inv_Org_Id))
+                {
+                    //调用明细的接口，获取他们的投料量和可疑品数
+                    var dtlDatas = GetProductFirstPassYieldDtlDatasFactory(new List<string>() { g.Key }, g.Select(p => p.WorkShopCode).ToList(), g.Select(p => p.Product).ToList(), beginTime, endTime);
+                    //根据车间和物料去区分
+                    foreach (var g1 in g.GroupBy(p => p.Product))
+                    {
+                        ProductFirstPassYieldFactoryData r = new ProductFirstPassYieldFactoryData();
+                        r.Inv_Org_Id = g.Key;
+                        r.Product = g1.Key;
+                        r.datas = dtlDatas.Where(p => p.ProductCode == g1.Key).ToList();
+                        datas.Add(r);
+                    }
+                }
+            }
+
+            return datas;
+        }
+
+        /// <summary>
+        /// 物料平衡报表明细-工厂
+        /// </summary>
+        /// <param name="factoryCodes"></param>
+        /// <param name="mrpControllers"></param>
+        /// <param name="product"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTim"></param>
+        /// <returns></returns>
+        [ApiService("物料平衡报表明细-工厂")]
+        [AllowAnonymous]
+        public virtual List<ProductFirstPassYieldDtlData> GetProductFirstPassYieldDtlDatasFactory(List<string> factoryCodes, List<string> mrpControllers, List<string> products, DateTime? beginTime, DateTime? endTime)
+        {
+            List<ProductFirstPassYieldDtlData> datas = new List<ProductFirstPassYieldDtlData>();
+
+            using (InvOrgs.WithAll())
+            {
+                datas = DB.Query<ReportRecord>("rr")
+                    .Join<Rbac.InvOrgs.InvOrg>("org", (x, y) => x.SQL<int>("rr.Inv_Org_Id") == y.Code && factoryCodes.Contains(y.ExternalId))
+                    .Where(p => mrpControllers.Contains(p.DispatchTask.WorkOrder.WorkShop.Code) && products.Contains(p.DispatchTask.WorkOrder.Product.Code))
+                    .WhereIf(beginTime != null, p => p.ReportTime >= beginTime)
+                    .WhereIf(endTime != null, p => p.ReportTime <= endTime)
+                    .GroupBy(p => p.Process.Code)
+                    .GroupBy(p => p.DispatchTask.WorkOrder.Product.Code)
+                    .Select(p => new { Process = p.Process.Code, FeedingQty = p.SQL<decimal>("sum(nvl(rr.Report_Qty,0) + nvl(rr.Suspect_Qty,0)) FeedingQty"), SuspectQty = p.SQL<decimal>("sum(nvl(rr.Suspect_Qty,0)) SuspectQty"), ProductCode = p.DispatchTask.WorkOrder.Product.Code })
+                    .ToList<ProductFirstPassYieldDtlData>().ToList();
+            }
+            return datas;
+        }
+
+        #endregion
+
         #region 物料平衡报表
 
         [ApiService("物料平衡报表-工厂")]

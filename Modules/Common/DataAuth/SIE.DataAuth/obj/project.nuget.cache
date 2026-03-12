@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b4z8FSv1aSQ=",
+  "dgSpecHash": "cf6p0iBKn6Y=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\DataAuth\\SIE.DataAuth\\SIE.DataAuth.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\castle.windsor\\5.0.0\\castle.windsor.5.0.0.nupkg.sha512",

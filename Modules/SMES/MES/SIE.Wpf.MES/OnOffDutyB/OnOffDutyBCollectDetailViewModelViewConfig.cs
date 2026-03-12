@@ -30,8 +30,8 @@ namespace SIE.Wpf.MES.OnOffDutyB
                 View.Property(p => p.StaffNO).Show(ShowInWhere.All);
                 View.Property(p => p.StaffName).Show(ShowInWhere.All);
                 View.Property(p => p.ResourceName).Show(ShowInWhere.All);
-                View.Property(p => p.ProcessName).Show(ShowInWhere.All);
-                View.Property(p => p.StationName).Show(ShowInWhere.All);
+                //View.Property(p => p.ProcessName).Show(ShowInWhere.All);
+                //View.Property(p => p.StationName).Show(ShowInWhere.All);
                 View.Property(p => p.OnOffDutyType).Show(ShowInWhere.All);
                 View.Property(p => p.InputDate).Show(ShowInWhere.All);
                 View.Property(p => p.CollectUseName).Show(ShowInWhere.All);

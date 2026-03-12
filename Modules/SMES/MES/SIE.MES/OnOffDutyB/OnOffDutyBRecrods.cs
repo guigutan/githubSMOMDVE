@@ -174,72 +174,72 @@ namespace SIE.MES.OnOffDutyB
         #endregion
 
 
-        #region 工序 Process
-        /// <summary>
-        /// 工序
-        /// </summary>
-        //[Required]
-        [Label("工序Id")]
-        public static readonly IRefIdProperty ProcessIdProperty = P<OnOffDutyBRecrods>.RegisterRefId(e => e.ProcessId, ReferenceType.Normal);
+        //#region 工序 Process
+        ///// <summary>
+        ///// 工序
+        ///// </summary>
+        ////[Required]
+        //[Label("工序Id")]
+        //public static readonly IRefIdProperty ProcessIdProperty = P<OnOffDutyBRecrods>.RegisterRefId(e => e.ProcessId, ReferenceType.Normal);
 
-        /// <summary>
-        /// 工序
-        /// </summary>
-        public double ProcessId
-        {
-            get { return (double)GetRefId(ProcessIdProperty); }
-            set { SetRefId(ProcessIdProperty, value); }
-        }
+        ///// <summary>
+        ///// 工序
+        ///// </summary>
+        //public double ProcessId
+        //{
+        //    get { return (double)GetRefId(ProcessIdProperty); }
+        //    set { SetRefId(ProcessIdProperty, value); }
+        //}
 
-        /// <summary>
-        /// 工序
-        /// </summary>
-        [Label("工序")]
-        public static readonly RefEntityProperty<Process> ProcessProperty = P<OnOffDutyBRecrods>.RegisterRef(e => e.Process, ProcessIdProperty);
+        ///// <summary>
+        ///// 工序
+        ///// </summary>
+        //[Label("工序")]
+        //public static readonly RefEntityProperty<Process> ProcessProperty = P<OnOffDutyBRecrods>.RegisterRef(e => e.Process, ProcessIdProperty);
 
-        /// <summary>
-        /// 工序
-        /// </summary>
-        public Process Process
-        {
-            get { return GetRefEntity(ProcessProperty); }
-            set { SetRefEntity(ProcessProperty, value); }
-        }
-        #endregion
+        ///// <summary>
+        ///// 工序
+        ///// </summary>
+        //public Process Process
+        //{
+        //    get { return GetRefEntity(ProcessProperty); }
+        //    set { SetRefEntity(ProcessProperty, value); }
+        //}
+        //#endregion
 
-        #region 工位 Station
-        /// <summary>
-        /// 工位Id
-        /// </summary>
-        [Label("工位Id")]
-        public static readonly IRefIdProperty StationIdProperty =
-            P<OnOffDutyBRecrods>.RegisterRefId(e => e.StationId, ReferenceType.Normal);
+        //#region 工位 Station
+        ///// <summary>
+        ///// 工位Id
+        ///// </summary>
+        //[Label("工位Id")]
+        //public static readonly IRefIdProperty StationIdProperty =
+        //    P<OnOffDutyBRecrods>.RegisterRefId(e => e.StationId, ReferenceType.Normal);
 
-        /// <summary>
-        /// 工位Id
-        /// </summary>
-        public double StationId
-        {
-            get { return (double)this.GetRefId(StationIdProperty); }
-            set { this.SetRefId(StationIdProperty, value); }
-        }
+        ///// <summary>
+        ///// 工位Id
+        ///// </summary>
+        //public double StationId
+        //{
+        //    get { return (double)this.GetRefId(StationIdProperty); }
+        //    set { this.SetRefId(StationIdProperty, value); }
+        //}
 
-        /// <summary>
-        /// 工位
-        /// </summary>
-        [Label("工位")]
-        public static readonly RefEntityProperty<Station> StationProperty =
-            P<OnOffDutyBRecrods>.RegisterRef(e => e.Station, StationIdProperty);
+        ///// <summary>
+        ///// 工位
+        ///// </summary>
+        //[Label("工位")]
+        //public static readonly RefEntityProperty<Station> StationProperty =
+        //    P<OnOffDutyBRecrods>.RegisterRef(e => e.Station, StationIdProperty);
 
-        /// <summary>
-        /// 工位
-        /// </summary>
-        public Station Station
-        {
-            get { return this.GetRefEntity(StationProperty); }
-            set { this.SetRefEntity(StationProperty, value); }
-        }
-        #endregion
+        ///// <summary>
+        ///// 工位
+        ///// </summary>
+        //public Station Station
+        //{
+        //    get { return this.GetRefEntity(StationProperty); }
+        //    set { this.SetRefEntity(StationProperty, value); }
+        //}
+        //#endregion
 
 
 
@@ -312,22 +312,22 @@ namespace SIE.MES.OnOffDutyB
         }
         #endregion
 
-        #region 工序名称 ProcessName
-        /// <summary>
-        /// 工序名称
-        /// </summary>
-        [Label("工序名称")]
-        public static readonly Property<string> ProcessNameProperty = P<OnOffDutyBRecrods>.RegisterView(e => e.ProcessName, p => p.Process.Name);
+        //#region 工序名称 ProcessName
+        ///// <summary>
+        ///// 工序名称
+        ///// </summary>
+        //[Label("工序名称")]
+        //public static readonly Property<string> ProcessNameProperty = P<OnOffDutyBRecrods>.RegisterView(e => e.ProcessName, p => p.Process.Name);
 
-        /// <summary>
-        /// 工序名称
-        /// </summary>
-        public string ProcessName
-        {
-            get { return this.GetProperty(ProcessNameProperty); }
-            set { SetProperty(ProcessNameProperty, value); }
-        }
-        #endregion
+        ///// <summary>
+        ///// 工序名称
+        ///// </summary>
+        //public string ProcessName
+        //{
+        //    get { return this.GetProperty(ProcessNameProperty); }
+        //    set { SetProperty(ProcessNameProperty, value); }
+        //}
+        //#endregion
 
         #region 资源名称 ResourceName
         /// <summary>
@@ -346,22 +346,22 @@ namespace SIE.MES.OnOffDutyB
         }
         #endregion
 
-        #region 工位名称 StationName
-        /// <summary>
-        /// 工位名称
-        /// </summary>
-        [Label("工位名称")]
-        public static readonly Property<string> StationNameProperty = P<OnOffDutyBRecrods>.RegisterView(e => e.StationName, p => p.Station.Name);
+        //#region 工位名称 StationName
+        ///// <summary>
+        ///// 工位名称
+        ///// </summary>
+        //[Label("工位名称")]
+        //public static readonly Property<string> StationNameProperty = P<OnOffDutyBRecrods>.RegisterView(e => e.StationName, p => p.Station.Name);
 
-        /// <summary>
-        /// 工位名称
-        /// </summary>
-        public string StationName
-        {
-            get { return this.GetProperty(StationNameProperty); }
-            set { SetProperty(StationNameProperty, value); }
-        }
-        #endregion
+        ///// <summary>
+        ///// 工位名称
+        ///// </summary>
+        //public string StationName
+        //{
+        //    get { return this.GetProperty(StationNameProperty); }
+        //    set { SetProperty(StationNameProperty, value); }
+        //}
+        //#endregion
     }
 
 
@@ -376,7 +376,7 @@ namespace SIE.MES.OnOffDutyB
         protected override void ConfigMeta()
         {
             Meta.MapTable("ON_OFF_DUTY_B").MapAllProperties();
-            Meta.IndexGroupOnProperties(OnOffDutyBRecrods.ResourceIdProperty, OnOffDutyBRecrods.StationIdProperty);
+            //Meta.IndexGroupOnProperties(OnOffDutyBRecrods.ResourceIdProperty, OnOffDutyBRecrods.StationIdProperty);          
             Meta.EnablePhantoms();
             Meta.EnableInvOrg();
         }

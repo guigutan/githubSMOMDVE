@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T+020Bq8KLg=",
+  "dgSpecHash": "5eP28u7Rnck=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Teams\\SIE.MES.TeamManagement\\SIE.MES.TeamManagement.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\Teams\\SIE.MES.TeamManagement\\SIE.MES.TeamManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\caching.csredis\\3.6.60\\caching.csredis.3.6.60.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",

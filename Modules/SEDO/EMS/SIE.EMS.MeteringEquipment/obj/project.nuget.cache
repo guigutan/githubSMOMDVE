@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2NG9ZBas1ww=",
+  "dgSpecHash": "gkyUOpoL+/w=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.MeteringEquipment\\SIE.EMS.MeteringEquipment.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.MeteringEquipment\\SIE.EMS.MeteringEquipment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\caching.csredis\\3.6.60\\caching.csredis.3.6.60.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",

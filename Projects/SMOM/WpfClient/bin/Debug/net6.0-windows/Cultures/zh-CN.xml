@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Culture Code="zh-CN" Version="41053">
+<Culture Code="zh-CN" Version="41087">
   <Resources>
     <Resource Key="登录成功" Value="登录成功" />
     <Resource Key="赛意制造运营管理" Value="赛意制造运营管理" />
@@ -10017,5 +10017,14 @@
     <Resource Key="直接人工-人工时间" Value="直接人工-人工时间" />
     <Resource Key="间接人工-循环时间" Value="间接人工-循环时间" />
     <Resource Key="动力-机器时间" Value="动力-机器时间" />
+    <Resource Key="组合索引：至少两个实体属性以上才能创建！" Value="组合索引：至少两个实体属性以上才能创建！" />
+    <Resource Key="员工【{0}】在资源【{1}】上已存在上岗信息，上岗失败，请先下岗！" Value="员工【{0}】在资源【{1}】上已存在上岗信息，上岗失败，请先下岗！" />
+    <Resource Key="员工【{0}】在资源【{1}】上不存在上岗信息，下岗失败！请先上岗！" Value="员工【{0}】在资源【{1}】上不存在上岗信息，下岗失败！请先上岗！" />
+    <Resource Key="对象：B上下岗" Value="对象：B上下岗" />
+    <Resource Key="B上下岗" Value="B上下岗" />
+    <Resource Key="产线区域维护" Value="产线区域维护" />
+    <Resource Key="产线区域维护查询实体" Value="产线区域维护查询实体" />
+    <Resource Key="响应时间" Value="响应时间" />
+    <Resource Key="验收时间" Value="验收时间" />
   </Resources>
 </Culture>

@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\SMOMDev0310\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Wpf.Tech\obj\Debug\net6.0-windows\
+D:\SMOMDev0312\SMOM.KAIZHONG\Modules\Common\Techs\SIE.Wpf.Tech\obj\Debug\net6.0-windows\
 SIE.Wpf.Tech
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET
 91086145717
 
 72-2073570036
-396-830590212
+396-682941487
 Processs\ProcessTree.xaml;Routings\DesignPropertys\ActivityProperty.xaml;Routings\DesignPropertys\ContainerProperty.xaml;Routings\DesignPropertys\RuleProperty.xaml;Routings\RoutingDesign.xaml;Routings\RoutingTree.xaml;Routings\Technologys\Controls\Activity.xaml;Routings\Technologys\Controls\Container.xaml;Routings\Technologys\Controls\Rule.xaml;
 
 True

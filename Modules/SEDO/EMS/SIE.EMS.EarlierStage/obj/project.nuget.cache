@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fWTvhyWO/Ig=",
+  "dgSpecHash": "l/GFqZg8HmE=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EarlierStage\\SIE.EMS.EarlierStage.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SEDO\\EMS\\SIE.EMS.EarlierStage\\SIE.EMS.EarlierStage.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\caching.csredis\\3.6.60\\caching.csredis.3.6.60.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",

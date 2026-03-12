@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 namespace SIE.MES.OnOffDutyA
 {
     /// <summary>
-    /// A采集明细
+    /// 采集明细
     /// </summary>
     [RootEntity, Serializable]
     public class OnOffDutyCollectDetailViewModel : ViewModel

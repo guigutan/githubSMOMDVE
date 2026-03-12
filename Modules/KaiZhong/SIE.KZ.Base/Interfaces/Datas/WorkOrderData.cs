@@ -251,6 +251,21 @@ namespace SIE.KZ.Base.Interfaces.Datas
         /// </summary>
         public decimal ZCODE { get; set; }
 
+        /// <summary>
+        /// 直接人工-人工时间
+        /// </summary>
+        public decimal? VGW01 { get; set; }
+
+        /// <summary>
+        /// 间接人工-循环时间
+        /// </summary>
+        public decimal? VGW02 { get; set; }
+
+        /// <summary>
+        /// 动力-机器时间
+        /// </summary>
+        public decimal? VGW03 { get; set; }
+
     }
 
     /// <summary>

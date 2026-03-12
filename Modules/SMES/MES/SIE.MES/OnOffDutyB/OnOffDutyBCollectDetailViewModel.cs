@@ -70,22 +70,22 @@ namespace SIE.MES.OnOffDutyB
         #endregion
 
 
-        #region 工位 StationName
-        /// <summary>
-        /// 工位
-        /// </summary>
-        [Label("工位")]
-        public static readonly Property<string> StationNameProperty = P<OnOffDutyBCollectDetailViewModel>.Register(e => e.StationName);
+        //#region 工位 StationName
+        ///// <summary>
+        ///// 工位
+        ///// </summary>
+        //[Label("工位")]
+        //public static readonly Property<string> StationNameProperty = P<OnOffDutyBCollectDetailViewModel>.Register(e => e.StationName);
 
-        /// <summary>
-        /// 工位
-        /// </summary>
-        public string StationName
-        {
-            get { return this.GetProperty(StationNameProperty); }
-            set { this.SetProperty(StationNameProperty, value); }
-        }
-        #endregion
+        ///// <summary>
+        ///// 工位
+        ///// </summary>
+        //public string StationName
+        //{
+        //    get { return this.GetProperty(StationNameProperty); }
+        //    set { this.SetProperty(StationNameProperty, value); }
+        //}
+        //#endregion
 
 
 
@@ -106,22 +106,22 @@ namespace SIE.MES.OnOffDutyB
         }
         #endregion
 
-        #region 工序 ProcessName
-        /// <summary>
-        /// 工序
-        /// </summary>
-        [Label("工序")]
-        public static readonly Property<string> ProcessNameProperty = P<OnOffDutyBCollectDetailViewModel>.Register(e => e.ProcessName);
+        //#region 工序 ProcessName
+        ///// <summary>
+        ///// 工序
+        ///// </summary>
+        //[Label("工序")]
+        //public static readonly Property<string> ProcessNameProperty = P<OnOffDutyBCollectDetailViewModel>.Register(e => e.ProcessName);
 
-        /// <summary>
-        /// 工序
-        /// </summary>
-        public string ProcessName
-        {
-            get { return this.GetProperty(ProcessNameProperty); }
-            set { this.SetProperty(ProcessNameProperty, value); }
-        }
-        #endregion
+        ///// <summary>
+        ///// 工序
+        ///// </summary>
+        //public string ProcessName
+        //{
+        //    get { return this.GetProperty(ProcessNameProperty); }
+        //    set { this.SetProperty(ProcessNameProperty, value); }
+        //}
+        //#endregion
 
 
         #region 创建时间 CollectDate

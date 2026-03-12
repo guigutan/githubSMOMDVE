@@ -54,10 +54,10 @@ namespace SIE.MES.TaskManagement.HeatTreatments
                     {
                         return RT.Service.Resolve<WipBatchController>().GetWipBatches(temp.ToList());
                     });
-                    var htList = barcodes.SplitContains(temp =>
-                    {
-                        return GetHeatTreatments(temp.ToList());
-                    });
+                    //var htList = barcodes.SplitContains(temp =>
+                    //{
+                    //    return GetHeatTreatments(temp.ToList());
+                    //});
                     foreach (var item in data)
                     {
                         var wipBatch = wipBatchs.FirstOrDefault(p => p.BatchNo == item.Barcode);

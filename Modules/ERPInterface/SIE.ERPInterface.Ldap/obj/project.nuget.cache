@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RHQf/w9jsyo=",
+  "dgSpecHash": "4vCTBDwbp4s=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Ldap\\SIE.ERPInterface.Ldap.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\ERPInterface\\SIE.ERPInterface.Ldap\\SIE.ERPInterface.Ldap.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\caching.csredis\\3.6.60\\caching.csredis.3.6.60.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",

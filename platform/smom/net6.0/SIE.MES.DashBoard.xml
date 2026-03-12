@@ -1274,6 +1274,141 @@
             及时处理率
             </summary>
         </member>
+        <member name="T:SIE.MES.DashBoard.KzReport.Datas.AndonReportData">
+            <summary>
+            安灯
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.Num">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.ProductLine">
+            <summary>
+            产品线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.Factory">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.Resource">
+            <summary>
+            产线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.EquipAccountCode">
+            <summary>
+            设备编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.AndonName">
+            <summary>
+            安灯名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.ProblemDesc">
+            <summary>
+            问题描述
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.FaultTime">
+            <summary>
+            故障发生时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.LastTime">
+            <summary>
+            持续时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.ResponseTime">
+            <summary>
+            响应时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.HandleTime">
+            <summary>
+            处理时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.State">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.Level4">
+            <summary>
+            四级负责人
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.Level3">
+            <summary>
+            三级负责人
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.Level2">
+            <summary>
+            二级负责人
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportData.Level1">
+            <summary>
+            一级负责人
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DashBoard.KzReport.Datas.AndonReportStateData">
+            <summary>
+            安灯报表状态下拉
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportStateData.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportStateData.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DashBoard.KzReport.Datas.AndonReportBarChartData">
+            <summary>
+            安灯异常柱形图
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportBarChartData.ProductLine">
+            <summary>
+            产品线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportBarChartData.Standby">
+            <summary>
+            待响应
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportBarChartData.Processing">
+            <summary>
+            处理中
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportBarChartData.ToAccepted">
+            <summary>
+            待验收
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportBarChartDataFactory.State">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.AndonReportBarChartDataFactory.Qty">
+            <summary>
+            数量
+            </summary>
+        </member>
         <member name="T:SIE.MES.DashBoard.KzReport.Datas.CapacityUtilizationRateData">
             <summary>
             
@@ -1367,6 +1502,86 @@
         <member name="P:SIE.MES.DashBoard.KzReport.Datas.ItemBalanceData.Rate">
             <summary>
             损耗率
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldData">
+            <summary>
+            产品直通率
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldData.Num">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldData.ProductLine">
+            <summary>
+            产品线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldData.Department">
+            <summary>
+            部门(厂部)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldData.ProductCode">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldData.FirstPassYield">
+            <summary>
+            直通率
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldFactoryData.Inv_Org_Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldFactoryData.WorkShopCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldFactoryData.Product">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldDtlData">
+            <summary>
+            产品直通率明细
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldDtlData.Num">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldDtlData.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldDtlData.ProductCode">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldDtlData.FeedingQty">
+            <summary>
+            投料量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldDtlData.SuspectQty">
+            <summary>
+            可疑品数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.ProductFirstPassYieldDtlData.FirstPassYield">
+            <summary>
+            直通率
             </summary>
         </member>
         <member name="T:SIE.MES.DashBoard.KzReport.Datas.ProductionAchievementRateData">
@@ -1486,6 +1701,116 @@
             查询工序ID
             </summary>
         </member>
+        <member name="T:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData">
+            <summary>
+            可疑品处理报表
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.Num">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.ProductLine">
+            <summary>
+            产品线
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.Department">
+            <summary>
+            部门(厂部)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.TotalQty">
+            <summary>
+            总产量(万)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.TotalNgQty">
+            <summary>
+            报废总量(万)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.TotalSuspectQty">
+            <summary>
+            可疑品总量(万)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.NgQtyRate">
+            <summary>
+            报废率
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.SuspectRate">
+            <summary>
+            可疑品率
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportData.OkRate">
+            <summary>
+            一次下线合格率
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DashBoard.KzReport.Datas.SuspectReportDataFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportDataFactory.Process">
+            <summary>
+            工序
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportDataFactory.TotalQty">
+            <summary>
+            总产量(万)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportDataFactory.TotalNgQty">
+            <summary>
+            报废总量(万)
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectReportDataFactory.TotalSuspectQty">
+            <summary>
+            可疑品总量(万)
+            </summary>
+        </member>
+        <member name="T:SIE.MES.DashBoard.KzReport.Datas.SuspectDefectData">
+            <summary>
+            可疑品缺陷
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectDefectData.Num">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectDefectData.DefectCode">
+            <summary>
+            缺陷代码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectDefectData.DefectName">
+            <summary>
+            缺陷名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectDefectData.Qty">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:SIE.MES.DashBoard.KzReport.Datas.SuspectDefectData.Rate">
+            <summary>
+            占比
+            </summary>
+        </member>
         <member name="T:SIE.MES.DashBoard.KzReport.KzReportController">
             <summary>
             
@@ -1508,6 +1833,83 @@
             <summary>
             获取下拉产品线
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetAndonReportBarChartDatas(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            安灯异常统计报表柱形图
+            </summary>
+            <param name="line"></param>
+            <param name="factory"></param>
+            <param name="resource"></param>
+            <param name="andonName"></param>
+            <param name="equipAccountCode"></param>
+            <param name="state"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetAndonReportStateDatas">
+            <summary>
+            获取状态下拉
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetAndonReportDatas(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            安灯异常统计报表
+            </summary>
+            <param name="line"></param>
+            <param name="factory"></param>
+            <param name="resource"></param>
+            <param name="andonName"></param>
+            <param name="EquipAccountCode"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetSuspectReportDatas(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            可疑品处理报表
+            </summary>
+            <param name="line"></param>
+            <param name="department"></param>
+            <param name="process"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetSuspectDefectDatas(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            缺陷报表
+            </summary>
+            <param name="line"></param>
+            <param name="department"></param>
+            <param name="process"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetProductFirstPassYieldDatas(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            产品直通率报表
+            </summary>
+            <param name="line"></param>
+            <param name="department"></param>
+            <param name="product"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetProductFirstPassYieldDtlDatas(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            产品直通率报表-明细
+            </summary>
+            <param name="line"></param>
+            <param name="department"></param>
+            <param name="product"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
             <returns></returns>
         </member>
         <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetItemBalanceDatas(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
@@ -1560,6 +1962,75 @@
             <param name="year">年份</param>
             <param name="month">月份（1-12）</param>
             <returns>该月份的总周数</returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetAndonReportDatasFactory(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            安灯异常统计报表-工厂
+            </summary>
+            <param name="factory"></param>
+            <param name="resource"></param>
+            <param name="andonName"></param>
+            <param name="equipAccountCode"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetAndonReportBarChartDatasFactory(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            安灯异常统计报表柱形图-工厂
+            </summary>
+            <param name="factoryCodes"></param>
+            <param name="resource"></param>
+            <param name="andonName"></param>
+            <param name="equipAccountCode"></param>
+            <param name="state"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetSuspectReportDatasFactory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            可疑品处理报表-工厂
+            </summary>
+            <param name="factoryCodes"></param>
+            <param name="mrpControllers"></param>
+            <param name="process"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetSuspectDefectDatasFactory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            缺陷报表-工厂
+            </summary>
+            <param name="factoryCodes"></param>
+            <param name="mrpControllers"></param>
+            <param name="process"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetProductFirstPassYieldDatasFactory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            物料平衡报表-工厂
+            </summary>
+            <param name="factoryCodes"></param>
+            <param name="mrpControllers"></param>
+            <param name="itemType"></param>
+            <param name="beginTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.GetProductFirstPassYieldDtlDatasFactory(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            物料平衡报表明细-工厂
+            </summary>
+            <param name="factoryCodes"></param>
+            <param name="mrpControllers"></param>
+            <param name="product"></param>
+            <param name="beginTime"></param>
+            <param name="endTim"></param>
+            <returns></returns>
         </member>
         <member name="M:SIE.MES.DashBoard.KzReport.KzReportController.ProductionAchievementRateFactory(SIE.MES.DashBoard.KzReport.Datas.RequestProductionAchievementRateData,System.Collections.Generic.List{SIE.Core.ApiModels.DictionaryData},System.Collections.Generic.List{SIE.Core.ApiModels.DictionaryData},SIE.Domain.EntityList{SIE.MES.DashBoard.KzReport.OrganizeCodes.OrganizeCode})">
             <summary>

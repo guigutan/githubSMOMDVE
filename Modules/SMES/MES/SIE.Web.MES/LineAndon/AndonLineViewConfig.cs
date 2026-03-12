@@ -20,14 +20,14 @@ namespace SIE.Web.MES.LineAndon
         /// </summary>
         protected override void ConfigListView()
         {
-            View.UseCommands(WebCommandNames.Add, WebCommandNames.Edit, WebCommandNames.Save);
-            View.UseCommands(typeof(AndonLineImportCommand).FullName, typeof(AndonLineDLTemplateCommand).FullName);
+            View.UseCommands(/*WebCommandNames.Add,*/ WebCommandNames.Edit, WebCommandNames.Save);
+            //View.UseCommands(typeof(AndonLineImportCommand).FullName, typeof(AndonLineDLTemplateCommand).FullName);
             View.UseCommands(WebCommandNames.ExportXls, WebCommandNames.ExportXlsAll);
             View.UseCommands(typeof(AdonlineLabelPrintCommand).FullName);
             using (View.OrderProperties())
             {
                 View.Property(p => p.Seq).ShowInList();
-                View.Property(p => p.MachineName).ShowInList(width: 150);
+                View.Property(p => p.MachineName).ShowInList(width: 150).Readonly();
                 View.Property(p => p.MachineCode).ShowInList(width: 150).Readonly();
                 //View.Property(p => p.Equipment).UseDataSource((o, e, r) =>
                 //{
@@ -38,20 +38,19 @@ namespace SIE.Web.MES.LineAndon
                     dic.Add(nameof(p.EquipmentName), nameof(p.Equipment.Name));
                     dic.Add(nameof(p.EquipmentDate), nameof(p.Equipment.PurchaseDate));
                     c.DicLinkField = dic;
-                });
-                View.Property(p => p.Equipment);
-                View.Property(p => p.EquipmentDate);
-                View.Property(p => p.WorkCenter).ShowInList(width: 150);
-                View.Property(p => p.Factory).ShowInList().UseFactoryEditor();
-                View.Property(p => p.WorkShopCode).ShowInList();
-                View.Property(p => p.WorkShop).ShowInList().UseResourceWorkShopEditor();
+                }).Readonly();
+                View.Property(p => p.EquipmentDate).Readonly();
+                View.Property(p => p.WorkCenter).ShowInList(width: 150).Readonly();
+                View.Property(p => p.Factory).ShowInList().UseFactoryEditor().Readonly();
+                View.Property(p => p.WorkShopCode).ShowInList().Readonly();
+                View.Property(p => p.WorkShop).ShowInList().UseResourceWorkShopEditor().Readonly();
                 View.Property(p => p.AndonUphold).UsePagingLookUpEditor((m, e) =>
                 {
                     Dictionary<string, string> keyValues = new Dictionary<string, string>();
                     keyValues.Add(nameof(e.AndonCode), nameof(e.AndonUphold.AndonCode));
                     m.DicLinkField = keyValues;
                     m.ReloadDataOnPopping = true;
-                }).ShowInList(width: 200);
+                }).ShowInList(width: 200).Readonly();
                 View.Property(p => p.AndonCode).ShowInList(width: 150).Readonly();
                 View.Property(p => p.IsLocalPrint).ShowInList();
                 View.Property(p => p.PrinterIp).ShowInList(width: 150);

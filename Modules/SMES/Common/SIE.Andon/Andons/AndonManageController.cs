@@ -103,7 +103,21 @@ namespace SIE.Andon.Andons
             if (andonManageCriterial.AskMaterial.HasValue)
                 query.Where(p => p.AskMaterial == (andonManageCriterial.AskMaterial == YesNo.Yes));
             query.Exists<EmployeeEnterprise>((x, y) => y.Where(p => p.EmployeeId == RT.IdentityId && p.EnterpriseId == x.FactoryId));
-            return query.OrderBy(andonManageCriterial.OrderInfoList).ToList(andonManageCriterial.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+            var list = query.OrderBy(andonManageCriterial.OrderInfoList).ToList(andonManageCriterial.PagingInfo, new EagerLoadOptions().LoadWithViewProperty());
+
+            var ids = list.Select(p => p.Id).Distinct().ToList();
+            var logs = ids.SplitContains(temp =>
+            {
+                return Query<AndonManageOperateLog>().Where(p => temp.Contains(p.AndonManageId)).ToList();
+            });
+            foreach (var l in list)
+            {
+                l.HandleTime = logs.Where(p => p.OperateType == AndonManageOperateType.Handle && p.AndonManageId == l.Id).FirstOrDefault()?.OperateTime;
+                l.ResponseTime = logs.Where(p => p.OperateType == AndonManageOperateType.Response && p.AndonManageId == l.Id).FirstOrDefault()?.OperateTime;
+                l.CheckTime = logs.Where(p => p.OperateType == AndonManageOperateType.Check && p.AndonManageId == l.Id).FirstOrDefault()?.OperateTime;
+            }
+
+            return list;
         }
         #endregion
 

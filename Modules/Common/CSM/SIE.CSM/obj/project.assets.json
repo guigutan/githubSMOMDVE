@@ -8394,17 +8394,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj",
+      "projectUniqueName": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj",
       "projectName": "SIE.CSM",
-      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj",
+      "projectPath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\SIE.CSM.csproj",
       "packagesPath": "C:\\Users\\00158137\\.nuget\\packages\\",
-      "outputPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\obj\\",
+      "outputPath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\CSM\\SIE.CSM\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\NuGet.Config",
+        "D:\\SMOMDev0312\\SMOM.KAIZHONG\\NuGet.Config",
         "C:\\Users\\00158137\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -8415,18 +8415,18 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\SMOMDev0310\\SMOM.KAIZHONG\\nupkgs": {},
+        "D:\\SMOMDev0312\\SMOM.KAIZHONG\\nupkgs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
-              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj"
+            "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj": {
+              "projectPath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\Items\\SIE.Items\\SIE.Items.csproj"
             },
-            "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj": {
-              "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj"
+            "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj": {
+              "projectPath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\Warehouses\\SIE.Warehouses\\SIE.Warehouses.csproj"
             }
           }
         }

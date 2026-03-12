@@ -1,67 +1,111 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\",
+  "WorkspaceRootPath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0310\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\onoffdutyb\\onoffdutybviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\onoffdutyb\\onoffdutybviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0312\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\editors\\changeworkstationeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\editors\\changeworkstationeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0310\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\onoffdutyb\\workcellviewmodelb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\onoffdutyb\\workcellviewmodelb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0312\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\wip\\kzworkstationviewconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\wip\\kzworkstationviewconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0310\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\wip\\datacollectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0312\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\wip\\kzworkstation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\wip\\kzworkstation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0312\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\wip\\kzworkstationselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\wip\\kzworkstationselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|d:\\smomdev0312\\smom.kaizhong\\modules\\smes\\mes\\sie.wpf.mes\\wip\\datacollectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F22DF5A8-E32A-4C66-A7A0-8C33E7272E6E}|Modules\\SMES\\MES\\SIE.Wpf.MES\\SIE.Wpf.MES.csproj|solutionrelative:modules\\smes\\mes\\sie.wpf.mes\\wip\\datacollectionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "DockedHeight": 345,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DataCollectionViewModel.cs",
-              "DocumentMoniker": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
-              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
-              "ToolTip": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
-              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
-              "ViewState": "AgIAAFoFAAAAAAAAAAAnwHQFAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T02:13:35.714Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "WorkCellViewModelB.cs",
-              "DocumentMoniker": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\WorkCellViewModelB.cs",
-              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\WorkCellViewModelB.cs",
-              "ToolTip": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\WorkCellViewModelB.cs",
-              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\WorkCellViewModelB.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAADwv38AAAAAAAAAAAAAAA==",
+              "Title": "KZWorkstationViewConfig.cs",
+              "DocumentMoniker": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstationViewConfig.cs",
+              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstationViewConfig.cs",
+              "ToolTip": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstationViewConfig.cs",
+              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstationViewConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-11T00:47:11.697Z",
+              "WhenOpened": "2026-03-12T08:33:27.012Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "OnOffDutyBViewModel.cs",
-              "DocumentMoniker": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\OnOffDutyBViewModel.cs",
-              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\OnOffDutyBViewModel.cs",
-              "ToolTip": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\OnOffDutyBViewModel.cs",
-              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\OnOffDutyB\\OnOffDutyBViewModel.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Title": "ChangeWorkStationEditor.cs",
+              "DocumentMoniker": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\Editors\\ChangeWorkStationEditor.cs",
+              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\Editors\\ChangeWorkStationEditor.cs",
+              "ToolTip": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\Editors\\ChangeWorkStationEditor.cs",
+              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\Editors\\ChangeWorkStationEditor.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAuwDsAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T11:50:09.766Z",
+              "WhenOpened": "2026-03-12T08:32:59.25Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "KZWorkstation.cs",
+              "DocumentMoniker": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstation.cs",
+              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstation.cs",
+              "ToolTip": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstation.cs",
+              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstation.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAvwMAAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T08:32:44.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KZWorkstationSelector.cs",
+              "DocumentMoniker": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstationSelector.cs",
+              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstationSelector.cs",
+              "ToolTip": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstationSelector.cs",
+              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\KZWorkstationSelector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T08:32:33.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataCollectionViewModel.cs",
+              "DocumentMoniker": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
+              "RelativeDocumentMoniker": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
+              "ToolTip": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
+              "RelativeToolTip": "Modules\\SMES\\MES\\SIE.Wpf.MES\\WIP\\DataCollectionViewModel.cs",
+              "ViewState": "AgIAALAFAAAAAAAAAAAAAOAFAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-12T08:31:55.314Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 55,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
             }
           ]
         }

@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\SMOMDev0310\SMOM.KAIZHONG\Modules\Common\Resources\SIE.Wpf.Resources\obj\Debug\net6.0-windows\
+D:\SMOMDev0312\SMOM.KAIZHONG\Modules\Common\Resources\SIE.Wpf.Resources\obj\Debug\net6.0-windows\
 SIE.Wpf.Resources
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET
 7-223121040
 
 1111391341237
-389908246345
+3891469695946
 CalendarSchemes\Controls\SchemeCalendarControl.xaml;CalendarSchemes\Layouts\ChildLayout.xaml;CalendarSchemes\Layouts\ExDockLayout.xaml;Editors\ImageSelectorControl.xaml;WipResources\Controls\ChildLayout.xaml;WipResources\Controls\ResCalendarControl.xaml;WipResources\ResourceDockLayout.xaml;
 
 False

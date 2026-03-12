@@ -35597,6 +35597,19 @@
             产线与安灯区域控制器
             </summary>
         </member>
+        <member name="M:SIE.MES.LineAndon.AndonLineController.UpdateAndonLine(SIE.MES.LineAndon.LineArea)">
+            <summary>
+            更新产线与安灯区域
+            </summary>
+            <param name="lineArea"></param>
+        </member>
+        <member name="M:SIE.MES.LineAndon.AndonLineController.CriteriaLineArea(SIE.MES.LineAndon.LineAreaCriteria)">
+            <summary>
+            查询方式
+            </summary>
+            <param name="criteria"></param>
+            <returns></returns>
+        </member>
         <member name="M:SIE.MES.LineAndon.AndonLineController.GetAndonLinesByName(System.Collections.Generic.List{System.String})">
             <summary>
             根据工作中心编码获取产线与安灯区域
@@ -35792,6 +35805,362 @@
             <summary>
             产线条码化打印
             </summary>
+        </member>
+        <member name="T:SIE.MES.LineAndon.LineArea">
+            <summary>
+            产线区域维护
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.MachineCodeProperty">
+            <summary>
+            产线/机台编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.MachineCode">
+            <summary>
+            产线/机台编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.MachineNameProperty">
+            <summary>
+            产线/机台名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.MachineName">
+            <summary>
+            产线/机台名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.EquipmentIdProperty">
+            <summary>
+            主设备号Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.EquipmentId">
+            <summary>
+            主设备号Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.EquipmentProperty">
+            <summary>
+            主设备号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.Equipment">
+            <summary>
+            主设备号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.FactoryIdProperty">
+            <summary>
+            工厂Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.FactoryId">
+            <summary>
+            工厂Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.FactoryProperty">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.Factory">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.WorkCenterIdProperty">
+            <summary>
+            工作中心编码Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.WorkCenterId">
+            <summary>
+            工作中心编码Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.WorkCenterProperty">
+            <summary>
+            工作中心编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.WorkCenter">
+            <summary>
+            工作中心编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.WorkShopIdProperty">
+            <summary>
+            车间Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.WorkShopId">
+            <summary>
+            车间Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.WorkShopProperty">
+            <summary>
+            车间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.WorkShop">
+            <summary>
+            车间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.AndonUpholdIdProperty">
+            <summary>
+            区域描述Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.AndonUpholdId">
+            <summary>
+            区域描述Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.AndonUpholdProperty">
+            <summary>
+            区域描述
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.AndonUphold">
+            <summary>
+            区域描述
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.AndonCodeProperty">
+            <summary>
+            安灯编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.AndonCode">
+            <summary>
+            安灯编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.EquipmentNameProperty">
+            <summary>
+            设备名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.EquipmentName">
+            <summary>
+            设备名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.EquipmentDateProperty">
+            <summary>
+            购置日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.EquipmentDate">
+            <summary>
+            购置日期
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.WorkShopNameProperty">
+            <summary>
+            车间名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.WorkShopName">
+            <summary>
+            车间名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.WorkCenterCodeProperty">
+            <summary>
+            工作中心编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.WorkCenterCode">
+            <summary>
+            工作中心编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.FactoryCodeProperty">
+            <summary>
+            工厂编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.FactoryCode">
+            <summary>
+            工厂编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineArea.EquipmentNoProperty">
+            <summary>
+            设备编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineArea.EquipmentNo">
+            <summary>
+            设备编码
+            </summary>
+        </member>
+        <member name="T:SIE.MES.LineAndon.LineAreaCriteria">
+            <summary>
+            产线区域维护查询实体
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.MachineCodeProperty">
+            <summary>
+            产线/机台编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.MachineCode">
+            <summary>
+            产线/机台编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.MachineNameProperty">
+            <summary>
+            产线/机台名称
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.MachineName">
+            <summary>
+            产线/机台名称
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.EquipmentNoProperty">
+            <summary>
+            主设备号
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.EquipmentNo">
+            <summary>
+            主设备号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.WorkCenterIdProperty">
+            <summary>
+            工作中心编码Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.WorkCenterId">
+            <summary>
+            工作中心编码Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.WorkCenterProperty">
+            <summary>
+            工作中心编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.WorkCenter">
+            <summary>
+            工作中心编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.WorkShopIdProperty">
+            <summary>
+            车间Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.WorkShopId">
+            <summary>
+            车间Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.WorkShopProperty">
+            <summary>
+            车间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.WorkShop">
+            <summary>
+            车间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.FactoryIdProperty">
+            <summary>
+            工厂Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.FactoryId">
+            <summary>
+            工厂Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.FactoryProperty">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.Factory">
+            <summary>
+            工厂
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.AndonUpholdIdProperty">
+            <summary>
+            区域描述Id
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.AndonUpholdId">
+            <summary>
+            区域描述Id
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.AndonUpholdProperty">
+            <summary>
+            区域描述
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.AndonUphold">
+            <summary>
+            区域描述
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.AndonCodeProperty">
+            <summary>
+            安灯编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.AndonCode">
+            <summary>
+            安灯编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.WorkShopCodeProperty">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="F:SIE.MES.LineAndon.LineAreaCriteria.EquipmentDateProperty">
+            <summary>
+            购置日期
+            </summary>
+        </member>
+        <member name="P:SIE.MES.LineAndon.LineAreaCriteria.EquipmentDate">
+            <summary>
+            购置日期
+            </summary>
+        </member>
+        <member name="M:SIE.MES.LineAndon.LineAreaCriteria.Fetch">
+            <summary>
+            查询方法
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:SIE.MES.ListAtts.ListAtt">
             <summary>
@@ -40271,7 +40640,7 @@
         </member>
         <member name="T:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel">
             <summary>
-            A采集明细
+            采集明细
             </summary>
         </member>
         <member name="F:SIE.MES.OnOffDutyA.OnOffDutyCollectDetailViewModel.StaffNOProperty">
@@ -40815,16 +41184,6 @@
             资源
             </summary>
         </member>
-        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.StationNameProperty">
-            <summary>
-            工位
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.StationName">
-            <summary>
-            工位
-            </summary>
-        </member>
         <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.OnOffDutyTypeProperty">
             <summary>
             上下岗类型
@@ -40833,16 +41192,6 @@
         <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.OnOffDutyType">
             <summary>
             上下岗类型
-            </summary>
-        </member>
-        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.ProcessNameProperty">
-            <summary>
-            工序
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.ProcessName">
-            <summary>
-            工序
             </summary>
         </member>
         <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBCollectDetailViewModel.CollectDateProperty">
@@ -41041,46 +41390,6 @@
             资源
             </summary>
         </member>
-        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessIdProperty">
-            <summary>
-            工序
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessId">
-            <summary>
-            工序
-            </summary>
-        </member>
-        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessProperty">
-            <summary>
-            工序
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.Process">
-            <summary>
-            工序
-            </summary>
-        </member>
-        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationIdProperty">
-            <summary>
-            工位Id
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationId">
-            <summary>
-            工位Id
-            </summary>
-        </member>
-        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationProperty">
-            <summary>
-            工位
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.Station">
-            <summary>
-            工位
-            </summary>
-        </member>
         <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.EmployeeCodeProperty">
             <summary>
             员工号
@@ -41121,16 +41430,6 @@
             用户
             </summary>
         </member>
-        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessNameProperty">
-            <summary>
-            工序名称
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ProcessName">
-            <summary>
-            工序名称
-            </summary>
-        </member>
         <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ResourceNameProperty">
             <summary>
             资源名称
@@ -41139,16 +41438,6 @@
         <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.ResourceName">
             <summary>
             资源名称
-            </summary>
-        </member>
-        <member name="F:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationNameProperty">
-            <summary>
-            工位名称
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDutyB.OnOffDutyBRecrods.StationName">
-            <summary>
-            工位名称
             </summary>
         </member>
         <member name="M:SIE.MES.OnOffDutyB.OnOffDutyBRecrodsConfig.ConfigMeta">
@@ -41660,26 +41949,6 @@
             是否补录
             </summary>
         </member>
-        <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ResourceIdProperty">
-            <summary>
-            资源
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.ResourceId">
-            <summary>
-            资源
-            </summary>
-        </member>
-        <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ResourceProperty">
-            <summary>
-            资源
-            </summary>
-        </member>
-        <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.Resource">
-            <summary>
-            资源
-            </summary>
-        </member>
         <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ProcessIdProperty">
             <summary>
             工序
@@ -41698,6 +41967,26 @@
         <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.Process">
             <summary>
             工序
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ResourceIdProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.ResourceId">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.ResourceProperty">
+            <summary>
+            资源
+            </summary>
+        </member>
+        <member name="P:SIE.MES.OnOffDuty.OnOffDutyRecrods.Resource">
+            <summary>
+            资源
             </summary>
         </member>
         <member name="F:SIE.MES.OnOffDuty.OnOffDutyRecrods.StationIdProperty">
@@ -47981,6 +48270,36 @@
         <member name="P:SIE.MES.WorkOrders.LayoutInfo.Aplzl">
             <summary>
             订单工艺路线序号
+            </summary>
+        </member>
+        <member name="F:SIE.MES.WorkOrders.LayoutInfo.Vgw01Property">
+            <summary>
+            直接人工-人工时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.WorkOrders.LayoutInfo.Vgw01">
+            <summary>
+            直接人工-人工时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.WorkOrders.LayoutInfo.Vgw02Property">
+            <summary>
+            间接人工-循环时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.WorkOrders.LayoutInfo.Vgw02">
+            <summary>
+            间接人工-循环时间
+            </summary>
+        </member>
+        <member name="F:SIE.MES.WorkOrders.LayoutInfo.Vgw03Property">
+            <summary>
+            动力-机器时间
+            </summary>
+        </member>
+        <member name="P:SIE.MES.WorkOrders.LayoutInfo.Vgw03">
+            <summary>
+            动力-机器时间
             </summary>
         </member>
         <member name="T:SIE.MES.WorkOrders.Models.OneKeyInfo">

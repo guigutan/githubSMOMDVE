@@ -129,7 +129,17 @@ namespace SIE.MES.TaskManagement.Dispatchs
 
             ReworkInfoRecordDtl reworkInfoRecordDtls = RT.Service.Resolve<ReworkLayoutVersionController>().GetReworkInfoRecordDtl(key);
             if (reworkInfoRecordDtls != null)
-                throw new ValidationException("标签已扫描过，不允许重复扫描".L10N());
+            {
+                if (reworkInfoRecordDtls.ReworkInfoRecord.ProductOrder.IsNullOrEmpty())
+                {
+                    throw new ValidationException("标签已扫描过，不允许重复扫描，生产订单还未创建".L10N());
+                }
+                else
+                {
+                    throw new ValidationException("标签已扫描过，不允许重复扫描，生产订单{0}成功创建并下达".L10nFormat(reworkInfoRecordDtls.ReworkInfoRecord.ProductOrder));
+                }
+            }
+                
 
             PdaReworkConfirmScanInfo info = new PdaReworkConfirmScanInfo();
 

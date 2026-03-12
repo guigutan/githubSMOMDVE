@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bfY0KOK8dVw=",
+  "dgSpecHash": "P4rLKhpAPS0=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\Teams\\SIE.Web.MES.TeamManagement\\SIE.Web.MES.TeamManagement.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\Teams\\SIE.Web.MES.TeamManagement\\SIE.Web.MES.TeamManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.13.0\\aliyun.oss.sdk.netcore.2.13.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",

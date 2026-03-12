@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NgkQOok3G6I=",
+  "dgSpecHash": "OHKyDZDVQfs=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.Web.Dock.Gantt\\SIE.Web.Dock.Gantt.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\Common\\LES\\SIE.Web.Dock.Gantt\\SIE.Web.Dock.Gantt.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\anglesharp.css\\0.14.1\\anglesharp.css.0.14.1.nupkg.sha512",

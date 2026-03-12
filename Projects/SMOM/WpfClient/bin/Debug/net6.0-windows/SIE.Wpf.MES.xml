@@ -9750,7 +9750,7 @@
         </member>
         <member name="T:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel">
             <summary>
-            A上下岗
+            上下岗
             </summary>
         </member>
         <member name="M:SIE.Wpf.MES.OnOffDutyA.OnOffDutyAViewModel.#ctor">
@@ -13493,6 +13493,12 @@
             <summary>
             工作站
             </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.WIP.WorkCellViewModel.InitWorkstationB(SIE.Tech.Processs.ProcessType[])">
+            <summary>
+            B版初始化工作站信息
+            </summary>
+            <param name="processTypes"></param>
         </member>
         <member name="M:SIE.Wpf.MES.WIP.WorkCellViewModel.InitWorkstation(SIE.Tech.Processs.ProcessType[])">
             <summary>
@@ -20844,6 +20850,18 @@
             </summary>
         </member>
         <member name="M:SIE.Wpf.MES.WIP.WorkstationSelector.SelectOperation(SIE.Wpf.MES.WIP.Workstation,System.Nullable{System.Double})">
+            <summary>
+            选择工作单元
+            </summary>
+            <param name="workstation">工作单元</param>
+            <returns>是否切换成功</returns>
+        </member>
+        <member name="T:SIE.Wpf.MES.WIP.WorkstationSelectorB">
+            <summary>
+            工作单元信息选择
+            </summary>
+        </member>
+        <member name="M:SIE.Wpf.MES.WIP.WorkstationSelectorB.SelectOperation(SIE.Wpf.MES.WIP.Workstation,System.Nullable{System.Double})">
             <summary>
             选择工作单元
             </summary>

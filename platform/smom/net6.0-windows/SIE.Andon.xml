@@ -3756,6 +3756,36 @@
             安灯控件显示
             </summary>
         </member>
+        <member name="F:SIE.Andon.Andons.AndonManage.ResponseTimeProperty">
+            <summary>
+            响应时间
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonManage.ResponseTime">
+            <summary>
+            响应时间
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonManage.HandleTimeProperty">
+            <summary>
+            处理时间
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonManage.HandleTime">
+            <summary>
+            处理时间
+            </summary>
+        </member>
+        <member name="F:SIE.Andon.Andons.AndonManage.CheckTimeProperty">
+            <summary>
+            验收时间
+            </summary>
+        </member>
+        <member name="P:SIE.Andon.Andons.AndonManage.CheckTime">
+            <summary>
+            验收时间
+            </summary>
+        </member>
         <member name="M:SIE.Andon.Andons.AndonManage.OnPropertyChanged(SIE.ManagedProperty.ManagedPropertyChangedEventArgs)">
             <summary>
             属性变更事件

@@ -24,8 +24,10 @@ namespace SIE.Web.MES.OnOffDutyB
             View.Property(p => p.EmployeeName).Readonly();
 
             View.Property(p => p.Resource).Readonly().HasLabel("资源".L10N());
-            View.Property(p => p.Process).Readonly().HasLabel("工序".L10N());
-            View.Property(p => p.Station).Readonly().HasLabel("工位".L10N());
+            View.Property(p => p.ResourceId).Readonly();
+            View.Property(p => p.ResourceName).Readonly();
+            //View.Property(p => p.Process).Readonly().HasLabel("工序".L10N());
+            //View.Property(p => p.Station).Readonly().HasLabel("工位".L10N());
             View.Property(p => p.IsAdditionalRecording).Readonly();
             View.Property(p => p.OnOffDutyType).Readonly();
             View.Property(p => p.OnDutyTime).Readonly();

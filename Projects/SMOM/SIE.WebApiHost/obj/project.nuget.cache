@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2GcwPkeqYY0=",
+  "dgSpecHash": "Yu8DVDOa8Mk=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.13.0\\aliyun.oss.sdk.netcore.2.13.0.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\aoite.core\\10.1.3.2\\aoite.core.10.1.3.2.nupkg.sha512",
@@ -484,9 +484,9 @@
       "code": "NU1603",
       "level": "Warning",
       "message": "GetuiServerApiSDKNet6 1.0.0 依赖于 Google.ProtocolBuffers (>= 1.0.0)，但没有找到 Google.ProtocolBuffers 1.0.0。已改为解析 Google.ProtocolBuffers 2.3.0.277。",
-      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+      "projectPath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+      "filePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
       "libraryId": "Google.ProtocolBuffers",
       "targetGraphs": [
         "net6.0"
@@ -496,9 +496,9 @@
       "code": "NU1608",
       "level": "Warning",
       "message": "检测到的包版本在依赖项约束之外: Rebus.ServiceProvider 6.4.1 需要 Microsoft.Extensions.DependencyInjection.Abstractions (>= 2.0.0 && < 6.0.0)，但版本 Microsoft.Extensions.DependencyInjection.Abstractions 8.0.0 已解决。",
-      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+      "projectPath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+      "filePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
       "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
       "targetGraphs": [
         "net6.0"
@@ -508,9 +508,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net6.0”还原包“Google.ProtocolBuffers 2.3.0.277”。此包可能与项目不完全兼容。",
-      "projectPath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+      "projectPath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
+      "filePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Projects\\SMOM\\SIE.WebApiHost\\SIE.WebApiHost.csproj",
       "libraryId": "Google.ProtocolBuffers",
       "targetGraphs": [
         "net6.0"

@@ -40,8 +40,8 @@ namespace SIE.MES.OnOffDutyB
             }
             onOffDutyBRecrods.EmployeeId = staff.Id;
             onOffDutyBRecrods.OnOffDutyType = (OnOffDutyBType)onOffDutyType;
-            onOffDutyBRecrods.ProcessId = workcell.ProcessId;
-            onOffDutyBRecrods.StationId = workcell.StationId;
+            //onOffDutyBRecrods.ProcessId = workcell.ProcessId;
+            //onOffDutyBRecrods.StationId = workcell.StationId;
             onOffDutyBRecrods.ResourceId = workcell.ResourceId;
 
             OnOffDuty(onOffDutyBRecrods, workcell, onOffDutyBRecrods.OnOffDutyType == OnOffDutyBType.OnDuty);
@@ -53,10 +53,10 @@ namespace SIE.MES.OnOffDutyB
                 OnDutyTime = resultEntity.OnDutyTime.HasValue ? resultEntity.OnDutyTime.Value.ToString("yyyy-MM-dd hh:mm:ss") : "",
                 StaffCode = resultEntity.EmployeeCode,
                 StaffName = resultEntity.EmployeeName,
-                Process = resultEntity.ProcessName,
+                //Process = resultEntity.ProcessName,
                 Resource = resultEntity.ResourceName,
                 StaffGroup = resultEntity.EmployeeGroupName,
-                Station = resultEntity.StationName
+                //Station = resultEntity.StationName
             };
         }
 

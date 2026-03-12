@@ -1,20 +1,25 @@
-﻿using DocumentFormat.OpenXml.Drawing.Charts;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.Math;
+using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using Irony.Parsing;
 using Microsoft.Scripting.Interpreter;
 using Microsoft.Scripting.Utils;
 using NPOI.SS.Formula.Functions;
 using SIE.Andon.Andons;
+using SIE.Andon.Andons.Enum;
 using SIE.Api;
 using SIE.Core.ApiModels;
 using SIE.Core.Common;
 using SIE.Domain;
+using SIE.Domain.ORM;
 using SIE.Domain.Validation;
 using SIE.Items;
 using SIE.KZ.Base.SmomControl;
 using SIE.KZ.Group.SmomControl.BaseDatas;
 using SIE.MES.Capacitys;
+using SIE.MES.DashBoard.KzBoard.Datas;
 using SIE.MES.DashBoard.KzBoard.RegionBoards;
 using SIE.MES.DashBoard.KzReport.Datas;
 using SIE.MES.DashBoard.KzReport.OrganizeCodes;
@@ -80,6 +85,495 @@ namespace SIE.MES.DashBoard.KzReport
             var productLines = Query<OrganizeCode>().Select(p => p.ProductLine).Distinct().ToList<string>().ToList();
             return productLines;
         }
+
+        #region 安灯异常统计报表
+
+        /// <summary>
+        /// 安灯异常统计报表柱形图
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="factory"></param>
+        /// <param name="resource"></param>
+        /// <param name="andonName"></param>
+        /// <param name="equipAccountCode"></param>
+        /// <param name="state"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("安灯异常统计报表柱形图")]
+        public virtual List<AndonReportBarChartData> GetAndonReportBarChartDatas(string line, string factory, string resource, string andonName, string equipAccountCode, int? state, DateTime? beginTime, DateTime? endTime)
+        {
+
+            var q = Query<OrganizeCode>();
+            if (!line.IsNullOrEmpty())
+                q.Where(p => p.ProductLine == line);
+            if (!factory.IsNullOrEmpty())
+                q.Where(p => p.FactoryName == factory);
+            var organizeCodes = q.ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var factoryCodes = organizeCodes.Select(p => p.FactoryCode).Distinct().ToList();
+            var settings = RT.Service.Resolve<SmomBaseController>().GetSmomControlSettingByFactoryCodes(factoryCodes);
+
+            List<AndonReportBarChartData> factoryDatas = new List<AndonReportBarChartData>();
+
+            foreach (var g in settings.GroupBy(p => p.FactoryUrl))
+            {
+                try
+                {
+                    var fCs = g.Select(p => p.FactoryCode).Distinct().ToList();
+                    //找出相同产品线的
+                    foreach (var plang in organizeCodes.Where(p => fCs.Contains(p.FactoryCode)).GroupBy(p => new { p.ProductLine }))
+                    {
+                        var factoryCs = plang.Select(p => p.FactoryCode).Distinct().ToList();
+                        var smomParam = new List<SmomParam>()
+                    {
+                    new SmomParam { Value = factoryCs },
+                    new SmomParam { Value = resource },
+                    new SmomParam{ Value = andonName  },
+                    new SmomParam{ Value = equipAccountCode  },
+                    new SmomParam{ Value = state  },
+                    new SmomParam{ Value = beginTime},
+                    new SmomParam{ Value = endTime}
+                                 }.ToArray();
+                        var response = SmomControlHepler.SmomPost<List<AndonReportBarChartData>>("KzReportController", "GetAndonReportBarChartDatasFactory", g.Key, smomParam);
+                        foreach (var r in response)
+                        {
+                            r.ProductLine = plang.Key.ProductLine;
+                            factoryDatas.Add(r);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            List<AndonReportBarChartData> datas = new List<AndonReportBarChartData>();
+
+            foreach (var g in factoryDatas.GroupBy(p => p.ProductLine))
+            {
+                AndonReportBarChartData data = new AndonReportBarChartData();
+
+                data.ProductLine = g.Key;
+                data.Standby = g.Sum(p => p.Standby);
+                data.Processing = g.Sum(p => p.Processing);
+                data.ToAccepted = g.Sum(p => p.ToAccepted);
+
+                datas.Add(data);
+            }
+
+            return datas;            
+        }
+
+        /// <summary>
+        /// 获取状态下拉
+        /// </summary>
+        /// <returns></returns>
+        [ApiService("获取状态下拉")]
+        public virtual List<AndonReportStateData> GetAndonReportStateDatas()
+        {
+            List<AndonReportStateData> datas = new List<AndonReportStateData>();
+
+            foreach (AndonManageState type in Enum.GetValues(typeof(AndonManageState)))
+            {
+                AndonReportStateData data = new AndonReportStateData();
+
+                data.Value = (int)type;
+                data.Key = type.ToLabel();
+
+                datas.Add(data);
+            }
+
+            return datas;
+        }
+
+        /// <summary>
+        /// 安灯异常统计报表
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="factory"></param>
+        /// <param name="resource"></param>
+        /// <param name="andonName"></param>
+        /// <param name="EquipAccountCode"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("安灯异常统计报表")]
+        public virtual List<AndonReportData> GetAndonReportDatas(string line, string factory, string resource, string andonName, string equipAccountCode,int? state, DateTime? beginTime, DateTime? endTime)
+        {
+            List<AndonReportData> datas = new List<AndonReportData>();
+
+            var q = Query<OrganizeCode>();
+            if (!line.IsNullOrEmpty())
+                q.Where(p => p.ProductLine == line);
+            if (!factory.IsNullOrEmpty())
+                q.Where(p => p.FactoryName == factory);
+            var organizeCodes = q.ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var factoryCodes = organizeCodes.Select(p => p.FactoryCode).Distinct().ToList();
+            var settings = RT.Service.Resolve<SmomBaseController>().GetSmomControlSettingByFactoryCodes(factoryCodes);
+
+            foreach (var g in settings.GroupBy(p => p.FactoryUrl))
+            {
+                try
+                {
+                    var fCs = g.Select(p => p.FactoryCode).Distinct().ToList();
+                    //找出相同产品线的
+                    foreach (var plang in organizeCodes.Where(p => fCs.Contains(p.FactoryCode)).GroupBy(p => new { p.ProductLine }))
+                    {
+                        var factoryCs = plang.Select(p => p.FactoryCode).Distinct().ToList();
+                        var smomParam = new List<SmomParam>()
+                    {
+                    new SmomParam { Value = factoryCs },
+                    new SmomParam { Value = resource },
+                    new SmomParam{ Value = andonName  },
+                    new SmomParam{ Value = equipAccountCode  },
+                    new SmomParam{ Value = state  },
+                    new SmomParam{ Value = beginTime},
+                    new SmomParam{ Value = endTime}
+                                 }.ToArray();
+                        var response = SmomControlHepler.SmomPost<List<AndonReportData>>("KzReportController", "GetAndonReportDatasFactory", g.Key, smomParam);
+                        foreach (var r in response)
+                        {
+                            r.ProductLine = plang.Key.ProductLine;
+                            datas.Add(r);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            int index = 1;
+            foreach (var data in datas)
+            {
+                data.Num = index;
+                index++;
+            }
+            return datas;
+        }
+
+        #endregion
+
+        #region 可疑品处理报表
+
+        /// <summary>
+        /// 可疑品处理报表
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="department"></param>
+        /// <param name="process"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("可疑品处理报表")]
+        public virtual List<SuspectReportData> GetSuspectReportDatas(string line, string department, string process, DateTime? beginTime, DateTime? endTime)
+        {
+            List<SuspectReportData> datas = new List<SuspectReportData>();
+
+            var q = Query<OrganizeCode>();
+            if (!line.IsNullOrEmpty())
+                q.Where(p => p.ProductLine == line);
+            if (!department.IsNullOrEmpty())
+                q.Where(p => p.PlantName == department);
+
+            var organizeCodes = q.ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var factoryCodes = organizeCodes.Select(p => p.FactoryCode).Distinct().ToList();
+            var settings = RT.Service.Resolve<SmomBaseController>().GetSmomControlSettingByFactoryCodes(factoryCodes);
+
+            List<SuspectReportData> factoryDatas = new List<SuspectReportData>();
+
+            foreach (var g in settings.GroupBy(p => p.FactoryUrl))
+            {
+                try
+                {
+                    var fCs = g.Select(p => p.FactoryCode).Distinct().ToList();
+                    //对产品线和部门进行分组(按照前端显示),查出的数据就只会是相同产品线和部门，调用的接口中会对物料类型分组，下方会将相同产品线和部门进行合并计算
+                    foreach (var plang in organizeCodes.Where(p => fCs.Contains(p.FactoryCode)).GroupBy(p => new { p.ProductLine, p.PlantName }))
+                    {
+                        var mrpControllers = plang.Select(p => p.MrpController).Distinct().ToList();
+                        var smomParam = new List<SmomParam>()
+                    {
+                    new SmomParam { Value = fCs },
+                    new SmomParam { Value = mrpControllers },
+                    new SmomParam{ Value = process  },
+                    new SmomParam{ Value = beginTime},
+                    new SmomParam{ Value = endTime}
+                                 }.ToArray();
+                        var response = SmomControlHepler.SmomPost<List<SuspectReportData>>("KzReportController", "GetSuspectReportDatasFactory", g.Key, smomParam);
+                        foreach (var r in response)
+                        {
+                            r.ProductLine = plang.Key.ProductLine;
+                            r.Department = plang.Key.PlantName;
+                            factoryDatas.Add(r);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            int index = 1;
+            foreach (var g in factoryDatas.GroupBy(p => new { p.ProductLine, p.Department, p.Process }))
+            {
+                SuspectReportData data = new SuspectReportData();
+                data.Num = index;
+                data.ProductLine = g.Key.ProductLine;
+                data.Department = g.Key.Department;
+                data.Process = g.Key.Process;
+                data.TotalQty = g.Sum(p => p.TotalQty) / 10000;
+                data.TotalSuspectQty = g.Sum(p => p.TotalSuspectQty) / 10000;
+                data.TotalNgQty = g.Sum(p => p.TotalNgQty) / 10000;
+                data.NgQtyRate = data.TotalQty == 0 ? 0 : Math.Round((data.TotalNgQty * 100) / data.TotalQty, 4);
+                data.SuspectRate = data.TotalQty == 0 ? 0 : Math.Round((data.TotalSuspectQty * 100) / data.TotalQty, 4);
+                data.OkRate = data.TotalQty == 0 ? 0 : Math.Round(1 - ((data.TotalSuspectQty * 100) / data.TotalQty), 4);
+                datas.Add(data);
+                index++;
+            }
+            return datas;
+        }
+
+        /// <summary>
+        /// 缺陷报表
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="department"></param>
+        /// <param name="process"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("缺陷报表")]
+        public virtual List<SuspectDefectData> GetSuspectDefectDatas(string line, string department, string process, DateTime? beginTime, DateTime? endTime)
+        {
+            var q = Query<OrganizeCode>();
+            if (!line.IsNullOrEmpty())
+                q.Where(p => p.ProductLine == line);
+            if (!department.IsNullOrEmpty())
+                q.Where(p => p.PlantName == department);
+
+            var organizeCodes = q.ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var factoryCodes = organizeCodes.Select(p => p.FactoryCode).Distinct().ToList();
+            var settings = RT.Service.Resolve<SmomBaseController>().GetSmomControlSettingByFactoryCodes(factoryCodes);
+
+            List<SuspectDefectData> factoryDatas = new List<SuspectDefectData>();
+
+            foreach (var g in settings.GroupBy(p => p.FactoryUrl))
+            {
+                try
+                {
+                    var fCs = g.Select(p => p.FactoryCode).Distinct().ToList();
+                    //对产品线和部门进行分组(按照前端显示),查出的数据就只会是相同产品线和部门，调用的接口中会对物料类型分组，下方会将相同产品线和部门进行合并计算
+                    foreach (var plang in organizeCodes.Where(p => fCs.Contains(p.FactoryCode)).GroupBy(p => new { p.ProductLine, p.PlantName }))
+                    {
+                        var mrpControllers = plang.Select(p => p.MrpController).Distinct().ToList();
+                        var smomParam = new List<SmomParam>()
+                    {
+                    new SmomParam { Value = fCs },
+                    new SmomParam { Value = mrpControllers },
+                    new SmomParam{ Value = process  },
+                    new SmomParam{ Value = beginTime},
+                    new SmomParam{ Value = endTime}
+                                 }.ToArray();
+                        var response = SmomControlHepler.SmomPost<List<SuspectDefectData>>("KzReportController", "GetSuspectDefectDatasFactory", g.Key, smomParam);
+                        foreach (var r in response)
+                        {
+                            factoryDatas.Add(r);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            List<SuspectDefectData> datas = new List<SuspectDefectData>();
+            int index = 1;
+            var total = factoryDatas.Sum(p => p.Qty);
+            //相同缺陷合并分组
+            foreach (var g in factoryDatas.GroupBy(p => new { p.DefectCode, p.DefectName }))
+            {
+                SuspectDefectData data = new SuspectDefectData();
+                data.Num = index;
+                data.DefectCode = g.Key.DefectCode;
+                data.DefectName = g.Key.DefectName;
+                data.Qty = g.Sum(p => p.Qty);
+                data.Rate = total == 0 ? 0 : Math.Round((data.Qty * 100) / total, 4);
+                datas.Add(data);
+            }
+            //从多到少排序
+            datas = datas.OrderByDescending(p => p.Qty).ToList();
+            return datas;
+        }
+        
+
+        #endregion
+
+        #region 产品直通率报表
+
+        /// <summary>
+        /// 产品直通率报表
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="department"></param>
+        /// <param name="product"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("产品直通率报表")]
+        public virtual List<ProductFirstPassYieldData> GetProductFirstPassYieldDatas(string line, string department, string product, DateTime? beginTime, DateTime? endTime)
+        {
+
+            var q = Query<OrganizeCode>();
+            if (!line.IsNullOrEmpty())
+                q.Where(p => p.ProductLine == line);
+            if (!department.IsNullOrEmpty())
+                q.Where(p => p.PlantName == department);
+
+            var organizeCodes = q.ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var factoryCodes = organizeCodes.Select(p => p.FactoryCode).Distinct().ToList();
+            var settings = RT.Service.Resolve<SmomBaseController>().GetSmomControlSettingByFactoryCodes(factoryCodes);
+
+            List<ProductFirstPassYieldData> factoryDatas = new List<ProductFirstPassYieldData>();
+            Dictionary<string, List<ProductFirstPassYieldFactoryData>> dic = new Dictionary<string, List<ProductFirstPassYieldFactoryData>>();
+            foreach (var g in settings.GroupBy(p => p.FactoryUrl))
+            {
+                try
+                {
+                    var fCs = g.Select(p => p.FactoryCode).Distinct().ToList();
+                    //对产品线和部门进行分组(按照前端显示),查出的数据就只会是相同产品线和部门，调用的接口中会对物料类型分组，下方会将相同产品线和部门进行合并计算
+                    foreach (var plang in organizeCodes.Where(p => fCs.Contains(p.FactoryCode)).GroupBy(p => new { p.ProductLine, p.PlantName }))
+                    {
+                        var mrpControllers = plang.Select(p => p.MrpController).Distinct().ToList();
+                        var smomParam = new List<SmomParam>()
+                    {
+                    new SmomParam { Value = fCs },
+                    new SmomParam { Value = mrpControllers },
+                    new SmomParam{ Value = product  },
+                    new SmomParam{ Value = beginTime},
+                    new SmomParam{ Value = endTime}
+                                 }.ToArray();
+                        var response = SmomControlHepler.SmomPost<List<ProductFirstPassYieldFactoryData>>("KzReportController", "GetProductFirstPassYieldDatasFactory", g.Key, smomParam);
+                        foreach (var item in response.GroupBy(p => p.Product))
+                        {
+                            factoryDatas.Add(new ProductFirstPassYieldData() {
+                                Department = plang.Key.PlantName,
+                                ProductLine = plang.Key.ProductLine,
+                                ProductCode = item.Key
+                            });
+                            //将数据存起来 ，后续用于计算直通率,按照产品线+部门+产品去分组
+                            if (dic.ContainsKey(plang.Key.PlantName + "-" + plang.Key.ProductLine + "-" + item.Key))
+                            {
+                                dic[plang.Key.PlantName + "-" + plang.Key.ProductLine + "-" + item.Key].AddRange(item.ToList());
+                            }
+                            else
+                            {
+                                dic.Add(plang.Key.PlantName + "-" + plang.Key.ProductLine + "-" + item.Key, item.ToList());
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            List<ProductFirstPassYieldData> datas = new List<ProductFirstPassYieldData>();
+
+            int index = 1;
+            foreach (var g in factoryDatas.GroupBy(p => new { p.Department, p.ProductLine,p.ProductCode }))
+            {
+                ProductFirstPassYieldData data = new ProductFirstPassYieldData();
+                data.Num = index;
+                data.ProductLine = g.Key.ProductLine;
+                data.Department = g.Key.Department;
+                data.ProductCode = g.Key.ProductCode;
+                data.FirstPassYield = 0;
+                if (dic.ContainsKey(g.Key.Department + "-" + g.Key.ProductLine + "-" + g.Key.ProductCode))
+                {
+                    var list = dic[g.Key.Department + "-" + g.Key.ProductLine + "-" + g.Key.ProductCode];
+                    if (list.Count > 0)
+                    {
+                        data.FirstPassYield = 1;
+                        //找到相同工序，然后合并他们的数量，计算每个工序的直通率，然后相乘得到主表的直通率
+                        foreach (var l in list.SelectMany(p => p.datas).GroupBy(p => p.Process))
+                        {
+                            data.FirstPassYield *= (l.Sum(p => p.FeedingQty) == 0 ? 1 : 1 - (l.Sum(p => p.SuspectQty) / l.Sum(p => p.FeedingQty)));
+                        }
+                    }
+                }
+
+                datas.Add(data);
+                index++;
+            }
+
+            return datas;
+        }
+
+        /// <summary>
+        /// 产品直通率报表-明细
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="department"></param>
+        /// <param name="product"></param>
+        /// <param name="beginTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        [ApiService("产品直通率报表明细")]
+        public virtual List<ProductFirstPassYieldDtlData> GetProductFirstPassYieldDtlDatas(string productLine, string department, string productCode, DateTime? beginTime, DateTime? endTime)
+        {
+            var q = Query<OrganizeCode>();
+            q.Where(p => p.ProductLine == productLine);
+            q.Where(p => p.PlantName == department);
+            var organizeCodes = q.ToList(null, new EagerLoadOptions().LoadWithViewProperty());
+            var factoryCodes = organizeCodes.Select(p => p.FactoryCode).Distinct().ToList();
+            var settings = RT.Service.Resolve<SmomBaseController>().GetSmomControlSettingByFactoryCodes(factoryCodes);
+            List<ProductFirstPassYieldDtlData> factoryDatas = new List<ProductFirstPassYieldDtlData>();
+
+            foreach (var g in settings.GroupBy(p => p.FactoryUrl))
+            {
+                try
+                {
+                    var fCs = g.Select(p => p.FactoryCode).Distinct().ToList();
+                    var mrpControllers = organizeCodes.Where(p => fCs.Contains(p.FactoryCode)).Select(p => p.MrpController).Distinct().ToList();
+                    var smomParam = new List<SmomParam>()
+                    {
+                    new SmomParam { Value = fCs },
+                    new SmomParam { Value = mrpControllers },
+                    new SmomParam{ Value = productCode.IsNullOrEmpty()?new List<string>(): new List<string>(){ productCode } },
+                    new SmomParam{ Value = beginTime},
+                    new SmomParam{ Value = endTime}
+                                 }.ToArray();
+                    var response = SmomControlHepler.SmomPost<List<ProductFirstPassYieldDtlData>>("KzReportController", "GetProductFirstPassYieldDtlDatasFactory", g.Key, smomParam);
+                    factoryDatas.AddRange(response);
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+            List<ProductFirstPassYieldDtlData> datas = new List<ProductFirstPassYieldDtlData>();
+
+            var index = 1;
+            foreach (var g in factoryDatas.GroupBy(p => p.Process))
+            {
+                ProductFirstPassYieldDtlData data = new ProductFirstPassYieldDtlData();
+                data.Num = index;
+                data.Process = g.Key;
+                data.SuspectQty = g.Sum(p => p.SuspectQty);
+                data.FeedingQty = g.Sum(p => p.FeedingQty);
+                data.FirstPassYield = data.FeedingQty == 0 ? 1 : 1 - (data.SuspectQty / data.FeedingQty);
+                datas.Add(data);
+                index++;
+            }
+
+            return datas;
+        }
+
+        #endregion
 
         #region 物料平衡报表
 

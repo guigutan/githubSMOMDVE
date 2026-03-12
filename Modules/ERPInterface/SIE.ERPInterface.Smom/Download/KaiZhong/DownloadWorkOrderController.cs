@@ -912,14 +912,18 @@ namespace SIE.ERPInterface.Smom.Download.KaiZhong
                         }
                     }
 
-                    //返工类型的工单要自动派工,不需要走下面的校验
+                    //返工类型的工单要自动派工,不需要走下面的校验           
                     if (workOrder.Type == WorkOrderType.Rework)
                     {
-                        var errMsg = RT.Service.Resolve<DispatchController>().DispatchTasks(new List<double>() { task.Id });
-                        if (errMsg.Length == 0)
-                        { }
-                        else
-                            throw new ValidationException(errMsg);
+                        //工序编码含有“包装”的，不自动派工
+                        if (!task.Process.Code.Contains("包装"))
+                        {
+                            var errMsg = RT.Service.Resolve<DispatchController>().DispatchTasks(new List<double>() { task.Id });
+                            if (errMsg.Length == 0)
+                            { }
+                            else
+                                throw new ValidationException(errMsg);
+                        }
                         continue;
                     }
 
@@ -1124,6 +1128,9 @@ namespace SIE.ERPInterface.Smom.Download.KaiZhong
                 layoutInfo.Steus = layoutInf.STEUS;
                 layoutInfo.ProcessQty = layoutInf.MGVRG;
                 layoutInfo.Zcode = layoutInf.ZCODE;
+                layoutInfo.Vgw01 = layoutInf.VGW01;
+                layoutInfo.Vgw02 = layoutInf.VGW02;
+                layoutInfo.Vgw03 = layoutInf.VGW03;
                 layoutInfo.Factory = layoutInf.WERKS;
                 layoutInfo.PersistenceStatus = PersistenceStatus.New;
                 layoutInfo.Aufpl = layoutInf.AUFPL;

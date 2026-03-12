@@ -1378,6 +1378,32 @@ namespace SIE.Wpf.MES.WIP
                 return _workstation;
             }
         }
+        /// <summary>
+        /// B版初始化工作站信息
+        /// </summary>
+        /// <param name="processTypes"></param>
+        public virtual void InitWorkstationB(params ProcessType[] processTypes)
+        {
+            Workstation.PropertyChanged += OnWorkstationPropertyChanged;
+
+            Workstation.ProcessTypes.AddRange(processTypes); //设置工作站工序类型
+            Workstation.EmployeeId = CRT.IdentityId;
+
+            if (!LoadWorkstation() //如果工作站信息不存在，或者与上次登录用户的资源工序工位分配不一样，重新选择
+                && WorkstationSelectorB.SelectOperation(Workstation))
+            {
+                //有切换工作单元，则将工作单元信息保存在本地配置文件中
+                SaveWorkstation();
+            }
+
+            var broken = Workstation.Validate(ValidatorActions.None);
+
+            if (broken.Count > 0)
+            {
+                ShowError(broken.ToString());
+            }
+        }
+
 
         /// <summary>
         /// 初始化工作站信息
@@ -1391,7 +1417,7 @@ namespace SIE.Wpf.MES.WIP
             Workstation.EmployeeId = CRT.IdentityId;
 
             if (!LoadWorkstation() //如果工作站信息不存在，或者与上次登录用户的资源工序工位分配不一样，重新选择
-                && WorkstationSelector.SelectOperation(Workstation))
+                && WorkstationSelectorB.SelectOperation(Workstation))
             {
                 //有切换工作单元，则将工作单元信息保存在本地配置文件中
                 SaveWorkstation();

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F97Yy7TnDw0=",
+  "dgSpecHash": "UXh9p7no0Y8=",
   "success": true,
-  "projectFilePath": "D:\\SMOMDev0310\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj",
+  "projectFilePath": "D:\\SMOMDev0312\\SMOM.KAIZHONG\\Modules\\SMES\\DashBoards\\SIE.MES.DashBoard\\SIE.MES.DashBoard.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\00158137\\.nuget\\packages\\caching.csredis\\3.6.60\\caching.csredis.3.6.60.nupkg.sha512",
     "C:\\Users\\00158137\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",

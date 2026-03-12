@@ -135,39 +135,6 @@ namespace SIE.MES.OnOffDuty
             set { SetProperty(IsAdditionalRecordingProperty, value); }
         }
         #endregion
-       
-        #region 资源 Resource
-        /// <summary>
-        /// 资源
-        /// </summary>
-        [Required]
-        [Label("资源Id")]
-        public static readonly IRefIdProperty ResourceIdProperty = P<OnOffDutyRecrods>.RegisterRefId(e => e.ResourceId, ReferenceType.Normal);
-
-        /// <summary>
-        /// 资源
-        /// </summary>
-        public double ResourceId
-        {
-            get { return (double)GetRefId(ResourceIdProperty); }
-            set { SetRefId(ResourceIdProperty, value); }
-        }
-
-        /// <summary>
-        /// 资源
-        /// </summary>
-        [Label("资源")]
-        public static readonly RefEntityProperty<WipResource> ResourceProperty = P<OnOffDutyRecrods>.RegisterRef(e => e.Resource, ResourceIdProperty);
-
-        /// <summary>
-        /// 资源
-        /// </summary>
-        public WipResource Resource
-        {
-            get { return GetRefEntity(ResourceProperty); }
-            set { SetRefEntity(ResourceProperty, value); }
-        }
-        #endregion
 
         #region 工序 Process
         /// <summary>
@@ -199,6 +166,39 @@ namespace SIE.MES.OnOffDuty
         {
             get { return GetRefEntity(ProcessProperty); }
             set { SetRefEntity(ProcessProperty, value); }
+        }
+        #endregion
+
+        #region 资源 Resource
+        /// <summary>
+        /// 资源
+        /// </summary>
+        [Required]
+        [Label("资源Id")]
+        public static readonly IRefIdProperty ResourceIdProperty = P<OnOffDutyRecrods>.RegisterRefId(e => e.ResourceId, ReferenceType.Normal);
+
+        /// <summary>
+        /// 资源
+        /// </summary>
+        public double ResourceId
+        {
+            get { return (double)GetRefId(ResourceIdProperty); }
+            set { SetRefId(ResourceIdProperty, value); }
+        }
+
+        /// <summary>
+        /// 资源
+        /// </summary>
+        [Label("资源")]
+        public static readonly RefEntityProperty<WipResource> ResourceProperty = P<OnOffDutyRecrods>.RegisterRef(e => e.Resource, ResourceIdProperty);
+
+        /// <summary>
+        /// 资源
+        /// </summary>
+        public WipResource Resource
+        {
+            get { return GetRefEntity(ResourceProperty); }
+            set { SetRefEntity(ResourceProperty, value); }
         }
         #endregion
 

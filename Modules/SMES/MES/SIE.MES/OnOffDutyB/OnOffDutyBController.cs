@@ -48,9 +48,19 @@ namespace SIE.MES.OnOffDutyB
         public virtual void OnOffDuty(OnOffDutyBRecrods onOffDutyBRecrod, Workcell workcell, bool isOnDuty)
         {
             CheckedWorkcellParas(workcell);
-            var onDuty = Query<OnOffDutyBRecrods>().Where(p => p.EmployeeId == onOffDutyBRecrod.EmployeeId && p.ResourceId == onOffDutyBRecrod.ResourceId
-                && p.ProcessId == onOffDutyBRecrod.ProcessId && p.StationId == onOffDutyBRecrod.StationId && !p.IsAdditionalRecording && p.OnOffDutyType == OnOffDutyBType.OnDuty)
-                .FirstOrDefault();
+
+            //var onDuty = Query<OnOffDutyBRecrods>().Where(p => p.EmployeeId == onOffDutyBRecrod.EmployeeId && p.ResourceId == onOffDutyBRecrod.ResourceId
+            //    && p.ProcessId == onOffDutyBRecrod.ProcessId && p.StationId == onOffDutyBRecrod.StationId && !p.IsAdditionalRecording && p.OnOffDutyType == OnOffDutyBType.OnDuty)
+            //    .FirstOrDefault();
+
+            var onDuty = Query<OnOffDutyBRecrods>().Where(p => 
+                                            p.EmployeeId == onOffDutyBRecrod.EmployeeId && 
+                                            p.ResourceId == onOffDutyBRecrod.ResourceId && 
+                                            !p.IsAdditionalRecording && 
+                                            p.OnOffDutyType == OnOffDutyBType.OnDuty)
+                        .FirstOrDefault();
+
+
             var dbTime = RF.Find<OnOffDutyBRecrods>().GetDbTime();
             if (onOffDutyBRecrod.Employee.EmployeeStatus == EmployeeStatus.UnJob)
             {
@@ -60,9 +70,13 @@ namespace SIE.MES.OnOffDutyB
             {
                 if (onDuty == null)
                 {
-                    throw new ValidationException("员工【{0}】在资源【{1}】、工序【{2}】、工位【{3}】上不存在上岗信息，下岗失败！请先上岗！".L10nFormat(
-                        onOffDutyBRecrod.Employee.Name, onOffDutyBRecrod.Resource.Name, onOffDutyBRecrod.Process.Name, onOffDutyBRecrod.Station.Name
-                        ));
+                    //throw new ValidationException("员工【{0}】在资源【{1}】、工序【{2}】、工位【{3}】上不存在上岗信息，下岗失败！请先上岗！".L10nFormat(
+                    //    onOffDutyBRecrod.Employee.Name, onOffDutyBRecrod.Resource.Name, onOffDutyBRecrod.Process.Name, onOffDutyBRecrod.Station.Name
+                    //    ));
+
+                    throw new ValidationException("员工【{0}】在资源【{1}】上不存在上岗信息，下岗失败！请先上岗！".L10nFormat(
+                        onOffDutyBRecrod.Employee.Name, onOffDutyBRecrod.Resource.Name ));
+
                 }
                 onDuty.OnOffDutyType = OnOffDutyBType.OffDuty;
                 onDuty.OffDutyTime = dbTime;
@@ -74,9 +88,12 @@ namespace SIE.MES.OnOffDutyB
             {
                 if (onDuty != null)
                 {
-                    throw new ValidationException("员工【{0}】在资源【{1}】、工序【{2}】、工位【{3}】上已存在上岗信息，上岗失败，请先下岗！".L10nFormat(
-                        onOffDutyBRecrod.Employee.Name, onOffDutyBRecrod.Resource.Name, onOffDutyBRecrod.Process.Name, onOffDutyBRecrod.Station.Name
-                        ));
+                    //throw new ValidationException("员工【{0}】在资源【{1}】、工序【{2}】、工位【{3}】上已存在上岗信息，上岗失败，请先下岗！".L10nFormat(
+                    //    onOffDutyBRecrod.Employee.Name, onOffDutyBRecrod.Resource.Name, onOffDutyBRecrod.Process.Name, onOffDutyBRecrod.Station.Name
+                    //    ));
+
+                    throw new ValidationException("员工【{0}】在资源【{1}】上已存在上岗信息，上岗失败，请先下岗！".L10nFormat(
+                       onOffDutyBRecrod.Employee.Name, onOffDutyBRecrod.Resource.Name ));
                 }
                 onOffDutyBRecrod.OnOffDutyType = OnOffDutyBType.OnDuty;
                 onOffDutyBRecrod.OnDutyTime = dbTime;
@@ -102,16 +119,16 @@ namespace SIE.MES.OnOffDutyB
             {
                 q.Where(p => p.Employee.Code.Contains(onOffDutyBRecrodsCriteria.Staff) || p.Employee.Name.Contains(onOffDutyBRecrodsCriteria.Staff));
             }
-            //工序
-            if (onOffDutyBRecrodsCriteria.ProcessId.HasValue)
-            {
-                q.Where(p => p.ProcessId == onOffDutyBRecrodsCriteria.ProcessId);
-            }
-            //工位
-            if (onOffDutyBRecrodsCriteria.StationId.HasValue)
-            {
-                q.Where(p => p.StationId == onOffDutyBRecrodsCriteria.StationId);
-            }
+            ////工序
+            //if (onOffDutyBRecrodsCriteria.ProcessId.HasValue)
+            //{
+            //    q.Where(p => p.ProcessId == onOffDutyBRecrodsCriteria.ProcessId);
+            //}
+            ////工位
+            //if (onOffDutyBRecrodsCriteria.StationId.HasValue)
+            //{
+            //    q.Where(p => p.StationId == onOffDutyBRecrodsCriteria.StationId);
+            //}
             //资源
             if (onOffDutyBRecrodsCriteria.ResourceId.HasValue)
             {

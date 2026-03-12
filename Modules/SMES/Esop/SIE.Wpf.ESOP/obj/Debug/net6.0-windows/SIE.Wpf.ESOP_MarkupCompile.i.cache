@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\SMOMDev0310\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Wpf.ESOP\obj\Debug\net6.0-windows\
+D:\SMOMDev0312\SMOM.KAIZHONG\Modules\SMES\Esop\SIE.Wpf.ESOP\obj\Debug\net6.0-windows\
 SIE.Wpf.ESOP
 none
 false
@@ -13,7 +13,7 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 521656700
 
 58-1261351570
-449-437684733
+449-1612894328
 Editors\ExcelPlayer.xaml;Editors\ImagePlayer.xaml;Editors\MediaPlayer.xaml;Editors\PdfPlayer.xaml;Editors\WordPlayer.xaml;
 
 True
